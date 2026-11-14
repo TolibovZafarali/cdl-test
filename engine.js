@@ -11,7 +11,7 @@ function validQuestion(question) {
     && Number.isInteger(question.answer) && question.answer >= 0 && question.answer < question.choices.length;
 }
 
-export function shuffle(items, random = Math.random) {
+export function shuffle(items, random = Math.random, previousOrder) {
   const result = [...items];
   for (let index = result.length - 1; index > 0; index--) {
     const value = random();
@@ -19,10 +19,68 @@ export function shuffle(items, random = Math.random) {
     const target = Math.floor(value * (index + 1));
     [result[index], result[target]] = [result[target], result[index]];
   }
+  if (result.length > 1 && previousOrder?.length === result.length && result.every((item, index) => item === previousOrder[index])) {
+    [result[0], result[1]] = [result[1], result[0]];
+  }
   return result;
 }
 
-export function createSession(questions, { sourceId, testId = 'all', count = 50, randomize = true } = {}, random = Math.random) {
+export function drawPracticeBatch(questions, count, previousIds = [], seenIds = [], random = Math.random) {
+  if (!Number.isInteger(count) || count < 1) throw new RangeError('Choose a valid question count');
+  const previous = new Set(previousIds);
+  const seen = new Set(seenIds);
+  const eligible = shuffle(questions.filter(question => !previous.has(question.id)), random);
+  const size = Math.min(count, eligible.length);
+  const usedStems = new Set(questions.filter(question => previous.has(question.id)).map(question => question.question));
+  const unseen = eligible.filter(question => !seen.has(question.id));
+  // Give repeated source prompts enough room to appear in nonadjacent sets before rollover.
+  if (unseen.length <= 4 * size) {
+    const stems = new Set();
+    const repeated = new Set();
+    for (const { question } of questions) {
+      if (stems.has(question)) repeated.add(question);
+      stems.add(question);
+    }
+    unseen.sort((a, b) => Number(repeated.has(b.question)) - Number(repeated.has(a.question)));
+  }
+  function take(candidates, amount) {
+    const selected = [];
+    const deferred = [];
+    for (const question of candidates) {
+      if (selected.length === amount) break;
+      if (usedStems.has(question.question)) deferred.push(question);
+      else {
+        selected.push(question);
+        usedStems.add(question.question);
+      }
+    }
+    return selected.concat(deferred.slice(0, amount - selected.length));
+  }
+  const fresh = take(unseen, size);
+  if (fresh.length === size) {
+    return { questions: fresh, seenIds: [...seen, ...fresh.map(question => question.id)] };
+  }
+
+  // Finish this cycle first, then fill the set with questions from the next cycle.
+  const nextCycle = take(eligible.filter(question => seen.has(question.id)), size - fresh.length);
+  return { questions: [...fresh, ...nextCycle], seenIds: nextCycle.map(question => question.id) };
+}
+
+export function getChoiceOrder(session, question) {
+  return session.choiceOrders?.[question.id] ?? question.choices.map((_, index) => index);
+}
+
+export function getChoiceText(session, question, canonicalIndex) {
+  const text = question.choices[canonicalIndex];
+  if (!session.choiceOrders || !has(session.choiceOrders, question.id)) return text;
+  if (!/^Both (?:A and B(?: are correct)?|of the above)\.$/i.test(text)) return text;
+  const order = getChoiceOrder(session, question);
+  const first = String.fromCharCode(65 + order.indexOf(0));
+  const second = String.fromCharCode(65 + order.indexOf(1));
+  return `Both ${first} and ${second}${/ are correct\.$/i.test(text) ? ' are correct' : ''}.`;
+}
+
+export function createSession(questions, { sourceId, testId = 'all', count = 50, randomize = true, previousAttempt } = {}, random = Math.random) {
   if (!identifier(sourceId) || !identifier(testId)) throw new Error('A valid question source and test are required');
   if (!Array.isArray(questions) || !questions.every(validQuestion)) throw new Error('The question source is invalid');
   if (new Set(questions.map(question => question.id)).size !== questions.length) throw new Error('Question identifiers must be unique');
@@ -30,18 +88,47 @@ export function createSession(questions, { sourceId, testId = 'all', count = 50,
   const pool = questions.filter(question => testId === 'all' || question.testId === testId);
   if (!pool.length) throw new Error('This test has no questions');
   const ordered = randomize ? shuffle(pool, random) : pool;
-  const ids = ordered.slice(0, Math.min(count, pool.length)).map(question => question.id);
+  const selected = ordered.slice(0, Math.min(count, pool.length));
+  const ids = selected.map(question => question.id);
+  const choiceOrders = Object.fromEntries(selected.map(question => {
+    const indices = question.choices.map((_, index) => index);
+    const previous = previousAttempt && getChoiceOrder(previousAttempt, question);
+    return [question.id, shuffle(indices, random, previous)];
+  }));
   return {
     version: 2,
     id: globalThis.crypto.randomUUID(),
     sourceId,
     testId,
     ids,
+    choiceOrders,
     pending: [...ids],
     answers: {},
     feedbackId: null,
     startedAt: Date.now(),
     finishedAt: null,
+  };
+}
+
+export function samePracticeSet(ids, otherIds) {
+  return ids.length === otherIds.length && ids.every(id => otherIds.includes(id));
+}
+
+export function createPracticeSetSession(questions, settings, progress, { advance = false, previousAttempt } = {}, random = Math.random) {
+  const replayIds = advance ? undefined : previousAttempt?.ids ?? progress?.previousIds;
+  const options = { ...settings, randomize: false };
+  if (replayIds?.length) {
+    const byId = new Map(questions.map(question => [question.id, question]));
+    const ordered = shuffle(replayIds, random, replayIds).map(id => byId.get(id));
+    const session = createSession(ordered, { ...options, count: ordered.length, previousAttempt }, random);
+    return { session: { ...session, mode: 'sets' }, progress };
+  }
+
+  const batch = drawPracticeBatch(questions, settings.count, progress?.previousIds, progress?.seenIds, random);
+  const session = createSession(batch.questions, options, random);
+  return {
+    session: { ...session, mode: 'sets' },
+    progress: { previousIds: [...session.ids], seenIds: batch.seenIds },
   };
 }
 
@@ -108,6 +195,18 @@ export function validateSession(session, questionMap, sourceId) {
     if (!identifier(id) || !has(questionMap, id)) return false;
     const question = questionMap[id];
     if (!validQuestion(question) || question.id !== id || (session.testId !== 'all' && question.testId !== session.testId)) return false;
+  }
+  if (has(session, 'choiceOrders')) {
+    if (!record(session.choiceOrders) || Object.keys(session.choiceOrders).length !== ids.size) return false;
+    for (const id of session.ids) {
+      if (!has(session.choiceOrders, id)) return false;
+      const order = session.choiceOrders[id];
+      const count = questionMap[id].choices.length;
+      if (!Array.isArray(order) || order.length !== count || new Set(order).size !== count) return false;
+      for (const choice of order) {
+        if (!Number.isInteger(choice) || choice < 0 || choice >= count) return false;
+      }
+    }
   }
   if (!Array.isArray(session.pending) || !record(session.answers)) return false;
   const pending = new Set(session.pending);

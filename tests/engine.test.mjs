@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { QUESTIONS, QUESTION_MAP, SOURCE } from '../data/index.js';
-import { createSession, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
+import { createSession, getChoiceOrder, getChoiceText, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
 import { emptyState, readState, saveState, clearState } from '../storage.js';
 
 const options = { sourceId: SOURCE.id, testId: 'air-brakes', count: 25 };
@@ -25,7 +25,7 @@ function memoryStorage(value = null) {
 }
 
 const categories = [
-  ['general-knowledge', 50],
+  ['general-knowledge', 20],
   ['air-brakes', 25],
   ['combination-vehicles', 20],
 ];
@@ -63,17 +63,160 @@ for (const [testId, sampleCount] of categories) {
     complete(first, sampleCount);
     complete(second, sampleCount);
     assert.equal(JSON.stringify(QUESTIONS.map(question => question.choices)), original);
-    assert.equal(Object.hasOwn(first, 'choiceOrders'), false);
+    assert.deepEqual(Object.keys(first.choiceOrders), first.ids);
+    for (const id of first.ids) {
+      assert.deepEqual([...first.choiceOrders[id]].sort(), QUESTION_MAP[id].choices.map((_, index) => index));
+    }
   });
 
-  test(`${testId}: all-questions mode retains source order and caps the count`, () => {
+  test(`${testId}: full tests shuffle every question once and preserve that order on resume`, () => {
     const expected = QUESTIONS.filter(q => q.testId === testId).map(q => q.id);
-    const session = create({ testId, count: 999, randomize: false });
-    assert.deepEqual(session.ids, expected);
-    assert.deepEqual(session.pending, expected);
-    assert.equal(session.ids.length, expected.length);
+    const settings = { ...options, testId, count: 999, randomize: true };
+    const first = createSession(QUESTIONS, settings, () => 0);
+    const second = createSession(QUESTIONS, settings, () => 0.37);
+    for (const session of [first, second]) {
+      assert.equal(session.ids.length, expected.length);
+      assert.equal(new Set(session.ids).size, expected.length);
+      assert.deepEqual([...session.ids].sort(), [...expected].sort());
+      assert.notDeepEqual(session.ids, expected);
+      assert.deepEqual(session.pending, session.ids);
+    }
+    assert.notDeepEqual(first.ids, second.ids);
+
+    const active = { ...skipQuestion(respond(first)), mode: 'all' };
+    const storage = memoryStorage();
+    assert.equal(saveState({ active, results: [] }, storage), true);
+    const restored = readState(QUESTION_MAP, SOURCE.id, storage).active;
+    assert.deepEqual(restored, active);
+    assert.deepEqual(restored.ids, first.ids);
+    assert.equal(restored.pending[0], first.ids[2]);
+    assert.equal(restored.pending.at(-1), first.ids[1]);
   });
 }
+
+test('new sessions shuffle two- and three-choice questions without changing source content', () => {
+  const questions = [QUESTION_MAP['cv-053'], QUESTION_MAP['cv-028']];
+  const original = JSON.stringify(questions);
+  const settings = { sourceId: SOURCE.id, testId: 'combination-vehicles', count: 2, randomize: false };
+  const first = createSession(questions, settings, () => 0);
+  const second = createSession(questions, settings, () => 0.99);
+  assert.deepEqual(first.ids, questions.map(q => q.id));
+  assert.deepEqual(second.ids, first.ids);
+  for (const question of questions) {
+    const originalOrder = question.choices.map((_, index) => index);
+    const order = getChoiceOrder(first, question);
+    assert.deepEqual([...order].sort(), originalOrder);
+    assert.notDeepEqual(order, getChoiceOrder(second, question));
+    assert.notEqual(order.indexOf(question.answer), getChoiceOrder(second, question).indexOf(question.answer));
+    assert.ok(validateSession(first, QUESTION_MAP, SOURCE.id));
+  }
+  assert.equal(JSON.stringify(questions), original);
+});
+
+test('displayed choices map back to canonical scoring regardless of correct-answer position', () => {
+  for (const question of [QUESTION_MAP['cv-053'], QUESTION_MAP['cv-028']]) {
+    const initial = createSession([question], { sourceId: SOURCE.id, testId: question.testId, count: 1 });
+    const baseOrder = question.choices.map((_, index) => index);
+    for (let offset = 0; offset < baseOrder.length; offset++) {
+      const order = [...baseOrder.slice(offset), ...baseOrder.slice(0, offset)];
+      const session = { ...initial, choiceOrders: { [question.id]: order } };
+      const displayedCorrect = order.indexOf(question.answer);
+      const answered = submitAnswer(session, order[displayedCorrect], QUESTION_MAP);
+      assert.equal(answered.answers[question.id], question.answer);
+      assert.equal(scoreSession(answered, QUESTION_MAP).correct, 1);
+      assert.deepEqual(getChoiceOrder(answered, question), order);
+      const wrong = order[(displayedCorrect + 1) % order.length];
+      assert.equal(submitAnswer(answered, wrong, QUESTION_MAP), answered);
+      assert.equal(scoreSession(submitAnswer(session, wrong, QUESTION_MAP), QUESTION_MAP).correct, 0);
+    }
+  }
+});
+
+test('positional answer references name the displayed choices at every combined-answer position', () => {
+  for (const id of ['gk-093', 'cv-028', 'gk-285']) {
+    const question = QUESTION_MAP[id];
+    const original = [...question.choices];
+    for (const order of [[2, 0, 1], [0, 2, 1], [0, 1, 2], [1, 0, 2], [1, 2, 0], [2, 1, 0]]) {
+      const session = { choiceOrders: { [id]: order } };
+      const first = String.fromCharCode(65 + order.indexOf(0));
+      const second = String.fromCharCode(65 + order.indexOf(1));
+      const expected = `Both ${first} and ${second}${id === 'cv-028' ? ' are correct' : ''}.`;
+      assert.equal(getChoiceText(session, question, 2), expected);
+      assert.equal(getChoiceText(session, question, 0), original[0]);
+      assert.equal(getChoiceText(session, question, 1), original[1]);
+    }
+    assert.equal(getChoiceText({}, question, 2), original[2]);
+    assert.deepEqual(question.choices, original);
+  }
+});
+
+test('saved choice orders persist through feedback, skipped questions, and completed results', () => {
+  let active = create({ count: 3 });
+  const originalOrders = clone(active.choiceOrders);
+  active = skipQuestion(active);
+  const question = QUESTION_MAP[active.pending[0]];
+  active = submitAnswer(active, getChoiceOrder(active, question)[0], QUESTION_MAP);
+  const storage = memoryStorage();
+  saveState({ active, results: [] }, storage);
+  const restored = readState(QUESTION_MAP, SOURCE.id, storage).active;
+  assert.deepEqual(restored.choiceOrders, originalOrders);
+  assert.deepEqual(restored, active);
+  const result = finishSession(restored);
+  saveState({ active: null, results: [result] }, storage);
+  const savedResult = readState(QUESTION_MAP, SOURCE.id, storage).results[0];
+  assert.deepEqual(savedResult, result);
+  assert.deepEqual(getChoiceOrder(savedResult, question), originalOrders[question.id]);
+});
+
+test('sessions saved before answer shuffling retain source order and original scoring', () => {
+  const active = respond(create({ count: 3 }));
+  delete active.choiceOrders;
+  const result = finishSession(respond(create({ count: 2 })));
+  delete result.choiceOrders;
+  const saved = { active, results: [result] };
+  const restored = readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify(saved)));
+  assert.deepEqual(restored, saved);
+  for (const session of [restored.active, restored.results[0]]) {
+    assert.ok(validateSession(session, QUESTION_MAP, SOURCE.id));
+    assert.equal(scoreSession(session, QUESTION_MAP).correct, 1);
+    for (const id of session.ids) {
+      const question = QUESTION_MAP[id];
+      assert.deepEqual(getChoiceOrder(session, question), question.choices.map((_, index) => index));
+      assert.deepEqual(question.choices.map((_, index) => getChoiceText(session, question, index)), question.choices);
+    }
+  }
+});
+
+test('saved choice orders reject missing, extra, duplicate, or invalid indices', () => {
+  const original = create({ count: 2 });
+  const id = original.ids[0];
+  const mutations = [
+    session => { session.choiceOrders = null; },
+    session => { session.choiceOrders = undefined; },
+    session => { session.choiceOrders = []; },
+    session => { delete session.choiceOrders[id]; },
+    session => { session.choiceOrders.unknown = [0, 1, 2]; },
+    session => { session.choiceOrders[id] = [0, 0, 2]; },
+    session => { session.choiceOrders[id] = [0, 1]; },
+    session => { session.choiceOrders[id] = [0, 1, 2, 3]; },
+    session => { session.choiceOrders[id] = [0, 1, '2']; },
+    session => { session.choiceOrders[id] = [0, 1, -1]; },
+    session => { session.choiceOrders[id] = [0, 1, 3]; },
+    session => { session.choiceOrders[id] = [0, 1, 1.5]; },
+    session => { session.choiceOrders[id] = [0, 1, NaN]; },
+    session => { session.choiceOrders[id] = [0, 1, null]; },
+    session => { delete session.choiceOrders[id][0]; },
+    session => { session.choiceOrders = Object.create(session.choiceOrders); },
+  ];
+  for (const mutate of mutations) {
+    const invalid = clone(original);
+    mutate(invalid);
+    assert.equal(validateSession(invalid, QUESTION_MAP, SOURCE.id), false, mutate.toString());
+    if (invalid.choiceOrders !== undefined) {
+      assert.equal(readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify({ active: invalid }))).active, null);
+    }
+  }
+});
 
 test('saved subject sessions reject questions belonging to a different subject', () => {
   const session = create();
@@ -88,6 +231,7 @@ test('combined-source storage rejects global and mixed-subject sessions', () => 
   const general = QUESTIONS.find(q => q.testId === 'general-knowledge').id;
   const allAir = { ...current, testId: 'all' };
   const mixed = { ...allAir, ids: [current.ids[0], general], pending: [current.ids[0], general] };
+  delete mixed.choiceOrders;
   const unknown = { ...current, testId: 'unavailable-subject' };
   assert.ok(validateSession(allAir, QUESTION_MAP, SOURCE.id));
   assert.ok(validateSession(mixed, QUESTION_MAP, SOURCE.id));

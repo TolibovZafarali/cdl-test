@@ -7,7 +7,7 @@ export const SUBJECTS = [
   {
     id: 'general-knowledge', title: 'Умумий билимлар',
     description: 'Хавфсиз ҳайдаш, транспортни текшириш ва йўл ҳаракати қоидалари.',
-    practiceCount: 50, sourceUrl: './source/general-knowledge.docx',
+    practiceCount: 20, setSize: 20, sourceUrl: './source/general-knowledge.docx',
     excluded: GENERAL_EXCLUDED,
   },
   {

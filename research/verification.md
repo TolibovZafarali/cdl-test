@@ -66,3 +66,21 @@ The 55 automated tests passed. Browser checks passed across 32 screen and width 
 Offline cache version 6 includes the translation module and preserves existing saved sessions.
 
 Published the localized version to the same production URL. All 16 deployed files matched the local build byte for byte. Verified the updated interface, unchanged English question and choices, immediate localized feedback, and feedback persistence after an offline reload on the live site.
+
+## Randomized full tests
+
+Updated November 13, 2026. New full tests shuffle the entire selected subject. The Uzbek mode description now says random order. Resuming an unfinished test retains its question order, answers, and skipped-question queue.
+
+All 55 automated tests passed. Browser checks started two full tests for each subject: 289 General Knowledge questions, 62 Air Brakes questions, and 71 Combination Vehicles questions. Every run contained exactly the complete subject set, with no duplicates; all six runs were shuffled, and each subject's two runs had different orders. Save, reload, and resume preserved the generated order and recorded answer. No uncaught browser errors occurred. Offline cache version 7 delivers the update.
+
+Deployed to the existing production URL and repeated these six full-test start/resume checks successfully on the live site. The deployed application script and service worker match the tested build.
+
+## Randomized answer choices
+
+Updated November 13, 2026. Every new practice and full test stores a shuffled choice order for each question. Submitted answers and scoring retain original source indices. Displayed letters, number-key shortcuts, feedback, and result review use the saved display positions. Existing sessions without choice-order data preserve their original presentation.
+
+All 61 automated tests passed. Coverage includes two- and three-choice permutations, correct answers in every displayed position, immutable source banks, saved feedback/results, legacy sessions, and rejected malformed order maps. The three position-dependent choices in questions `gk-093`, `gk-285`, and `cv-028` update their letter references while preserving their meaning.
+
+Browser checks passed in all six subject/mode combinations. Verified choice permutations, selection by mouse and number keys, correct/wrong feedback, saved progress, first-attempt scoring, and matching letters/text in result review. Additional deterministic browser checks covered the three positional references, both two-choice questions, completed tests, a legacy session, and final feedback after an offline reload. Offline cache version 8 includes the updated application and engine.
+
+Published to the existing production URL. The application, engine, and service-worker files match the tested build, and all six subject/mode browser checks passed again on the live site with no uncaught errors.

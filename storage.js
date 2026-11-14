@@ -1,14 +1,26 @@
 import { validateSession } from './engine.js';
 
-const KEY = 'cdl-document-practice-v3';
+export const STORAGE_KEY = 'cdl-document-practice-v3';
 const LEGACY_SOURCE = 'user-air-brakes-docx-65-v1';
 const COMBINED_SOURCE = 'user-cdl-documents-v1';
 export const emptyState = () => ({ active: null, results: [] });
 
+function restoreGeneralPracticeProgress(progress, questionMap, state) {
+  const validIds = ids => Array.isArray(ids) && new Set(ids).size === ids.length
+    && ids.every(id => typeof id === 'string' && Object.hasOwn(questionMap, id)
+      && questionMap[id].testId === 'general-knowledge');
+  if (validIds(progress?.previousIds) && progress.previousIds.length && validIds(progress.seenIds)) {
+    return { previousIds: progress.previousIds, seenIds: progress.seenIds };
+  }
+  const lastSet = [state.active, ...state.results].find(session =>
+    session?.testId === 'general-knowledge' && session.mode === 'sets');
+  if (lastSet) return { previousIds: [...lastSet.ids], seenIds: [...lastSet.ids] };
+}
+
 export function readState(questionMap, sourceId, storage) {
   try {
     storage ??= globalThis.localStorage;
-    const data = JSON.parse(storage.getItem(KEY));
+    const data = JSON.parse(storage.getItem(STORAGE_KEY));
     if (!data || typeof data !== 'object' || Array.isArray(data)) return emptyState();
     const legacyMap = sourceId === COMBINED_SOURCE ? Object.fromEntries(Object.entries(questionMap)
       .filter(([, question]) => question.testId === 'air-brakes')
@@ -30,17 +42,20 @@ export function readState(questionMap, sourceId, storage) {
       return true;
     }).slice(0, 20) : [];
     const active = restore(data.active);
-    return {
+    const state = {
       active: active && active.finishedAt === null ? active : null,
       results,
     };
+    const progress = restoreGeneralPracticeProgress(data.generalPracticeProgress, questionMap, state);
+    if (progress) state.generalPracticeProgress = progress;
+    return state;
   } catch { return emptyState(); }
 }
 
 export function saveState(state, storage) {
   try {
     storage ??= globalThis.localStorage;
-    storage.setItem(KEY, JSON.stringify(state));
+    storage.setItem(STORAGE_KEY, JSON.stringify(state));
     return true;
   } catch { return false; }
 }
@@ -48,7 +63,7 @@ export function saveState(state, storage) {
 export function clearState(storage) {
   try {
     storage ??= globalThis.localStorage;
-    storage.removeItem(KEY);
+    storage.removeItem(STORAGE_KEY);
     return true;
   } catch { return false; }
 }

@@ -69,7 +69,7 @@ for (const expected of sources) {
 
 test('all three subjects use distinct identifiers and the correct practice lengths', () => {
   assert.equal(SOURCE.id, 'user-cdl-documents-v1');
-  assert.deepEqual(SUBJECTS.map(s => [s.id, s.practiceCount]), [['general-knowledge', 50], ['air-brakes', 25], ['combination-vehicles', 20]]);
+  assert.deepEqual(SUBJECTS.map(s => [s.id, s.practiceCount]), [['general-knowledge', 20], ['air-brakes', 25], ['combination-vehicles', 20]]);
   assert.equal(QUESTIONS.length, 422);
   assert.equal(Object.keys(QUESTION_MAP).length, 422);
   assert.equal(new Set(QUESTIONS.map(q => q.id)).size, 422);
