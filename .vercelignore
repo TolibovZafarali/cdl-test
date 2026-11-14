@@ -1,0 +1,13 @@
+.git
+.env*
+.vercel
+.playwright-cli
+node_modules
+dist
+output
+tmp
+research
+tests
+*.log
+README.md
+.DS_Store

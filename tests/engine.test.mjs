@@ -1,0 +1,409 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { QUESTIONS, QUESTION_MAP, SOURCE } from '../data/index.js';
+import { createSession, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
+import { emptyState, readState, saveState, clearState } from '../storage.js';
+
+const options = { sourceId: SOURCE.id, testId: 'air-brakes', count: 25 };
+const create = settings => createSession(QUESTIONS, { ...options, ...settings }, () => 0.37);
+const clone = value => structuredClone(value);
+const respond = (session, correct = true) => {
+  const question = QUESTION_MAP[session.pending[0]];
+  return advanceQuestion(submitAnswer(session, correct ? question.answer : (question.answer + 1) % question.choices.length, QUESTION_MAP));
+};
+function complete(session, correctCount) {
+  for (let index = 0; index < session.ids.length; index++) session = respond(session, index < correctCount);
+  return session;
+}
+function memoryStorage(value = null) {
+  return {
+    value, keys: [],
+    getItem(key) { this.keys.push(key); return this.value; },
+    setItem(key, next) { this.keys.push(key); this.value = next; },
+    removeItem(key) { this.keys.push(key); this.value = null; },
+  };
+}
+
+const categories = [
+  ['general-knowledge', 50],
+  ['air-brakes', 25],
+  ['combination-vehicles', 20],
+];
+
+for (const [testId, sampleCount] of categories) {
+  for (const count of [sampleCount, QUESTIONS.filter(q => q.testId === testId).length]) {
+    const required = Math.ceil(count * 0.8);
+    test(`${testId}: ${required} of ${count} passes and one fewer fails`, () => {
+      for (const correct of [required, required - 1]) {
+        const session = complete(create({ testId, count }), correct);
+        const score = scoreSession(session, QUESTION_MAP);
+        assert.equal(score.total, count);
+        assert.equal(score.answered, count);
+        assert.equal(score.correct, correct);
+        assert.equal(score.incorrect, count - correct);
+        assert.equal(score.unanswered, 0);
+        assert.equal(score.required, required);
+        assert.equal(score.percent, Math.round(correct / count * 100));
+        assert.equal(score.passed, correct === required);
+        assert.ok(session.finishedAt >= session.startedAt);
+        assert.ok(validateSession(session, QUESTION_MAP, SOURCE.id));
+      }
+    });
+  }
+
+  test(`${testId}: random tests remain within the selected subject and preserve choices`, () => {
+    const original = JSON.stringify(QUESTIONS.map(question => question.choices));
+    const settings = { ...options, testId, count: sampleCount };
+    const first = createSession(QUESTIONS, settings, () => 0);
+    const second = createSession(QUESTIONS, settings, () => 0.99);
+    assert.equal(first.ids.length, sampleCount);
+    assert.equal(new Set(first.ids).size, sampleCount);
+    assert.ok(first.ids.every(id => QUESTION_MAP[id].testId === testId));
+    assert.notDeepEqual(first.ids, second.ids);
+    complete(first, sampleCount);
+    complete(second, sampleCount);
+    assert.equal(JSON.stringify(QUESTIONS.map(question => question.choices)), original);
+    assert.equal(Object.hasOwn(first, 'choiceOrders'), false);
+  });
+
+  test(`${testId}: all-questions mode retains source order and caps the count`, () => {
+    const expected = QUESTIONS.filter(q => q.testId === testId).map(q => q.id);
+    const session = create({ testId, count: 999, randomize: false });
+    assert.deepEqual(session.ids, expected);
+    assert.deepEqual(session.pending, expected);
+    assert.equal(session.ids.length, expected.length);
+  });
+}
+
+test('saved subject sessions reject questions belonging to a different subject', () => {
+  const session = create();
+  const alien = QUESTIONS.find(q => q.testId === 'general-knowledge').id;
+  const invalid = { ...session, ids: [alien, ...session.ids.slice(1)], pending: [alien, ...session.pending.slice(1)] };
+  assert.equal(validateSession(invalid, QUESTION_MAP, SOURCE.id), false);
+  assert.equal(readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify({ active: invalid }))).active, null);
+});
+
+test('combined-source storage rejects global and mixed-subject sessions', () => {
+  const current = create();
+  const general = QUESTIONS.find(q => q.testId === 'general-knowledge').id;
+  const allAir = { ...current, testId: 'all' };
+  const mixed = { ...allAir, ids: [current.ids[0], general], pending: [current.ids[0], general] };
+  const unknown = { ...current, testId: 'unavailable-subject' };
+  assert.ok(validateSession(allAir, QUESTION_MAP, SOURCE.id));
+  assert.ok(validateSession(mixed, QUESTION_MAP, SOURCE.id));
+  for (const active of [allAir, mixed, unknown]) {
+    const storage = memoryStorage(JSON.stringify({ active, results: [finishSession(active)] }));
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), emptyState());
+  }
+});
+
+test('skip rotates all unanswered questions without duplicates or lost answers', () => {
+  let session = create();
+  const initial = [...session.pending];
+  for (let index = 0; index < initial.length; index++) session = skipQuestion(session);
+  assert.deepEqual(session.pending, initial);
+  assert.deepEqual(session.answers, {});
+  session = respond(session);
+  const answered = initial[0];
+  session = skipQuestion(session);
+  assert.ok(!session.pending.includes(answered));
+  assert.equal(session.answers[answered], QUESTION_MAP[answered].answer);
+  assert.equal(session.pending.length, 24);
+  assert.ok(validateSession(session, QUESTION_MAP, SOURCE.id));
+});
+
+test('the last pending question cannot be skipped and advancing after its answer completes the test', () => {
+  let session = create({ count: 2 });
+  session = respond(session);
+  assert.equal(skipQuestion(session), session);
+  assert.equal(session.finishedAt, null);
+  session = respond(session);
+  assert.deepEqual(session.pending, []);
+  assert.notEqual(session.finishedAt, null);
+  assert.equal(submitAnswer(session, 0, QUESTION_MAP), session);
+  assert.equal(skipQuestion(session), session);
+});
+
+test('manual completion keeps unanswered questions in the score denominator', () => {
+  const session = finishSession(respond(create()));
+  const score = scoreSession(session, QUESTION_MAP);
+  assert.deepEqual(score, { total: 25, answered: 1, correct: 1, incorrect: 0, unanswered: 24, required: 20, percent: 4, passed: false });
+  assert.ok(validateSession(session, QUESTION_MAP, SOURCE.id));
+  assert.equal(finishSession(session), session);
+});
+
+test('answer zero is recorded while invalid indices are rejected without changing progress', () => {
+  const session = create();
+  const id = session.pending[0];
+  const answered = submitAnswer(session, 0, QUESTION_MAP);
+  assert.equal(answered.answers[id], 0);
+  assert.equal(scoreSession(answered, QUESTION_MAP).answered, 1);
+  const before = clone(session);
+  for (const choice of [-1, QUESTION_MAP[id].choices.length, 99, 0.5, '0', null, NaN]) {
+    assert.throws(() => submitAnswer(session, choice, QUESTION_MAP), /Choose one answer/);
+  }
+  assert.deepEqual(session, before);
+});
+
+test('correct and incorrect first answers are scored immediately and locked until Next', () => {
+  for (const correct of [true, false]) {
+    const original = create({ count: 3 });
+    const id = original.pending[0];
+    const question = QUESTION_MAP[id];
+    const choice = correct ? question.answer : (question.answer + 1) % question.choices.length;
+    const answered = submitAnswer(original, choice, QUESTION_MAP);
+    assert.equal(answered.feedbackId, id);
+    assert.equal(answered.finishedAt, null);
+    assert.equal(answered.answers[id], choice);
+    assert.deepEqual(answered.pending, original.pending.slice(1));
+    assert.equal(scoreSession(answered, QUESTION_MAP).correct, Number(correct));
+    assert.equal(scoreSession(answered, QUESTION_MAP).answered, 1);
+    assert.equal(submitAnswer(answered, question.answer, QUESTION_MAP), answered);
+    assert.equal(skipQuestion(answered), answered);
+    assert.deepEqual(original.answers, {});
+    assert.ok(validateSession(answered, QUESTION_MAP, SOURCE.id));
+
+    const next = advanceQuestion(answered);
+    assert.equal(next.feedbackId, null);
+    assert.deepEqual(next.answers, answered.answers);
+    assert.deepEqual(next.pending, answered.pending);
+    assert.equal(next.finishedAt, null);
+    assert.equal(advanceQuestion(next), next);
+    const second = submitAnswer(next, QUESTION_MAP[next.pending[0]].answer, QUESTION_MAP);
+    assert.equal(scoreSession(second, QUESTION_MAP).answered, 2);
+  }
+});
+
+test('final-answer feedback survives save and reload before the result is completed', () => {
+  const session = create({ count: 1 });
+  const id = session.pending[0];
+  const active = submitAnswer(session, QUESTION_MAP[id].answer, QUESTION_MAP);
+  assert.deepEqual(active.pending, []);
+  assert.equal(active.finishedAt, null);
+  assert.equal(active.feedbackId, id);
+  assert.ok(validateSession(active, QUESTION_MAP, SOURCE.id));
+  const storage = memoryStorage();
+  saveState({ active, results: [] }, storage);
+  const restored = readState(QUESTION_MAP, SOURCE.id, storage);
+  assert.deepEqual(restored, { active, results: [] });
+  assert.equal(submitAnswer(restored.active, 0, QUESTION_MAP), restored.active);
+
+  const result = advanceQuestion(restored.active);
+  assert.equal(result.feedbackId, null);
+  assert.notEqual(result.finishedAt, null);
+  assert.ok(validateSession(result, QUESTION_MAP, SOURCE.id));
+  saveState({ active: null, results: [result] }, storage);
+  assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), { active: null, results: [result] });
+  assert.equal(advanceQuestion(result), result);
+});
+
+test('feedback and skipped-question order survive saving midway through a test', () => {
+  let session = create({ count: 3 });
+  const skipped = session.pending[0];
+  session = skipQuestion(session);
+  const id = session.pending[0];
+  session = submitAnswer(session, 0, QUESTION_MAP);
+  const storage = memoryStorage();
+  saveState({ active: session, results: [] }, storage);
+  const restored = readState(QUESTION_MAP, SOURCE.id, storage).active;
+  assert.deepEqual(restored, session);
+  assert.equal(restored.feedbackId, id);
+  assert.equal(restored.answers[id], 0);
+  assert.equal(restored.pending.at(-1), skipped);
+  const advanced = advanceQuestion(restored);
+  assert.equal(advanced.pending[0], session.pending[0]);
+  assert.equal(advanced.pending.at(-1), skipped);
+});
+
+test('ending during feedback preserves the recorded answer and clears feedback', () => {
+  const original = create();
+  const id = original.pending[0];
+  const answered = submitAnswer(original, QUESTION_MAP[id].answer, QUESTION_MAP);
+  const finished = finishSession(answered);
+  assert.equal(finished.feedbackId, null);
+  assert.equal(finished.answers[id], QUESTION_MAP[id].answer);
+  assert.equal(scoreSession(finished, QUESTION_MAP).unanswered, 24);
+  assert.ok(validateSession(finished, QUESTION_MAP, SOURCE.id));
+});
+
+test('saved sessions from before immediate feedback remain valid and can continue', () => {
+  const active = respond(create());
+  delete active.feedbackId;
+  const result = finishSession(respond(create()));
+  delete result.feedbackId;
+  const saved = { active, results: [result] };
+  const restored = readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify(saved)));
+  assert.deepEqual(restored, saved);
+  const id = restored.active.pending[0];
+  const answered = submitAnswer(restored.active, QUESTION_MAP[id].answer, QUESTION_MAP);
+  assert.equal(answered.feedbackId, id);
+  assert.equal(scoreSession(answered, QUESTION_MAP).answered, 2);
+  assert.ok(validateSession(answered, QUESTION_MAP, SOURCE.id));
+});
+
+test('saved feedback must identify a recorded answer in an unfinished session', () => {
+  const original = create({ count: 2 });
+  const answered = submitAnswer(original, 0, QUESTION_MAP);
+  const bad = [
+    { ...answered, feedbackId: original.pending[1] },
+    { ...answered, feedbackId: 'missing' },
+    { ...answered, feedbackId: '' },
+    { ...answered, feedbackId: 0 },
+    { ...answered, feedbackId: undefined },
+    { ...answered, feedbackId: false },
+    { ...answered, finishedAt: answered.startedAt },
+    { ...submitAnswer(create({ count: 1 }), 0, QUESTION_MAP), feedbackId: null },
+  ];
+  for (const session of bad) {
+    assert.equal(validateSession(session, QUESTION_MAP, SOURCE.id), false);
+    if (session.feedbackId !== undefined) {
+      assert.equal(readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify({ active: session }))).active, null);
+    }
+  }
+});
+
+test('unknown tests, empty sources, duplicate IDs, and invalid counts cannot start', () => {
+  assert.throws(() => create({ testId: 'missing' }), /no questions/);
+  assert.throws(() => createSession([], options), /no questions/);
+  assert.throws(() => createSession([QUESTIONS[0], QUESTIONS[0]], options), /unique/);
+  for (const count of [0, -1, 0.5, Infinity, '25']) assert.throws(() => create({ count }), /valid question count/);
+  assert.throws(() => create({ sourceId: '' }), /source/);
+});
+
+test('save and reload preserve answers and the skipped-question queue using the document storage key', () => {
+  const active = skipQuestion(respond(create()));
+  const state = { active, results: [] };
+  const storage = memoryStorage();
+  assert.equal(saveState(state, storage), true);
+  assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), state);
+  assert.equal(scoreSession(respond(readState(QUESTION_MAP, SOURCE.id, storage).active), QUESTION_MAP).answered, 2);
+  assert.equal(clearState(storage), true);
+  assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), emptyState());
+  assert.ok(storage.keys.every(key => key === 'cdl-document-practice-v3'));
+});
+
+test('legacy PDF progress is rejected even if copied into the document storage entry', () => {
+  const legacy = {
+    ...create(),
+    sourceId: 'career-path-air-brakes-2016-v1',
+    testId: 'test-1',
+    ids: ['pdf-1-01'],
+    pending: ['pdf-1-01'],
+    answers: {},
+  };
+  for (const active of [legacy, { ...legacy, sourceId: SOURCE.id }, { ...create(), sourceId: legacy.sourceId }]) {
+    const storage = memoryStorage(JSON.stringify({ active, results: [finishSession(active)] }));
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), emptyState());
+    assert.equal(validateSession(active, QUESTION_MAP, SOURCE.id), false);
+    assert.deepEqual(storage.keys, ['cdl-document-practice-v3']);
+  }
+});
+
+test('existing Air Brakes progress migrates without changing answers, queue, or results', () => {
+  const current = skipQuestion(respond(create()));
+  for (const legacyTest of ['all', 'document']) {
+    const legacy = { ...current, sourceId: 'user-air-brakes-docx-65-v1', testId: legacyTest };
+    const legacyResult = { ...finishSession(legacy), id: 'previous-result' };
+    const storage = memoryStorage(JSON.stringify({ active: legacy, results: [legacyResult] }));
+    const restored = readState(QUESTION_MAP, SOURCE.id, storage);
+    assert.deepEqual(restored.active, current);
+    assert.deepEqual(restored.results, [{ ...legacyResult, sourceId: SOURCE.id, testId: 'air-brakes' }]);
+    assert.deepEqual(restored.active.answers, legacy.answers);
+    assert.deepEqual(restored.active.pending, legacy.pending);
+    assert.ok(validateSession(restored.active, QUESTION_MAP, SOURCE.id));
+    saveState(restored, storage);
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), restored);
+  }
+});
+
+test('migration rejects malformed Air Brakes records and never admits other subject questions', () => {
+  const legacy = { ...create(), sourceId: 'user-air-brakes-docx-65-v1', testId: 'all' };
+  const alien = QUESTIONS.find(q => q.testId === 'general-knowledge').id;
+  const invalid = [
+    { ...legacy, testId: 'general-knowledge' },
+    { ...legacy, ids: [alien], pending: [alien] },
+    { ...legacy, ids: ['unknown'], pending: ['unknown'] },
+    { ...legacy, answers: { [legacy.ids[0]]: 100 } },
+    { ...legacy, startedAt: -1 },
+  ];
+  for (const session of invalid) {
+    const storage = memoryStorage(JSON.stringify({ active: session, results: [finishSession(session)] }));
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, storage), emptyState());
+  }
+});
+
+test('only valid unique completed results are restored, with a limit of 20', () => {
+  const completed = Array.from({ length: 25 }, () => finishSession(create()));
+  const active = create();
+  const storage = memoryStorage(JSON.stringify({ active: completed[0], results: [null, {}, active, completed[0], ...completed] }));
+  const restored = readState(QUESTION_MAP, SOURCE.id, storage);
+  assert.equal(restored.active, null);
+  assert.equal(restored.results.length, 20);
+  assert.equal(new Set(restored.results.map(result => result.id)).size, 20);
+  assert.ok(restored.results.every(result => result.finishedAt !== null && validateSession(result, QUESTION_MAP, SOURCE.id)));
+});
+
+test('malformed saved sessions cannot change scoring or create impossible queues', () => {
+  const base = respond(create());
+  const answered = Object.keys(base.answers)[0];
+  const pending = base.pending[0];
+  const mutations = [
+    session => { session.version = 1; },
+    session => { session.id = '__proto__'; },
+    session => { session.sourceId = 'other'; },
+    session => { session.testId = 'unrelated-test'; },
+    session => { session.ids = []; },
+    session => { session.ids[1] = session.ids[0]; },
+    session => { session.ids[1] = 'unknown'; },
+    session => { session.pending = []; },
+    session => { session.pending.push(pending); },
+    session => { session.pending.push(answered); },
+    session => { session.answers[pending] = 0; },
+    session => { session.answers.unknown = 0; },
+    session => { session.answers[answered] = -1; },
+    session => { session.answers[answered] = '0'; },
+    session => { session.answers[answered] = QUESTION_MAP[answered].choices.length; },
+    session => { session.answers = []; },
+    session => { session.startedAt = -1; },
+    session => { session.startedAt = 1e100; },
+    session => { session.finishedAt = session.startedAt - 1; },
+    session => { session.finishedAt = 1e100; },
+    session => { delete session.finishedAt; },
+  ];
+  for (const mutation of mutations) {
+    const invalid = clone(base);
+    mutation(invalid);
+    assert.equal(validateSession(invalid, QUESTION_MAP, SOURCE.id), false, mutation.toString());
+    assert.equal(readState(QUESTION_MAP, SOURCE.id, memoryStorage(JSON.stringify({ active: invalid }))).active, null);
+  }
+  const inheritedSession = Object.create(base);
+  assert.equal(validateSession(inheritedSession, QUESTION_MAP, SOURCE.id), false);
+  const inheritedMap = Object.create(QUESTION_MAP);
+  assert.equal(validateSession(base, inheritedMap, SOURCE.id), false);
+  const inheritedAnswers = clone(base);
+  inheritedAnswers.answers = Object.create(base.answers);
+  assert.equal(validateSession(inheritedAnswers, QUESTION_MAP, SOURCE.id), false);
+});
+
+test('invalid JSON and unavailable storage are handled without preventing use', () => {
+  for (const value of [null, '', 'null', '[]', '123', '{bad', '"text"']) {
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, memoryStorage(value)), emptyState());
+  }
+  const unavailable = { getItem() { throw new Error('blocked'); }, setItem() { throw new Error('full'); }, removeItem() { throw new Error('blocked'); } };
+  assert.deepEqual(readState(QUESTION_MAP, SOURCE.id, unavailable), emptyState());
+  assert.equal(saveState(emptyState(), unavailable), false);
+  assert.equal(clearState(unavailable), false);
+});
+
+test('a blocked localStorage property getter is caught before startup, save, or clear', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'localStorage');
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, get() { throw new Error('blocked getter'); } });
+  try {
+    assert.deepEqual(readState(QUESTION_MAP, SOURCE.id), emptyState());
+    assert.equal(saveState(emptyState()), false);
+    assert.equal(clearState(), false);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'localStorage', descriptor);
+    else delete globalThis.localStorage;
+  }
+});
