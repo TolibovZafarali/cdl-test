@@ -27,56 +27,49 @@ export function shuffle(items, random = Math.random, previousOrder) {
 
 export function drawPracticeBatch(questions, count, previousIds = [], seenIds = [], random = Math.random) {
   if (!Number.isInteger(count) || count < 1) throw new RangeError('Choose a valid question count');
-  const previous = new Set(previousIds);
-  const seen = new Set(seenIds);
-  const eligible = shuffle(questions.filter(question => !previous.has(question.id)), random);
-  const size = Math.min(count, eligible.length);
-  const usedStems = new Set(questions.filter(question => previous.has(question.id)).map(question => question.question));
-  const unseen = eligible.filter(question => !seen.has(question.id));
-  // Give repeated source prompts enough room to appear in nonadjacent sets before rollover.
-  if (unseen.length <= 4 * size) {
-    const stems = new Set();
-    const repeated = new Set();
-    for (const { question } of questions) {
-      if (stems.has(question)) repeated.add(question);
-      stems.add(question);
-    }
-    unseen.sort((a, b) => Number(repeated.has(b.question)) - Number(repeated.has(a.question)));
-  }
-  function take(candidates, amount) {
-    const selected = [];
-    const deferred = [];
+  const current = new Set(previousIds);
+  const seen = new Set([...seenIds, ...previousIds]);
+  const candidates = shuffle(questions.filter(question => !current.has(question.id)), random);
+  const stems = new Set(questions.filter(question => current.has(question.id)).map(question => question.question));
+  const ranked = [];
+  // Older saves can include questions seen outside the learner's current set.
+  for (const previouslySeen of [false, true]) {
+    const repeatedStems = [];
     for (const question of candidates) {
-      if (selected.length === amount) break;
-      if (usedStems.has(question.question)) deferred.push(question);
+      if (seen.has(question.id) !== previouslySeen) continue;
+      if (stems.has(question.question)) repeatedStems.push(question);
       else {
-        selected.push(question);
-        usedStems.add(question.question);
+        ranked.push(question);
+        stems.add(question.question);
       }
     }
-    return selected.concat(deferred.slice(0, amount - selected.length));
+    ranked.push(...repeatedStems);
   }
-  const fresh = take(unseen, size);
-  if (fresh.length === size) {
-    return { questions: fresh, seenIds: [...seen, ...fresh.map(question => question.id)] };
-  }
-
-  // Finish this cycle first, then fill the set with questions from the next cycle.
-  const nextCycle = take(eligible.filter(question => seen.has(question.id)), size - fresh.length);
-  return { questions: [...fresh, ...nextCycle], seenIds: nextCycle.map(question => question.id) };
+  const additions = ranked.slice(0, count);
+  for (const question of additions) seen.add(question.id);
+  return { questions: additions, seenIds: [...seen] };
 }
 
 export function getChoiceOrder(session, question) {
   return session.choiceOrders?.[question.id] ?? question.choices.map((_, index) => index);
 }
 
+export function getChoiceLetter(session, question, canonicalIndex) {
+  const position = getChoiceOrder(session, question).indexOf(canonicalIndex);
+  return String.fromCharCode(65 + position);
+}
+
+export function getCorrectAnswerUz(session, question) {
+  return question.correctAnswerUz.replace(/\{(first|second)\}/g, (_, key) =>
+    getChoiceLetter(session, question, key === 'first' ? 0 : 1));
+}
+
 export function getChoiceText(session, question, canonicalIndex) {
   const text = question.choices[canonicalIndex];
   if (!session.choiceOrders || !has(session.choiceOrders, question.id)) return text;
   if (!/^Both (?:A and B(?: are correct)?|of the above)\.$/i.test(text)) return text;
-  const order = getChoiceOrder(session, question);
-  const first = String.fromCharCode(65 + order.indexOf(0));
-  const second = String.fromCharCode(65 + order.indexOf(1));
+  const first = getChoiceLetter(session, question, 0);
+  const second = getChoiceLetter(session, question, 1);
   return `Both ${first} and ${second}${/ are correct\.$/i.test(text) ? ' are correct' : ''}.`;
 }
 
@@ -92,7 +85,7 @@ export function createSession(questions, { sourceId, testId = 'all', count = 50,
   const ids = selected.map(question => question.id);
   const choiceOrders = Object.fromEntries(selected.map(question => {
     const indices = question.choices.map((_, index) => index);
-    const previous = previousAttempt && getChoiceOrder(previousAttempt, question);
+    const previous = previousAttempt?.ids.includes(question.id) ? getChoiceOrder(previousAttempt, question) : undefined;
     return [question.id, shuffle(indices, random, previous)];
   }));
   return {
@@ -115,21 +108,23 @@ export function samePracticeSet(ids, otherIds) {
 }
 
 export function createPracticeSetSession(questions, settings, progress, { advance = false, previousAttempt } = {}, random = Math.random) {
-  const replayIds = advance ? undefined : previousAttempt?.ids ?? progress?.previousIds;
-  const options = { ...settings, randomize: false };
-  if (replayIds?.length) {
-    const byId = new Map(questions.map(question => [question.id, question]));
-    const ordered = shuffle(replayIds, random, replayIds).map(id => byId.get(id));
-    const session = createSession(ordered, { ...options, count: ordered.length, previousAttempt }, random);
-    return { session: { ...session, mode: 'sets' }, progress };
+  const currentIds = progress?.previousIds ?? previousAttempt?.ids ?? [];
+  const retryIds = previousAttempt?.ids ?? currentIds;
+  let ids = retryIds;
+  let seenIds;
+  if (advance || !ids.length) {
+    const batch = drawPracticeBatch(questions, settings.count, currentIds, progress?.seenIds, random);
+    ids = [...currentIds, ...batch.questions.map(question => question.id)];
+    seenIds = batch.seenIds;
+  } else if (!progress) {
+    seenIds = [...ids];
   }
 
-  const batch = drawPracticeBatch(questions, settings.count, progress?.previousIds, progress?.seenIds, random);
-  const session = createSession(batch.questions, options, random);
-  return {
-    session: { ...session, mode: 'sets' },
-    progress: { previousIds: [...session.ids], seenIds: batch.seenIds },
-  };
+  const byId = new Map(questions.map(question => [question.id, question]));
+  const ordered = shuffle(ids, random, retryIds).map(id => byId.get(id));
+  const session = createSession(ordered, { ...settings, count: ordered.length, randomize: false, previousAttempt }, random);
+  const nextProgress = seenIds ? { previousIds: [...session.ids], seenIds } : progress;
+  return { session: { ...session, mode: 'sets' }, progress: nextProgress };
 }
 
 export function submitAnswer(session, choice, questionMap) {

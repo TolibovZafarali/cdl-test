@@ -2,6 +2,8 @@ export const QUESTIONS = [
   {
     "id": "docx-01",
     "number": 1,
+    "questionUz": "Пружинали тормозларнинг тормозлаш кучи ҳақида қайси фикр тўғри?",
+    "correctAnswerUz": "Пружинали тормозларнинг кучи ишчи тормозлар тўғри созланганига боғлиқ.",
     "testId": "document",
     "question": "The braking power of the spring brakes:",
     "choices": [
@@ -15,6 +17,8 @@ export const QUESTIONS = [
   {
     "id": "docx-02",
     "number": 2,
+    "questionUz": "Тиркамали транспорт воситасида двигатель ўчирилган ва тормозлар босилган ҳолда ҳаво сизиши туфайли босимнинг пасайиши бир дақиқада ___ psi дан кам бўлиши керак.",
+    "correctAnswerUz": "Бир дақиқада 4 psi дан кам.",
     "testId": "document",
     "question": "The air leakage rate for combination vehicles (engine off, brakes on) should be less than ___ psi per minute.",
     "choices": [
@@ -30,6 +34,8 @@ export const QUESTIONS = [
   {
     "id": "docx-03",
     "number": 3,
+    "questionUz": "Пневматик тормозли транспортнинг умумий тўхташ масофаси гидравлик тормозли транспортникидан узунроқ. Бунинг сабаби ______ масофасидир.",
+    "correctAnswerUz": "Тормоз ишга тушгунча босиб ўтиладиган масофа.",
     "testId": "document",
     "question": "Total stopping distance for air brakes is longer than that for hydraulic brakes due to ______ distance.",
     "choices": [
@@ -43,6 +49,8 @@ export const QUESTIONS = [
   {
     "id": "docx-04",
     "number": 4,
+    "questionUz": "Ишчи тормоз тизимининг ҳаво баллонларидаги босим ______ psi дан пастга тушишидан олдин ҳайдовчи паст босим ҳақидаги огоҳлантириш сигналини кўра олиши керак.",
+    "correctAnswerUz": "Босим 60 psi дан пастга тушишидан олдин.",
     "testId": "document",
     "question": "The driver must be able to see a low air pressure warning which comes on before pressure in the service air tanks falls below ______ psi.",
     "choices": [
@@ -58,6 +66,8 @@ export const QUESTIONS = [
   {
     "id": "docx-05",
     "number": 5,
+    "questionUz": "Юк автомобил ёки автобусингизда икки контурли пневматик тормоз тизими бор. Фақат битта контурда паст ҳаво босими огоҳлантириши ёнса, нима қилишингиз керак?",
+    "correctAnswerUz": "Дарҳол тўхтанг ва транспортни хавфсиз жойга қўйинг. Тизим тузатилгандан кейингина йўлда давом этинг.",
     "testId": "document",
     "question": "Your truck or bus has a dual air brake system. If a low air pressure warning comes on for only one system, what should you do?",
     "choices": [
@@ -71,6 +81,8 @@ export const QUESTIONS = [
   {
     "id": "docx-06",
     "number": 6,
+    "questionUz": "Транспорт воситангизда икки контурли пневматик тормоз тизими бор. Фақат битта контурда ҳаво босими пастлиги ҳақида огоҳлантириш берилса, қандай йўл тутишингиз керак?",
+    "correctAnswerUz": "Транспортни хавфсиз жойда тўхтатинг. Тизим тузатилгандан кейингина йўлда давом этинг.",
     "testId": "document",
     "question": "Your vehicle has a dual air brake system. If a low air pressure warning comes on for only one system, you should:",
     "choices": [
@@ -84,6 +96,8 @@ export const QUESTIONS = [
   {
     "id": "docx-07",
     "number": 7,
+    "questionUz": "Пневматик тормоз тизимидаги босим _______ psi га етганда тизим ҳаво билан тўлиқ тўлган ҳисобланади.",
+    "correctAnswerUz": "Босим 125 psi га етганда.",
     "testId": "document",
     "question": "An air brake system is fully charged at _______ psi.",
     "choices": [
@@ -97,6 +111,8 @@ export const QUESTIONS = [
   {
     "id": "docx-08",
     "number": 8,
+    "questionUz": "Нима учун пневматик тормозларнинг ишга тушиши гидравлик тормозларга қараганда кўпроқ вақт олади? Ҳавонинг қайси хусусияти бунга сабаб бўлади?",
+    "correctAnswerUz": "Ҳаво қувурлардан гидравлик суюқликка қараганда секинроқ ўтади.",
     "testId": "document",
     "question": "Air braking takes more time than hydraulic braking because air:",
     "choices": [
@@ -110,6 +126,8 @@ export const QUESTIONS = [
   {
     "id": "docx-09",
     "number": 9,
+    "questionUz": "Пневматик тормозли транспорт воситасида тўхтаб туриш тормозини қачон ишлатиш керак?",
+    "correctAnswerUz": "Транспортни тўхташ жойига ҳар гал қўйганда.",
     "testId": "document",
     "question": "In air brakes vehicles, the parking brakes should be used:",
     "choices": [
@@ -123,6 +141,8 @@ export const QUESTIONS = [
   {
     "id": "docx-10",
     "number": 10,
+    "questionUz": "Тормоз чироқларининг улагичи қандай вазифани бажаради?",
+    "correctAnswerUz": "Орқадаги ҳайдовчиларни огоҳлантириш учун тормоз чироқларини ёқади.",
     "testId": "document",
     "question": "The stop light switch:",
     "choices": [
@@ -136,6 +156,8 @@ export const QUESTIONS = [
   {
     "id": "docx-11",
     "number": 11,
+    "questionUz": "Одатда ҳаракат вақтида пружинали тормозларни нима бўшатилган ҳолда ушлаб туради?",
+    "correctAnswerUz": "Ҳаво босими пружинали тормозларни бўшатилган ҳолда ушлаб туради.",
     "testId": "document",
     "question": "During normal driving, spring brakes are usually held back by:",
     "choices": [
@@ -149,6 +171,8 @@ export const QUESTIONS = [
   {
     "id": "docx-14",
     "number": 14,
+    "questionUz": "Тормозларни ҳаддан ташқари тез-тез ишлатиш натижасида уларнинг ортиқча қизиши яна қандай оқибатга олиб келиши мумкин?",
+    "correctAnswerUz": "Тормозларнинг таъсири сусайиши ёки улар бутунлай ишдан чиқиши мумкин.",
     "testId": "document",
     "question": "Excessive heat caused by using your brakes too often can also cause:",
     "choices": [
@@ -162,6 +186,8 @@ export const QUESTIONS = [
   {
     "id": "docx-15",
     "number": 15,
+    "questionUz": "Ишчи тормозларни ҳаддан ташқари кўп ишлатиш уларни қиздириб юборади. Бу нимага олиб келиши мумкин?",
+    "correctAnswerUz": "Тормоз барабанлари кенгайиши мумкин.",
     "testId": "document",
     "question": "Excessive use of the service brakes results in overheating which can lead to:",
     "choices": [
@@ -175,6 +201,8 @@ export const QUESTIONS = [
   {
     "id": "docx-16",
     "number": 16,
+    "questionUz": "Нима учун сиқилган ҳаво баллонларида тўпланган сувни чиқариб туриш керак?",
+    "correctAnswerUz": "Совуқда сув музлаб, тормозларнинг ишдан чиқишига сабаб бўлиши мумкин.",
     "testId": "document",
     "question": "Why should you drain water from compressed air tanks?",
     "choices": [
@@ -188,6 +216,8 @@ export const QUESTIONS = [
   {
     "id": "docx-18",
     "number": 18,
+    "questionUz": "Замонавий пневматик тормоз тизими учта алоҳида тизимни бирлаштиради. Булар ишчи тормоз, тўхтаб туриш тормози ва ______ тормозидир.",
+    "correctAnswerUz": "Фавқулодда тормоз тизими.",
     "testId": "document",
     "question": "Modern air brake systems combine three different systems. They are the service, the parking and the ______ brakes.",
     "choices": [
@@ -201,6 +231,8 @@ export const QUESTIONS = [
   {
     "id": "docx-19",
     "number": 19,
+    "questionUz": "Фавқулодда тўхташ зарур бўлса, транспортни қандай тормозлашингиз керак?",
+    "correctAnswerUz": "Рулни бошқара оладиган ва транспорт тўғри чизиқ бўйлаб ҳаракатланадиган тарзда тормозланг.",
     "testId": "document",
     "question": "If you must make an emergency stop, you should brake so you:",
     "choices": [
@@ -214,6 +246,8 @@ export const QUESTIONS = [
   {
     "id": "docx-20",
     "number": 20,
+    "questionUz": "S шаклидаги кулачок қандай вазифани бажаради?",
+    "correctAnswerUz": "S шаклидаги кулачок тормоз колодкаларини барабаннинг ички юзасига босади.",
     "testId": "document",
     "question": "The S-cam:",
     "choices": [
@@ -227,6 +261,8 @@ export const QUESTIONS = [
   {
     "id": "docx-21",
     "number": 21,
+    "questionUz": "Ҳайдовчи тормоз педалини босганда тормозларни ишга туширадиган ва педални қўйиб юборганда уларни бўшатадиган тизим қандай аталади?",
+    "correctAnswerUz": "Ишчи тормоз тизими.",
     "testId": "document",
     "question": "The brake system that applies and releases the brakes when the driver uses the brake pedal is the brake system.",
     "choices": [
@@ -240,6 +276,8 @@ export const QUESTIONS = [
   {
     "id": "docx-22",
     "number": 22,
+    "questionUz": "Одатда узун ва тик қияликдан тушаётганда пневматик тормозлар қайси тормозлаш усулига қўшимча восита сифатида ишлатилади?",
+    "correctAnswerUz": "Двигатель билан тормозлашга қўшимча восита сифатида.",
     "testId": "document",
     "question": "The use of air brakes on a long and steep downgrade under normal conditions is only a supplement to:",
     "choices": [
@@ -253,6 +291,8 @@ export const QUESTIONS = [
   {
     "id": "docx-23",
     "number": 23,
+    "questionUz": "Айрим пневматик тормоз тизимларида спирт буғлатгич бўлади. Ундаги спирт сатҳи меъёрда сақланмаса, нима юз бериши мумкин?",
+    "correctAnswerUz": "Ҳаво баллонида муз ҳосил бўлиб, тормозлар ишдан чиқиши мумкин.",
     "testId": "document",
     "question": "Some air brake systems have an alcohol evaporator. What may happen if you don't keep the proper level of an alcohol?",
     "choices": [
@@ -266,6 +306,8 @@ export const QUESTIONS = [
   {
     "id": "docx-24",
     "number": 24,
+    "questionUz": "Тормозларнинг таъсири сусайганини қайси белгидан билиш мумкин?",
+    "correctAnswerUz": "Пастликка тушаётганда тезликни назорат қилиш учун тормоз педалини аввалгидан қаттиқроқ босишга тўғри келади.",
     "testId": "document",
     "question": "Your brakes are fading when:",
     "choices": [
@@ -279,6 +321,8 @@ export const QUESTIONS = [
   {
     "id": "docx-25",
     "number": 25,
+    "questionUz": "Тиркамасиз юк автомобили ёки автобусда двигатель ўчирилган ва тормозлар бўшатилган ҳолда, пневматик тизимда ҳаво сизиши туфайли босим бир дақиқада ______ psi дан ортиқ пасаймаслиги керак.",
+    "correctAnswerUz": "Бир дақиқада 2 psi дан ошмаслиги керак.",
     "testId": "document",
     "question": "A straight truck or bus air brake system should not leak at the rate of more than ______ psi per minute with the engine off and the brakes released.",
     "choices": [
@@ -292,6 +336,8 @@ export const QUESTIONS = [
   {
     "id": "docx-26",
     "number": 26,
+    "questionUz": "Ҳаво босими ___ psi га етганда компрессор ҳаво ҳайдашни тўхтатиши керак.",
+    "correctAnswerUz": "Босим 125 psi га етганда.",
     "testId": "document",
     "question": "The air compressor should stop pumping air when pressure reach ___ psi.",
     "choices": [
@@ -307,6 +353,8 @@ export const QUESTIONS = [
   {
     "id": "docx-27",
     "number": 27,
+    "questionUz": "Фавқулодда вазиятда тормозни узиб-узиб босиш усули қандай қўлланади?",
+    "correctAnswerUz": "Тормозни бор кучингиз билан босинг. Ғилдираклар айланмай қолганда тормозни бўшатинг, улар яна айлана бошлагач, тормозни қайта босинг.",
     "testId": "document",
     "question": "Emergency stab braking is:",
     "choices": [
@@ -320,6 +368,8 @@ export const QUESTIONS = [
   {
     "id": "docx-28",
     "number": 28,
+    "questionUz": "Оғир транспорт воситасининг тўхтаб туриш ёки фавқулодда тормозини ишга тушган ҳолда ушлаб турадиган куч сизиб йўқолмаслиги керак. Бунга қайси куч мисол бўлади?",
+    "correctAnswerUz": "Пружинанинг босиш кучи.",
     "testId": "document",
     "question": "The parking or emergency brake on a heavy vehicle can only be held in position by something that cannot leak away, like:",
     "choices": [
@@ -333,6 +383,8 @@ export const QUESTIONS = [
   {
     "id": "docx-29",
     "number": 29,
+    "questionUz": "Тормоз босилганда тормоз колодкалари ёки уларнинг ишқаланиш қопламалари қайси юзага босилади?",
+    "correctAnswerUz": "Тормоз барабанига ёки дискига.",
     "testId": "document",
     "question": "When the brakes are applied the brake shoes (or linings) are pressed against the:",
     "choices": [
@@ -346,6 +398,8 @@ export const QUESTIONS = [
   {
     "id": "docx-30",
     "number": 30,
+    "questionUz": "Тиркамасиз юк автомобили ёки автобусда двигатель ўчирилган ва тормозлар босилган ҳолда ҳаво сизиши туфайли босимнинг пасайиши қанчадан ошмаслиги керак?",
+    "correctAnswerUz": "Бир дақиқада 3 psi дан ошмаслиги керак.",
     "testId": "document",
     "question": "The air loss rate for a straight truck or bus with the engine off and the brakes on should not be more than:",
     "choices": [
@@ -359,6 +413,8 @@ export const QUESTIONS = [
   {
     "id": "docx-31",
     "number": 31,
+    "questionUz": "Тормоз барабанидаги ёриқ узунлиги ишқаланиш юзаси энининг _____ қисмидан ошса, транспортни ҳайдаш хавфли.",
+    "correctAnswerUz": "Ишқаланиш юзаси энининг ярми.",
     "testId": "document",
     "question": "It is not safe to drive a vehicle that has brake drums with cracks that are longer than _____ of the width of the friction area.",
     "choices": [
@@ -372,6 +428,8 @@ export const QUESTIONS = [
   {
     "id": "docx-32",
     "number": 32,
+    "questionUz": "Идеал шароитда соатига 55 мил тезликда ҳаракатланаётган пневматик тормозли юк автомобили ёки автобусга тўхташ учун қанча масофа керак?",
+    "correctAnswerUz": "300 футдан ортиқ.",
     "testId": "document",
     "question": "In ideal conditions, a truck or bus with an air brake going at 55 mph would require stopping distance of:",
     "choices": [
@@ -385,6 +443,8 @@ export const QUESTIONS = [
   {
     "id": "docx-33",
     "number": 33,
+    "questionUz": "Оғир транспорт воситаларининг ғилдиракларида қайси турдаги тормоз механизми энг кўп учрайди?",
+    "correctAnswerUz": "S шаклидаги кулачокли барабанли тормоз.",
     "testId": "document",
     "question": "The most common type of foundation brake found on heavy vehicles is the:",
     "choices": [
@@ -398,6 +458,8 @@ export const QUESTIONS = [
   {
     "id": "docx-34",
     "number": 34,
+    "questionUz": "Ҳаво баллонларида автоматик тўкиш клапанлари бўлмаса, уларнинг тубида тўпланган мой ва сувни қанчалик тез-тез чиқариш керак?",
+    "correctAnswerUz": "Ҳар куни ҳайдашни тугатгач.",
     "testId": "document",
     "question": "If you do not have automatic tank drains, how often should you drain the oil and water from the bottom of compressed air storage tanks?",
     "choices": [
@@ -411,6 +473,8 @@ export const QUESTIONS = [
   {
     "id": "docx-35",
     "number": 35,
+    "questionUz": "Пружинали тормозлар ишга тушган бўлса, тормоз педалини қачон босиш мумкин?",
+    "correctAnswerUz": "Ҳеч қачон.",
     "testId": "document",
     "question": "If the spring brakes are on, when should you push the brake pedal?",
     "choices": [
@@ -424,6 +488,8 @@ export const QUESTIONS = [
   {
     "id": "docx-36",
     "number": 36,
+    "questionUz": "Қуйидаги ҳолатларнинг қайси бирида тўхтаб туриш тормозини ишлатиш НОТЎҒРИ?",
+    "correctAnswerUz": "Тик қияликдан тушаётганда транспортни кескин секинлатиш учун тўхтаб туриш тормозидан фойдаланиш тўғри эмас.",
     "testId": "document",
     "question": "Which of these is NOT a proper time to apply the parking brakes?",
     "choices": [
@@ -437,6 +503,8 @@ export const QUESTIONS = [
   {
     "id": "docx-37",
     "number": 37,
+    "questionUz": "Юк автомобилингизда икки контурли пневматик тизим бор. Контурлардан бирида босим йўқолса, нима бўлади?",
+    "correctAnswerUz": "Олдинги ёки орқа тормозлар тўлиқ ишламайди.",
     "testId": "document",
     "question": "Your truck has a dual air system and one of the system loses its pressure. What will happen?",
     "choices": [
@@ -450,6 +518,8 @@ export const QUESTIONS = [
   {
     "id": "docx-38",
     "number": 38,
+    "questionUz": "Қуруқ йўл қопламасида соатига 55 мил тезликда пневматик тормознинг кечикиб ишга тушиши тўхташ масофасини тахминан ___ футга узайтиради.",
+    "correctAnswerUz": "Тахминан 32 фут.",
     "testId": "document",
     "question": "The air brake lag distance at 55 mph on dry pavement adds about ___ feet.",
     "choices": [
@@ -465,6 +535,8 @@ export const QUESTIONS = [
   {
     "id": "docx-39",
     "number": 39,
+    "questionUz": "Пневматик тормозли барча транспорт воситаларида қайси жиҳоз бўлади?",
+    "correctAnswerUz": "Ҳаво баллонидаги босимни кўрсатувчи манометр.",
     "testId": "document",
     "question": "All air break equipped vehicles have:",
     "choices": [
@@ -480,6 +552,8 @@ export const QUESTIONS = [
   {
     "id": "docx-40",
     "number": 40,
+    "questionUz": "Юк автомобилида икки контурли пневматик тормоз тизими соз ва ҳаво баллонлари рухсат этилган энг кичик ҳажмда бўлса, босим 85 psi дан 100 psi гача неча сония ичида кўтарилиши керак?",
+    "correctAnswerUz": "45 сония ичида.",
     "testId": "document",
     "question": "If your truck has a properly functioning dual air brake system and minimum size air tanks the air pressure should build up from 85 to 100 psi within how many seconds?",
     "choices": [
@@ -493,6 +567,8 @@ export const QUESTIONS = [
   {
     "id": "docx-41",
     "number": 41,
+    "questionUz": "Тик қияликдан тушаётганда тезлигингиз соатига 40 мил деб белгиланган «хавфсиз» тезликка етди. Ишчи тормозларни тезлик соатига ___ милгача пасайгунча босиб турасиз.",
+    "correctAnswerUz": "Соатига 35 милгача.",
     "testId": "document",
     "question": "If you are driving down a steep downgrade and you have reached your \"safe\" speed of 40 mph, you would apply the service brakes until your speed drops to ___ mph.",
     "choices": [
@@ -506,6 +582,8 @@ export const QUESTIONS = [
   {
     "id": "docx-42",
     "number": 42,
+    "questionUz": "Пневматик тормозли транспортда тўхтаб туриш тормозини қачон ишга тушириш керак?",
+    "correctAnswerUz": "Транспортни қаерда назоратсиз қолдирсангиз ҳам, тўхтаб туриш тормозини ишга солинг.",
     "testId": "document",
     "question": "With air brake vehicles, the parking brakes should be used:",
     "choices": [
@@ -519,6 +597,8 @@ export const QUESTIONS = [
   {
     "id": "docx-43",
     "number": 43,
+    "questionUz": "Транспортни ҳар сафар тўхташ жойига қўйганда тўхтаб туриш тормози ишлатилади. Қайси ҳолат бундан мустасно?",
+    "correctAnswerUz": "Тормозлар жуда қизиб кетган бўлса, масалан, тик қияликдан ҳозиргина тушган бўлсангиз.",
     "testId": "document",
     "question": "Any time you park, use the parking brakes, except:",
     "choices": [
@@ -532,6 +612,8 @@ export const QUESTIONS = [
   {
     "id": "docx-44",
     "number": 44,
+    "questionUz": "Фавқулодда вазиятда назоратли тормозлаш усули қандай қўлланади?",
+    "correctAnswerUz": "Ғилдиракларнинг айланиши тўхтаб қолмайдиган даражада тормозни имкон қадар қаттиқ босинг.",
     "testId": "document",
     "question": "Emergency controlled braking is when you:",
     "choices": [
@@ -545,6 +627,8 @@ export const QUESTIONS = [
   {
     "id": "docx-45",
     "number": 45,
+    "questionUz": "Ҳаво босими пастлиги ҳақида огоҳлантириш берилганда энг муҳим ҳаракат нима?",
+    "correctAnswerUz": "Имкон қадар тезроқ хавфсиз жойда тўхтанг ва транспортни ўша ерга қўйинг.",
     "testId": "document",
     "question": "The most important thing to do when a low air pressure warning comes on is:",
     "choices": [
@@ -558,6 +642,8 @@ export const QUESTIONS = [
   {
     "id": "docx-46",
     "number": 46,
+    "questionUz": "Ҳаво босими белгиланган вақт ичида керакли даражага етмаса, нима содир бўлиши мумкин?",
+    "correctAnswerUz": "Ҳайдаш вақтида ҳаво босими ҳаддан ташқари пасайиб, фавқулодда тўхташга тўғри келиши мумкин.",
     "testId": "document",
     "question": "If air pressure is not built up within the correct amount of time, then:",
     "choices": [
@@ -571,6 +657,8 @@ export const QUESTIONS = [
   {
     "id": "docx-47",
     "number": 47,
+    "questionUz": "Қонунга кўра, юк автомобиллари ва автобусларнинг тўхтаб туриш ёки фавқулодда тормозларини ______ босими ишга тушган ҳолда ушлаб туриши мумкин.",
+    "correctAnswerUz": "Пружинанинг босиш кучи билан.",
     "testId": "document",
     "question": "Parking or emergency brakes of trucks and buses can be legally held on by ______ pressure.",
     "choices": [
@@ -584,6 +672,8 @@ export const QUESTIONS = [
   {
     "id": "docx-48",
     "number": 48,
+    "questionUz": "S шаклидаги кулачокли тормозларда тирқишни қўлда созлайдиган ричагнинг эркин йўлини текшириш учун транспортни қаерда ва қандай ҳолатда тўхтатиш керак?",
+    "correctAnswerUz": "Текис жойда тўхтанг, ғилдираклар остига тирагич қўйинг ва тўхтаб туриш тормозини бўшатинг.",
     "testId": "document",
     "question": "To check the free play of manual slack adjusters of S-cam brakes, you should park on:",
     "choices": [
@@ -597,6 +687,8 @@ export const QUESTIONS = [
   {
     "id": "docx-49",
     "number": 49,
+    "questionUz": "Одатий шароитда тўхтаб туриш тормозини ишга тушириш учун ҳайдовчи нима қилади?",
+    "correctAnswerUz": "Тормоз тизимидаги ҳавони чиқаринг.",
     "testId": "document",
     "question": "Under normal conditions in order to engage the parking brakes driver:",
     "choices": [
@@ -610,6 +702,8 @@ export const QUESTIONS = [
   {
     "id": "docx-50",
     "number": 50,
+    "questionUz": "Ишчи тормозлар тўғри ишлаётганини қандай текшириш керак?",
+    "correctAnswerUz": "Текис жойда тўхтанг ва ҳаво босими меъёрга етгунча кутинг. Тўхтаб туриш тормозини бўшатиб, соатига тахминан 5 мил тезликда олдинга юринг. Сўнг тормоз педалини дадил босинг.",
     "testId": "document",
     "question": "How should you check that your service brakes are working properly?",
     "choices": [
@@ -623,6 +717,8 @@ export const QUESTIONS = [
   {
     "id": "docx-51",
     "number": 51,
+    "questionUz": "Ишчи тормоз қувурида катта ҳаво сизиши бор. Тормозни босганингизда ҳаво чиқиб, ишчи тормоз тизимидаги босим йўқолиши нимага олиб келади?",
+    "correctAnswerUz": "Тиркаманинг фавқулодда тормозлари ишга тушади.",
     "testId": "document",
     "question": "You have a major leak in the service line and put on the brakes. Service air pressure will escape and cause the:",
     "choices": [
@@ -636,6 +732,8 @@ export const QUESTIONS = [
   {
     "id": "docx-52",
     "number": 52,
+    "questionUz": "Ҳаво компрессорининг регулятори нимани бошқаради?",
+    "correctAnswerUz": "Ҳаво баллонларига қачон ҳаво ҳайдалишини бошқаради.",
     "testId": "document",
     "question": "The air compressor governor controls:",
     "choices": [
@@ -649,6 +747,8 @@ export const QUESTIONS = [
   {
     "id": "docx-53",
     "number": 53,
+    "questionUz": "Транспорт воситангизда спирт буғлатгич бўлса, у нима учун хизмат қилади?",
+    "correctAnswerUz": "Совуқ ҳавода пневматик тормоз клапанларида муз ҳосил бўлиш хавфини камайтиради.",
     "testId": "document",
     "question": "If your vehicle has an alcohol evaporator, it is there to:",
     "choices": [
@@ -662,6 +762,8 @@ export const QUESTIONS = [
   {
     "id": "docx-54",
     "number": 54,
+    "questionUz": "Тормоз тирқишини созлаш ричагини қаттиқ тортганда унинг эркин йўли тахминан ______ дюймдан ошса, уни созлаш керак.",
+    "correctAnswerUz": "Бир дюйм.",
     "testId": "document",
     "question": "A slack adjuster's free play needs to be adjusted if it is more than about ______ how many inches when you pull hard on it?",
     "choices": [
@@ -675,6 +777,8 @@ export const QUESTIONS = [
   {
     "id": "docx-55",
     "number": 55,
+    "questionUz": "Икки контурли пневматик тормоз тизимига эга юк автомобили ёки автобусда йўлга чиқишдан олдин ҳаво босими камида ___ psi бўлиши керак.",
+    "correctAnswerUz": "Камида 100 psi.",
     "testId": "document",
     "question": "Before driving a truck or bus with a dual air brake system, the air pressure must be at least ___ psi.",
     "choices": [
@@ -690,6 +794,8 @@ export const QUESTIONS = [
   {
     "id": "docx-56",
     "number": 56,
+    "questionUz": "Пневматик тормоз тизимида тормоз педали қандай вазифани бажаради?",
+    "correctAnswerUz": "Тормозларни ишга тушириш учун бериладиган ҳаво босимини бошқаради.",
     "testId": "document",
     "question": "The brake pedal in an air brake system:",
     "choices": [
@@ -703,6 +809,8 @@ export const QUESTIONS = [
   {
     "id": "docx-57",
     "number": 57,
+    "questionUz": "Тягачлар ва тиркамасиз юк автомобилларида ҳаво босими ____ psi дан пастга тушганда пружинали тормозлар транспортни тўхтатади.",
+    "correctAnswerUz": "Босим 20 psi дан пастга тушганда.",
     "testId": "document",
     "question": "This spring brakes used on tractors and straight tracks will bring your truck to a stop when the air pressure drops below ____ psi.",
     "choices": [
@@ -718,6 +826,8 @@ export const QUESTIONS = [
   {
     "id": "docx-58",
     "number": 58,
+    "questionUz": "Тўхтаб туриш тормозини ишга туширмай ва ғилдираклар остига тирагич қўймай юк автомобилини қачон назоратсиз қолдириш мумкин?",
+    "correctAnswerUz": "Ҳеч қачон.",
     "testId": "document",
     "question": "When is it OK to leave your truck unattended without applying the parking brakes and chocking the wheels?",
     "choices": [
@@ -731,6 +841,8 @@ export const QUESTIONS = [
   {
     "id": "docx-59",
     "number": 59,
+    "questionUz": "Пневматик ишчи тормозларни қандай синаш керак?",
+    "correctAnswerUz": "Секин олдинга ҳаракатланаётганда тормоз педалини дадил босинг.",
     "testId": "document",
     "question": "To test air service brakes, you should:",
     "choices": [
@@ -744,6 +856,8 @@ export const QUESTIONS = [
   {
     "id": "docx-60",
     "number": 60,
+    "questionUz": "Транспорт воситангизда спирт буғлатгич бўлса, совуқ кунларда ҳар куни нима қилишингиз керак?",
+    "correctAnswerUz": "Спирт сатҳини текширинг ва зарур бўлса, меъёргача тўлдиринг.",
     "testId": "document",
     "question": "If your vehicle has an alcohol evaporator, every day during cold weather you should:",
     "choices": [
@@ -757,6 +871,8 @@ export const QUESTIONS = [
   {
     "id": "docx-61",
     "number": 61,
+    "questionUz": "Тормозни босганда ишчи босим манометри ҳаво босимининг қайси қийматини кўрсатади?",
+    "correctAnswerUz": "Тормозларга қанча ҳаво босими берилаётганини кўрсатади.",
     "testId": "document",
     "question": "The application pressure gauge shows how much air pressure you:",
     "choices": [
@@ -770,6 +886,8 @@ export const QUESTIONS = [
   {
     "id": "docx-62",
     "number": 62,
+    "questionUz": "Қандай босимда хавфсизлик клапани ҳавони автоматик равишда чиқариб юборади?",
+    "correctAnswerUz": "Босим 150 psi га етганда.",
     "testId": "document",
     "question": "The safety valve discharges automatically at the pressure of:",
     "choices": [
@@ -783,6 +901,8 @@ export const QUESTIONS = [
   {
     "id": "docx-63",
     "number": 63,
+    "questionUz": "Ғилдиракларнинг блокланишига қарши тормоз тизими (ABS) ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "ABS фавқулодда вазиятда тормозлаш усулини ўзгартиради.",
     "testId": "document",
     "question": "Which of the following about antilock braking system is true?",
     "choices": [
@@ -798,6 +918,8 @@ export const QUESTIONS = [
   {
     "id": "docx-64",
     "number": 64,
+    "questionUz": "Босимни аста-секин ўзгартирувчи бошқарув клапани нимани бошқаришга имкон беради?",
+    "correctAnswerUz": "Пружинали тормозларни бошқариш имконини беради.",
     "testId": "document",
     "question": "The modulating control valve allows you to control:",
     "choices": [
@@ -811,6 +933,8 @@ export const QUESTIONS = [
   {
     "id": "docx-65",
     "number": 65,
+    "questionUz": "Юк автомобили ёки автобусингизда тўхтаб туриш тормозини бошқарувчи иккита клапан бўлса, алоҳида баллон босимидан нима учун фойдаланиш мумкин?",
+    "correctAnswerUz": "Қисқа масофага юриш учун пружинали фавқулодда ва тўхтаб туриш тормозларини бўшатиш мумкин.",
     "testId": "document",
     "question": "If your truck or bus has dual parking control valves, you can use pressure from a separate tank to:",
     "choices": [

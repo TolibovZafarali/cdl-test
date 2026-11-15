@@ -1,6 +1,8 @@
 export const QUESTIONS = [
   {
     "id": "gk-001",
+    "questionUz": "Контейнерларда ташиладиган юклар ҳақида қайси фикр тўғри?",
+    "correctAnswerUz": "Юк манзилгача бўлган йўлнинг бир қисмини поезд ёки кемада босиб ўтса, уни одатда контейнерда ташишади.",
     "number": 1,
     "testId": "general-knowledge",
     "question": "Containerized loads:",
@@ -14,6 +16,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-002",
+    "questionUz": "Хавфли моддаларни ташиш учун қўшимча рухсат олиши керак бўлган ҳайдовчидан қуйидагиларнинг қайси бирини билиш талаб этилмайди?",
+    "correctAnswerUz": "Кимё асослари.",
     "number": 2,
     "testId": "general-knowledge",
     "question": "Which of these is NOT required knowledge for drivers needing the hazardous material endorsement?",
@@ -27,6 +31,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-003",
+    "questionUz": "Автомагистралдаги йўл ишлари олиб борилаётган ҳудуддан ўтишда бир нечта эҳтиёт чорасига риоя қилиш керак. Тезлик чекловига амал қилишдан ташқари, яна нима қилишингиз керак?",
+    "correctAnswerUz": "Тезликни транспорт оқимига мосланг.",
     "number": 3,
     "testId": "general-knowledge",
     "question": "There are several things to do when driving through a highway work zone. In addition to obeying the speed limit, which of these should you also do?",
@@ -40,6 +46,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-004",
+    "questionUz": "Тўқнашувнинг олдини олиш учун йўлнинг ўнг ёқасига чиқдингиз. Ҳозир у ерда соатига 40 мил тезликда кетяпсиз. Қопламали қатнов қисмига қандай қайтишингиз керак?",
+    "correctAnswerUz": "Агар йўл ёқаси бўш бўлса, машина тўлиқ тўхтагунича ўша ерда қолинг. Кейин хавфсиз бўлганда қатнов қисмига қайтинг.",
     "number": 4,
     "testId": "general-knowledge",
     "question": "To avoid a crash, you had to drive into the right shoulder. You are now driving at 40 mph on the shoulder. How should you move back onto the pavement?",
@@ -53,6 +61,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-005",
+    "questionUz": "«Қонун бўйича назарда тутилган розилик» (implied consent) нимани англатади?",
+    "correctAnswerUz": "Бу қонингизда алкоголь бор-йўқлигини текширишга розилик берганингизни англатади.",
     "number": 5,
     "testId": "general-knowledge",
     "question": "\"Implied consent\" means:",
@@ -68,6 +78,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-006",
+    "questionUz": "Қачон машина ҳайдашни тўхтатишингиз керак?",
+    "correctAnswerUz": "Уйқу босиши билан тўхтанг.",
     "number": 6,
     "testId": "general-knowledge",
     "question": "You should stop driving:",
@@ -83,6 +95,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-007",
+    "questionUz": "Хавфли моддалар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Барча хавфли моддалар соғлиқ ва хавфсизликка таҳдид солади.",
     "number": 7,
     "testId": "general-knowledge",
     "question": "Which of these is true about hazardous materials:",
@@ -96,6 +110,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-008",
+    "questionUz": "Тижорат транспорт воситасини алкоголь ёки гиёҳванд модда таъсирида бошқариш қоидабузарлигини биринчи марта содир этсангиз, тижорат ҳайдовчилик гувоҳномангиздан (CDL) камида _____ муддатга маҳрум бўласиз.",
+    "correctAnswerUz": "Камида 1 йил.",
     "number": 8,
     "testId": "general-knowledge",
     "question": "For first offence of driving a commercial vehicle under the influence of alcohol or drugs, you will lose your CDL for at least _____.",
@@ -109,6 +125,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-009",
+    "questionUz": "Нега узатмаларни тўғри алмаштириш муҳим?",
+    "correctAnswerUz": "Транспорт воситасини назоратда ушлаб туриш учун.",
     "number": 9,
     "testId": "general-knowledge",
     "question": "Why is it important to shift gears correctly?",
@@ -122,6 +140,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-010",
+    "questionUz": "Сафар олдидан машинани текшираётганда ўт олдириш калити қаерда бўлиши керак?",
+    "correctAnswerUz": "Ўт олдириш калити чўнтагингизда бўлиши керак.",
     "number": 10,
     "testId": "general-knowledge",
     "question": "Where should the ignition key be during the pre-trip inspection?",
@@ -135,6 +155,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-011",
+    "questionUz": "Тижорат транспорт воситаларининг қайси хусусияти туфайли машинани ўз бўлагингиз ўртасида ушлаб туришга алоҳида эътибор бериш керак?",
+    "correctAnswerUz": "Тижорат транспорт воситалари кўпинча бошқа машиналардан кенгроқ бўлади.",
     "number": 11,
     "testId": "general-knowledge",
     "question": "Extra care is needed to keep your vehicle centered in your lane because commercial vehicles:",
@@ -148,6 +170,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-012",
+    "questionUz": "Ўзингиз билан нечта қизил нур қайтарувчи учбурчак олиб юришингиз шарт?",
+    "correctAnswerUz": "3 та учбурчак.",
     "number": 12,
     "testId": "general-knowledge",
     "question": "How many red reflective triangles are you required to carry?",
@@ -161,6 +185,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-013",
+    "questionUz": "Бурилиш пайтида қарама-қарши йўналишдаги бўлакка чиқишга тўғри келса, нима қилишингиз керак?",
+    "correctAnswerUz": "Қаршидан келаётган транспортни кузатинг.",
     "number": 13,
     "testId": "general-knowledge",
     "question": "If you must cross into the oncoming lane as you make a turn, you should:",
@@ -174,6 +200,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-014",
+    "questionUz": "Тунда машина ҳайдаганда нима қилишингиз керак?",
+    "correctAnswerUz": "Тезликни шундай танлангки, олдингизда кўриниб турган масофа ичида тўхтай олинг.",
     "number": 14,
     "testId": "general-knowledge",
     "question": "When driving at night, you should:",
@@ -187,6 +215,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-015",
+    "questionUz": "Қуйидагилардан қайси бири олдинги шинанинг ишдан чиқишига хос белги эмас?",
+    "correctAnswerUz": "Машинанинг орқа қисми у ёқдан бу ёққа сирпаниши.",
     "number": 15,
     "testId": "general-knowledge",
     "question": "Which of the following is NOT a characteristic of a front tire failure?",
@@ -200,6 +230,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-017",
+    "questionUz": "Тижорат ҳайдовчилик гувоҳномангизда хавфли моддаларни ташишга рухсат белгиси йўқ. Сиздан хавфли юк белгиси ўрнатилган машинада шундай моддаларни етказиб беришни сўрашди. Нима қилишингиз керак?",
+    "correctAnswerUz": "Бу юкни ташишдан бош тортинг.",
     "number": 17,
     "testId": "general-knowledge",
     "question": "You do NOT have a Hazardous Materials Endorsement on your Commercial Driver's License. You are asked to deliver hazardous materials in a placarded vehicle. You should:",
@@ -213,6 +245,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-018",
+    "questionUz": "Одамнинг қонидаги алкоголь концентрациясини (BAC) аниқлаш учун нимани билиш керак?",
+    "correctAnswerUz": "Одамнинг вазни қанча эканини.",
     "number": 18,
     "testId": "general-knowledge",
     "question": "To determine Blood Alcohol Concentration (BAC) for a person, it is necessary to know:",
@@ -226,6 +260,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-019",
+    "questionUz": "Тормозлаш пайтида етакчи ғилдираклар сирпаниб кетса, машинани тўғрилаш учун нима қилишингиз керак?",
+    "correctAnswerUz": "Тормозни бўшатинг, рулни тез буринг, сўнг машинани тўғрилаш учун рулни тескари томонга буринг.",
     "number": 19,
     "testId": "general-knowledge",
     "question": "To correct a drive-wheel braking skid, you should:",
@@ -239,6 +275,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-020",
+    "questionUz": "Ғилдиракларнинг қулфланишига қарши тормоз тизими (ABS) нима қилади?",
+    "correctAnswerUz": "ABS тормозлаш пайтида машинани яхшироқ бошқариш имконини беради.",
     "number": 20,
     "testId": "general-knowledge",
     "question": "ABS (antilock brakes) brakes:",
@@ -252,6 +290,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-021",
+    "questionUz": "Нур қайтарувчи учбурчакларни жойлаштираётганда ўз хавфсизлигингиз учун нима қилишингиз керак?",
+    "correctAnswerUz": "Учбурчакларни ўзингиз билан сиз томон келаётган транспорт орасида ушланг.",
     "number": 21,
     "testId": "general-knowledge",
     "question": "For your safety, when setting out reflective triangles, you should:",
@@ -265,6 +305,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-022",
+    "questionUz": "Авариявий тўхташ йўллари ҳақида қайси фикр тўғри?",
+    "correctAnswerUz": "Тормозлари ишламай қолган ҳар қандай ҳайдовчи авариявий тўхташ йўлидан фойдаланиши керак.",
     "number": 22,
     "testId": "general-knowledge",
     "question": "Escape ramps:",
@@ -278,6 +320,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-023",
+    "questionUz": "Машина тўхтаб турганида қуйидагилардан қайси бирини синаб кўриш керак?",
+    "correctAnswerUz": "Тўхтаб туриш тормози.",
     "number": 23,
     "testId": "general-knowledge",
     "question": "Which of these should be tested on the vehicle when stopped?",
@@ -291,6 +335,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-024",
+    "questionUz": "Ҳаракат пайтида гидравлик тормозлар ишдан чиқса, тизимда босим ҳосил бўлмайди. Тормоз педали юмшоқ босилади ёки полгача тушиб кетади. Нима қилишингиз керак?",
+    "correctAnswerUz": "Тизимда босим ҳосил қилиш учун тормоз педалини бир неча марта босиб-бўшатинг.",
     "number": 24,
     "testId": "general-knowledge",
     "question": "When hydraulic brakes fail while driving, the system won't build up pressure and the brake pedal will feel spongy or go to the floor. What action should you take?",
@@ -304,6 +350,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-025",
+    "questionUz": "Машинада ёнғин чиқса, уни йўлдан четга олиб чиққандан кейин нима қилишингиз керак?",
+    "correctAnswerUz": "Фавқулодда хизматларга хабар беринг.",
     "number": 25,
     "testId": "general-knowledge",
     "question": "When there is a vehicle fire, get your vehicle off the road and:",
@@ -317,6 +365,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-026",
+    "questionUz": "Спиртли ичимлик ичган бўлсангиз, машина ҳайдашдан олдин нима қилишингиз керак?",
+    "correctAnswerUz": "Алкоголнинг таъсири ўтиб кетишини кутинг.",
     "number": 26,
     "testId": "general-knowledge",
     "question": "If you have been drinking alcohol, before you drive, you should:",
@@ -330,6 +380,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-027",
+    "questionUz": "Совуқ ҳавода машина ҳайдаганда шиналар протектори нимани таъминлаши керак?",
+    "correctAnswerUz": "Шина протектори қорда машинани бошқариш ва олдинга юргизиш учун йўл билан етарлича илашишни таъминлаши керак.",
     "number": 27,
     "testId": "general-knowledge",
     "question": "When driving in cold weather, your tire tread should:",
@@ -343,6 +395,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-028",
+    "questionUz": "Двигатель билан тормозлаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Пастликка тушишда тормозларни ишлатиш двигатель билан тормозлаш таъсирини кучайтиради.",
     "number": 28,
     "testId": "general-knowledge",
     "question": "Which statement is true about using engine braking?",
@@ -356,6 +410,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-029",
+    "questionUz": "Босилиб зичлашган қор билан қопланган йўлда тезликни қанчага камайтиришингиз керак?",
+    "correctAnswerUz": "Тезликни ярмига (1/2 га) камайтиринг.",
     "number": 29,
     "testId": "general-knowledge",
     "question": "When you are driving on a snow-packed road, you should reduce your speed by:",
@@ -369,6 +425,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-030",
+    "questionUz": "Рулни тескари томонга буриб тўғрилаш (countersteering) нима дегани?",
+    "correctAnswerUz": "Тўқнашувдан қочиш учун рулни бир томонга бургандан сўнг уни тескари томонга буриш.",
     "number": 30,
     "testId": "general-knowledge",
     "question": "What is countersteering?",
@@ -382,6 +440,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-031",
+    "questionUz": "Машинани кўрикдан ўтказишда ______ ни текшириш ёнғиннинг олдини олишга ёрдам бермайди.",
+    "correctAnswerUz": "Аккумулятордаги суюқлик сатҳи.",
     "number": 31,
     "testId": "general-knowledge",
     "question": "During a vehicle inspection, checking the ______ will NOT help prevent a fire?",
@@ -395,6 +455,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-032",
+    "questionUz": "Катта йўлда кетаётганда шина ёрилса, қуйидагиларнинг қайси бири содир бўлади?",
+    "correctAnswerUz": "Машинада титраш сезилади.",
     "number": 32,
     "testId": "general-knowledge",
     "question": "Which of these happens when a tire blows out at highway?",
@@ -408,6 +470,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-033",
+    "questionUz": "Носоз чиқинди газлар тизими нима учун хавфли?",
+    "correctAnswerUz": "Заҳарли газлар кабинага ёки ухлаш бўлимига кириши мумкин.",
     "number": 33,
     "testId": "general-knowledge",
     "question": "Why is a broken exhaust system dangerous?",
@@ -421,6 +485,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-034",
+    "questionUz": "Нима учун бурилиш давомида бурилиш кўрсаткичи узлуксиз ишлаб туриши керак?",
+    "correctAnswerUz": "Хавфсиз бурилиш учун рулни икки қўл билан ушлаш керак.",
     "number": 34,
     "testId": "general-knowledge",
     "question": "You should signal continuously while turning because:",
@@ -434,6 +500,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-035",
+    "questionUz": "Паст тезликда ҳайдаётганда олдингиздаги йўлни тахминан ______ масофагача кузатишингиз керак.",
+    "correctAnswerUz": "Тахминан бир квартал узоқликка.",
     "number": 35,
     "testId": "general-knowledge",
     "question": "The distance that you should look ahead of your vehicle while driving is about ______ at low speed:",
@@ -447,6 +515,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-036",
+    "questionUz": "Автомагистралга эгри кириш йўли орқали кираётганда ёки ундан эгри чиқиш йўли орқали чиқаётганда нима қилишингиз керак?",
+    "correctAnswerUz": "Белгида кўрсатилган тезлик чегарасидан соатига 5–10 мил секинроқ юринг.",
     "number": 36,
     "testId": "general-knowledge",
     "question": "When exiting or entering on a curved freeway ramp, you should:",
@@ -462,6 +532,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-037",
+    "questionUz": "Тажовузкор ҳайдовчига дуч келсангиз, нима қилишингиз керак?",
+    "correctAnswerUz": "Унга йўл бериш учун қўлингиздан келганини қилинг.",
     "number": 37,
     "testId": "general-knowledge",
     "question": "When confronted by an aggressive driver, you should:",
@@ -475,6 +547,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-038",
+    "questionUz": "Тезлигингизни икки баравар оширсангиз, тўхташ учун тахминан ______ баравар кўп масофа керак бўлади.",
+    "correctAnswerUz": "Тўхташ масофаси тахминан тўрт баравар ортади.",
     "number": 38,
     "testId": "general-knowledge",
     "question": "Whenever you double your speed, it takes about ______ times as much distance to stop.",
@@ -488,6 +562,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-039",
+    "questionUz": "Йўл сирпанчиқ бўлганда қандай ҳаракат қилишингиз керак?",
+    "correctAnswerUz": "Бурилишларни имкон қадар равон бажаринг.",
     "number": 39,
     "testId": "general-knowledge",
     "question": "When the roads are slippery, you should:",
@@ -501,6 +577,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-040",
+    "questionUz": "Ҳайдовчи қўлланмасига кўра, нима учун товуш сигналидан фойдаланишни чеклаш керак?",
+    "correctAnswerUz": "Товуш сигнали бошқа ҳайдовчиларни чўчитиб юбориши мумкин.",
     "number": 40,
     "testId": "general-knowledge",
     "question": "According to the Driver's Manual why should you limit the use of your horn?",
@@ -514,6 +592,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-051",
+    "questionUz": "Юк ортиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Рухсат этилган вазн чегараларини штат қонунлари белгилайди.",
     "number": 51,
     "testId": "general-knowledge",
     "question": "Which of these statements about cargo loading is true?",
@@ -527,6 +607,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-052",
+    "questionUz": "Икки бўлакли йўлда кетяпсиз. Қаршидан келаётган машина ўз бўлагидан чиқиб, сизнинг бўлагингизда тўғри сиз томон келяпти. Бундай вазиятда кўпинча энг тўғри чора қайси?",
+    "correctAnswerUz": "Рулни ўнгга буринг.",
     "number": 52,
     "testId": "general-knowledge",
     "question": "You are driving on a two-lane road. An oncoming driver drifts into your lane and is headed straight for you. Which of these is most often the best action to take?",
@@ -540,6 +622,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-053",
+    "questionUz": "Ҳаракат икки томонлама бўлган икки бўлакли йўлнинг тепалик ёки бурилиш қисмида тўхташингизга тўғри келди. Нур қайтарувчи учбурчакларни қандай масофага қўйишингиз керак?",
+    "correctAnswerUz": "Учбурчакни машинангиз орқасида, ундан 500 футдан ошмайдиган масофада қўйинг.",
     "number": 53,
     "testId": "general-knowledge",
     "question": "You must stop on a hill or curve on a two-lane two-way road. How far should you place reflective triangles?",
@@ -553,6 +637,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-054",
+    "questionUz": "Бурилиш учун кенг жой керак бўладиган узун машинани ҳайдаяпсиз. Бир кўчадан иккинчисига чапга бурилмоқчисиз. Ҳар иккала кўча ҳам икки бўлакли ва ҳаракат икки томонлама. Қандай бурилишингиз керак?",
+    "correctAnswerUz": "Чорраҳанинг ўртасига етганда бурилишни бошланг.",
     "number": 54,
     "testId": "general-knowledge",
     "question": "You are driving a long vehicle that makes wide turns. You want to turn left from one street onto another. Both are two-lane two-way streets. You should:",
@@ -566,6 +652,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-055",
+    "questionUz": "Ёмон об-ҳаво ва ҳайдаш шароити ҳақидаги қайси фикр нотўғри?",
+    "correctAnswerUz": "«Ёмғир ёға бошлаган пайтга қараганда, у анча ёққандан кейин йўл сирпанчиқроқ бўлади» деган фикр.",
     "number": 55,
     "testId": "general-knowledge",
     "question": "What is NOT true about bad weather and driving conditions?",
@@ -579,6 +667,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-056",
+    "questionUz": "Юк ортилган юк машиналари ва тиркамали тягачларнинг ҳайдовчилари сафарнинг дастлабки ______ мили ичида юк мустаҳкам маҳкамланганини текшириши шарт.",
+    "correctAnswerUz": "Сафарнинг дастлабки 50 мили ичида.",
     "number": 56,
     "testId": "general-knowledge",
     "question": "Drivers of trucks and tractors-trailers with cargo must check that the cargo is well secured within the first ______ miles of the trip.",
@@ -592,6 +682,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-057",
+    "questionUz": "Тўхтаб турган жойингиздан тепаликка қараб ҳаракатни бошлаётганда нима қилишингиз керак?",
+    "correctAnswerUz": "Двигателга газ бериш билан бир вақтда тўхтаб туриш тормозини бўшатинг.",
     "number": 57,
     "testId": "general-knowledge",
     "question": "When you are starting to move up a hill from a stop:",
@@ -605,6 +697,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-058",
+    "questionUz": "Темир йўл кесишмасида қачон тўлиқ тўхташ шарт?",
+    "correctAnswerUz": "Юк турига кўра штат ёки федерал қоидалар тўхташни талаб қилганда.",
     "number": 58,
     "testId": "general-knowledge",
     "question": "A full stop is required at a railroad crossing when:",
@@ -618,6 +712,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-059",
+    "questionUz": "Орқа шиналардан бири ишдан чиқса, орқадаги жуфт шиналар қандай ёрдам беради?",
+    "correctAnswerUz": "Орқадаги жуфт шиналар одатда машинанинг орқа қисми у ёқдан бу ёққа сирпанишининг олдини олади.",
     "number": 59,
     "testId": "general-knowledge",
     "question": "In the event of a rear tire failure, dual rear tire:",
@@ -631,6 +727,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-060",
+    "questionUz": "Ёрдамчи секинлатгичлардан (ретардерлардан) қаерда фойдаланиш мумкин?",
+    "correctAnswerUz": "Фақат қонун рухсат берган жойларда.",
     "number": 60,
     "testId": "general-knowledge",
     "question": "Retarders can be used:",
@@ -644,6 +742,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-061",
+    "questionUz": "Машинадаги ёнғин ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Ёнаётган шинани сув билан совитиш керак.",
     "number": 61,
     "testId": "general-knowledge",
     "question": "Which of these statements about vehicle fire is true?",
@@ -657,6 +757,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-062",
+    "questionUz": "Қачон товуш сигналидан фойдаланишингиз керак?",
+    "correctAnswerUz": "Товуш сигнали тўқнашувнинг олдини олишга ёрдам бериши мумкин бўлганда.",
     "number": 62,
     "testId": "general-knowledge",
     "question": "You should use your horn when:",
@@ -670,6 +772,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-063",
+    "questionUz": "Баландлиги 13 футдан ортиқ тижорат транспорт воситасини ҳайдаётганда нима қилишингиз керак?",
+    "correctAnswerUz": "Тўхтаб, тепадаги тўсиқ остидан ўтиш учун баландлик етарли эканига ишонч ҳосил қилинг.",
     "number": 63,
     "testId": "general-knowledge",
     "question": "When driving a commercial vehicle with a height over 13 feet, you should:",
@@ -683,6 +787,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-064",
+    "questionUz": "Бошқа машина, пиёда ёки велосипедчининг ёнидан ўтаётганда қайси эҳтимолни ҳисобга олишингиз керак?",
+    "correctAnswerUz": "Улар сиз кетаётган бўлакка чиқиб қолиши мумкин.",
     "number": 64,
     "testId": "general-knowledge",
     "question": "When you are passing another vehicle, pedestrian, or bicycle, you should assume that:",
@@ -696,6 +802,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-065",
+    "questionUz": "Машинага юк шундай ортилганки, етакчи ўққа жуда оз оғирлик тушяпти. Нима содир бўлиши мумкин?",
+    "correctAnswerUz": "Етакчи ғилдиракларнинг йўл билан илашиши ёмонлашиши мумкин.",
     "number": 65,
     "testId": "general-knowledge",
     "question": "A vehicle is loaded with very little weight on the drive axle. What may happen?",
@@ -709,6 +817,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-066",
+    "questionUz": "Тўхтаб туриш тормозини қачон синаб кўриш керак?",
+    "correctAnswerUz": "Машина тўхтаб турганида.",
     "number": 66,
     "testId": "general-knowledge",
     "question": "When should you test your parking brake?",
@@ -722,6 +832,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-067",
+    "questionUz": "Ҳайдовчи ҳаракат пайтида олдиндаги йўлни қанчалик узоққача кузатиши керак?",
+    "correctAnswerUz": "Олдингиздаги йўлнинг 12–15 сонияда босиб ўтадиган қисмига қаранг.",
     "number": 67,
     "testId": "general-knowledge",
     "question": "How far should a driver look ahead of the vehicle while driving?",
@@ -735,6 +847,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-068",
+    "questionUz": "ABS тизимли машина ҳайдаяпсиз. Йўлда асбоблар панелидаги сариқ чироқ милтиллай бошлади. Бу нимани англатади?",
+    "correctAnswerUz": "Машинангизнинг ABS тизими тўғри ишламаётган бўлиши мумкин.",
     "number": 68,
     "testId": "general-knowledge",
     "question": "You are driving a car with ABS brakes, and see a yellow light on the dashboard starts flashing during driving. It means:",
@@ -748,6 +862,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-069",
+    "questionUz": "Қуйидаги фикрларнинг қайси бири нотўғри?",
+    "correctAnswerUz": "«Одам организми алкоголни қанчалик тез сўриши ва чиқариб юборишини ўзи бошқара олади» деган фикр.",
     "number": 69,
     "testId": "general-knowledge",
     "question": "Which of these is NOT true?",
@@ -761,6 +877,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-070",
+    "questionUz": "Назоратли тормозлаш нима дегани?",
+    "correctAnswerUz": "Ғилдираклар айланишдан тўхтаб қолмайдиган қилиб тормоз педалини қатъий босиш.",
     "number": 70,
     "testId": "general-knowledge",
     "question": "Controlled braking is:",
@@ -774,6 +892,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-071",
+    "questionUz": "Туманда машина ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Туманга киргач, у янада қуюқлашиши мумкин деб ҳисобланг.",
     "number": 71,
     "testId": "general-knowledge",
     "question": "Which of these statements about driving in fog is true?",
@@ -787,6 +907,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-072",
+    "questionUz": "Сафар олдидан ғилдираклар ва уларнинг дискларини текширяпсиз. Қайси фикр тўғри?",
+    "correctAnswerUz": "Ғилдирак гайкалари атрофидаги занг улар бўшашганидан дарак бериши мумкин.",
     "number": 72,
     "testId": "general-knowledge",
     "question": "You are checking your wheels and rims for a pre-trip inspection. Which of these statements is true?",
@@ -800,6 +922,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-073",
+    "questionUz": "Фаралар тўғри ишламаётган бўлса, қуйидаги ишлардан қайси бирини қилмаслик керак?",
+    "correctAnswerUz": "Узоқни ёритувчи фараларни ёқиб қўйиш ва ўчирмаслик.",
     "number": 73,
     "testId": "general-knowledge",
     "question": "Which of these is NOT something you should do if your headlights are not working properly?",
@@ -813,6 +937,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-074",
+    "questionUz": "Тўқнашувдан қочиш учун рулни буришда қуйидагилардан қайси бири тўғри?",
+    "correctAnswerUz": "Йўлингиздаги тўсиқни четлаб ўтиш учун рулни зарур бўлганидан ортиқ бурманг.",
     "number": 74,
     "testId": "general-knowledge",
     "question": "Which of these is a good thing to do when steering to avoid a crash?",
@@ -826,6 +952,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-075",
+    "questionUz": "Кучли ёмғир ёки қорда кетяпсиз. Машина ташқарисида нима бўлаётганини деярли кўриб бўлмайди. Бошқа ҳайдовчиларга йўлда эканингизни қандай билдиришингиз мумкин?",
+    "correctAnswerUz": "Яқинни ёритувчи фараларни ёқинг.",
     "number": 75,
     "testId": "general-knowledge",
     "question": "You drive through heavy rain or snow. You can hardly see what is going on outside. You can let other drivers know about you by:",
@@ -839,6 +967,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-076",
+    "questionUz": "Оғир машинани ҳайдаяпсиз. Катта йўлдан пастга қараб буриладиган чиқиш йўли орқали чиқишингиз керак. Нима қилишингиз керак?",
+    "correctAnswerUz": "Белгида кўрсатилган тезлик чегарасидан соатига 5 мил паст тезликкача секинланг.",
     "number": 76,
     "testId": "general-knowledge",
     "question": "You are driving a heavy vehicle. You must exit a highway using an off-ramp that curves downhill. You should:",
@@ -854,6 +984,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-077",
+    "questionUz": "Қалин туман тушганда ҳайдовчиларга бериладиган энг яхши маслаҳат қайси?",
+    "correctAnswerUz": "Туман тарқалгунича дам олиш майдончасида ёки юк машиналари учун мўлжалланган тўхташ жойида тўхтаб туринг.",
     "number": 77,
     "testId": "general-knowledge",
     "question": "What is the best advice for drivers when heavy fog occurs?",
@@ -867,6 +999,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-078",
+    "questionUz": "Тўрт бўлакли, қарама-қарши йўналишлари ажратилган автомагистралнинг текис ва тўғри қисмида йўл ёқасига тўхташингиз керак. Нур қайтарувчи учбурчакларни қаерга қўйишингиз керак?",
+    "correctAnswerUz": "Учбурчакларни машинанинг орқасига қўйинг. Биринчиси машинадан 10 футдан узоқ бўлмасин, иккинчиси тахминан 100 фут, учинчиси эса тахминан 200 фут нарида турсин.",
     "number": 78,
     "testId": "general-knowledge",
     "question": "You must park on the side of a level, straight, four-lane divided highway. Where should you place the reflective triangles?",
@@ -880,6 +1014,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-079",
+    "questionUz": "Сафар олдидан тормозлар ва осма тизимини текширяпсиз. Қайси фикр тўғри?",
+    "correctAnswerUz": "Тормоз колодкаларида мой, қуюқ сурков мойи ёки тормоз суюқлиги бўлмаслиги керак.",
     "number": 79,
     "testId": "general-knowledge",
     "question": "You are checking your brakes and suspension system for a pre-trip inspection. Which of these statements is true?",
@@ -893,6 +1029,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-080",
+    "questionUz": "Фавқулодда тормозлашда ёдда тутиш керак бўлган энг муҳим нарса нима?",
+    "correctAnswerUz": "Ғилдираклар сирпанаётганда машинани бошқара олмайсиз.",
     "number": 80,
     "testId": "general-knowledge",
     "question": "Which of these is the most important thing to remember about emergency braking?",
@@ -906,6 +1044,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-081",
+    "questionUz": "Рессоралардан бирида варақларнинг ______ қисми ёки ундан кўпроғи етишмаса, машинани ишлатиш тақиқланади.",
+    "correctAnswerUz": "Рессора варақларининг тўртдан бири (1/4).",
     "number": 81,
     "testId": "general-knowledge",
     "question": "Your vehicle will be put out of service if ______ or more leaves in any leaf spring are missing.",
@@ -919,6 +1059,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-082",
+    "questionUz": "Тажовузкор ҳайдовчига дуч келганда қуйидагилардан қайси бири тўғри йўл тутиш ҳисобланади?",
+    "correctAnswerUz": "Ҳайдовчи буни атайлаб қилган, деб шошилинч хулоса чиқарманг.",
     "number": 82,
     "testId": "general-knowledge",
     "question": "Which of the following is a good way to react to an aggressive driver?",
@@ -932,6 +1074,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-083",
+    "questionUz": "Машинанинг оғирлиги унинг тўхташига қандай таъсир қилади?",
+    "correctAnswerUz": "Бўш юк машинаси юкланганига қараганда узоқроқ масофада тўхтайди. Автобусларда эса одатда бундай бўлмайди.",
     "number": 83,
     "testId": "general-knowledge",
     "question": "How does vehicle weight affect stopping?",
@@ -945,6 +1089,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-084",
+    "questionUz": "Олдинда қатнов қисмида хавфни кўрсангиз, нима қилишингиз керак?",
+    "correctAnswerUz": "Бошқаларни огоҳлантириш учун авария чироқлари ёки тормоз чироқларидан фойдаланинг.",
     "number": 84,
     "testId": "general-knowledge",
     "question": "What should you do when you see a hazard in the roadway ahead of you?",
@@ -958,6 +1104,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-085",
+    "questionUz": "Пастроқ узатмага ўтиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Бурилиш учун пастроқ узатмага ўтмоқчи бўлсангиз, буни бурилишга киришдан олдин бажаринг.",
     "number": 85,
     "testId": "general-knowledge",
     "question": "Which of these statements about downshifting is true?",
@@ -971,6 +1119,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-086",
+    "questionUz": "Қуйидагилардан қайси бири ҳайдовчининг тажовузкорлигини кўрсатади?",
+    "correctAnswerUz": "Ишора бермай, ҳаракат бўлагини тез-тез ва кескин алмаштириш.",
     "number": 86,
     "testId": "general-knowledge",
     "question": "Which of the following is a sign of an aggressive driver?",
@@ -984,6 +1134,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-087",
+    "questionUz": "Кўзгулар орқали нимани кузатиб туришингиз керак?",
+    "correctAnswerUz": "Бурилиш пайтида машинангизнинг орқа қисми қаерда эканини кўзгулардан кузатинг.",
     "number": 87,
     "testId": "general-knowledge",
     "question": "You should use your mirrors to check:",
@@ -997,6 +1149,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-088",
+    "questionUz": "Сайёҳлар нима учун йўлда хавф туғдириши мумкин?",
+    "correctAnswerUz": "Сайёҳлар секин юриши, тўсатдан тўхташи ёки ҳаракат бўлагини кутилмаганда алмаштириши мумкин.",
     "number": 88,
     "testId": "general-knowledge",
     "question": "Why tourists may be a hazard?",
@@ -1010,6 +1164,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-089",
+    "questionUz": "Хавфли моддаларни жўнатиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Контейнерда хавфли моддани билдирувчи ромб шаклидаги ёрлиқ бўлиши шарт.",
     "number": 89,
     "testId": "general-knowledge",
     "question": "Which of these statements about shipping hazardous materials is true?",
@@ -1023,6 +1179,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-090",
+    "questionUz": "Чарчоқ ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Чарчоқни фақат ухлаб бартараф этиш мумкин.",
     "number": 90,
     "testId": "general-knowledge",
     "question": "Fatigue:",
@@ -1036,6 +1194,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-091",
+    "questionUz": "Тезланиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Кескин тезланиш машинанинг механик қисмларига шикаст етказиши мумкин.",
     "number": 91,
     "testId": "general-knowledge",
     "question": "Which of these statements about acceleration is true?",
@@ -1049,6 +1209,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-092",
+    "questionUz": "Машинангизда гидравлик тормозлар бор. Текис йўлда кетаётиб тормоз педалини босдингиз ва у полгача тушиб кетди. Қайси фикр тўғри?",
+    "correctAnswerUz": "Тормоз педалини бир неча марта босиб-бўшатиш босимни ошириши мумкин. Шунда машинани тўхтата оласиз.",
     "number": 92,
     "testId": "general-knowledge",
     "question": "Your vehicle has hydraulic brakes. While traveling on a level road, you press the brake pedal and find that it goes to the floor. Which of these statements is true?",
@@ -1062,6 +1224,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-093",
+    "questionUz": "Тягач ва тиркаманинг бир-бирига нисбатан бурчак ҳосил қилиб букланиб қолишининг (jackknife) икки тури бор. Улар қайсилар?",
+    "correctAnswerUz": "{first} ва {second} вариантларининг иккаласи ҳам тўғри.",
     "number": 93,
     "testId": "general-knowledge",
     "question": "There are two types of jackknife, they are:",
@@ -1075,6 +1239,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-094",
+    "questionUz": "Кўприк формуласи (bridge formula) ҳақида қайси фикр тўғри?",
+    "correctAnswerUz": "Ўқлар бир-бирига яқин жойлашган бўлса, уларга тушиши мумкин бўлган энг катта оғирлик ҳам камроқ бўлади.",
     "number": 94,
     "testId": "general-knowledge",
     "question": "The bridge formula:",
@@ -1088,6 +1254,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-095",
+    "questionUz": "Тиркамага юк ортганда бутун юкни унинг орқа қисмига жойлаштириш нимага олиб келиши мумкин?",
+    "correctAnswerUz": "Етакчи ғилдиракларнинг йўл билан илашиши ёмонлашиши мумкин.",
     "number": 95,
     "testId": "general-knowledge",
     "question": "When loading a trailer, if the cargo is loaded all to the rear, it may result in:",
@@ -1101,6 +1269,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-096",
+    "questionUz": "Сариқ фонда қора белги туширилган доира шаклидаги огоҳлантирувчи белги нимани англатади?",
+    "correctAnswerUz": "Секинланг, атрофга қаранг ва қулоқ солинг. Поезд яқинлашаётган бўлса, тўхташга тайёр туринг.",
     "number": 96,
     "testId": "general-knowledge",
     "question": "A round, black on yellow warning sign means:",
@@ -1114,6 +1284,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-097",
+    "questionUz": "Қуйидаги чироқлардан қайсиларини бир вақтнинг ўзида текшириб бўлмайди?",
+    "correctAnswerUz": "Бурилиш кўрсаткичлари, тормоз чироқлари ва авария чироқлари.",
     "number": 97,
     "testId": "general-knowledge",
     "question": "Which of these lights cannot be checked at the same time?",
@@ -1129,6 +1301,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-098",
+    "questionUz": "Хавфни англаш масофаси деганда машина қайси икки пайт орасида босиб ўтган масофа тушунилади?",
+    "correctAnswerUz": "Кўзингиз хавфни кўрган пайтдан то миянгиз уни хавф деб англаган пайтгача.",
     "number": 98,
     "testId": "general-knowledge",
     "question": "Perception distance is the distance your vehicle travels from the time:",
@@ -1142,6 +1316,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-099",
+    "questionUz": "Тезликни бошқариш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Олдингизда кўриниб турган масофа ичида тўхташга имкон берадиган тезликни танланг.",
     "number": 99,
     "testId": "general-knowledge",
     "question": "Which of these statements about speed management is true?",
@@ -1155,6 +1331,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-100",
+    "questionUz": "Пастликка тушаётганда тормозлар ишдан чиқса, биринчи навбатда нима қилишингиз керак?",
+    "correctAnswerUz": "Машинани секинлатишнинг бошқа йўлини топиш учун атрофга қаранг.",
     "number": 100,
     "testId": "general-knowledge",
     "question": "If your brakes fail on a downgrade, you must first:",
@@ -1168,6 +1346,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-101",
+    "questionUz": "Гиёҳванд моддалар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Гиёҳванд моддаларни истеъмол қилиш йўл-транспорт ҳодисасига, ҳибсга олинишга ёки ҳар иккисига олиб келиши мумкин.",
     "number": 101,
     "testId": "general-knowledge",
     "question": "Which of these statements about drugs is true?",
@@ -1181,6 +1361,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-102",
+    "questionUz": "Янги меъёрга кўра, тижорат транспорт воситасини бошқараётган ҳайдовчи қонидаги алкоголь концентрацияси (BAC) қанча бўлганда маст деб ҳисобланади?",
+    "correctAnswerUz": "Қондаги алкоголь концентрацияси — 0,04%.",
     "number": 102,
     "testId": "general-knowledge",
     "question": "The new BAC (blood alcohol concentration) for commercial drivers to be considered intoxicated when driving a commercial vehicle is:",
@@ -1194,6 +1376,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-103",
+    "questionUz": "Сафар олдидан шиналарни текширяпсиз. Қайси фикр тўғри?",
+    "correctAnswerUz": "Ўлчамлари бир-бирига мос келмайдиган шиналарни битта машинага ўрнатмаслик керак.",
     "number": 103,
     "testId": "general-knowledge",
     "question": "You are checking your tires for a pre-trip inspection. Which of these statements is true?",
@@ -1207,6 +1391,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-104",
+    "questionUz": "Илашиш муфтаси педалини икки марта босиш ва узатмаларни алмаштириш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Узатмани қачон алмаштиришни тахометрга қараб аниқлаш мумкин.",
     "number": 104,
     "testId": "general-knowledge",
     "question": "Which of these statements about double-clutching and shifting is true?",
@@ -1220,6 +1406,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-105",
+    "questionUz": "Бошқа ҳайдовчилар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Юк машинасини қисқа муддатга ёки бир кунга ижарага олган ҳайдовчилар кўпинча кўриш майдони чекланганига кўникмаган бўлади. Шу сабабли улар бошқалар учун хавф туғдириши мумкин.",
     "number": 105,
     "testId": "general-knowledge",
     "question": "Which of these is true about other drivers?",
@@ -1233,6 +1421,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-106",
+    "questionUz": "Иссиқ ҳавода шиналарга оид қуйидаги фикрлардан қайси бири айниқса муҳим?",
+    "correctAnswerUz": "Йўлга чиқишдан олдин шиналарнинг ўрнатилишини ва улардаги ҳаво босимини текширинг.",
     "number": 106,
     "testId": "general-knowledge",
     "question": "Which of these is especially true about your tires in hot weather?",
@@ -1246,6 +1436,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-107",
+    "questionUz": "Бир томонлама ёки қарама-қарши йўналишлари ажратилган катта йўлда тўхтаганда нур қайтарувчи учбурчакларни қаерга қўйиш керак?",
+    "correctAnswerUz": "Транспорт келаётган томонга, машинангиздан 10, 100 ва 200 фут нарига қўйинг.",
     "number": 107,
     "testId": "general-knowledge",
     "question": "When stopped on a one-way or divided highway, you should place the reflective triangles at:",
@@ -1259,6 +1451,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-108",
+    "questionUz": "Қондаги алкоголь концентрацияси (BAC) қандай бўлса, сизга 24 соатга машина бошқариш тақиқланади?",
+    "correctAnswerUz": "Қонда аниқланадиган ҳар қандай миқдорда алкоголь бўлса.",
     "number": 108,
     "testId": "general-knowledge",
     "question": "You will be placed out-of-service for 24 hours if your blood alcohol concentration (BAC) is:",
@@ -1272,6 +1466,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-109",
+    "questionUz": "Сафар олдидан тормозлар ва осма тизимини текширяпсиз. Қайси фикр нотўғри?",
+    "correctAnswerUz": "«Тормоз колодкаларида тормоз суюқлиги бўлиши керак» деган фикр.",
     "number": 109,
     "testId": "general-knowledge",
     "question": "You are checking your brakes and suspension system for a pre-trip inspection. Which of these statements is NOT true?",
@@ -1285,6 +1481,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-111",
+    "questionUz": "Чуқур кўлмак ёки оқар сув орқали машинада ўтишдан сақланиш керак. Агар ўтишга мажбур бўлсангиз, қайси чора тормозларнинг ишлашини сақлаб қолишга ёрдам беради?",
+    "correctAnswerUz": "Сувдан ўтаётганда тормоз педалини енгил босиб туриш.",
     "number": 111,
     "testId": "general-knowledge",
     "question": "You should avoid driving through deep puddles or flowing water. But if you must, which of these steps can help to keep your brakes working?",
@@ -1298,6 +1496,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-112",
+    "questionUz": "Тижорат транспорт воситасини маст ҳолда бошқарганликда айбли деб топилсангиз ва бу биринчи қоидабузарлигингиз бўлса, сизга эҳтимол қандай жазо берилади?",
+    "correctAnswerUz": "Тижорат ҳайдовчилик гувоҳномангизнинг (CDL) амал қилиши камида бир йилга тўхтатилади.",
     "number": 112,
     "testId": "general-knowledge",
     "question": "If you are convicted for driving under the influence while driving a commercial vehicle, and this is your first offense, you most likely will get:",
@@ -1311,6 +1511,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-113",
+    "questionUz": "Катта йўлда одатий тезликда кетаётганда олдингиздаги йўлни тахминан ______ мил масофагача кузатишингиз керак.",
+    "correctAnswerUz": "Тахминан чорак мил.",
     "number": 113,
     "testId": "general-knowledge",
     "question": "The distance that you should look ahead of your vehicle while driving amounts to about ______ miles at normal highway speed.",
@@ -1324,6 +1526,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-114",
+    "questionUz": "Машина ҳайдаш пайтида дори воситаларини қабул қилиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Шифокор дори ҳайдаш қобилиятига таъсир қилмаслигини айтган бўлса, рецепт билан бериладиган шу дорини қабул қилишга рухсат этилади.",
     "number": 114,
     "testId": "general-knowledge",
     "question": "Which of these is true regarding the use of drugs while driving?",
@@ -1337,6 +1541,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-115",
+    "questionUz": "Ҳайдаш пайтида ҳушёрликни сақлаш учун нима қилишингиз керак?",
+    "correctAnswerUz": "Уйқу босишидан олдин қисқа танаффуслар қилинг.",
     "number": 115,
     "testId": "general-knowledge",
     "question": "To help you stay alert while driving, you should:",
@@ -1350,6 +1556,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-116",
+    "questionUz": "Узоқни ёритувчи фаралардан қандай фойдаланиш керак?",
+    "correctAnswerUz": "Узоқни ёритувчи фараларни хавфсиз ва қонун рухсат берган ҳолларда ишлатинг.",
     "number": 116,
     "testId": "general-knowledge",
     "question": "High beams should be:",
@@ -1363,6 +1571,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-117",
+    "questionUz": "Ҳайдаш пайтида олдингиздаги йўлни кузатаркансиз, нигоҳингизни қандай йўналтиришингиз керак?",
+    "correctAnswerUz": "Нигоҳингизни навбат билан яқин ва узоқ масофага қаратинг.",
     "number": 117,
     "testId": "general-knowledge",
     "question": "When looking ahead of your vehicle while driving you should look:",
@@ -1376,6 +1586,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-118",
+    "questionUz": "Оғир машинада транспорт оқимини кўндаланг кесиб ўтишда ёки оқимга қўшилишда нимани ёдда тутиш керак?",
+    "correctAnswerUz": "Оғир транспорт воситаларига оқимдаги машиналар орасида енгил автомобилларга қараганда каттароқ бўшлиқ керак.",
     "number": 118,
     "testId": "general-knowledge",
     "question": "What is a good thing to remember when crossing or entering traffic with a heavy vehicle?",
@@ -1389,6 +1601,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-119",
+    "questionUz": "Йўлдаги фавқулодда вазиятда қатнов қисмидан четга чиқишингизга тўғри келса, нима қилишингиз керак?",
+    "correctAnswerUz": "Тезлик соатига тахминан 20 милгача тушгунича тормозни босишдан сақланинг.",
     "number": 119,
     "testId": "general-knowledge",
     "question": "If you need to leave the road in a traffic emergency, you should:",
@@ -1402,6 +1616,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-120",
+    "questionUz": "Ёмон об-ҳаво ва ҳайдаш шароити ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Ҳарорат пасайганда кўприклар йўлнинг бошқа қисмларидан олдин музлайди.",
     "number": 120,
     "testId": "general-knowledge",
     "question": "Which of these is true about bad weather and driving conditions?",
@@ -1415,6 +1631,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-121",
+    "questionUz": "Сафар олдидан рул бошқаруви ва чиқинди газлар тизимларини текширяпсиз. Қуйидаги носозликлардан қайси бири аниқланса, машина йўлга чиқишидан олдин тузатилиши керак?",
+    "correctAnswerUz": "Рулнинг эркин юриши 10 даражадан ошиши (диаметри 20 дюймли рул чанбарагида 2 дюйм).",
     "number": 121,
     "testId": "general-knowledge",
     "question": "You are checking your steering and exhaust system in a pre-trip inspection. Which of these problems, if found, should be fixed before the vehicle is driven:",
@@ -1428,6 +1646,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-122",
+    "questionUz": "Эътибори чалғиган ҳайдовчини қандай аниқлаш мумкин?",
+    "correctAnswerUz": "Машина бўлак чизиқларидан оғиб ўтади ва гоҳ тезлашиб, гоҳ секинлашиб ҳаракатланади.",
     "number": 122,
     "testId": "general-knowledge",
     "question": "How can you identify a distracted driver?",
@@ -1441,6 +1661,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-123",
+    "questionUz": "Юқори тезликда автоматик узатмалар қутисини мажбуран паст узатмага ўтказганда, қуйидагилардан қайси бири бунинг хавфли оқибатларига кирмайди?",
+    "correctAnswerUz": "Рул бошқарувини йўқотиш.",
     "number": 123,
     "testId": "general-knowledge",
     "question": "Which of these is NOT a danger when an automatic transmission is forced into a low gear at a high speed?",
@@ -1454,6 +1676,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-124",
+    "questionUz": "Тўхташ жойини танлаганда машинани қандай жойлаштиришга ҳаракат қилиш керак?",
+    "correctAnswerUz": "Жойдан қўзғалганда олдинга юриб чиқиб кета оладиган қилиб тўхтанг.",
     "number": 124,
     "testId": "general-knowledge",
     "question": "You should try to park so that:",
@@ -1467,6 +1691,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-125",
+    "questionUz": "Машинадаги алоқа ускуналаридан фойдаланишнинг энг хавфсиз усули қайси?",
+    "correctAnswerUz": "Алоқа воситасидан фойдаланиш учун йўлдан четга чиқиб, хавфсиз ва тўхташга рухсат берилган жойда тўхтанг.",
     "number": 125,
     "testId": "general-knowledge",
     "question": "The safest method for using in-vehicle communication equipment is:",
@@ -1480,6 +1706,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-126",
+    "questionUz": "Узун ва тик нишабликдан тушаётганда ҳар доим нима қилишингиз керак?",
+    "correctAnswerUz": "Двигатель билан тормозлашдан фойдаланинг.",
     "number": 126,
     "testId": "general-knowledge",
     "question": "When going down a long steep downgrade you should always:",
@@ -1493,6 +1721,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-127",
+    "questionUz": "Хавфли моддаларни машинада ташиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Бундай юкнинг контейнерларига 4 дюймли ромб шаклидаги ёрлиқлар қўйилиши керак.",
     "number": 127,
     "testId": "general-knowledge",
     "question": "Which of these is true about hauling of hazardous materials?",
@@ -1506,6 +1736,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-128",
+    "questionUz": "Қондаги алкоголь концентрацияси (BAC) ошганда нима содир бўлади?",
+    "correctAnswerUz": "Вазиятни тўғри баҳолаш ва ўзини назорат қилиш қобилияти пасаяди.",
     "number": 128,
     "testId": "general-knowledge",
     "question": "As the blood alcohol concentration (BAC) goes up, what happens?",
@@ -1519,6 +1751,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-129",
+    "questionUz": "Юк ортишнинг муҳим қоидаларидан бирига кўра, юкни қандай жойлаштириш керак?",
+    "correctAnswerUz": "Юкни юкхонада оғирлиги мувозанатли тақсимланадиган қилиб жойлаштиринг.",
     "number": 129,
     "testId": "general-knowledge",
     "question": "A key principle to remember about loading cargo is to keep the load:",
@@ -1532,6 +1766,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-130",
+    "questionUz": "Машина усти билан тепадаги тўсиқ орасидаги бўшлиқ ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Юкнинг оғирлиги машинанинг баландлигини ўзгартириши мумкин.",
     "number": 130,
     "testId": "general-knowledge",
     "question": "Which of these is true about your overhead clearance?",
@@ -1545,6 +1781,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-131",
+    "questionUz": "Машина ҳайдаётганда эътиборингиз чалғимаслигига қуйидагилардан қайси бири ёрдам бериши мумкин?",
+    "correctAnswerUz": "Севимли компакт-диск ёки кассеталарингизни олдиндан плеерга жойланг.",
     "number": 131,
     "testId": "general-knowledge",
     "question": "Which of the following can keep you from being distracted while you drive?",
@@ -1558,6 +1796,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-132",
+    "questionUz": "Оғир машинани ҳайдаяпсиз. Катта йўлдан пастга қараб буриладиган чиқиш йўли орқали чиқишингиз керак. Нима қилишингиз керак?",
+    "correctAnswerUz": "Бурилишга киришдан олдин тезликни хавфсиз даражагача пасайтиринг.",
     "number": 132,
     "testId": "general-knowledge",
     "question": "You are driving a heavy vehicle. You must exit a highway using an off-ramp that curves downhill. You should:",
@@ -1571,6 +1811,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-133",
+    "questionUz": "Қуйидаги транспорт воситаларидан қайси бирининг тўхташ масофаси энг узун?",
+    "correctAnswerUz": "Тиркамасиз тягач.",
     "number": 133,
     "testId": "general-knowledge",
     "question": "Which of the following vehicles will have the longest stopping distance?",
@@ -1584,6 +1826,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-134",
+    "questionUz": "Бурилиш учун кенг жой керак бўладиган узун машинани ҳайдаяпсиз. Оушен кўчасидан Атлантик кўчасига чапга бурилмоқчисиз. Чапга бурилиш учун иккита бўлак бор: ички бўлак (чапдан биринчи) ва ташқи бўлак (чапдан иккинчи). Қандай йўл тутишингиз керак?",
+    "correctAnswerUz": "Чапга бурилиш учун ташқи бўлакдан (чапдан иккинчи бўлакдан) фойдаланинг.",
     "number": 134,
     "testId": "general-knowledge",
     "question": "You are driving a long vehicle that makes wide turns. You want to make a left turn from Ocean Street onto Atlantic Street. There are two left turn lanes: inside lane (first from the left) and outside (second from the left) lane. You should:",
@@ -1597,6 +1841,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-135",
+    "questionUz": "Ҳалокатнинг олдини олиш учун йўл ёқасига чиқдингиз. Қатнов қисмига қайтиш учун нима қилишингиз керак?",
+    "correctAnswerUz": "Кўзгулардан ва бурилиш кўрсаткичидан фойдаланиб, қатнов қисмига қайтиш учун рулни кескин буринг.",
     "number": 135,
     "testId": "general-knowledge",
     "question": "To avoid an accident you moved to the shoulder. To return to the road:",
@@ -1610,6 +1856,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-136",
+    "questionUz": "Хавфли моддаларни ташиётганда юк ҳужжатларини қаерда сақлашингиз шарт?",
+    "correctAnswerUz": "Ҳайдовчи эшигидаги ҳужжат чўнтагида ёки ўриндиқ устида.",
     "number": 136,
     "testId": "general-knowledge",
     "question": "Where must you keep shipping papers when transporting hazardous materials?",
@@ -1623,6 +1871,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-137",
+    "questionUz": "Тормозларнинг созланганлигини тез-тез текшириш керакми?",
+    "correctAnswerUz": "Ҳа. Тормозлар кўп ишлатилганда уларнинг созламаси бузилиши мумкин.",
     "number": 137,
     "testId": "general-knowledge",
     "question": "Should brake adjustment be checked often?",
@@ -1636,6 +1886,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-138",
+    "questionUz": "Оғир машиналар кўпинча бошқа транспорт воситаларидан секинроқ юради. Қуйидагилардан қайси бири оғир машина ҳайдашда амал қилиш керак бўлган тўғри қоида эмас?",
+    "correctAnswerUz": "«Сизни қувиб ўтиш хавфсиз бўлганда бошқа ҳайдовчиларга ишора беринг» деган қоида.",
     "number": 138,
     "testId": "general-knowledge",
     "question": "Heavy vehicles often move slower than others. Which of these is NOT a good rule to follow while driving a heavy vehicle?",
@@ -1649,6 +1901,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-139",
+    "questionUz": "Тиркамасиз ва бўғинли бирикмаси бўлмаган машинанинг олдинги ғилдираклари сирпана бошласа, машина қандай ҳаракатланади?",
+    "correctAnswerUz": "Рул бурилган бўлса ҳам, машина тўғрига ҳаракатланишда давом этади.",
     "number": 139,
     "testId": "general-knowledge",
     "question": "If a straight vehicle (no trailer or articulation) goes into front-wheel skid, it will:",
@@ -1662,6 +1916,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-141",
+    "questionUz": "Баъзан хавфдан қочиш ёки фавқулодда вазиятнинг олдини олиш учун йўлдан четга чиқишга тўғри келади. Бундай пайтда нимани ёдда тутиш керак?",
+    "correctAnswerUz": "Йўл ёқасига чиқиш тўқнашувга учрашдан кўра хавфсизроқ.",
     "number": 141,
     "testId": "general-knowledge",
     "question": "Sometimes you need to leave a road to avoid a hazard or emergency. When you do so you should keep in mind, that:",
@@ -1675,6 +1931,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-142",
+    "questionUz": "Қайси белги қатнов қисмида муз ҳосил бўлаётганидан дарак беради?",
+    "correctAnswerUz": "Ташқи кўзгуларингизда муз пайдо бўлиши.",
     "number": 142,
     "testId": "general-knowledge",
     "question": "A good indication that ice is forming on the roadway is when:",
@@ -1688,6 +1946,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-143",
+    "questionUz": "Фавқулодда вазиятда ёки тўқнашувдан қочиш учун чора кўриш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Рулни тез буриш учун уни маҳкам ушлаш керак.",
     "number": 143,
     "testId": "general-knowledge",
     "question": "Which of these is correct about emergency or evasive action?",
@@ -1701,6 +1961,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-144",
+    "questionUz": "Туннелда машина ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Туннелдан чиқишда кучли шамол бўлиши мумкин.",
     "number": 144,
     "testId": "general-knowledge",
     "question": "Which of these is true about driving in a tunnel?",
@@ -1714,6 +1976,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-145",
+    "questionUz": "Қуйидагилардан қайси бири кескин тезланишнинг хавфли оқибатларига кирмайди?",
+    "correctAnswerUz": "Ёнғиндан зарар кўриш.",
     "number": 145,
     "testId": "general-knowledge",
     "question": "Which of these is NOT a danger of a rough acceleration?",
@@ -1727,6 +1991,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-146",
+    "questionUz": "Қайси ҳолатда машина темир йўл излари устида таги билан илиниб, ўтолмай қолиши мумкин?",
+    "correctAnswerUz": "Темир йўл кесишмасига олиб борадиган йўл тик кўтарилса.",
     "number": 146,
     "testId": "general-knowledge",
     "question": "You may get hung up on railroad tracks if:",
@@ -1740,6 +2006,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-147",
+    "questionUz": "Тормоз барабанларида (ёки дискларида) ишқаланиш юзаси энининг ______ қисмидан узун ёриқлар бўлмаслиги керак.",
+    "correctAnswerUz": "Ишқаланиш юзаси энининг ярми (1/2).",
     "number": 147,
     "testId": "general-knowledge",
     "question": "Brake drums (or discs) must not have cracks longer than ______ the width of the friction area:",
@@ -1753,6 +2021,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-148",
+    "questionUz": "Ҳаракатланаётган машинада хавфсизлик камарини қачон тақишингиз керак?",
+    "correctAnswerUz": "Ҳаракат пайтида ҳар доим.",
     "number": 148,
     "testId": "general-knowledge",
     "question": "You should wear your seat belt in a moving vehicle:",
@@ -1766,6 +2036,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-149",
+    "questionUz": "Юк машиналари ва автобусларга муайян қонунлар, қоидалар ва чекловлар татбиқ этилади. Қайси фикр тўғри?",
+    "correctAnswerUz": "Қонунлар ва чекловлар жойга қараб фарқ қилиши мумкин.",
     "number": 149,
     "testId": "general-knowledge",
     "question": "Trucks and buses are subjects of certain laws, regulations, and restrictions. Which of these statements is true?",
@@ -1779,6 +2051,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-150",
+    "questionUz": "Оғир машинани орқага юргизиш ҳақидаги қайси фикр нотўғри?",
+    "correctAnswerUz": "«Орқани кўра олмасангиз, юклаш платформасига енгил теггунича секин орқага юринг» деган фикр.",
     "number": 150,
     "testId": "general-knowledge",
     "question": "Which of the statement about backing a heavy vehicle is NOT true?",
@@ -1792,6 +2066,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-151",
+    "questionUz": "Тоғли йўлларда хавфсизлик учун секин юриш керак. Бунда қайси омил энг муҳим?",
+    "correctAnswerUz": "Транспорт воситасининг оғирлиги.",
     "number": 151,
     "testId": "general-knowledge",
     "question": "In mountain driving you should go slow for safety. Which of these is the most important?",
@@ -1805,6 +2081,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-152",
+    "questionUz": "Оғир транспорт воситасини орқага ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Имкон борича орқага юришдан сақланинг.",
     "number": 152,
     "testId": "general-knowledge",
     "question": "Which of these statements about backing a heavy vehicle is true?",
@@ -1818,6 +2096,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-153",
+    "questionUz": "Қачон тормоз чироқларини милтиллатиш учун тормоз педалини енгил босиш керак?",
+    "correctAnswerUz": "Йўлдан чиқиш олдидан тезликни пасайтиришингиз керак бўлганда.",
     "number": 153,
     "testId": "general-knowledge",
     "question": "You should lightly apply your brakes to flash the brake lights if:",
@@ -1833,6 +2113,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-154",
+    "questionUz": "Сиз кетаётган йўл силлиқ муз билан қопланиб, жуда сирпанчиқ бўлиб қолди. Бундай вазиятда қандай йўл тутган маъқул?",
+    "correctAnswerUz": "Хавфсиз жойда тўхташ имкони бўлиши билан ҳаракатни тўхтатинг.",
     "number": 154,
     "testId": "general-knowledge",
     "question": "The road you are driving on becomes very slippery due to glare ice. Which of these is a good thing to do in such a situation?",
@@ -1846,6 +2128,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-155",
+    "questionUz": "Тезликни бошқариш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Тезликни икки баравар оширсангиз, тўхташ масофаси тўрт бараварга ортади.",
     "number": 155,
     "testId": "general-knowledge",
     "question": "Which of the following statements about speed management is true?",
@@ -1859,6 +2143,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-156",
+    "questionUz": "Спиртли ичимлик истеъмол қилиш ҳақида нимани ёдда тутиш керак?",
+    "correctAnswerUz": "Алкоголь аввало вазиятни тўғри баҳолаш ва ўзини назорат қилиш қобилиятига таъсир қилади. Хавфсиз ҳайдаш учун иккаласи ҳам зарур.",
     "number": 156,
     "testId": "general-knowledge",
     "question": "Which of these is a good thing to remember about drinking alcohol?",
@@ -1872,6 +2158,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-157",
+    "questionUz": "Автомагистралда ҳаракатланаётганда олдингизда қанча оралиқ қолдириш керак?",
+    "correctAnswerUz": "Транспорт воситаси узунлигининг ҳар 10 футига 1 сониялик оралиқ.",
     "number": 157,
     "testId": "general-knowledge",
     "question": "How much space in front of you is needed while driving on a highway?",
@@ -1887,6 +2175,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-159",
+    "questionUz": "Тягач, юк машинаси ёки автобус ғилдираклар қулфланишининг олдини олувчи тормоз тизими (ABS) билан жиҳозланган. Ҳаракат пайтида асбоблар панелида ABS носозлигини билдирувчи сариқ чироқ ёнса, бу нимани англатади?",
+    "correctAnswerUz": "Транспорт воситангизнинг ABS тизими ишламаётган бўлиши мумкин.",
     "number": 159,
     "testId": "general-knowledge",
     "question": "If a tractor, truck or bus has antilock brakes and the yellow ABS malfunction lamp lights up on the instrument panel when you are underway:",
@@ -1900,6 +2190,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-160",
+    "questionUz": "Узунлиги 40 фут бўлган транспорт воситасини соатига 35 мил тезликда ҳайдаяпсиз. Йўл қуруқ, кўриниш яхши. Хавфсизлик учун олдингизда камида қанча оралиқ қолдиришингиз керак?",
+    "correctAnswerUz": "4 сония.",
     "number": 160,
     "testId": "general-knowledge",
     "question": "You are driving a 40-foot vehicle at 35 mph. The road is dry and visibility is good. What is the least amount of space that you should keep in front of your vehicle to be safe?",
@@ -1913,6 +2205,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-161",
+    "questionUz": "Ҳар бир кўзгуни созлаб, текширганингизда унда нима кўриниб туриши керак?",
+    "correctAnswerUz": "Ҳар бир кўзгуда транспорт воситангизнинг бир қисми кўриниб туриши керак.",
     "number": 161,
     "testId": "general-knowledge",
     "question": "You should adjust and check each mirror to show:",
@@ -1926,6 +2220,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-162",
+    "questionUz": "Ўлим билан тугайдиган йўл-транспорт ҳодисаларининг асосий сабаби нима?",
+    "correctAnswerUz": "Ҳаддан ташқари тез ҳайдаш.",
     "number": 162,
     "testId": "general-knowledge",
     "question": "The primary cause of fatal crashes is:",
@@ -1939,6 +2235,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-163",
+    "questionUz": "Алкоголь ёки гиёҳванд моддалар таъсирида тижорат транспорт воситасини бошқарганликда айбдор деб топилсангиз, тижорат ҳайдовчилик гувоҳномангиздан (CDL) камида қанча муддатга маҳрум бўласиз?",
+    "correctAnswerUz": "1 йил.",
     "number": 163,
     "testId": "general-knowledge",
     "question": "If you are convicted of driving a commercial vehicle under influence of alcohol or drugs, you will lose your CDL for at least:",
@@ -1952,6 +2250,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-164",
+    "questionUz": "Ихтиёрий хавфсизлик анжомларига фавқулодда хизматнинг телефон рақами ва шина занжирларидан ташқари яна нима кириши мумкин?",
+    "correctAnswerUz": "Шинани алмаштириш учун асбоблар.",
     "number": 164,
     "testId": "general-knowledge",
     "question": "Optional safety equipment may include emergency phone number, tire chains, and:",
@@ -1965,6 +2265,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-165",
+    "questionUz": "Ҳайдовчилар қўлланмасида бошқа транспорт воситасини қувиб ўтиш бўйича бир нечта тавсия бор. Қайси ҳаракат бу тавсияларга кирмайди?",
+    "correctAnswerUz": "Тавсия этилмайдиган усул — кечаси қувиб ўтишдан олдин узоқни ёритувчи фараларни ёқиб, тўлиқ ўтиб кетгунча уларни ёқиқ қолдириш.",
     "number": 165,
     "testId": "general-knowledge",
     "question": "The driver's manual suggests several things to do when you pass a vehicle. Which of these is NOT one of them?",
@@ -1978,6 +2280,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-166",
+    "questionUz": "Яхши ҳайдовчи эҳтимолий хавфларни кузатиб боради ва уларга тайёр туради. Бу усул ______ ҳайдаш деб аталади.",
+    "correctAnswerUz": "Хавфни олдиндан кўзлаб ҳайдаш.",
     "number": 166,
     "testId": "general-knowledge",
     "question": "The best drivers are those who watch and prepare for hazards. This is called the ______ driving.",
@@ -1991,6 +2295,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-167",
+    "questionUz": "Транспорт воситасида ёнғин чиқиш хавфи ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Тиркама яхши шамоллатилмаса, юк ёниб кетиши мумкин.",
     "number": 167,
     "testId": "general-knowledge",
     "question": "Which of these statements about hazard of vehicle fire is true?",
@@ -2004,6 +2310,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-168",
+    "questionUz": "Тоғли йўлнинг нишаб қисмида хавфсиз ҳаракатланиш учун паст узатмалардан фойдаланиш керак. Қайси омил узатма танлашингизга таъсир қилмайди?",
+    "correctAnswerUz": "Шина протекторининг тури.",
     "number": 168,
     "testId": "general-knowledge",
     "question": "In mountain driving you will have to use lower gears to drive safely on a grade. Which of these does NOT affect your choice of gear?",
@@ -2017,6 +2325,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-169",
+    "questionUz": "Олд ойнани муз қоплаган бўлса, қуйидагилардан қайси бири ёрдам бермаслиги эҳтимол?",
+    "correctAnswerUz": "Чўтка.",
     "number": 169,
     "testId": "general-knowledge",
     "question": "Which of these would probably NOT help if windshield covered with ice?",
@@ -2030,6 +2340,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-170",
+    "questionUz": "Кўзгуда орқадан яқинлашаётган машинани кўрдингиз. Кейинги сафар қараганингизда у кўринмади. Қаторни алмаштирмоқчисиз. Нима қилишингиз керак?",
+    "correctAnswerUz": "Машина кўзгуга кўринмайдиган ҳудудда эмаслигига ишонч ҳосил қилгунча қаторни алмаштирманг.",
     "number": 170,
     "testId": "general-knowledge",
     "question": "In your mirror you see a car approaching from the rear. The next time you check your mirror, you do not see the car. You wish to change the lane. You should:",
@@ -2043,6 +2355,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-171",
+    "questionUz": "Тўхтаган транспорт воситасини огоҳлантирувчи белгилар билан белгилаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Агар тепалик ёки бурилиш туфайли орқадан келаётган ҳайдовчилар транспортингизни 500 фут масофадан кўра олмаса, уларни вақтида огоҳлантириш учун орқадаги нур қайтарувчи учбурчакни йўл бўйлаб узоқроққа қўйинг.",
     "number": 171,
     "testId": "general-knowledge",
     "question": "Which of these statements about marking a stopped vehicle is true?",
@@ -2056,6 +2370,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-172",
+    "questionUz": "Ғилдираклар қулфланишининг олдини олувчи тормоз тизими (ABS) ишламаётган бўлса, нима қилишингиз керак?",
+    "correctAnswerUz": "Одатдагидек ҳайданг, аммо тез орада тизимни устахонада текширтиринг.",
     "number": 172,
     "testId": "general-knowledge",
     "question": "If anti-lock braking system is not working, you should:",
@@ -2069,6 +2385,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-173",
+    "questionUz": "Йўл-транспорт ҳодисасидан кейин тегишли хизматларга хабар бериш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Мобил телефон ёки CB-рациянгиз бўлса, транспорт воситасидан тушишдан олдин тегишли хизматларга хабар беринг.",
     "number": 173,
     "testId": "general-knowledge",
     "question": "Which of these is true about notifying the authorities after an accident occurs?",
@@ -2082,6 +2400,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-174",
+    "questionUz": "Тик нишабдан тушишда тормоз педалидан қандай фойдаланиш кераклигини қайси жавоб энг тўғри ифодалайди?",
+    "correctAnswerUz": "Тормоз педалини қаттиқ босиб, сўнг қўйиб юборинг. Буни такрорлаб туринг.",
     "number": 174,
     "testId": "general-knowledge",
     "question": "Which of these best describes how you should use the brake pedal on a steep downhill grade?",
@@ -2097,6 +2417,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-175",
+    "questionUz": "Ғилдираклари йўлни яхши ушлайдиган текис жойда автобусни жойидан қўзғатиш учун кўпинча ниманинг ҳожати йўқ?",
+    "correctAnswerUz": "Тўхтаб туриш тормози.",
     "number": 175,
     "testId": "general-knowledge",
     "question": "When starting a bus on a level surface with good traction there is often no need for:",
@@ -2110,6 +2432,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-176",
+    "questionUz": "Транспорт воситасини жойидан қўзғатяпсиз. Газ берганингизда етакчи ғилдираклар жойида айлана бошлади. Нима қилишингиз керак?",
+    "correctAnswerUz": "Оёғингизни газ педалидан олинг.",
     "number": 176,
     "testId": "general-knowledge",
     "question": "You are starting your vehicle in motion from a stop. As you apply power to the drive wheels, they start to spin. You should:",
@@ -2123,6 +2447,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-177",
+    "questionUz": "Ҳайдаётган транспорт воситангиз ABS тормоз тизими билан жиҳозланганини қандай билиш мумкин?",
+    "correctAnswerUz": "Ўт олдириш калитини бурганингизда асбоблар панелида ABS носозлигини билдирувчи сариқ чироқлар ёнади.",
     "number": 177,
     "testId": "general-knowledge",
     "question": "You will know if the vehicle you are driving is equipped with ABS brakes by:",
@@ -2136,6 +2462,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-178",
+    "questionUz": "Ҳаракат тезлигини нимага қараб танлаш керак?",
+    "correctAnswerUz": "Йўлни қанчалик узоққа кўра олишингиз.",
     "number": 178,
     "testId": "general-knowledge",
     "question": "The speed at which you drive should be determined by:",
@@ -2149,6 +2477,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-179",
+    "questionUz": "Механик узатмалар қутиси бўлган оғир транспорт воситасини ҳайдаяпсиз. Тепаликка кўтарилишда йўл ёқасида тўхташга тўғри келди. Яна тепага қараб йўлга тушиш учун қайси усулни қўллаган маъқул?",
+    "correctAnswerUz": "Илашиш муфтаси улангунча транспорт воситасини тўхтаб туриш тормози билан жойида ушлаб туринг.",
     "number": 179,
     "testId": "general-knowledge",
     "question": "You are driving a heavy vehicle with a manual transmission. You have to stop the vehicle on the shoulder while driving on an uphill grade. Which of these is a good rule to follow when putting it back in motion up the grade?",
@@ -2162,6 +2492,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-180",
+    "questionUz": "Йўл ҳаракатида хавф деганда нима тушунилади?",
+    "correctAnswerUz": "Хавф туғдириши мумкин бўлган ҳар қандай йўл шароити ёки бошқа йўл ҳаракати иштирокчиси.",
     "number": 180,
     "testId": "general-knowledge",
     "question": "A hazard:",
@@ -2175,6 +2507,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-181",
+    "questionUz": "Қишда ҳайдашда радиатор жалюзилари ва унинг қишки қопламаси ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Радиатор жалюзиларидаги музни тозаланг.",
     "number": 181,
     "testId": "general-knowledge",
     "question": "Which of these is true about radiator shutters and the winterfront during winter driving?",
@@ -2188,6 +2522,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-182",
+    "questionUz": "Аксарият ҳолларда транспорт воситасининг сирпанишига нима сабаб бўлади?",
+    "correctAnswerUz": "Аксарият сирпанишларга ҳаддан ташқари тез ҳайдаш ёки жуда қисқа вақтда тўхташга уриниш сабаб бўлади.",
     "number": 182,
     "testId": "general-knowledge",
     "question": "Most skids:",
@@ -2201,6 +2537,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-184",
+    "questionUz": "Юкнинг оғирлик маркази ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Юкнинг оғирлик маркази баланд бўлса, бурилишда транспорт воситасининг ағдарилиш эҳтимоли ортади.",
     "number": 184,
     "testId": "general-knowledge",
     "question": "The center of gravity of a load:",
@@ -2214,6 +2552,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-185",
+    "questionUz": "Тормоз самарадорлигининг пасайиши ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Тормозлар қаттиқ қизиб кетса, уларнинг самарадорлиги пасайиши мумкин.",
     "number": 185,
     "testId": "general-knowledge",
     "question": "Brake fade:",
@@ -2227,6 +2567,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-186",
+    "questionUz": "Назоратли тормозлаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Бу усул тормозлаш пайтида транспорт воситасини тўғри йўналишда ушлаб туриш учун қўлланади.",
     "number": 186,
     "testId": "general-knowledge",
     "question": "Controlled braking:",
@@ -2240,6 +2582,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-187",
+    "questionUz": "Совуқ ҳавода ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Олд ойнани ювиш учун музламайдиган суюқлик ишлатинг.",
     "number": 187,
     "testId": "general-knowledge",
     "question": "Which of these statements about cold-weather driving is true?",
@@ -2253,6 +2597,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-188",
+    "questionUz": "Тижорат транспорт воситасини орқага ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Ҳар доим хавфли.",
     "number": 188,
     "testId": "general-knowledge",
     "question": "Backing a commercial vehicle is:",
@@ -2266,6 +2612,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-189",
+    "questionUz": "Тезликни бошқариш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Йўл сирпанчиқ бўлса, тўхташга кўпроқ вақт кетади ва сирпанмасдан бурилиш қийинлашади.",
     "number": 189,
     "testId": "general-knowledge",
     "question": "Which of these statements about speed management is true?",
@@ -2279,6 +2627,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-190",
+    "questionUz": "Тепаликдан тушаётганда тормозлар ишламай қолса, биринчи навбатда нима қилиш керак?",
+    "correctAnswerUz": "Имкон қадар тезроқ йўлдан четга чиқинг.",
     "number": 190,
     "testId": "general-knowledge",
     "question": "What is the first thing you should do if your brakes fail while going down a hill?",
@@ -2292,6 +2642,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-191",
+    "questionUz": "Ҳайдаш пайтида бошқалар билан алоқа қилиш деганда нима тушунилади?",
+    "correctAnswerUz": "Бошқа ҳайдовчиларга қандай ҳаракат қилмоқчи эканингизни билдириш.",
     "number": 191,
     "testId": "general-knowledge",
     "question": "Communication means:",
@@ -2305,6 +2657,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-192",
+    "questionUz": "Транспорт воситасини тўхтатиш учун тормозни қанчалик қаттиқ босиш кераклиги нимага боғлиқ?",
+    "correctAnswerUz": "Транспорт воситасининг тезлигига ва қанчалик тез тўхтамоқчи эканингизга боғлиқ.",
     "number": 192,
     "testId": "general-knowledge",
     "question": "The amount of brake pressure you need to stop the vehicle will depend on:",
@@ -2318,6 +2672,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-193",
+    "questionUz": "Йўл-транспорт ҳодисаси жойида жабрланган одамга ёрдам бераётганда қайси амал тавсия этилмайди?",
+    "correctAnswerUz": "Тавсия этилмайдиган амал — жабрланган одамни салқин тутиш.",
     "number": 193,
     "testId": "general-knowledge",
     "question": "Which of these is NOT a good rule to follow when caring for an injured person at an accident scene?",
@@ -2331,6 +2687,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-194",
+    "questionUz": "Двигателнинг айланиш тезлиги ростлагич белгилаган чегарага нисбатан ______ бўлганда ва ______ узатма танланганда двигатель билан тормозлаш таъсири энг кучли бўлади.",
+    "correctAnswerUz": "Двигатель айланиш тезлиги ростлагич белгилаган чегарага яқин бўлганда ва паст узатма танланганда.",
     "number": 194,
     "testId": "general-knowledge",
     "question": "The engine braking effect is greatest when the engine is ______ governed RPM and the transmission is in the ______ gear.",
@@ -2344,6 +2702,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-195",
+    "questionUz": "Федерал инспекторлар юк машинангиз ёки автобусингизни текшириши мумкинми?",
+    "correctAnswerUz": "Ҳа. Агар транспорт воситаси хавфсиз бўлмаса, инспекторлар унинг ҳаракатланишини тақиқлаши мумкин.",
     "number": 195,
     "testId": "general-knowledge",
     "question": "Can federal inspectors inspect your truck or bus?",
@@ -2357,6 +2717,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-196",
+    "questionUz": "Иссиқ ҳавода ҳайдашда двигатель қизиб кетмаслигига нима ёрдам беради?",
+    "correctAnswerUz": "Двигатель мойи сатҳининг етарли бўлиши.",
     "number": 196,
     "testId": "general-knowledge",
     "question": "What keeps an engine cool in hot weather driving?",
@@ -2370,6 +2732,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-197",
+    "questionUz": "Тоғли йўлларда ҳайдашдан олдин нима қилиш керак?",
+    "correctAnswerUz": "Йўналишингизда фавқулодда тўхташ йўлаклари қаерда жойлашганини олдиндан билиб олинг.",
     "number": 197,
     "testId": "general-knowledge",
     "question": "What should you do before driving in mountains?",
@@ -2383,6 +2747,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-198",
+    "questionUz": "Айрим турдаги юкларни ташиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Осилган гўшт ёки тирик чорва каби силжиши мумкин бўлган юкларни ташиганда бурилишларда айниқса эҳтиёт бўлиш керак.",
     "number": 198,
     "testId": "general-knowledge",
     "question": "Which of these statements about certain types of cargo is true?",
@@ -2396,6 +2762,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-199",
+    "questionUz": "Кабина иситкичидан фойдаланиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Қишда йўлга чиқишдан олдин иситкич тўғри ишлаётганини текширинг.",
     "number": 199,
     "testId": "general-knowledge",
     "question": "Which of these is true about the use of a heater?",
@@ -2409,6 +2777,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-200",
+    "questionUz": "Ғилдираклар қулфланишининг олдини олувчи тормоз тизими (ABS) датчиклар ва компьютерлар ёрдамида нимани аниқлайди?",
+    "correctAnswerUz": "Ғилдираклар қулфланиб қолиш эҳтимолини.",
     "number": 200,
     "testId": "general-knowledge",
     "question": "Antilock braking systems use sensors and computers to sense:",
@@ -2422,6 +2792,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-201",
+    "questionUz": "Чапга бурилишда қайси ҳаракат тавсия этилмайди?",
+    "correctAnswerUz": "Тавсия этилмайдиган усул — чапга бурилишни ички қатордан бошлаб, бурилиш пайтида ўнгга кенг ёй олиш.",
     "number": 201,
     "testId": "general-knowledge",
     "question": "Which of these actions are NOT recommended for a left turn?",
@@ -2435,6 +2807,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-202",
+    "questionUz": "Ғилдираклар қулфланишининг олдини олувчи тормоз тизими (ABS) ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Фавқулодда ҳолатда ABS тизими билан тормозлаш усули ўзгаради.",
     "number": 202,
     "testId": "general-knowledge",
     "question": "Which of the following about antilock braking systems is true?",
@@ -2450,6 +2824,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-203",
+    "questionUz": "Узунлиги 40 фут бўлган транспорт воситасини соатига 55 мил тезликда ҳайдаяпсиз. Йўл қуруқ, кўриниш яхши. Олдингизда камида қанча оралиқ қолдиришингиз керак?",
+    "correctAnswerUz": "5 сония.",
     "number": 203,
     "testId": "general-knowledge",
     "question": "You are driving a 40-foot vehicle at 55 mph. The road is dry and visibility is good. What is the least amount of space that you need to have in front of your vehicle?",
@@ -2463,6 +2839,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-204",
+    "questionUz": "Ҳаракат пайтида ойна тозалагичларда муз йиғилиб, улар олд ойнани тозаламай қўйди. Нима қилишингиз керак?",
+    "correctAnswerUz": "Хавфсиз жойда тўхтаб, муаммони бартараф этинг.",
     "number": 204,
     "testId": "general-knowledge",
     "question": "While driving, ice builds up on your wipers and they no longer clean the windshield. You should:",
@@ -2476,6 +2854,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-205",
+    "questionUz": "Фавқулодда тормозлаш деганда нима тушунилади?",
+    "correctAnswerUz": "Хавф пайдо бўлганда транспорт воситасининг тезлигини пасайтириш.",
     "number": 205,
     "testId": "general-knowledge",
     "question": "What does emergency braking mean?",
@@ -2489,6 +2869,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-206",
+    "questionUz": "Ноқулай об-ҳавода кўп енгил машина ҳайдовчилари йирик транспорт воситаларининг орқасидан жуда яқин юради. Бундай вазиятда нима қилишингиз керак?",
+    "correctAnswerUz": "Олдингиздаги транспорт воситаси билан оралиқни оширинг.",
     "number": 206,
     "testId": "general-knowledge",
     "question": "In bad weather, many car drivers tailgate large vehicles. What should you do?",
@@ -2502,6 +2884,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-207",
+    "questionUz": "Олд шиналар протекторидаги ҳар бир асосий ариқчанинг чуқурлиги камида ___ дюйм бўлиши керак.",
+    "correctAnswerUz": "4/32 дюйм.",
     "number": 207,
     "testId": "general-knowledge",
     "question": "You need at least ___ inch tread depth in every major groove of your front tires.",
@@ -2515,6 +2899,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-208",
+    "questionUz": "Тормозлаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Транспорт воситаси қанчалик оғир бўлса ёки қанчалик тез ҳаракатланса, уни тўхтатишда тормозлар шунчалик кўп иссиқликни ютиши керак.",
     "number": 208,
     "testId": "general-knowledge",
     "question": "Which of these statements about braking is true?",
@@ -2528,6 +2914,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-209",
+    "questionUz": "Двигатель тормозлари (секинлаткичлар) ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Етакчи ғилдираклар йўлни яхши ушламаса, секинлаткич уларнинг сирпанишига сабаб бўлиши мумкин.",
     "number": 209,
     "testId": "general-knowledge",
     "question": "Which of these is true about engine brakes (retarders)?",
@@ -2541,6 +2929,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-210",
+    "questionUz": "Шина занжирлари ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Қишки об-ҳавода ҳайдаганда шина занжирларини доим ўзингиз билан олиб юринг.",
     "number": 210,
     "testId": "general-knowledge",
     "question": "Tire chains:",
@@ -2554,6 +2944,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-211",
+    "questionUz": "Транспорт воситангизнинг ______ томонидаги оралиқни назорат қилиш энг муҳим.",
+    "correctAnswerUz": "Транспорт воситасининг олдидаги оралиқ.",
     "number": 211,
     "testId": "general-knowledge",
     "question": "The space ______ your vehicle is the most important to manage.",
@@ -2567,6 +2959,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-212",
+    "questionUz": "Иссиқ ҳавода йўл қопламасидаги қатронда қандай ўзгариш бўлади?",
+    "correctAnswerUz": "Қатрон йўл юзасига сизиб чиқиб, уни сирпанчиқ қилиб қўяди.",
     "number": 212,
     "testId": "general-knowledge",
     "question": "What happens to tar in road pavement during hot weather?",
@@ -2580,6 +2974,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-213",
+    "questionUz": "Қаторни алмаштириш ниятингизни қандай билдирганингиз тўғри?",
+    "correctAnswerUz": "Бурилиш кўрсаткичини олдиндан ёқинг ва қаторни секин, равон алмаштиринг.",
     "number": 213,
     "testId": "general-knowledge",
     "question": "Which of these is the proper way to signal to change lane?",
@@ -2593,6 +2989,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-214",
+    "questionUz": "Рулни қандай ушлаш керак?",
+    "correctAnswerUz": "Рулни икки қўл билан қарама-қарши томонларидан ушланг.",
     "number": 214,
     "testId": "general-knowledge",
     "question": "What is the proper way to hold a steering wheel?",
@@ -2606,6 +3004,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-215",
+    "questionUz": "Шиналар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Жуда иссиқ ҳавода ҳайдаганда шиналарни ҳар икки соатда ёки ҳар 100 милда текширинг.",
     "number": 215,
     "testId": "general-knowledge",
     "question": "Which of these statements about tires is true?",
@@ -2619,6 +3019,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-216",
+    "questionUz": "Транспорт воситасини орқага ҳайдашда қачон ёрдамчидан фойдаланиш керак?",
+    "correctAnswerUz": "Ҳар сафар орқага юриш керак бўлганда.",
     "number": 216,
     "testId": "general-knowledge",
     "question": "When should a helper be used to help back your vehicle?",
@@ -2632,6 +3034,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-217",
+    "questionUz": "Олд бошқарилувчи ғилдираклар шиналарининг протектори қанчалик чуқур бўлиши керак?",
+    "correctAnswerUz": "Камида 4/32 дюйм.",
     "number": 217,
     "testId": "general-knowledge",
     "question": "The tread depth on front steering wheels tires should be:",
@@ -2645,6 +3049,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-218",
+    "questionUz": "Кўзгулардан фойдаланишда нимани ёдда тутиш керак?",
+    "correctAnswerUz": "Кўзгуларда кўринмайдиган ҳудудлар бор.",
     "number": 218,
     "testId": "general-knowledge",
     "question": "Which of these is good thing to remember about using mirrors?",
@@ -2658,6 +3064,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-219",
+    "questionUz": "Сафар бошланганидан кейин дастлабки неча мил ичида юк машинангизни текширишингиз шарт?",
+    "correctAnswerUz": "Дастлабки 50 мил ичида.",
     "number": 219,
     "testId": "general-knowledge",
     "question": "You are required to inspect your truck within how many miles after beginning the trip?",
@@ -2671,6 +3079,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-220",
+    "questionUz": "Тезликни икки баравар оширсангиз, тўқнашув пайтида транспорт воситангизнинг вайрон қилувчи кучи тахминан ______ баравар ортади.",
+    "correctAnswerUz": "Тўрт баравар.",
     "number": 220,
     "testId": "general-knowledge",
     "question": "Whenever you double your speed, your vehicle has about ______ times of destructive power if it crashes?",
@@ -2684,6 +3094,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-221",
+    "questionUz": "Бурилиш пайтида қарама-қарши йўналишдаги бўлакка чиқишга тўғри келса, нима қилишингиз керак?",
+    "correctAnswerUz": "Қарама-қарши йўналишдан келаётган транспортни кузатинг.",
     "number": 221,
     "testId": "general-knowledge",
     "question": "If you must cross into the oncoming lane as you make a turn, you should:",
@@ -2697,6 +3109,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-222",
+    "questionUz": "Қуйидаги фавқулодда вазият анжомларидан қайси бири транспорт воситангизда доим бўлиши керак?",
+    "correctAnswerUz": "Йўл четида тўхтаган транспорт воситаси ҳақида огоҳлантирувчи воситалар.",
     "number": 222,
     "testId": "general-knowledge",
     "question": "Which of these pieces of emergency equipment should always be carried in your vehicle?",
@@ -2710,6 +3124,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-223",
+    "questionUz": "Икки қаторли йўлда кўприкка яқинлашаётганда нима қилишингиз керак?",
+    "correctAnswerUz": "Кўприк учун белгиланган оғирлик чекловини текширинг.",
     "number": 223,
     "testId": "general-knowledge",
     "question": "When approaching a bridge on a two-lane road, you should:",
@@ -2723,6 +3139,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-224",
+    "questionUz": "Туннелларда ҳаракатланиш ҳақидаги қайси фикр одатда тўғри?",
+    "correctAnswerUz": "Туннелдан чиқишда ён томондан шамол эсиши мумкин.",
     "number": 224,
     "testId": "general-knowledge",
     "question": "Which of these is usually true about driving in tunnels?",
@@ -2736,6 +3154,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-225",
+    "questionUz": "Грунт йўлда темир йўл кесишмасидан ўтишда қандай хавф бор?",
+    "correctAnswerUz": "Транспорт воситасининг таги темир йўл кесишмасига тегиб, у ўртада илиниб қолиши мумкин.",
     "number": 225,
     "testId": "general-knowledge",
     "question": "Which of these is a danger of crossing railroad tracks on dirt roads?",
@@ -2749,6 +3169,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-226",
+    "questionUz": "Кўзгуларни созлаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Кўзгуларни сафарга чиқишдан олдин созланг.",
     "number": 226,
     "testId": "general-knowledge",
     "question": "Which of these is true about mirror adjustment?",
@@ -2762,6 +3184,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-227",
+    "questionUz": "Транспорт воситангиз сув қатлами устида сирпана бошласа, нима қилишингиз керак?",
+    "correctAnswerUz": "Оёғингизни газ педалидан олинг.",
     "number": 227,
     "testId": "general-knowledge",
     "question": "What should you do when your vehicle hydroplanes?",
@@ -2775,6 +3199,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-228",
+    "questionUz": "Машина тўсатдан йўлингизни кесиб, олдингизга чиқди ва хавф туғдирди. Бундай вазиятда қайси ҳаракатни қилмаслигингиз керак?",
+    "correctAnswerUz": "Бундай қилмаслик керак — товуш сигналини чалиб, ўша машинанинг ортидан жуда яқин юриш.",
     "number": 228,
     "testId": "general-knowledge",
     "question": "A car suddenly cuts in front of you, creating a hazard. Which of these actions should you NOT take?",
@@ -2788,6 +3214,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-229",
+    "questionUz": "Устингиздаги тўсиқ тагидан транспорт воситангиз бемалол ўтиши учун баландлик етарлими, деб иккилансангиз, нима қилишингиз керак?",
+    "correctAnswerUz": "Унинг тагидан ўтишга тўғри келмайдиган бошқа йўлни топинг.",
     "number": 229,
     "testId": "general-knowledge",
     "question": "What should you do if you are unsure whether you have enough overhead clearance?",
@@ -2801,6 +3229,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-230",
+    "questionUz": "Гидравлик тормозларни текширишда педални уч марта босиб-бўшатинг, сўнг уни беш сония қаттиқ босиб туринг. Тормозлар соз бўлса, педаль қандай ҳолатда бўлиши керак?",
+    "correctAnswerUz": "Педаль қимирламаслиги керак.",
     "number": 230,
     "testId": "general-knowledge",
     "question": "During an inspection of hydraulic brakes, you should pump the brake pedal three times then apply firm pressure to the pedal for five seconds. If the brakes are working properly, the pedal should:",
@@ -2814,6 +3244,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-231",
+    "questionUz": "Габарити ёки оғирлиги меъёрдан ошадиган юклар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Бундай юкларни ташиш учун махсус рухсатнома керак.",
     "number": 231,
     "testId": "general-knowledge",
     "question": "Oversize/overweight loads:",
@@ -2829,6 +3261,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-232",
+    "questionUz": "Юк машинангиз ёки автобусингизни текширишнинг энг муҳим сабаби нима?",
+    "correctAnswerUz": "Хавфсизлик.",
     "number": 232,
     "testId": "general-knowledge",
     "question": "What is the most important reason to inspect your truck or bus?",
@@ -2842,6 +3276,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-233",
+    "questionUz": "Транспорт воситангиз темир йўлнинг йўл сатҳидан баланд кесишмасида илиниб қолса, нима қилишингиз керак?",
+    "correctAnswerUz": "Транспорт воситасидан тушинг ва рельслардан узоқлашинг.",
     "number": 233,
     "testId": "general-knowledge",
     "question": "If your vehicle gets stuck on a raised railroad-highway crossing, you should:",
@@ -2855,6 +3291,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-234",
+    "questionUz": "Тижорат транспорт воситасининг бурилишда кенг ёй олиши билан боғлиқ қайси ҳолат тўғри кўрсатилган?",
+    "correctAnswerUz": "Бурилишда орқа ғилдиракларнинг олдинги ғилдираклар изига нисбатан ичкарироқдан ўтиши.",
     "number": 234,
     "testId": "general-knowledge",
     "question": "Which of these is true about commercial vehicle habit or swinging wide on turns?",
@@ -2868,6 +3306,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-235",
+    "questionUz": "Узоқ сафарда чарчаганингизни сездингиз. Ҳушёрликни сақлаш учун нима қилишингиз керак?",
+    "correctAnswerUz": "Вақти-вақти билан тўхтаб, дам олинг ва бадантарбия қилинг.",
     "number": 235,
     "testId": "general-knowledge",
     "question": "You feel tired during long trip. To stay alert you should:",
@@ -2881,6 +3321,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-236",
+    "questionUz": "Шамоллашни даволаш учун ишлатиладиган дорилар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Шамоллашга қарши дорилар кўпинча уйқучанликни келтириб чиқаради. Шунинг учун ҳайдаш пайтида уларни қабул қилмаслик керак.",
     "number": 236,
     "testId": "general-knowledge",
     "question": "Medicine used to treat the common cold:",
@@ -2894,6 +3336,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-237",
+    "questionUz": "Хавфли модда ёнаётганда уни нима билан ўчиришни аниқ билмасангиз, нима қилишингиз керак?",
+    "correctAnswerUz": "Малакали ўт ўчирувчилар келишини кутинг.",
     "number": 237,
     "testId": "general-knowledge",
     "question": "If you are not sure what to use to put out a hazardous material fire, you should:",
@@ -2907,6 +3351,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-238",
+    "questionUz": "Ғилдираклар қулфланишининг олдини олувчи тормоз тизими (ABS) нима?",
+    "correctAnswerUz": "Одатдаги тормоз тизимига қўшимча тизим.",
     "number": 238,
     "testId": "general-knowledge",
     "question": "An antilock braking system is:",
@@ -2920,6 +3366,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-239",
+    "questionUz": "Ўт ўчиргич қандай ишлашини қачон ўрганиш керак?",
+    "correctAnswerUz": "Ёнғин чиқишидан олдин.",
     "number": 239,
     "testId": "general-knowledge",
     "question": "When it is necessary to learn how if I extinguisher works?",
@@ -2933,6 +3381,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-240",
+    "questionUz": "Тижорат ҳайдовчилик гувоҳномангизда хавфли юк ташишга рухсат берувчи қўшимча қайд йўқ. Қайси ҳолда хавфли юк ташиётган транспорт воситасини бошқаришингиз мумкин?",
+    "correctAnswerUz": "Транспорт воситасига хавфли юк ҳақида огоҳлантирувчи белгилар ўрнатиш талаб қилинмаса.",
     "number": 240,
     "testId": "general-knowledge",
     "question": "You do NOT have a Hazardous Materials Endorsement on your Commercial Driver's License. You can drive a vehicle hauling hazardous materials when:",
@@ -2946,6 +3396,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-241",
+    "questionUz": "Қуруқ йўл қопламасида соатига 55 мил тезликда кетяпсиз. Транспорт воситасини тўлиқ тўхтатиш учун тахминан қанча умумий масофа керак?",
+    "correctAnswerUz": "Тахминан Америка футболи майдонининг узунлигига тенг масофа.",
     "number": 241,
     "testId": "general-knowledge",
     "question": "You are driving a vehicle at 55 mph on dry pavement. About how much total stopping distance will you need to bring it to a stop?",
@@ -2961,6 +3413,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-242",
+    "questionUz": "Шиналарнинг сув қатлами устида сирпаниши ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Шиналардаги босим паст бўлса, сув қатламида сирпаниш эҳтимоли ортади.",
     "number": 242,
     "testId": "general-knowledge",
     "question": "Hydroplaning:",
@@ -2974,6 +3428,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-243",
+    "questionUz": "Секинлаткичларнинг вазифаси нима?",
+    "correctAnswerUz": "Ҳаракат пайтида транспорт воситасини секинлатишга ёрдам бериш ва тормозларнинг ейилишини камайтириш.",
     "number": 243,
     "testId": "general-knowledge",
     "question": "The purpose of the retarders is to:",
@@ -2987,6 +3443,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-244",
+    "questionUz": "Қуйидагилардан қайси бири шина ишдан чиққанининг белгиси бўлиши мумкин?",
+    "correctAnswerUz": "Титраш.",
     "number": 244,
     "testId": "general-knowledge",
     "question": "Which may be a sign of tire failure?",
@@ -3000,6 +3458,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-245",
+    "questionUz": "Қандай тормоз тизимига эга транспорт воситаларида педални кескин босиб-бўшатиб тормозлаш усулини қўлламаслик керак?",
+    "correctAnswerUz": "ABS тизими билан жиҳозланган транспорт воситаларида.",
     "number": 245,
     "testId": "general-knowledge",
     "question": "Stab braking should not be used on vehicles with:",
@@ -3013,6 +3473,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-246",
+    "questionUz": "Хавфли юк ҳақида огоҳлантирувчи белгилар қандай жойлаштирилиши керак?",
+    "correctAnswerUz": "Транспорт воситасининг тўрт томонига ҳам ўрнатилиши керак.",
     "number": 246,
     "testId": "general-knowledge",
     "question": "Placards must be:",
@@ -3026,6 +3488,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-247",
+    "questionUz": "Юкни силжишдан сақлайдиган тираклар қаерга ёки қандай қўйилади?",
+    "correctAnswerUz": "Тираклар юкнинг олдига, орқасига ёки ён томонларига, зарур бўлса, бир нечта томонига қўйилади.",
     "number": 247,
     "testId": "general-knowledge",
     "question": "Where or how is cargo blocking used?",
@@ -3039,6 +3503,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-248",
+    "questionUz": "Кучли шамолда қайси транспорт воситасига ўз қаторида қолиш энг қийин бўлади?",
+    "correctAnswerUz": "Иккала тиркамаси ҳам бўш бўлган автопоезд.",
     "number": 248,
     "testId": "general-knowledge",
     "question": "Which vehicle will have the most difficulty staying in its lane during strong winds?",
@@ -3052,6 +3518,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-249",
+    "questionUz": "Двигателнинг қизиб кетиши ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Босим остида ишлайдиган совитиш тизими совимагунча радиатор қопқоғини асло очманг.",
     "number": 249,
     "testId": "general-knowledge",
     "question": "Which of these statements about engine overheating is true?",
@@ -3065,6 +3533,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-250",
+    "questionUz": "Йўл ишлари олиб борилаётган жойдан ўтаётганда нима қилишингиз керак?",
+    "correctAnswerUz": "Йўл қопламасининг сатҳи кескин пасаядиган жойларга эътибор беринг.",
     "number": 250,
     "testId": "general-knowledge",
     "question": "When driving through work zones, you should:",
@@ -3078,6 +3548,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-251",
+    "questionUz": "Тезликни ошираётганда орқа ғилдираклар сирпана бошласа, буни қандай тўхтатиш мумкин?",
+    "correctAnswerUz": "Газ беришни тўхтатинг.",
     "number": 251,
     "testId": "general-knowledge",
     "question": "How do you correct a rear-wheel acceleration skid?",
@@ -3091,6 +3563,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-252",
+    "questionUz": "Кучли шамол эсадиган жойларда ҳайдаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Айниқса туннелдан чиқишда шамол ҳайдашни қийинлаштиради.",
     "number": 252,
     "testId": "general-knowledge",
     "question": "Which of these statements about driving in areas with strong wind is true?",
@@ -3104,6 +3578,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-253",
+    "questionUz": "Юк машинаси ёки автобуснинг умумий тўхташ масофаси қайси учта масофа йиғиндисидан иборат?",
+    "correctAnswerUz": "Хавфни пайқагунча, унга жавобан тормозни босгунча ва тормозлаш бошланганидан тўлиқ тўхтагунча босиб ўтилган масофалар.",
     "number": 253,
     "testId": "general-knowledge",
     "question": "What three distances add up the total stopping distance for your truck or bus?",
@@ -3117,6 +3593,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-254",
+    "questionUz": "Ҳайдаётганда мобил телефондан фойдаланишга тўғри келса, нима қилишингиз керак?",
+    "correctAnswerUz": "Йўлдан четга чиқиб, тўхташ хавфсиз ва рухсат этилган жойда тўхтанг.",
     "number": 254,
     "testId": "general-knowledge",
     "question": "If you must use a cell phone while you are driving, you should:",
@@ -3130,6 +3608,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-255",
+    "questionUz": "Тормозлаш пайтида орқа етакчи ғилдиракларнинг сирпаниши ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Тиркама шатакка олувчи транспорт воситасини ён томонга суриб юбориши мумкин.",
     "number": 255,
     "testId": "general-knowledge",
     "question": "Which of these is true about rear drive wheel braking skids?",
@@ -3143,6 +3623,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-256",
+    "questionUz": "Қуйидаги фикрлардан қайси бири тўғри?",
+    "correctAnswerUz": "Оғир транспорт воситалари иштирокидаги кўплаб йўл-транспорт ҳодисалари ярим тундан эрталабки соат 6 гача содир бўлади.",
     "number": 256,
     "testId": "general-knowledge",
     "question": "Which of the statement is true?",
@@ -3156,6 +3638,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-257",
+    "questionUz": "Шиналардаги ҳаво босими ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Ҳарорат кўтарилган сари шиналардаги ҳаво босими ортади.",
     "number": 257,
     "testId": "general-knowledge",
     "question": "Which of these is true about tire pressure?",
@@ -3169,6 +3653,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-258",
+    "questionUz": "Транспорт воситаси тўсиқлар тагидан ўтиши учун зарур бўлган баландлик ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Транспорт воситасининг оғирлиги ўзгарса, баландлиги ҳам ўзгаради.",
     "number": 258,
     "testId": "general-knowledge",
     "question": "Which of these statements about overhead clearance is true?",
@@ -3182,6 +3668,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-259",
+    "questionUz": "Транспорт воситангизнинг ташқи кўзгуларини қандай созлаш керак?",
+    "correctAnswerUz": "Ташқи кўзгуларда транспорт воситангизнинг бир қисми кўриниб туриши керак.",
     "number": 259,
     "testId": "general-knowledge",
     "question": "Your vehicle's outside mirrors should be adjusted in a way that:",
@@ -3195,6 +3683,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-260",
+    "questionUz": "Йўл бўйидаги дам олиш майдонида сизни тўхтатиб текширишса ва қонингиздаги алкоголь концентрацияси (BAC) 0,02 экани аниқланса, оқибати қандай бўлади?",
+    "correctAnswerUz": "Сизга 24 соат давомида тижорат транспорт воситасини ҳайдаш тақиқланади.",
     "number": 260,
     "testId": "general-knowledge",
     "question": "If you are stopped at a roadside rest area and found to have a BAC (Blood Alcohol Concentration) of 0.02 you will:",
@@ -3208,6 +3698,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-261",
+    "questionUz": "Нишабдан тушишда нима учун транспорт воситангизнинг тезлиги ўз-ўзидан ортади?",
+    "correctAnswerUz": "Ернинг тортиш кучи.",
     "number": 261,
     "testId": "general-knowledge",
     "question": "Why your vehicle’s speed naturally increases on its downgrade?",
@@ -3221,6 +3713,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-262",
+    "questionUz": "Юк машиналари учун тезлик чегараси енгил машиналарникидан паст бўлган йўлларда қандай ҳаракат қилишингиз керак?",
+    "correctAnswerUz": "Қаторни алмаштиришда айниқса эҳтиёт бўлинг.",
     "number": 262,
     "testId": "general-knowledge",
     "question": "When driving on roads where truck speed limits are less than cars, you should:",
@@ -3234,6 +3728,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-263",
+    "questionUz": "Икки қаторли, икки томонлама кўчадан худди шундай бошқа кўчага ўнгга бурилмоқчисиз. Транспорт воситангиз узунлигидан кенг ёй олмасдан бурила олмайсиз. Бурилишни қандай бажарасиз?",
+    "correctAnswerUz": "Бурилишни якунлаётганда кенг ёй бўйлаб ҳаракатланинг.",
     "number": 263,
     "testId": "general-knowledge",
     "question": "You wish to turn right from one two-lane, two-way street to another. Your vehicle is so long that you must swing wide to make the turn.",
@@ -3247,6 +3743,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-264",
+    "questionUz": "Тормозлаш самараси пасайишининг олдини олиш учун нима қилишингиз керак?",
+    "correctAnswerUz": "Тик нишабдан тушишда транспорт воситасини хавфсиз тезликда ушлаб турадиган узатмани танланг.",
     "number": 264,
     "testId": "general-knowledge",
     "question": "To prevent brake \"fade\", you should:",
@@ -3260,6 +3758,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-265",
+    "questionUz": "Бирор рессорадаги варақларнинг қанчаси дарз кетган, синган ёки йўқ бўлса, транспорт воситасини ҳайдаш хавфли ҳисобланади?",
+    "correctAnswerUz": "Рессора варақлари умумий сонининг тўртдан бир қисми.",
     "number": 265,
     "testId": "general-knowledge",
     "question": "It is unsafe to operate a vehicle with how many cracked, broken or missing spring leaves in any leaf spring:",
@@ -3273,6 +3773,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-266",
+    "questionUz": "Қайси ҳолатда тўрт томонлама авария чироқларини доим ёқишингиз керак?",
+    "correctAnswerUz": "Йўл четида тўхтаб турганингизда.",
     "number": 266,
     "testId": "general-knowledge",
     "question": "You should always turn on your 4-way emergency flashers when you:",
@@ -3286,6 +3788,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-267",
+    "questionUz": "Тягач, тиркама ва юкнинг жами оғирлиги нима деб аталади?",
+    "correctAnswerUz": "Автопоезднинг тўлиқ массаси — тягач, тиркама ва юкнинг жами оғирлиги.",
     "number": 267,
     "testId": "general-knowledge",
     "question": "The total weight of a powered unit, the trailer, and the cargo is called:",
@@ -3299,6 +3803,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-268",
+    "questionUz": "Олдингиздаги транспорт воситасида ўртаси тўқ сариқ бўлган қизил учбурчакни кўрдингиз. Бу белги нимани англатади?",
+    "correctAnswerUz": "Бу секин ҳаракатланувчи транспорт воситаси бўлиши мумкин.",
     "number": 268,
     "testId": "general-knowledge",
     "question": "You can see a marking on a vehicle ahead of you. The marking is a red triangle with an orange center. What does the marking mean?",
@@ -3312,6 +3818,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-269",
+    "questionUz": "Ҳайдаш пайтида ҳушёрликни сақлаш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Чарчоқни фақат уйқу бартараф этади.",
     "number": 269,
     "testId": "general-knowledge",
     "question": "Which of these statements about staying alert to drive is true?",
@@ -3325,6 +3833,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-270",
+    "questionUz": "Машинани айланиб кўздан кечиришда одатда бажариладиган тормоз текширувларига қайси бири кирмайди?",
+    "correctAnswerUz": "Гидравлик тормоз цилиндридан суюқлик сизиб чиқишини текшириш.",
     "number": 270,
     "testId": "general-knowledge",
     "question": "Which of these is NOT a brake check you normally do during your walk-around inspection?",
@@ -3338,6 +3848,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-271",
+    "questionUz": "Осма тизими қисмларини текшириш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Ўқ таянчларининг рамага ва ўққа маҳкамланган ҳар бир нуқтасини текшириш керак.",
     "number": 271,
     "testId": "general-knowledge",
     "question": "Which of these statements about inspection of the suspension components is true?",
@@ -3351,6 +3863,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-272",
+    "questionUz": "Қайси ҳолатда транспорт воситасининг чироқларидан нотўғри фойдаланилган?",
+    "correctAnswerUz": "Нотўғри усул — орқадан жуда яқин келаётган ҳайдовчини узоқлаштириш учун тормоз чироқларини милтиллатиш.",
     "number": 272,
     "testId": "general-knowledge",
     "question": "Which of these is NOT a proper use of vehicle lights?",
@@ -3364,6 +3878,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-273",
+    "questionUz": "Тунда ҳайдашда қуйидагилардан қайси бирини қилган маъқул?",
+    "correctAnswerUz": "Фаралар ёритган масофа ичида тўхтай оладиган тезликда юринг.",
     "number": 273,
     "testId": "general-knowledge",
     "question": "Which of these is a good thing to do when driving at night?",
@@ -3377,6 +3893,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-274",
+    "questionUz": "Анчадан бери яшил чироғи ёниб турган светофорга яқинлашяпсиз. Қандай йўл тутган маъқул?",
+    "correctAnswerUz": "Тўхташга тайёр бўлиш учун тезликни пасайтира бошланг.",
     "number": 274,
     "testId": "general-knowledge",
     "question": "You are approaching a traffic light that has been green for a long time. What is the best approach?",
@@ -3390,6 +3908,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-275",
+    "questionUz": "Двигателни ишга туширгандан сўнг нима кузатилиши керак?",
+    "correctAnswerUz": "Совитиш суюқлиги ҳароратининг кўрсаткичи аста-секин меъёрий даражага кўтарила бошлаши керак.",
     "number": 275,
     "testId": "general-knowledge",
     "question": "After starting the engine:",
@@ -3403,6 +3923,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-276",
+    "questionUz": "Штат инспекторлари юк машинангиз ёки автобусингизни текшириши мумкинми?",
+    "correctAnswerUz": "Ҳа. Агар транспорт воситаси хавфсиз бўлмаса, инспекторлар унинг ҳаракатланишини тақиқлаши мумкин.",
     "number": 276,
     "testId": "general-knowledge",
     "question": "Can state inspectors inspect your truck or bus?",
@@ -3416,6 +3938,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-277",
+    "questionUz": "Орқангиздаги машина сизга жуда яқин келаётган бўлса, нима қилишингиз керак?",
+    "correctAnswerUz": "Олдингиздаги транспорт воситаси билан оралиқни оширинг.",
     "number": 277,
     "testId": "general-knowledge",
     "question": "If you are being tailgated, you should:",
@@ -3429,6 +3953,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-278",
+    "questionUz": "Сафар олдидан ўтказиладиган текширув ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Кабинани кўтариш керак бўлса, ичидаги бўш буюмлар тушиб кетиб, бирор нарсани синдирмаслиги учун уларни маҳкамланг.",
     "number": 278,
     "testId": "general-knowledge",
     "question": "Which of these statements about a pre-trip inspection is true?",
@@ -3442,6 +3968,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-279",
+    "questionUz": "Юкни текшириш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Йўлдаги ҳар бир танаффусдан кейин юкни текшириш керак.",
     "number": 279,
     "testId": "general-knowledge",
     "question": "Cargo inspection:",
@@ -3455,6 +3983,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-280",
+    "questionUz": "Йўл ёқасида тўлиқ тўхташга улгурмай қатнов қисмига қайтишга мажбур бўлсангиз, қайси усул энг мақбул?",
+    "correctAnswerUz": "Кўзгулардан ва бурилиш кўрсаткичларидан фойдаланиб, йўлга қайтиш учун рулни кескин буринг.",
     "number": 280,
     "testId": "general-knowledge",
     "question": "If you are forced to return to the road before stopping on the shoulder, the best procedure is:",
@@ -3468,6 +3998,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-281",
+    "questionUz": "Двигатель бўлинмасини сафар олдидан текширишга қайси амал кирмайди?",
+    "correctAnswerUz": "Клапанлар тирқиши.",
     "number": 281,
     "testId": "general-knowledge",
     "question": "Which of these is NOT part of the pre-trip inspection of the engine compartment?",
@@ -3481,6 +4013,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-282",
+    "questionUz": "Тунда қаршингиздан келаётган машина узоқни ёритувчи фараларини ўчирмаса, нима қилишингиз керак?",
+    "correctAnswerUz": "Нигоҳингизни ўнг қаторга ёки йўл четини белгилайдиган чизиққа қаратинг.",
     "number": 282,
     "testId": "general-knowledge",
     "question": "What should you do if a car coming toward you at night keeps its high beams on?",
@@ -3494,6 +4028,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-283",
+    "questionUz": "Тунда йўл четида тўхтаб турганингизда нима қилишингиз шарт?",
+    "correctAnswerUz": "Бошқаларни огоҳлантириш учун тўрт томонлама авария чироқларини ёқинг.",
     "number": 283,
     "testId": "general-knowledge",
     "question": "When you are parked at the side of the road at night, you must:",
@@ -3507,6 +4043,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-284",
+    "questionUz": "Сирпанчиқ йўлда ҳайдашингизга тўғри келди. Бундай вазиятда қандай йўл тутган маъқул?",
+    "correctAnswerUz": "Тезликни аста-секин пасайтиринг.",
     "number": 284,
     "testId": "general-knowledge",
     "question": "You must drive on a slippery road. Which of these is a good thing to do in such a situation?",
@@ -3520,6 +4058,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-285",
+    "questionUz": "Узун ва тик нишабдан тушяпсиз. Тормозлар шунчалик қизиб кетдики, ишламай қолди. Нима қилишингиз керак?",
+    "correctAnswerUz": "Фавқулодда тўхташ йўлаги ёки хавфсиз чиқиш йўлини изланг.",
     "number": 285,
     "testId": "general-knowledge",
     "question": "You are traveling down a long, steep hill. Your brakes got so hot that they fail. What should you do?",
@@ -3535,6 +4075,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-286",
+    "questionUz": "Оғир транспорт воситасини ҳайдаяпсиз. Ёмғир туфайли йўл юзаси сирпанчиқ бўлиб қолди. Нима қилишингиз керак?",
+    "correctAnswerUz": "Ноқулай об-ҳавони ҳисобга олиб, тезликни янада пасайтиринг.",
     "number": 286,
     "testId": "general-knowledge",
     "question": "You are driving a heavy vehicle and the road surface became slippery due to the rain. What should you do?",
@@ -3548,6 +4090,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-287",
+    "questionUz": "Ҳаракат пайтида фавқулодда вазиятга тушдингиз. Чора кўрмасангиз, бошқа транспорт воситаси билан тўқнашишингиз мумкин. Бундай пайтда қайси қоидани ёдда тутиш керак?",
+    "correctAnswerUz": "Деярли ҳар қандай ҳолатда ҳам бурилиб тўсиқни четлаб ўтишга тўлиқ тўхташдан кўра камроқ вақт кетади.",
     "number": 287,
     "testId": "general-knowledge",
     "question": "Your vehicle is in a traffic emergency and may collide with another vehicle if you do not take action. Which of these is a good rule to remember at such a time?",
@@ -3561,6 +4105,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-288",
+    "questionUz": "Жиддий сирпанишларнинг аксариятига нима сабаб бўлади?",
+    "correctAnswerUz": "Йўл шароитига нисбатан ҳаддан ташқари тез ҳайдаш.",
     "number": 288,
     "testId": "general-knowledge",
     "question": "Most serious skids result from:",
@@ -3574,6 +4120,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-289",
+    "questionUz": "Қуруқ сочилувчан юк ташийдиган цистерналарни ҳайдашда алоҳида эҳтиёт бўлиш сабабларидан бири нима?",
+    "correctAnswerUz": "Юк силжиши мумкин.",
     "number": 289,
     "testId": "general-knowledge",
     "question": "One reason that dry bulk tanks require special care is:",
@@ -3587,6 +4135,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-290",
+    "questionUz": "Бурилишда қайси автопоезднинг орқа ғилдираклари олдинги ғилдираклар изидан ичкарига оғиши эҳтимоли юқорироқ?",
+    "correctAnswerUz": "45 футлик тиркамаси бор уч тиркамали автопоезд.",
     "number": 290,
     "testId": "general-knowledge",
     "question": "Which of these rigs have more chances to off-track while making a turn?",
@@ -3600,6 +4150,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-291",
+    "questionUz": "Тинимсиз ёмғир остида ҳайдаяпсиз. Шиналар сув қатлами устида сирпаниши мумкинлигидан қайси белги дарак беради?",
+    "correctAnswerUz": "Олдингиздаги транспорт воситасининг ғилдираклари сув сачратаётган бўлса.",
     "number": 291,
     "testId": "general-knowledge",
     "question": "You are driving in a steady rain. A good indication that hydroplaning can occur is when:",
@@ -3613,6 +4165,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-292",
+    "questionUz": "Қишки об-ҳавода транспорт воситасини текширишда қайси тизимга алоҳида эътибор бериш керак?",
+    "correctAnswerUz": "Ишлатилган газларни чиқариш тизими.",
     "number": 292,
     "testId": "general-knowledge",
     "question": "Which of the following systems should receive extra attention during winter weather inspection?",
@@ -3626,6 +4180,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-293",
+    "questionUz": "Тўғри ва текис автомагистралда соатига 50 мил тезликда кетяпсиз. Олдингизда бошқа транспорт воситаси йўқ. Бирдан шиналарингиздан бири ёрилди. Биринчи навбатда нима қилишингиз керак?",
+    "correctAnswerUz": "Транспорт воситасининг тезлиги пасайгунча тормоз педалини босманг.",
     "number": 293,
     "testId": "general-knowledge",
     "question": "You are driving on a straight level highway at 50 mph. There are no vehicles in front of you. Suddenly, a tire blows out on your vehicle. What should you do first?",
@@ -3639,6 +4195,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-294",
+    "questionUz": "Юк машиналари учун мўлжалланган фавқулодда тўхташ йўлаклари ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Фавқулодда тўхташ йўлаклари транспорт воситалари шикастланишининг олдини олишга ёрдам беради.",
     "number": 294,
     "testId": "general-knowledge",
     "question": "Truck escape ramps:",
@@ -3652,6 +4210,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-295",
+    "questionUz": "Қайси ҳолатда йўлдаги ҳаракат оқимига қўшилиш энг хавфсиз?",
+    "correctAnswerUz": "Йўлга кириш учун ҳаракат оқимида етарлича катта оралиқ пайдо бўлишини кутинг.",
     "number": 295,
     "testId": "general-knowledge",
     "question": "Merging onto a road is safest if you:",
@@ -3665,6 +4225,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-296",
+    "questionUz": "Механик узатмалар қутиси бўлган янги юк машинасини ҳайдаяпсиз. Узун ва тик нишабдан тушишда эҳтимол қайси узатмани ишлатишингизга тўғри келади?",
+    "correctAnswerUz": "Тепаликка кўтарилишда ишлатадиган узатмангиздан пастроқ узатма.",
     "number": 296,
     "testId": "general-knowledge",
     "question": "You are driving a new truck with a manual transmission. What gear will you probably have to use to take a long steep downhill grade?",
@@ -3678,6 +4240,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-298",
+    "questionUz": "Бурилиш кўрсаткичларини қачон ёқиш керак?",
+    "correctAnswerUz": "Бурилиш ёки қаторни алмаштиришдан камида 100 фут олдин.",
     "number": 298,
     "testId": "general-knowledge",
     "question": "Turn signals should be used:",
@@ -3691,6 +4255,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-299",
+    "questionUz": "Осмон очиқ кечада, кўча чироқлари сийрак жойда ҳайдаяпсиз. Фараларингиз ёруғида йўлни яхши кўра олмасангиз, қайси амал ёрдам беради?",
+    "correctAnswerUz": "Қоидалар рухсат берганда узоқни ёритувчи фараларни ёқинг ва кабина чироқларини ўчириб қўйинг.",
     "number": 299,
     "testId": "general-knowledge",
     "question": "You are driving in an area with few streetlights on a clear night. If you cannot see well with your headlights, which of these actions would help?",
@@ -3704,6 +4270,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-300",
+    "questionUz": "Қия йўлда ҳайдаётганда хавфсиз тезликни танлашнинг энг мақбул усули қайси?",
+    "correctAnswerUz": "Транспорт воситангиз ва юкингизни ҳисобга олиб, белгиланган чекловдан ошмайдиган хавфсиз тезликни танланг.",
     "number": 300,
     "testId": "general-knowledge",
     "question": "When you are driving on grades, which of these is the best way to choose a safe speed?",
@@ -3717,6 +4285,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-301",
+    "questionUz": "Сизда CB-рация бўлмаса, йўл-транспорт ҳодисаси жойида биринчи навбатда нима қилишингиз керак?",
+    "correctAnswerUz": "Ҳодиса жойини хавфсизлантиринг.",
     "number": 301,
     "testId": "general-knowledge",
     "question": "If you do not have a CB radio, what is the first thing you should do at an accident scene?",
@@ -3730,6 +4300,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-302",
+    "questionUz": "Ғилдирак калитидан ташқари, транспорт воситангизда яна қандай ихтиёрий ускуна бўлиши мумкин?",
+    "correctAnswerUz": "Аккумуляторни қувватлаш қурилмаси.",
     "number": 302,
     "testId": "general-knowledge",
     "question": "What kind of optional equipment (except tire wrench) could be in your vehicle?",
@@ -3743,6 +4315,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-303",
+    "questionUz": "Бурилиш кўрсаткичларидан фойдаланиш ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Бурилиш ҳақида олдиндан ишора беринг.",
     "number": 303,
     "testId": "general-knowledge",
     "question": "Which of these statements about using turn signals is true?",
@@ -3756,6 +4330,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-304",
+    "questionUz": "Қавариқ кўзгулар ҳақидаги қайси фикр тўғри?",
+    "correctAnswerUz": "Қавариқ кўзгулар ясси кўзгуларга нисбатан кенгроқ ҳудудни кўрсатади.",
     "number": 304,
     "testId": "general-knowledge",
     "question": "Convex (curved) mirrors:",
@@ -3769,6 +4345,8 @@ export const QUESTIONS = [
   },
   {
     "id": "gk-305",
+    "questionUz": "Қуйидагилардан қайси бири айрим юк машиналарида қўшимча узатмаларни таъминламайди?",
+    "correctAnswerUz": "Автоматик узатмалар қутиси.",
     "number": 305,
     "testId": "general-knowledge",
     "question": "Which of these do Not provide extra gears on some trucks?",

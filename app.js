@@ -1,13 +1,12 @@
 import { SOURCE, QUESTION_MAP, SUBJECTS, SUBJECT_MAP } from './data/index.js';
 import { QUESTION_NOTES, EXCLUDED_NOTES } from './data/interface-uz.js';
-import { createSession, createPracticeSetSession, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText } from './engine.js';
+import { createSession, createPracticeSetSession, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
 import { STORAGE_KEY, readState, saveState, clearState, emptyState } from './storage.js';
 
 const app = document.querySelector('#app');
 const dialog = document.querySelector('#dialog');
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const letter = index => String.fromCharCode(65 + index);
-const choiceLetter = (session, question, index) => letter(getChoiceOrder(session, question).indexOf(index));
 const date = time => new Intl.DateTimeFormat('uz-Cyrl-UZ', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(time);
 const arrow = '<span aria-hidden="true">→</span>';
 let state = readState(QUESTION_MAP, SOURCE.id);
@@ -37,9 +36,9 @@ function navigate(next) {
 }
 function announce(message) { document.querySelector('#status').textContent = message; }
 function subjectFor(session) { return SUBJECT_MAP[session.testId]; }
-const setModeLabel = size => `${size} тадан машқ қилиш`;
+const setModeLabel = 'Босқичма-босқич машқ';
 function modeFor(session) {
-  if (session.mode === 'sets' && subjectFor(session)?.setSize) return setModeLabel(subjectFor(session).setSize);
+  if (session.mode === 'sets' && subjectFor(session)?.setSize) return `${setModeLabel} · ${session.ids.length} та савол`;
   return session.mode === 'all' || (!session.mode && session.ids.length === subjectFor(session)?.count) ? 'Барча саволлар' : 'Машқ тести';
 }
 function resultFor(id) { return state.results.find(result => result.id === id); }
@@ -68,14 +67,17 @@ function modeOption(value, title, description) {
 function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
-  const count = mode === 'all' ? subject.count : mode === 'sets' ? subject.setSize : practiceCount;
+  const currentSize = state.generalPracticeProgress?.previousIds.length ?? subject.setSize;
+  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : practiceCount;
   const options = [modeOption('practice', 'Машқ тести', `${practiceCount} та савол · Тасодифий танлов`)];
   if (subject.setSize) {
-    options.push(modeOption('sets', setModeLabel(subject.setSize), 'Аввалги тўпламдаги саволлар такрорланмайди.'));
+    options.push(modeOption('sets', setModeLabel, `Жорий тўпламда ${currentSize} та савол`));
   }
   options.push(modeOption('all', 'Барча саволлар', `${subject.count} та савол · Тасодифий тартибда`));
   const note = mode === 'sets'
-    ? `Шу ${subject.setSize} та саволни хоҳлаганча такрорлашингиз мумкин. Тайёр бўлсангиз, натижалар саҳифасида «Кейинги тест»ни босинг.`
+    ? (currentSize < subject.count
+      ? `Тўпламни хоҳлаганча такрорланг. Тайёр бўлганда яна ${Math.min(subject.setSize, subject.count - currentSize)} та савол қўшинг. Аввалги ва янги саволлар аралаш тартибда берилади.`
+      : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
     : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
   return `<button class="back-link" data-action="home"><span aria-hidden="true">←</span> Барча мавзулар</button><div class="page-heading subject-heading"><p class="eyebrow">Тўпламда ${subject.count} та савол</p><h1 tabindex="-1">${subject.title}</h1><p class="intro">${subject.description}</p></div>
     <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset><p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
@@ -84,10 +86,21 @@ function questionNotes(question) {
   const notes = QUESTION_NOTES[question.id] || {};
   return [notes.editionNote, notes.explanation, notes.correctionNote ? `Жавоб калитига тузатиш: ${notes.correctionNote}` : null].filter(Boolean);
 }
+function questionPrompt(question) {
+  return `${escape(question.question)} <span class="question-translation" lang="uz-Cyrl">${escape(question.questionUz)}</span>`;
+}
 function answerFeedback(session, question, answer) {
   const correct = answer === question.answer;
   const notes = questionNotes(question);
-  return `<section id="answer-feedback" class="answer-feedback ${correct ? 'feedback-correct' : 'feedback-incorrect'}" tabindex="-1" aria-labelledby="feedback-title" aria-describedby="feedback-answer"><div class="feedback-heading"><span class="feedback-icon" aria-hidden="true">${correct ? '✓' : '×'}</span><h2 id="feedback-title">${correct ? 'Тўғри' : 'Нотўғри'}</h2></div><p class="feedback-label">${correct ? 'Тўғри жавоб бердингиз.' : 'Тўғри жавобни эслаб қолинг:'}</p><p id="feedback-answer" lang="en"><span>${choiceLetter(session, question, question.answer)}.</span> ${escape(getChoiceText(session, question, question.answer))}</p>${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</section>`;
+  const translation = correct
+    ? `<p id="feedback-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</p>`
+    : '';
+  const description = correct ? 'feedback-answer feedback-translation' : 'feedback-answer';
+  return `<section id="answer-feedback" class="answer-feedback ${correct ? 'feedback-correct' : 'feedback-incorrect'}" tabindex="-1" aria-labelledby="feedback-title" aria-describedby="${description}">
+    <div class="feedback-heading"><span class="feedback-icon" aria-hidden="true">${correct ? '✓' : '×'}</span><h2 id="feedback-title">${correct ? 'Тўғри' : 'Нотўғри'}</h2></div>
+    <p class="feedback-label">${correct ? 'Тўғри жавоб' : 'Тўғри жавобни эслаб қолинг:'}</p>
+    <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${escape(getChoiceText(session, question, question.answer))}</p>
+    ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</section>`;
 }
 function testScreen() {
   const session = state.active;
@@ -99,7 +112,7 @@ function testScreen() {
   const number = session.ids.indexOf(id) + 1;
   const score = scoreSession(session, QUESTION_MAP);
   return `<div class="test-heading"><p class="eyebrow">${subject.title}</p><span>${modeFor(session)}</span></div><div class="question-count"><span>Савол <strong>${number}</strong> / ${score.total}</span><span>Жавоблар: ${score.answered}</span></div><progress max="${score.total}" value="${score.answered}" aria-label="Жавоб берилган саволлар"></progress>
-    <form id="answer-form"><fieldset><legend><h1 tabindex="-1" lang="en">${escape(question.question)}</h1></legend>${question.image ? `<img class="question-image" src="${escape(question.image)}" alt="${escape(question.imageAlt || 'Саволга оид расм')}">` : ''}<div class="answers">${getChoiceOrder(session, question).map((index, position) => {
+    <form id="answer-form"><fieldset><legend><h1 tabindex="-1" lang="en">${questionPrompt(question)}</h1></legend>${question.image ? `<img class="question-image" src="${escape(question.image)}" alt="${escape(question.imageAlt || 'Саволга оид расм')}">` : ''}<div class="answers">${getChoiceOrder(session, question).map((index, position) => {
       const choice = getChoiceText(session, question, index);
       const correct = answered && index === question.answer;
       const incorrect = answered && index === answer && !correct;
@@ -111,18 +124,26 @@ function reviewQuestion(session, id) {
   const question = QUESTION_MAP[id];
   const answer = session.answers[id];
   const isCorrect = answer === question.answer;
+  const translation = isCorrect
+    ? `<dd class="answer-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</dd>`
+    : '';
   const notes = questionNotes(question);
-  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${escape(question.question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${choiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${choiceLetter(session, question, question.answer)}. ${escape(getChoiceText(session, question, question.answer))}</dd></div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</article>`;
+  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${escape(getChoiceText(session, question, question.answer))}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</article>`;
 }
 function resultActions(session) {
-  if (session.mode !== 'sets' || !subjectFor(session).setSize) {
+  const subject = subjectFor(session);
+  if (session.mode !== 'sets' || !subject.setSize) {
     return `<button class="primary" data-action="practice-again">Қайта машқ қилиш ${arrow}</button>`;
   }
   const currentIds = state.generalPracticeProgress?.previousIds;
   const isCurrent = !currentIds || samePracticeSet(currentIds, session.ids);
-  const continueButton = isCurrent
-    ? `<button class="secondary" data-action="next-set">Кейинги тест (${subjectFor(session).setSize} та савол) ${arrow}</button>`
-    : `<button class="secondary" data-action="current-set">Жорий тўпламга қайтиш ${arrow}</button>`;
+  const addCount = Math.min(subject.setSize, subject.count - session.ids.length);
+  let continueButton = '';
+  if (!isCurrent) {
+    continueButton = `<button class="secondary" data-action="current-set">Жорий тўпламга қайтиш ${arrow}</button>`;
+  } else if (addCount > 0) {
+    continueButton = `<button class="secondary" data-action="next-set">${addCount} та савол қўшиш (жами ${session.ids.length + addCount}) ${arrow}</button>`;
+  }
   return `<button class="primary" data-action="retry-set">Шу тўпламни такрорлаш</button>${continueButton}`;
 }
 function resultScreen() {
@@ -216,7 +237,8 @@ document.addEventListener('click', event => {
       if (result?.mode !== 'sets' || !subjectFor(result).setSize) break;
       subjectId = result.testId; mode = 'sets';
       if (button.dataset.action === 'retry-set') requestStart({ previousAttempt: result });
-      else requestStart({ advance: button.dataset.action === 'next-set' });
+      else if (button.dataset.action === 'next-set') requestStart({ advance: true, previousAttempt: result });
+      else requestStart();
       break;
     }
     case 'practice-again': subjectId = resultFor(resultId).testId; mode = 'practice'; navigate('subject'); break;

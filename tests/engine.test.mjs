@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { QUESTIONS, QUESTION_MAP, SOURCE } from '../data/index.js';
-import { createSession, getChoiceOrder, getChoiceText, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
+import { createSession, getChoiceOrder, getChoiceText, getCorrectAnswerUz, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
 import { emptyState, readState, saveState, clearState } from '../storage.js';
 
 const options = { sourceId: SOURCE.id, testId: 'air-brakes', count: 25 };
@@ -142,10 +142,14 @@ test('positional answer references name the displayed choices at every combined-
       const second = String.fromCharCode(65 + order.indexOf(1));
       const expected = `Both ${first} and ${second}${id === 'cv-028' ? ' are correct' : ''}.`;
       assert.equal(getChoiceText(session, question, 2), expected);
+      if (question.answer === 2) {
+        assert.equal(getCorrectAnswerUz(session, question), question.correctAnswerUz.replace('{first}', first).replace('{second}', second));
+      }
       assert.equal(getChoiceText(session, question, 0), original[0]);
       assert.equal(getChoiceText(session, question, 1), original[1]);
     }
     assert.equal(getChoiceText({}, question, 2), original[2]);
+    assert.equal(getCorrectAnswerUz({}, question), question.correctAnswerUz.replace('{first}', 'A').replace('{second}', 'B'));
     assert.deepEqual(question.choices, original);
   }
 });

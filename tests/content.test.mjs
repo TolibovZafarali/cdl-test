@@ -65,6 +65,17 @@ for (const expected of sources) {
       assert.match(q.referenceUrl, /^https:\/\/dor\.mo\.gov\/forms\/CDL%20Manual\.pdf#page=\d+$/);
     }
   });
+
+  test(`${expected.id}: every question and keyed answer has an Uzbek Cyrillic translation`, () => {
+    for (const question of subject.questions) {
+      assert.match(question.questionUz, /\p{Script=Cyrillic}/u, question.id);
+      assert.equal((question.questionUz.match(/_{2,}/g) || []).length, (question.question.match(/_{2,}/g) || []).length, question.id);
+      assert.match(question.correctAnswerUz, /\p{Script=Cyrillic}/u, question.id);
+      const combinedAnswer = /^Both (?:A and B(?: are correct)?|of the above)\.$/i.test(question.choices[question.answer]);
+      const placeholders = question.correctAnswerUz.match(/\{[^}]*\}/g) || [];
+      assert.deepEqual(placeholders.sort(), combinedAnswer ? ['{first}', '{second}'] : [], question.id);
+    }
+  });
 }
 
 test('all three subjects use distinct identifiers and the correct practice lengths', () => {
