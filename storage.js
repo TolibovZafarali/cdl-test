@@ -1,9 +1,26 @@
 import { validateSession } from './engine.js';
 
 export const STORAGE_KEY = 'cdl-document-practice-v3';
+const RETRY_KEY = 'cdl-missed-practice';
 const LEGACY_SOURCE = 'user-air-brakes-docx-65-v1';
 const COMBINED_SOURCE = 'user-cdl-documents-v1';
 export const emptyState = () => ({ active: null, results: [] });
+
+export function readRetry(questionMap, sourceId) {
+  try {
+    const session = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY));
+    if (session?.mode !== 'missed' || !validateSession(session, questionMap, sourceId)) return null;
+    return session.testId === questionMap[session.ids[0]].testId ? session : null;
+  } catch { return null; }
+}
+
+export function saveRetry(session) {
+  try {
+    if (session) globalThis.sessionStorage.setItem(RETRY_KEY, JSON.stringify(session));
+    else globalThis.sessionStorage.removeItem(RETRY_KEY);
+    return true;
+  } catch { return false; }
+}
 
 function restoreGeneralPracticeProgress(progress, questionMap, state) {
   const validIds = ids => Array.isArray(ids) && new Set(ids).size === ids.length

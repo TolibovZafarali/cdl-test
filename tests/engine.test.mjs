@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { QUESTIONS, QUESTION_MAP, SOURCE } from '../data/index.js';
-import { createSession, getChoiceOrder, getChoiceText, getCorrectAnswerUz, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
-import { emptyState, readState, saveState, clearState } from '../storage.js';
+import { createSession, createMissedSession, missedQuestionIds, getChoiceOrder, getChoiceText, getCorrectAnswerUz, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, validateSession } from '../engine.js';
+import { emptyState, readState, saveState, clearState, readRetry, saveRetry } from '../storage.js';
 
 const options = { sourceId: SOURCE.id, testId: 'air-brakes', count: 25 };
 const create = settings => createSession(QUESTIONS, { ...options, ...settings }, () => 0.37);
@@ -278,6 +278,67 @@ test('manual completion keeps unanswered questions in the score denominator', ()
   assert.deepEqual(score, { total: 25, answered: 1, correct: 1, incorrect: 0, unanswered: 24, required: 20, percent: 4, passed: false });
   assert.ok(validateSession(session, QUESTION_MAP, SOURCE.id));
   assert.equal(finishSession(session), session);
+});
+
+test('retrying a finished test starts a fresh attempt with exactly its incorrect and unanswered questions', () => {
+  for (const [testId, mode] of [['general-knowledge', 'sets'], ['air-brakes', 'all'], ['combination-vehicles', 'practice']]) {
+    const original = { ...create({ testId, count: 3 }), mode };
+    const [, wrong, unanswered] = original.ids;
+    const result = finishSession(respond(respond(original), false));
+    const savedResult = clone(result);
+    const ids = missedQuestionIds(result, QUESTION_MAP);
+    assert.deepEqual(new Set(ids), new Set([wrong, unanswered]));
+    const retry = createMissedSession(ids, QUESTION_MAP, SOURCE.id);
+    assert.deepEqual(new Set(retry.ids), new Set(ids));
+    assert.deepEqual(retry.pending, retry.ids);
+    assert.deepEqual(retry.answers, {});
+    assert.equal(retry.mode, 'missed');
+    assert.equal(retry.testId, testId);
+    assert.notEqual(retry.id, result.id);
+    assert.ok(validateSession(retry, QUESTION_MAP, SOURCE.id));
+    const finishedRetry = complete(retry, 2);
+    assert.equal(scoreSession(finishedRetry, QUESTION_MAP).percent, 100);
+    assert.deepEqual(result, savedResult);
+  }
+});
+
+test('each retry narrows to its own missed questions and a perfect score has none to retry', () => {
+  const result = complete(create({ count: 10 }), 8);
+  assert.ok(scoreSession(result, QUESTION_MAP).passed);
+  const retry = createMissedSession(missedQuestionIds(result, QUESTION_MAP), QUESTION_MAP, SOURCE.id);
+  const stillMissed = retry.ids[1];
+  const nextIds = missedQuestionIds(complete(retry, 1), QUESTION_MAP);
+  const next = createMissedSession(nextIds, QUESTION_MAP, SOURCE.id);
+  assert.deepEqual(next.ids, [stillMissed]);
+  assert.deepEqual(missedQuestionIds(complete(next, 1), QUESTION_MAP), []);
+});
+
+test('invalid missed-question links cannot create empty, duplicate, unknown or mixed-subject tests', () => {
+  for (const ids of [[], ['docx-01', 'docx-01'], ['unknown'], ['constructor'], ['docx-01', 'gk-001']]) {
+    assert.equal(createMissedSession(ids, QUESTION_MAP, SOURCE.id), null);
+  }
+});
+
+test('a saved retry resumes its answer feedback in the same tab and starts independently in another', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'sessionStorage');
+  const firstTab = memoryStorage();
+  const secondTab = memoryStorage();
+  let tab = firstTab;
+  Object.defineProperty(globalThis, 'sessionStorage', { configurable: true, get: () => tab });
+  try {
+    const retry = createMissedSession(['docx-01', 'docx-02'], QUESTION_MAP, SOURCE.id);
+    const active = submitAnswer(retry, QUESTION_MAP[retry.pending[0]].answer, QUESTION_MAP);
+    assert.equal(saveRetry(active), true);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id), active);
+    tab = secondTab;
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id), null);
+    assert.equal(saveRetry(finishSession(retry)), true);
+    tab = firstTab;
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id), active);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'sessionStorage', descriptor);
+    else delete globalThis.sessionStorage;
+  }
 });
 
 test('answer zero is recorded while invalid indices are rejected without changing progress', () => {

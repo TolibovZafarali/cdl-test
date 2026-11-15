@@ -107,6 +107,19 @@ export function samePracticeSet(ids, otherIds) {
   return ids.length === otherIds.length && ids.every(id => otherIds.includes(id));
 }
 
+export function missedQuestionIds(session, questionMap) {
+  return session.ids.filter(id => session.answers[id] !== questionMap[id].answer);
+}
+
+export function createMissedSession(ids, questionMap, sourceId) {
+  if (!Array.isArray(ids) || !ids.length || new Set(ids).size !== ids.length
+    || !ids.every(id => identifier(id) && has(questionMap, id))) return null;
+  const questions = ids.map(id => questionMap[id]);
+  const testId = questions[0].testId;
+  if (!questions.every(question => question.testId === testId)) return null;
+  return { ...createSession(questions, { sourceId, testId, count: ids.length }), mode: 'missed' };
+}
+
 export function createPracticeSetSession(questions, settings, progress, { advance = false, previousAttempt } = {}, random = Math.random) {
   const currentIds = progress?.previousIds ?? previousAttempt?.ids ?? [];
   const retryIds = previousAttempt?.ids ?? currentIds;

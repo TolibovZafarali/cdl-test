@@ -1,7 +1,7 @@
 import { SOURCE, QUESTION_MAP, SUBJECTS, SUBJECT_MAP } from './data/index.js';
 import { QUESTION_NOTES, EXCLUDED_NOTES } from './data/interface-uz.js';
-import { createSession, createPracticeSetSession, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
-import { STORAGE_KEY, readState, saveState, clearState, emptyState } from './storage.js';
+import { createSession, createPracticeSetSession, createMissedSession, missedQuestionIds, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
+import { STORAGE_KEY, readState, saveState, clearState, emptyState, readRetry, saveRetry } from './storage.js';
 
 const app = document.querySelector('#app');
 const dialog = document.querySelector('#dialog');
@@ -10,19 +10,35 @@ const letter = index => String.fromCharCode(65 + index);
 const date = time => new Intl.DateTimeFormat('uz-Cyrl-UZ', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(time);
 const arrow = '<span aria-hidden="true">→</span>';
 let state = readState(QUESTION_MAP, SOURCE.id);
+let retry = readRetry(QUESTION_MAP, SOURCE.id);
 let view = 'home';
 let subjectId = SUBJECTS[0].id;
 let mode = 'practice';
 let resultId = null;
 let showAll = false;
 let saveFailed = false;
+let retrySaveFailed = false;
 let returnFocus;
 let pendingStart;
 
 function save() {
   saveFailed = !saveState(state);
-  const warning = document.querySelector('#storage-warning');
-  if (warning) warning.hidden = !saveFailed;
+}
+function storeRetry(session) {
+  retry = session;
+  retrySaveFailed = !saveRetry(session);
+}
+function testSession() {
+  if (view === 'retry') return retry?.finishedAt === null ? retry : null;
+  return view === 'test' ? state.active : null;
+}
+function saveTest(session) {
+  if (view === 'retry') {
+    storeRetry(session);
+  } else {
+    state.active = session;
+    save();
+  }
 }
 function focusHeading() { document.querySelector('h1')?.focus({ preventScroll: true }); }
 function navigate(next) {
@@ -38,26 +54,36 @@ function announce(message) { document.querySelector('#status').textContent = mes
 function subjectFor(session) { return SUBJECT_MAP[session.testId]; }
 const setModeLabel = 'Босқичма-босқич машқ';
 function modeFor(session) {
+  if (session.mode === 'missed') return 'Хатолар устида машқ';
   if (session.mode === 'sets' && subjectFor(session)?.setSize) return `${setModeLabel} · ${session.ids.length} та савол`;
   return session.mode === 'all' || (!session.mode && session.ids.length === subjectFor(session)?.count) ? 'Барча саволлар' : 'Машқ тести';
 }
-function resultFor(id) { return state.results.find(result => result.id === id); }
+function resultFor(id) {
+  if (retry && retry.finishedAt !== null && retry.id === id) return retry;
+  return state.results.find(result => result.id === id);
+}
 function sessionLabel(session) { return `${subjectFor(session)?.title || 'Машқ'} · ${modeFor(session)}`; }
 function sourceNotes(subject) {
   const corrections = subject.questions.filter(q => q.answer !== q.sourceAnswer);
   return `<details class="source-details"><summary>Саволлар ҳақида</summary><div><p>Саволлар ва жавоб вариантлари сиз юклаган ҳужжатдан олинган. Ҳар бир янги тестда саволлар ва жавоб вариантлари тасодифий тартибда берилади. Жавоблардаги ҳарфларга ҳаволалар янги тартибга мосланади.</p>${subject.excluded.length ? `<p>Қуйидаги саволлар баҳоланадиган тестларга киритилмаган:</p><ul>${subject.excluded.map(q => `<li>${escape(q.number)}-савол: ${escape(EXCLUDED_NOTES[`${subject.id}:${q.number}`])}</li>`).join('')}</ul>` : ''}${corrections.length ? `<p>${corrections.length} та жавоб калити Миссури CDL қўлланмаси асосида тузатилган. Ҳар бир тузатиш жавобни кўриб чиқишда тушунтирилади.</p><ul>${corrections.map(q => `<li>${q.number}-савол: ${escape(QUESTION_NOTES[q.id]?.correctionNote)}${q.referenceUrl ? ` <a href="${escape(q.referenceUrl)}" target="_blank" rel="noopener">Манба</a>` : ''}</li>`).join('')}</ul>` : ''}<p><a href="${subject.sourceUrl}" download>Асл ҳужжатни юклаб олиш</a></p></div></details>`;
 }
 function recentResults() {
-  if (!state.results.length) return '';
-  return `<details class="recent-results"><summary>Аввалги натижалар <span>${state.results.length}</span></summary><ul>${state.results.map(session => {
+  const results = retry && retry.finishedAt !== null
+    ? [retry, ...state.results].sort((a, b) => b.finishedAt - a.finishedAt)
+    : state.results;
+  if (!results.length) return '';
+  return `<details class="recent-results"><summary>Аввалги натижалар <span>${results.length}</span></summary><ul>${results.map(session => {
     const score = scoreSession(session, QUESTION_MAP);
-    return `<li><button class="result-link" data-action="result" data-id="${session.id}"><span>${escape(subjectFor(session)?.title)}<small>${date(session.finishedAt)} · ${modeFor(session)}</small></span><span>${score.correct} / ${score.total}<small>${score.passed ? 'Ўтди' : 'Ўтмади'}</small></span></button></li>`;
+    return `<li><button class="result-link" data-action="result" data-id="${escape(session.id)}"><span>${escape(subjectFor(session)?.title)}<small>${date(session.finishedAt)} · ${modeFor(session)}</small></span><span>${score.correct} / ${score.total}<small>${score.passed ? 'Ўтди' : 'Ўтмади'}</small></span></button></li>`;
   }).join('')}</ul><button class="text-button" data-action="clear">Сақланган натижаларни ўчириш</button></details>`;
 }
+function resumeCard(active, isRetry = false) {
+  if (!active || active.finishedAt !== null) return '';
+  return `<section class="resume" aria-label="Тугалланмаган тест"><div><p class="eyebrow">Қолган жойингиздан давом этинг</p><h2>${escape(isRetry ? sessionLabel(active) : subjectFor(active)?.title)}</h2><p>${active.ids.length} та саволдан ${scoreSession(active, QUESTION_MAP).answered} тасига жавоб берилган</p></div><button class="primary" data-action="${isRetry ? 'resume-retry' : 'resume'}">Давом этиш ${arrow}</button></section>`;
+}
 function home() {
-  const active = state.active;
   return `<div class="page-heading"><p class="eyebrow">Назарий имтиҳонга тайёргарлик</p><h1 tabindex="-1">CDL назарий тестлари</h1><p class="intro">Ҳар бир саволни ечинг ва тўғри жавобни эслаб қолинг.</p></div>
-    ${active ? `<section class="resume" aria-label="Тугалланмаган тест"><div><p class="eyebrow">Қолган жойингиздан давом этинг</p><h2>${escape(subjectFor(active)?.title)}</h2><p>${active.ids.length} та саволдан ${scoreSession(active, QUESTION_MAP).answered} тасига жавоб берилган</p></div><button class="primary" data-action="resume">Давом этиш ${arrow}</button></section>` : ''}
+    ${resumeCard(retry, true)}${resumeCard(state.active)}
     <section class="subject-list" aria-label="Мавзуни танланг">${SUBJECTS.map((subject, index) => `<button class="subject-row" data-action="subject" data-id="${subject.id}"><span class="subject-number" aria-hidden="true">0${index + 1}</span><span class="subject-copy"><span class="subject-title">${subject.title}</span><span class="subject-description">${subject.description}</span></span><span class="subject-count">${subject.count} та савол</span><span class="subject-arrow" aria-hidden="true">↗</span></button>`).join('')}</section>
     <p class="library-note">Натижалар шу қурилмада сақланади.</p>${recentResults()}`;
 }
@@ -102,8 +128,7 @@ function answerFeedback(session, question, answer) {
     <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${escape(getChoiceText(session, question, question.answer))}</p>
     ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</section>`;
 }
-function testScreen() {
-  const session = state.active;
+function testScreen(session) {
   const subject = subjectFor(session);
   const id = session.feedbackId || session.pending[0];
   const question = QUESTION_MAP[id];
@@ -150,15 +175,19 @@ function resultScreen() {
   const session = resultFor(resultId);
   if (!session) return `<h1 tabindex="-1">Натижа топилмади</h1><p>Бу натижа браузерда сақланмаган.</p><button class="primary" data-action="home">Барча мавзулар</button>`;
   const score = scoreSession(session, QUESTION_MAP);
-  const missed = session.ids.filter(id => session.answers[id] !== QUESTION_MAP[id].answer);
+  const missed = missedQuestionIds(session, QUESTION_MAP);
+  const retryLink = missed.length
+    ? `<a class="secondary" href="#retry/${missed.map(encodeURIComponent).join(',')}" target="_blank" rel="noopener">Хато қилинган саволларни қайта ечиш (${missed.length}) <span aria-hidden="true">↗</span><span class="sr-only">Янги варақда очилади</span></a>`
+    : '';
   const ids = showAll ? session.ids : missed;
-  return `<p class="eyebrow">${escape(sessionLabel(session))}</p><div class="result-top"><div><h1 tabindex="-1">${score.passed ? 'Тестдан ўтдингиз.' : 'Яна машқ қилинг.'}</h1><p class="result-description">Ўтиш учун ${score.required} та тўғри жавоб керак.${score.unanswered ? ` ${score.unanswered} та саволга жавоб берилмаган.` : ''}</p></div><div class="score"><strong>${score.correct}<span> / ${score.total}</span></strong><p>${score.percent}% тўғри</p></div></div><div class="result-actions">${resultActions(session)}<button class="secondary" data-action="home">Барча мавзулар</button></div>
+  return `<p class="eyebrow">${escape(sessionLabel(session))}</p><div class="result-top"><div><h1 tabindex="-1">${score.passed ? 'Тестдан ўтдингиз.' : 'Яна машқ қилинг.'}</h1><p class="result-description">Ўтиш учун ${score.required} та тўғри жавоб керак.${score.unanswered ? ` ${score.unanswered} та саволга жавоб берилмаган.` : ''}</p></div><div class="score"><strong>${score.correct}<span> / ${score.total}</span></strong><p>${score.percent}% тўғри</p></div></div><div class="result-actions">${retryLink}${resultActions(session)}<button class="secondary" data-action="home">Барча мавзулар</button></div>
     <section class="review"><div class="review-header"><h2>${showAll ? 'Барча жавоблар' : `Хатоларни кўриб чиқиш (${missed.length})`}</h2><label class="show-all"><input type="checkbox" id="show-all" ${showAll ? 'checked' : ''}> Барчаси</label></div>${!ids.length ? '<p class="empty-review">Барча саволларга тўғри жавоб бердингиз.</p>' : ids.map(id => reviewQuestion(session, id)).join('')}</section>`;
 }
 function render() {
-  if (view === 'test' && !state.active) view = 'home';
-  const subject = view === 'subject' ? SUBJECT_MAP[subjectId] : view === 'test' ? subjectFor(state.active) : view === 'result' ? subjectFor(resultFor(resultId) || {}) : null;
-  app.innerHTML = `<header class="header"><a class="site-title" href="#home" data-action="home"><span class="wordmark">CDL</span><span>Машқ</span></a>${view === 'test' ? '<button class="text-button" data-action="exit">Сақлаш ва чиқиш</button>' : '<span class="header-location">Миссури</span>'}</header><main id="main" class="${view === 'test' ? 'test-main' : view === 'result' ? 'result-main' : ''}" tabindex="-1"><p id="storage-warning" class="storage-warning" role="status" ${saveFailed ? '' : 'hidden'}>Натижаларни сақлаб бўлмади. Тестни тугатгунча бу саҳифани ёпманг.</p>${view === 'test' ? testScreen() : view === 'result' ? resultScreen() : view === 'subject' ? subjectScreen() : home()}</main><footer class="footer"><span>Миссури CDL машқлари</span>${subject ? `<a href="${subject.sourceUrl}" download>Асл ҳужжат</a>` : '<span>Ўтиш учун 80% тўғри жавоб</span>'}</footer>`;
+  const test = testSession();
+  if ((view === 'test' || view === 'retry') && !test) view = 'home';
+  const subject = view === 'subject' ? SUBJECT_MAP[subjectId] : test ? subjectFor(test) : view === 'result' ? subjectFor(resultFor(resultId) || {}) : null;
+  app.innerHTML = `<header class="header"><a class="site-title" href="#home" data-action="home"><span class="wordmark">CDL</span><span>Машқ</span></a>${test ? '<button class="text-button" data-action="exit">Сақлаш ва чиқиш</button>' : '<span class="header-location">Миссури</span>'}</header><main id="main" class="${test ? 'test-main' : view === 'result' ? 'result-main' : ''}" tabindex="-1"><p id="storage-warning" class="storage-warning" role="status" ${(saveFailed || retrySaveFailed) ? '' : 'hidden'}>Натижаларни сақлаб бўлмади. Тестни тугатгунча бу саҳифани ёпманг.</p>${test ? testScreen(test) : view === 'result' ? resultScreen() : view === 'subject' ? subjectScreen() : home()}</main><footer class="footer"><span>Миссури CDL машқлари</span>${subject ? `<a href="${subject.sourceUrl}" download>Асл ҳужжат</a>` : '<span>Ўтиш учун 80% тўғри жавоб</span>'}</footer>`;
   document.title = `${subject?.title || 'Миссури'} — CDL машқлари`;
 }
 function start(setOptions = {}) {
@@ -190,9 +219,15 @@ function requestStart(setOptions) {
   start(setOptions);
 }
 function finish(session) {
-  state.results = [session, ...state.results.filter(item => item.id !== session.id)].slice(0, 20);
-  state.active = null; resultId = session.id; showAll = false;
-  save(); navigate('result');
+  if (view === 'retry') {
+    storeRetry(session);
+  } else {
+    state.results = [session, ...state.results.filter(item => item.id !== session.id)].slice(0, 20);
+    state.active = null;
+    save();
+  }
+  resultId = session.id; showAll = false;
+  navigate('result');
 }
 function openDialog(title, message, action, confirmText) {
   returnFocus = document.activeElement;
@@ -208,10 +243,11 @@ document.addEventListener('submit', event => {
     requestStart();
     return;
   }
-  if (!state.active?.feedbackId) return;
-  state.active = advanceQuestion(state.active);
-  if (state.active.finishedAt) finish(state.active);
-  else { save(); render(); window.scrollTo(0, 0); focusHeading(); announce(''); }
+  const session = testSession();
+  if (!session?.feedbackId) return;
+  const next = advanceQuestion(session);
+  if (next.finishedAt !== null) finish(next);
+  else { saveTest(next); render(); window.scrollTo(0, 0); focusHeading(); announce(''); }
 });
 document.addEventListener('change', event => {
   if (event.target.name === 'test-mode') {
@@ -224,9 +260,11 @@ document.addEventListener('click', event => {
   const button = event.target.closest('[data-action]');
   if (!button || button.disabled) return;
   event.preventDefault();
+  const session = testSession();
   switch (button.dataset.action) {
     case 'home':
     case 'exit':
+      if (retrySaveFailed) storeRetry(retry);
       if (saveFailed) save();
       navigate('home'); break;
     case 'subject': if (SUBJECT_MAP[button.dataset.id]) { subjectId = button.dataset.id; mode = 'practice'; navigate('subject'); } break;
@@ -242,19 +280,20 @@ document.addEventListener('click', event => {
       break;
     }
     case 'practice-again': subjectId = resultFor(resultId).testId; mode = 'practice'; navigate('subject'); break;
+    case 'resume-retry': navigate('retry'); break;
     case 'resume': navigate('test'); break;
     case 'answer': {
-      if (view !== 'test' || !state.active || state.active.feedbackId) break;
-      state.active = submitAnswer(state.active, Number(button.dataset.choice), QUESTION_MAP);
-      save(); render();
+      if (!session || session.feedbackId) break;
+      saveTest(submitAnswer(session, Number(button.dataset.choice), QUESTION_MAP));
+      render();
       const feedback = document.querySelector('#answer-feedback');
       feedback.focus({ preventScroll: true });
       feedback.scrollIntoView({ block: 'nearest' });
       break;
     }
-    case 'skip': state.active = skipQuestion(state.active); save(); render(); focusHeading(); announce('Савол ўтказиб юборилди. У тест охирида яна кўрсатилади.'); break;
-    case 'finish': openDialog('Тестни якунлайсизми?', state.active.pending.length ? `Жавоб берилмаган ${state.active.pending.length} та савол нотўғри деб ҳисобланади.` : 'Барча жавоблар сақланган. Натижаларни кўришингиз мумкин.', 'finish-confirm', 'Якунлаш'); break;
-    case 'finish-confirm': closeDialog(); finish(finishSession(state.active)); break;
+    case 'skip': saveTest(skipQuestion(session)); render(); focusHeading(); announce('Савол ўтказиб юборилди. У тест охирида яна кўрсатилади.'); break;
+    case 'finish': openDialog('Тестни якунлайсизми?', session.pending.length ? `Жавоб берилмаган ${session.pending.length} та савол нотўғри деб ҳисобланади.` : 'Барча жавоблар сақланган. Натижаларни кўришингиз мумкин.', 'finish-confirm', 'Якунлаш'); break;
+    case 'finish-confirm': closeDialog(); finish(finishSession(session)); break;
     case 'start-confirm': {
       const setOptions = pendingStart;
       closeDialog(); start(setOptions); break;
@@ -262,11 +301,11 @@ document.addEventListener('click', event => {
     case 'cancel': closeDialog(); break;
     case 'result': resultId = button.dataset.id; showAll = false; navigate('result'); break;
     case 'clear': openDialog('Сақланган натижалар ўчирилсинми?', 'Тугалланмаган тест ва аввалги натижалар шу браузердан ўчирилади.', 'clear-confirm', 'Ўчириш'); break;
-    case 'clear-confirm': closeDialog(); state = emptyState(); clearState(); save(); navigate('home'); break;
+    case 'clear-confirm': closeDialog(); state = emptyState(); storeRetry(null); clearState(); save(); navigate('home'); break;
   }
 });
 document.addEventListener('keydown', event => {
-  if (view !== 'test' || dialog.open || event.ctrlKey || event.metaKey || event.altKey) return;
+  if (!testSession() || dialog.open || event.ctrlKey || event.metaKey || event.altKey) return;
   if (/^[1-9]$/.test(event.key)) {
     const answer = document.querySelectorAll('[data-action="answer"]')[Number(event.key) - 1];
     if (answer && !answer.disabled && !event.repeat) { event.preventDefault(); answer.click(); }
@@ -277,7 +316,14 @@ document.addEventListener('keydown', event => {
 function restoreRoute() {
   if (dialog.open) closeDialog();
   const hash = location.hash.slice(1);
-  if (hash.startsWith('result/')) { resultId = hash.slice(7); view = 'result'; }
+  if (hash.startsWith('retry/')) {
+    const session = createMissedSession(hash.slice(6).split(','), QUESTION_MAP, SOURCE.id);
+    view = session ? 'retry' : 'home';
+    if (session) storeRetry(session);
+    history.replaceState(null, '', `#${view}`);
+  } else if (hash === 'retry') {
+    view = 'retry';
+  } else if (hash.startsWith('result/')) { resultId = hash.slice(7); view = 'result'; }
   else if (hash.startsWith('subject/') && SUBJECT_MAP[hash.slice(8)]) {
     if (subjectId !== hash.slice(8)) mode = 'practice';
     subjectId = hash.slice(8); view = 'subject';
@@ -288,6 +334,7 @@ window.addEventListener('popstate', restoreRoute);
 window.addEventListener('storage', event => {
   if (event.storageArea !== localStorage || (event.key !== null && event.key !== STORAGE_KEY)) return;
   state = readState(QUESTION_MAP, SOURCE.id);
+  if (view === 'retry' || (view === 'result' && resultId === retry?.id)) return;
   saveFailed = false;
   if (dialog.open) closeDialog();
   render();
