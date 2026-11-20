@@ -111,7 +111,7 @@ function modeOption(value, title, description) {
   return `<label class="mode-option"><input type="radio" name="test-mode" value="${value}" ${mode === value ? 'checked' : ''}><span><strong>${title}</strong><span>${description}</span></span></label>`;
 }
 function keywordSwitch() {
-  return `<div class="keyword-setting"><label class="keyword-switch"><input type="checkbox" role="switch" id="keyword-hints" aria-describedby="keyword-description" ${keywordHints ? 'checked' : ''}><span>Таянч сўзлар</span></label><p id="keyword-description">Савол ва тўғри жавобда биттадан сўз ажратилади. Тўғри жавоб танлашдан олдин ҳам кўринади.</p></div>`;
+  return `<div class="keyword-setting"><label class="keyword-switch"><input type="checkbox" role="switch" id="keyword-hints" aria-describedby="keyword-description" ${keywordHints ? 'checked' : ''}><span>Таянч сўзлар</span></label><p id="keyword-description">Савол ва тўғри жавобда 1–2 та муҳим сўз ёки қисқа ибора ажратилади. Тўғри жавоб танлашдан олдин ҳам кўринади.</p></div>`;
 }
 function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
