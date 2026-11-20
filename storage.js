@@ -1,10 +1,24 @@
 import { validateSession } from './engine.js';
 
 export const STORAGE_KEY = 'cdl-document-practice-v3';
+export const KEYWORD_HINTS_KEY = 'cdl-keyword-hints';
 const RETRY_KEY = 'cdl-missed-practice';
 const LEGACY_SOURCE = 'user-air-brakes-docx-65-v1';
 const COMBINED_SOURCE = 'user-cdl-documents-v1';
 export const emptyState = () => ({ active: null, results: [] });
+
+export function readKeywordHints(storage) {
+  try {
+    return (storage ?? globalThis.localStorage).getItem(KEYWORD_HINTS_KEY) === 'true';
+  } catch { return false; }
+}
+
+export function saveKeywordHints(enabled, storage) {
+  try {
+    (storage ?? globalThis.localStorage).setItem(KEYWORD_HINTS_KEY, String(enabled === true));
+    return true;
+  } catch { return false; }
+}
 
 export function readRetry(questionMap, sourceId) {
   try {

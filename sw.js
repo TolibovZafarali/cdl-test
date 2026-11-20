@@ -1,5 +1,5 @@
-const CACHE = 'cdl-document-practice-v17';
-const FILES = ['./', './index.html', './styles.css', './app.js', './engine.js', './storage.js', './manifest.webmanifest', './data/index.js', './data/interface-uz.js', './data/questions.js', './data/general-knowledge.js', './data/combination-vehicles.js', './assets/icon.svg', './source/air-brakes.docx', './source/general-knowledge.docx', './source/combination-vehicles.docx'];
+const CACHE = 'cdl-document-practice-v18';
+const FILES = ['./', './index.html', './styles.css', './app.js', './engine.js', './storage.js', './keywords.js', './manifest.webmanifest', './data/index.js', './data/interface-uz.js', './data/keywords.js', './data/questions.js', './data/general-knowledge.js', './data/combination-vehicles.js', './assets/icon.svg', './source/air-brakes.docx', './source/general-knowledge.docx', './source/combination-vehicles.docx'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => self.skipWaiting()));
 });

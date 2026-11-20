@@ -1,16 +1,18 @@
 import { SOURCE, QUESTION_MAP, SUBJECTS, SUBJECT_MAP } from './data/index.js';
 import { QUESTION_NOTES, EXCLUDED_NOTES } from './data/interface-uz.js';
+import { KEYWORDS } from './data/keywords.js';
+import { escapeText as escape, highlightKeyword } from './keywords.js';
 import { createSession, createPracticeSetSession, createMissedSession, missedQuestionIds, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
-import { STORAGE_KEY, readState, saveState, clearState, emptyState, readRetry, saveRetry } from './storage.js';
+import { STORAGE_KEY, KEYWORD_HINTS_KEY, readState, saveState, clearState, emptyState, readRetry, saveRetry, readKeywordHints, saveKeywordHints } from './storage.js';
 
 const app = document.querySelector('#app');
 const dialog = document.querySelector('#dialog');
-const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const letter = index => String.fromCharCode(65 + index);
 const date = time => new Intl.DateTimeFormat('uz-Cyrl-UZ', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(time);
 const arrow = '<span aria-hidden="true">→</span>';
 let state = readState(QUESTION_MAP, SOURCE.id);
 let retry = readRetry(QUESTION_MAP, SOURCE.id);
+let keywordHints = readKeywordHints();
 let view = 'home';
 let subjectId = SUBJECTS[0].id;
 let mode = 'practice';
@@ -90,6 +92,9 @@ function home() {
 function modeOption(value, title, description) {
   return `<label class="mode-option"><input type="radio" name="test-mode" value="${value}" ${mode === value ? 'checked' : ''}><span><strong>${title}</strong><span>${description}</span></span></label>`;
 }
+function keywordSwitch() {
+  return `<div class="keyword-setting"><label class="keyword-switch"><input type="checkbox" role="switch" id="keyword-hints" aria-describedby="keyword-description" ${keywordHints ? 'checked' : ''}><span>Таянч сўзлар</span></label><p id="keyword-description">Савол ва тўғри жавобда биттадан сўз ажратилади. Тўғри жавоб танлашдан олдин ҳам кўринади.</p></div>`;
+}
 function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
@@ -106,14 +111,17 @@ function subjectScreen() {
       : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
     : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
   return `<button class="back-link" data-action="home"><span aria-hidden="true">←</span> Барча мавзулар</button><div class="page-heading subject-heading"><p class="eyebrow">Тўпламда ${subject.count} та савол</p><h1 tabindex="-1">${subject.title}</h1><p class="intro">${subject.description}</p></div>
-    <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset><p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
+    <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset>${keywordSwitch()}<p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
 }
 function questionNotes(question) {
   const notes = QUESTION_NOTES[question.id] || {};
   return [notes.editionNote, notes.explanation, notes.correctionNote ? `Жавоб калитига тузатиш: ${notes.correctionNote}` : null].filter(Boolean);
 }
 function questionPrompt(question) {
-  return `${escape(question.question)} <span class="question-translation" lang="uz-Cyrl">${escape(question.questionUz)}</span>`;
+  return `${highlightKeyword(question.question, KEYWORDS[question.id]?.[0], keywordHints)} <span class="question-translation" lang="uz-Cyrl">${escape(question.questionUz)}</span>`;
+}
+function answerText(session, question, index) {
+  return highlightKeyword(getChoiceText(session, question, index), KEYWORDS[question.id]?.[1], keywordHints && index === question.answer);
 }
 function answerFeedback(session, question, answer) {
   const correct = answer === question.answer;
@@ -125,7 +133,7 @@ function answerFeedback(session, question, answer) {
   return `<section id="answer-feedback" class="answer-feedback ${correct ? 'feedback-correct' : 'feedback-incorrect'}" tabindex="-1" aria-labelledby="feedback-title" aria-describedby="${description}">
     <div class="feedback-heading"><span class="feedback-icon" aria-hidden="true">${correct ? '✓' : '×'}</span><h2 id="feedback-title">${correct ? 'Тўғри' : 'Нотўғри'}</h2></div>
     <p class="feedback-label">${correct ? 'Тўғри жавоб' : 'Тўғри жавобни эслаб қолинг:'}</p>
-    <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${escape(getChoiceText(session, question, question.answer))}</p>
+    <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${answerText(session, question, question.answer)}</p>
     ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</section>`;
 }
 function testScreen(session) {
@@ -136,12 +144,11 @@ function testScreen(session) {
   const answer = session.answers[id];
   const number = session.ids.indexOf(id) + 1;
   const score = scoreSession(session, QUESTION_MAP);
-  return `<div class="test-heading"><p class="eyebrow">${subject.title}</p><span>${modeFor(session)}</span></div><div class="question-count"><span>Савол <strong>${number}</strong> / ${score.total}</span><span>Жавоблар: ${score.answered}</span></div><progress max="${score.total}" value="${score.answered}" aria-label="Жавоб берилган саволлар"></progress>
+  return `<div class="test-heading"><p class="eyebrow">${subject.title}</p><span>${modeFor(session)}</span></div>${keywordSwitch()}<div class="question-count"><span>Савол <strong>${number}</strong> / ${score.total}</span><span>Жавоблар: ${score.answered}</span></div><progress max="${score.total}" value="${score.answered}" aria-label="Жавоб берилган саволлар"></progress>
     <form id="answer-form"><fieldset><legend><h1 tabindex="-1" lang="en">${questionPrompt(question)}</h1></legend>${question.image ? `<img class="question-image" src="${escape(question.image)}" alt="${escape(question.imageAlt || 'Саволга оид расм')}">` : ''}<div class="answers">${getChoiceOrder(session, question).map((index, position) => {
-      const choice = getChoiceText(session, question, index);
       const correct = answered && index === question.answer;
       const incorrect = answered && index === answer && !correct;
-      return `<button type="button" class="answer${correct ? ' answer-correct' : ''}${incorrect ? ' answer-incorrect' : ''}" data-action="answer" data-choice="${index}" ${answered ? 'disabled' : ''}><span class="choice-letter" aria-hidden="true">${letter(position)}</span><span class="choice-copy"><span lang="en">${escape(choice)}</span>${correct || incorrect ? `<span class="answer-label">${correct ? `${answer === index ? '✓ Жавобингиз · Тўғри' : '✓ Тўғри жавоб'}` : '× Жавобингиз · Нотўғри'}</span>` : ''}</span></button>`;
+      return `<button type="button" class="answer${correct ? ' answer-correct' : ''}${incorrect ? ' answer-incorrect' : ''}" data-action="answer" data-choice="${index}" ${answered ? 'disabled' : ''}><span class="choice-letter" aria-hidden="true">${letter(position)}</span><span class="choice-copy"><span lang="en">${answerText(session, question, index)}</span>${keywordHints && index === question.answer && !answered ? '<span class="sr-only">Таянч сўзли тўғри жавоб</span>' : ''}${correct || incorrect ? `<span class="answer-label">${correct ? `${answer === index ? '✓ Жавобингиз · Тўғри' : '✓ Тўғри жавоб'}` : '× Жавобингиз · Нотўғри'}</span>` : ''}</span></button>`;
     }).join('')}</div></fieldset>${answered ? answerFeedback(session, question, answer) : '<p class="answer-hint">Жавобни танланг — натижа дарҳол кўринади.</p>'}<div class="test-actions">${answered ? '<span class="continue-hint">Шошилманг. Тайёр бўлсангиз, давом этинг.</span>' : `<button type="button" class="text-button" data-action="skip" ${session.pending.length < 2 ? 'disabled' : ''}>Ҳозирча ўтказиш</button>`}<button type="submit" class="primary" id="next-answer" ${answered ? '' : 'disabled'}>${answered && session.pending.length === 0 ? 'Натижалар' : 'Кейинги савол'} ${arrow}</button></div></form>
     <div class="question-footer"><span>Манбадаги савол: ${question.number}</span><button class="text-button" data-action="finish">Тестни якунлаш</button></div>`;
 }
@@ -153,7 +160,7 @@ function reviewQuestion(session, id) {
     ? `<dd class="answer-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</dd>`
     : '';
   const notes = questionNotes(question);
-  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${escape(getChoiceText(session, question, question.answer))}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</article>`;
+  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</article>`;
 }
 function resultActions(session) {
   const subject = subjectFor(session);
@@ -181,7 +188,7 @@ function resultScreen() {
     : '';
   const ids = showAll ? session.ids : missed;
   return `<p class="eyebrow">${escape(sessionLabel(session))}</p><div class="result-top"><div><h1 tabindex="-1">${score.passed ? 'Тестдан ўтдингиз.' : 'Яна машқ қилинг.'}</h1><p class="result-description">Ўтиш учун ${score.required} та тўғри жавоб керак.${score.unanswered ? ` ${score.unanswered} та саволга жавоб берилмаган.` : ''}</p></div><div class="score"><strong>${score.correct}<span> / ${score.total}</span></strong><p>${score.percent}% тўғри</p></div></div><div class="result-actions">${retryLink}${resultActions(session)}<button class="secondary" data-action="home">Барча мавзулар</button></div>
-    <section class="review"><div class="review-header"><h2>${showAll ? 'Барча жавоблар' : `Хатоларни кўриб чиқиш (${missed.length})`}</h2><label class="show-all"><input type="checkbox" id="show-all" ${showAll ? 'checked' : ''}> Барчаси</label></div>${!ids.length ? '<p class="empty-review">Барча саволларга тўғри жавоб бердингиз.</p>' : ids.map(id => reviewQuestion(session, id)).join('')}</section>`;
+    <section class="review">${keywordSwitch()}<div class="review-header"><h2>${showAll ? 'Барча жавоблар' : `Хатоларни кўриб чиқиш (${missed.length})`}</h2><label class="show-all"><input type="checkbox" id="show-all" ${showAll ? 'checked' : ''}> Барчаси</label></div>${!ids.length ? '<p class="empty-review">Барча саволларга тўғри жавоб бердингиз.</p>' : ids.map(id => reviewQuestion(session, id)).join('')}</section>`;
 }
 function render() {
   const test = testSession();
@@ -250,6 +257,13 @@ document.addEventListener('submit', event => {
   else { saveTest(next); render(); window.scrollTo(0, 0); focusHeading(); announce(''); }
 });
 document.addEventListener('change', event => {
+  if (event.target.id === 'keyword-hints') {
+    keywordHints = event.target.checked;
+    const saved = saveKeywordHints(keywordHints);
+    render();
+    document.querySelector('#keyword-hints')?.focus({ preventScroll: true });
+    announce(saved ? '' : 'Таянч сўзлар созламасини сақлаб бўлмади. У ҳозирги саҳифада амал қилади.');
+  }
   if (event.target.name === 'test-mode') {
     mode = event.target.value; render(); document.querySelector(`input[name="test-mode"][value="${mode}"]`).focus();
   }
@@ -332,7 +346,15 @@ function restoreRoute() {
 }
 window.addEventListener('popstate', restoreRoute);
 window.addEventListener('storage', event => {
-  if (event.storageArea !== localStorage || (event.key !== null && event.key !== STORAGE_KEY)) return;
+  if (event.storageArea !== localStorage) return;
+  if (event.key === null || event.key === KEYWORD_HINTS_KEY) {
+    const focusId = document.activeElement?.id;
+    keywordHints = readKeywordHints();
+    render();
+    if (focusId) document.getElementById(focusId)?.focus({ preventScroll: true });
+    if (event.key === KEYWORD_HINTS_KEY) return;
+  }
+  if (event.key !== null && event.key !== STORAGE_KEY) return;
   state = readState(QUESTION_MAP, SOURCE.id);
   if (view === 'retry' || (view === 'result' && resultId === retry?.id)) return;
   saveFailed = false;
