@@ -89,6 +89,7 @@ function appHarness({ hash = '#home', localStorage = memoryStorage(), sessionSto
     view: () => read('view'),
     retryLink: () => app.innerHTML.match(/href="(#[^"]*retry\/[^"]+)"/)?.[1],
     click,
+    selectMode(value) { documentEvents.get('change')({ target: { name: 'test-mode', value } }); },
     answer(correct = true) {
       const session = read('testSession()');
       const question = bank.QUESTION_MAP[session.pending[0]];
@@ -264,4 +265,77 @@ test('failed retry saves retain answers and warnings across history until storag
   app.visit(`#retry/session/${unsaved.id}`);
   assert.deepEqual(app.current(), unsaved);
   assert.deepEqual(app.reload().current(), unsaved);
+});
+
+test('numbers mode is offered only for General Knowledge and updates its count and pass threshold', () => {
+  const app = appHarness({ hash: '#subject/general-knowledge' });
+  assert.match(app.html(), /Сонли жавоблар/);
+  app.selectMode('numbers');
+  assert.match(app.html(), /value="numbers" checked/);
+  assert.match(app.html(), /70 та саволдан 56 тасига/);
+  for (const subject of ['air-brakes', 'combination-vehicles']) {
+    app.visit(`#subject/${subject}`);
+    assert.doesNotMatch(app.html(), /value="numbers"/);
+    assert.match(app.html(), /value="practice" checked/);
+  }
+  app.visit('#subject/general-knowledge');
+  assert.match(app.html(), /value="practice" checked/);
+});
+
+test('numeric tests preserve their filtered pool, answers and shuffled choices through resume and practice again', () => {
+  const app = appHarness({ hash: '#subject/general-knowledge' });
+  app.selectMode('numbers');
+  app.submit('start-form');
+  const first = app.current();
+  const expectedIds = bank.SUBJECT_MAP['general-knowledge'].numberQuestions.map(question => question.id);
+  assert.equal(first.mode, 'numbers');
+  assert.equal(first.testId, 'general-knowledge');
+  assert.equal(first.ids.length, 70);
+  assert.deepEqual(new Set(first.ids), new Set(expectedIds));
+  assert.equal(engine.scoreSession(first, bank.QUESTION_MAP).required, 56);
+  app.answer(true);
+  app.next();
+  app.answer(false);
+  const saved = app.current();
+  const reloaded = app.reload();
+  assert.deepEqual(reloaded.current(), saved);
+  assert.match(reloaded.html(), /Сонли жавоблар/);
+  reloaded.click('exit');
+  const resumed = reloaded.reload();
+  resumed.click('resume');
+  assert.deepEqual(resumed.current(), saved);
+  resumed.click('finish');
+  resumed.click('finish-confirm');
+  const result = resumed.result();
+  assert.equal(result.mode, 'numbers');
+  assert.equal(engine.scoreSession(result, bank.QUESTION_MAP).correct, 1);
+  assert.match(resumed.html(), /Умумий билимлар · Сонли жавоблар/);
+  resumed.click('practice-again');
+  assert.match(resumed.html(), /value="numbers" checked/);
+  resumed.submit('start-form');
+  const next = resumed.current();
+  assert.equal(next.mode, 'numbers');
+  assert.notEqual(next.id, first.id);
+  assert.deepEqual(new Set(next.ids), new Set(expectedIds));
+  assert.deepEqual(next.answers, {});
+  assert.deepEqual(storage.readState(bank.QUESTION_MAP, bank.SOURCE.id, app.localStorage).results[0], result);
+});
+
+test('missed-question retries from numeric tests contain only their incorrect or unanswered numeric questions', () => {
+  const app = appHarness({ hash: '#subject/general-knowledge' });
+  app.selectMode('numbers');
+  app.submit('start-form');
+  app.answer(true); app.next();
+  app.answer(false); app.next();
+  app.click('finish'); app.click('finish-confirm');
+  const result = app.result();
+  const retry = appHarness({ hash: app.retryLink(), localStorage: app.localStorage });
+  const expected = engine.missedQuestionIds(result, bank.QUESTION_MAP);
+  assert.equal(retry.current().mode, 'missed');
+  assert.equal(retry.current().ids.length, 69);
+  assert.deepEqual(new Set(retry.current().ids), new Set(expected));
+  assert.ok(retry.current().ids.every(id => bank.hasNumericAnswer(bank.QUESTION_MAP[id])));
+  retry.answer(true);
+  assert.deepEqual(retry.reload().current(), retry.current());
+  assert.deepEqual(app.result(), result);
 });
