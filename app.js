@@ -12,6 +12,8 @@ const date = time => new Intl.DateTimeFormat('uz-Cyrl-UZ', { month: 'short', day
 const arrow = '<span aria-hidden="true">→</span>';
 let state = readState(QUESTION_MAP, SOURCE.id);
 let retry = readRetry(QUESTION_MAP, SOURCE.id);
+const retrySessions = new Map(retry ? [[retry.id, retry]] : []);
+const failedRetryIds = new Set();
 let keywordHints = readKeywordHints();
 let view = 'home';
 let subjectId = SUBJECTS[0].id;
@@ -26,9 +28,22 @@ let pendingStart;
 function save() {
   saveFailed = !saveState(state);
 }
+function persistRetry(session) {
+  const saved = saveRetry(session);
+  if (session) {
+    if (saved) failedRetryIds.delete(session.id);
+    else failedRetryIds.add(session.id);
+  }
+  retrySaveFailed = !saved || failedRetryIds.size > 0;
+}
 function storeRetry(session) {
   retry = session;
-  retrySaveFailed = !saveRetry(session);
+  if (session) retrySessions.set(session.id, session);
+  else { retrySessions.clear(); failedRetryIds.clear(); }
+  persistRetry(session);
+}
+function retryFor(id) {
+  return retrySessions.get(id) || readRetry(QUESTION_MAP, SOURCE.id, id);
 }
 function testSession() {
   if (view === 'retry') return retry?.finishedAt === null ? retry : null;
@@ -45,7 +60,7 @@ function saveTest(session) {
 function focusHeading() { document.querySelector('h1')?.focus({ preventScroll: true }); }
 function navigate(next) {
   view = next;
-  const hash = next === 'result' ? `result/${resultId}` : next === 'subject' ? `subject/${subjectId}` : next;
+  const hash = next === 'result' ? `result/${resultId}` : next === 'subject' ? `subject/${subjectId}` : next === 'retry' && retry ? `retry/session/${retry.id}` : next;
   history.pushState(null, '', `#${hash}`);
   render();
   window.scrollTo(0, 0);
@@ -62,7 +77,8 @@ function modeFor(session) {
 }
 function resultFor(id) {
   if (retry && retry.finishedAt !== null && retry.id === id) return retry;
-  return state.results.find(result => result.id === id);
+  const result = state.results.find(result => result.id === id) || retryFor(id);
+  return result && result.finishedAt !== null ? result : null;
 }
 function sessionLabel(session) { return `${subjectFor(session)?.title || 'Машқ'} · ${modeFor(session)}`; }
 function sourceNotes(subject) {
@@ -278,7 +294,8 @@ document.addEventListener('click', event => {
   switch (button.dataset.action) {
     case 'home':
     case 'exit':
-      if (retrySaveFailed) storeRetry(retry);
+      if (retrySaveFailed && !failedRetryIds.size) persistRetry(retry);
+      for (const id of [...failedRetryIds]) persistRetry(retrySessions.get(id));
       if (saveFailed) save();
       navigate('home'); break;
     case 'subject': if (SUBJECT_MAP[button.dataset.id]) { subjectId = button.dataset.id; mode = 'practice'; navigate('subject'); } break;
@@ -330,13 +347,20 @@ document.addEventListener('keydown', event => {
 function restoreRoute() {
   if (dialog.open) closeDialog();
   const hash = location.hash.slice(1);
-  if (hash.startsWith('retry/')) {
+  if (hash === 'retry' || hash.startsWith('retry/session/')) {
+    const id = hash === 'retry' ? undefined : hash.slice(14);
+    const session = id === undefined ? retry : retryFor(id);
+    if (session) {
+      retry = session;
+      resultId = session.finishedAt !== null ? session.id : null;
+      view = resultId ? 'result' : 'retry';
+      history.replaceState(null, '', `#${resultId ? `result/${resultId}` : `retry/session/${session.id}`}`);
+    } else view = 'home';
+  } else if (hash.startsWith('retry/')) {
     const session = createMissedSession(hash.slice(6).split(','), QUESTION_MAP, SOURCE.id);
     view = session ? 'retry' : 'home';
     if (session) storeRetry(session);
-    history.replaceState(null, '', `#${view}`);
-  } else if (hash === 'retry') {
-    view = 'retry';
+    history.replaceState(null, '', session ? `#retry/session/${session.id}` : '#home');
   } else if (hash.startsWith('result/')) { resultId = hash.slice(7); view = 'result'; }
   else if (hash.startsWith('subject/') && SUBJECT_MAP[hash.slice(8)]) {
     if (subjectId !== hash.slice(8)) mode = 'practice';

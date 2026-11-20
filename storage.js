@@ -20,9 +20,11 @@ export function saveKeywordHints(enabled, storage) {
   } catch { return false; }
 }
 
-export function readRetry(questionMap, sourceId) {
+export function readRetry(questionMap, sourceId, id) {
   try {
-    const session = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY));
+    const data = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY));
+    const sessions = Array.isArray(data?.sessions) ? data.sessions : [data];
+    const session = id === undefined ? sessions[0] : sessions.find(item => item?.id === id);
     if (session?.mode !== 'missed' || !validateSession(session, questionMap, sourceId)) return null;
     return session.testId === questionMap[session.ids[0]].testId ? session : null;
   } catch { return null; }
@@ -30,8 +32,13 @@ export function readRetry(questionMap, sourceId) {
 
 export function saveRetry(session) {
   try {
-    if (session) globalThis.sessionStorage.setItem(RETRY_KEY, JSON.stringify(session));
-    else globalThis.sessionStorage.removeItem(RETRY_KEY);
+    if (session) {
+      let data;
+      try { data = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY)); } catch {}
+      const previous = Array.isArray(data?.sessions) ? data.sessions : data ? [data] : [];
+      const sessions = [session, ...previous.filter(item => item?.id && item.id !== session.id)].slice(0, 20);
+      globalThis.sessionStorage.setItem(RETRY_KEY, JSON.stringify({ sessions }));
+    } else globalThis.sessionStorage.removeItem(RETRY_KEY);
     return true;
   } catch { return false; }
 }

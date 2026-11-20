@@ -341,6 +341,68 @@ test('a saved retry resumes its answer feedback in the same tab and starts indep
   }
 });
 
+test('different retries retain their own answers and order when restored by attempt ID', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'sessionStorage');
+  const storage = memoryStorage();
+  Object.defineProperty(globalThis, 'sessionStorage', { configurable: true, value: storage });
+  try {
+    const first = createMissedSession(['docx-01', 'docx-02'], QUESTION_MAP, SOURCE.id);
+    const active = submitAnswer(first, QUESTION_MAP[first.pending[0]].answer, QUESTION_MAP);
+    const second = createMissedSession(['docx-03', 'docx-04'], QUESTION_MAP, SOURCE.id);
+    assert.equal(saveRetry(active), true);
+    assert.equal(saveRetry(second), true);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id), second);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, first.id), active);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, second.id), second);
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id, 'missing-attempt'), null);
+    const finished = finishSession(active);
+    assert.equal(saveRetry(finished), true);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, first.id), finished);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, second.id), second);
+    assert.equal(JSON.parse(storage.value).sessions.length, 2);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'sessionStorage', descriptor);
+    else delete globalThis.sessionStorage;
+  }
+});
+
+test('legacy retries survive the next attempt and clearing removes the full retry history', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'sessionStorage');
+  const first = createMissedSession(['docx-01'], QUESTION_MAP, SOURCE.id);
+  const storage = memoryStorage(JSON.stringify(first));
+  Object.defineProperty(globalThis, 'sessionStorage', { configurable: true, value: storage });
+  try {
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id), first);
+    const second = createMissedSession(['docx-02'], QUESTION_MAP, SOURCE.id);
+    assert.equal(saveRetry(second), true);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, first.id), first);
+    assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id), second);
+    assert.equal(saveRetry(null), true);
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id, first.id), null);
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id, second.id), null);
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id), null);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'sessionStorage', descriptor);
+    else delete globalThis.sessionStorage;
+  }
+});
+
+test('retry history is bounded and expired attempts never resolve to another retry', () => {
+  const descriptor = Object.getOwnPropertyDescriptor(globalThis, 'sessionStorage');
+  const storage = memoryStorage();
+  Object.defineProperty(globalThis, 'sessionStorage', { configurable: true, value: storage });
+  try {
+    const attempts = Array.from({ length: 21 }, () => createMissedSession(['docx-01'], QUESTION_MAP, SOURCE.id));
+    for (const attempt of attempts) assert.equal(saveRetry(attempt), true);
+    assert.equal(JSON.parse(storage.value).sessions.length, 20);
+    assert.equal(readRetry(QUESTION_MAP, SOURCE.id, attempts[0].id), null);
+    for (const attempt of attempts.slice(1)) assert.deepEqual(readRetry(QUESTION_MAP, SOURCE.id, attempt.id), attempt);
+  } finally {
+    if (descriptor) Object.defineProperty(globalThis, 'sessionStorage', descriptor);
+    else delete globalThis.sessionStorage;
+  }
+});
+
 test('answer zero is recorded while invalid indices are rejected without changing progress', () => {
   const session = create();
   const id = session.pending[0];
