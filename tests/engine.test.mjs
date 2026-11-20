@@ -25,7 +25,7 @@ function memoryStorage(value = null) {
 }
 
 const categories = [
-  ['general-knowledge', 20],
+  ['general-knowledge', 50],
   ['air-brakes', 25],
   ['combination-vehicles', 20],
 ];

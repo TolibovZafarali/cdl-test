@@ -70,8 +70,10 @@ function navigate(next) {
 function announce(message) { document.querySelector('#status').textContent = message; }
 function subjectFor(session) { return SUBJECT_MAP[session.testId]; }
 const setModeLabel = 'Босқичма-босқич машқ';
+const numbersModeLabel = 'Сонли жавоблар';
 function modeFor(session) {
   if (session.mode === 'missed') return 'Хатолар устида машқ';
+  if (session.mode === 'numbers') return numbersModeLabel;
   if (session.mode === 'sets' && subjectFor(session)?.setSize) return `${setModeLabel} · ${session.ids.length} та савол`;
   return session.mode === 'all' || (!session.mode && session.ids.length === subjectFor(session)?.count) ? 'Барча саволлар' : 'Машқ тести';
 }
@@ -115,17 +117,22 @@ function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
   const currentSize = state.generalPracticeProgress?.previousIds.length ?? subject.setSize;
-  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : practiceCount;
+  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : practiceCount;
   const options = [modeOption('practice', 'Машқ тести', `${practiceCount} та савол · Тасодифий танлов`)];
   if (subject.setSize) {
     options.push(modeOption('sets', setModeLabel, `Жорий тўпламда ${currentSize} та савол`));
   }
   options.push(modeOption('all', 'Барча саволлар', `${subject.count} та савол · Тасодифий тартибда`));
+  if (subject.numberQuestions?.length) {
+    options.push(modeOption('numbers', numbersModeLabel, `${subject.numberQuestions.length} та савол · Рақам ёки сўз билан ёзилган сонлар`));
+  }
   const note = mode === 'sets'
     ? (currentSize < subject.count
       ? `Тўпламни хоҳлаганча такрорланг. Тайёр бўлганда яна ${Math.min(subject.setSize, subject.count - currentSize)} та савол қўшинг. Аввалги ва янги саволлар аралаш тартибда берилади.`
       : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
-    : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
+    : mode === 'numbers'
+      ? 'Камида битта жавоб вариантида сон бор саволлар. Рақамлар ҳам, сўз билан ёзилган сонлар ҳам ҳисобга олинади. Барча саволлар тасодифий тартибда берилади.'
+      : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
   return `<button class="back-link" data-action="home"><span aria-hidden="true">←</span> Барча мавзулар</button><div class="page-heading subject-heading"><p class="eyebrow">Тўпламда ${subject.count} та савол</p><h1 tabindex="-1">${subject.title}</h1><p class="intro">${subject.description}</p></div>
     <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset>${keywordSwitch()}<p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
 }
@@ -227,8 +234,9 @@ function start(setOptions = {}) {
     state.active = attempt.session;
     state.generalPracticeProgress = attempt.progress;
   } else {
-    const count = mode === 'all' ? subject.count : subject.practiceCount;
-    state.active = createSession(subject.questions, { ...settings, count });
+    const questions = mode === 'numbers' ? subject.numberQuestions : subject.questions;
+    const count = mode === 'all' || mode === 'numbers' ? questions.length : subject.practiceCount;
+    state.active = createSession(questions, { ...settings, count });
     state.active.mode = mode;
   }
   save(); navigate('test');
@@ -310,7 +318,12 @@ document.addEventListener('click', event => {
       else requestStart();
       break;
     }
-    case 'practice-again': subjectId = resultFor(resultId).testId; mode = 'practice'; navigate('subject'); break;
+    case 'practice-again': {
+      const result = resultFor(resultId);
+      subjectId = result.testId;
+      mode = result.mode === 'numbers' ? 'numbers' : 'practice';
+      navigate('subject'); break;
+    }
     case 'resume-retry': navigate('retry'); break;
     case 'resume': navigate('test'); break;
     case 'answer': {

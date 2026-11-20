@@ -38,7 +38,7 @@ The app contains **422 questions and 1,264 answer choices**. The source banks pr
 
 | Subject | Random practice | Correct to pass | All questions | Correct to pass |
 | --- | ---: | ---: | ---: | ---: |
-| General Knowledge | 20 | 16 | 289 | 232 |
+| General Knowledge | 50 | 40 | 289 | 232 |
 | Air Brakes | 25 | 20 | 62 | 50 |
 | Combination Vehicles | 20 | 16 | 71 | 57 |
 
@@ -70,4 +70,4 @@ These practice documents are not authenticated as live examination question bank
 - `engine.js` and `storage.js`: scoring, sessions, and validated browser storage.
 - `tests/`: content integrity, scoring, persistence, and offline checks.
 
-Progress stays in this browser, with up to 20 results saved. Missed-question retries have individual addresses and retain up to 20 attempts in their browser tab, so refreshing or moving through browser history restores the matching questions, answers, and result. Existing Air Brakes progress migrates into the expanded app while preserving answers and skipped questions. Storage continues to use `cdl-document-practice-v3`. The version 20 offline cache includes the localized interface, all three banks, and source documents. Offline use works after the site has loaded and cached its files.
+Progress stays in this browser, with up to 20 results saved. Missed-question retries have individual addresses and retain up to 20 attempts in their browser tab, so refreshing or moving through browser history restores the matching questions, answers, and result. Existing Air Brakes progress migrates into the expanded app while preserving answers and skipped questions. Storage continues to use `cdl-document-practice-v3`. The version 22 offline cache includes the localized interface, all three banks, and source documents. Offline use works after the site has loaded and cached its files.

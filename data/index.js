@@ -2,12 +2,18 @@ import { QUESTIONS as AIR_QUESTIONS, EXCLUDED_QUESTIONS as AIR_EXCLUDED } from '
 import { QUESTIONS as GENERAL_QUESTIONS, EXCLUDED_QUESTIONS as GENERAL_EXCLUDED } from './general-knowledge.js';
 import { QUESTIONS as COMBINATION_QUESTIONS, EXCLUDED_QUESTIONS as COMBINATION_EXCLUDED } from './combination-vehicles.js';
 
+const ANSWER_NUMBER = /\d|\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|half|halves|quarter|quarters|twice)\b/i;
+
+export function hasNumericAnswer(question) {
+  return question.choices.some(choice => ANSWER_NUMBER.test(choice));
+}
+
 export const SOURCE = { id: 'user-cdl-documents-v1', title: 'CDL машқлари' };
 export const SUBJECTS = [
   {
     id: 'general-knowledge', title: 'Умумий билимлар',
     description: 'Хавфсиз ҳайдаш, транспортни текшириш ва йўл ҳаракати қоидалари.',
-    practiceCount: 20, setSize: 20, sourceUrl: './source/general-knowledge.docx',
+    practiceCount: 50, setSize: 20, sourceUrl: './source/general-knowledge.docx',
     excluded: GENERAL_EXCLUDED,
   },
   {
@@ -32,5 +38,6 @@ export const QUESTION_MAP = Object.fromEntries(QUESTIONS.map(question => [questi
 export const SUBJECT_MAP = Object.fromEntries(SUBJECTS.map(subject => {
   subject.questions = QUESTIONS.filter(question => question.testId === subject.id);
   subject.count = subject.questions.length;
+  if (subject.id === 'general-knowledge') subject.numberQuestions = subject.questions.filter(hasNumericAnswer);
   return [subject.id, subject];
 }));
