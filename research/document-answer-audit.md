@@ -1,14 +1,19 @@
 # Supplied document answer audit
 
-The latest supplied document, `CDL_Air Brakes_test_ing-o'zb_65.docx`, contains 65 numbered entries. The app imports 62 questions with 186 choices, preserving their English wording, original numbering, and choice order. The unchanged source is served as `source/air-brakes.docx`.
+The supplied document, bundled unchanged as `source/air-brakes.docx`, contains 65 numbered entries. After the November 20, 2026 audit, the app contains **63 scored questions with 189 choices**. The 62 previously imported stems, choices, and source keys match the document. Question 13 is restored with the disclosed repair below. Original numbering and marked keys are retained.
 
 ## Incomplete entries
 
 - Question 12 contains answer fragments without a complete question or usable correct answer.
-- Question 13 provides only one answer choice.
 - Question 17 contains answer fragments without a complete question or usable correct answer.
 
-These entries are listed in `EXCLUDED_QUESTIONS` and are excluded from scored tests. No replacement wording or distractors were invented.
+These two entries are listed in `EXCLUDED_QUESTIONS` and remain excluded from scored tests. Neither language version supplies the missing question or identifiable correct answer, and no image or table resolves the gaps.
+
+## Restored entry
+
+Question 13 originally supplied only “5.” It is now scored with authored alternatives “2” and “10.” Its misleading reference to posted speed is clarified to the driver's chosen safe speed: release the brakes at about 5 mph below that speed. Original text and the one supplied answer remain in source metadata. [Downgrade braking, §5.4.6, PDF page 77](https://dor.mo.gov/forms/CDL%20Manual.pdf#page=77).
+
+See the [November 20 content audit](question-audit-2026-11-20.md) for source comparison, repair provenance, and the limitations of this practice material.
 
 ## Scoring corrections
 
@@ -24,6 +29,6 @@ The original marked answer is retained in `sourceAnswer`. The corrected `answer`
 
 ## Retained answers with context
 
-- **Question 4:** The document marks 60 psi. The Missouri manual specifies warning before pressure falls below 55 psi. Because 55 psi is absent from the supplied choices, the original answer is retained with an edition note. [Low air pressure warning, page 71](https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71).
+- **Question 4:** The document marks 60 psi, supported by [FMVSS 121 §S5.1.5](https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol6/pdf/CFR-2024-title49-vol6-sec571-121.pdf#page=4). The [Missouri manual, page 71](https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71) specifies 55 psi. The original answer remains with an edition/equipment note; this is not treated as a proven incorrect source key.
 - **Question 57:** The document marks 20 psi. Its review explains that spring-brake activation varies by vehicle, with a range of 20–45 psi and typically 20–30 psi. [Spring brakes, page 71](https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71).
 - **Question 63:** The document's marked answer about changed emergency braking is retained with context: working ABS on all axles permits full brake application during an emergency. Normal braking remains the same, and ABS does not justify higher speeds or closer following. [Braking with ABS, page 76](https://dor.mo.gov/forms/CDL%20Manual.pdf#page=76).

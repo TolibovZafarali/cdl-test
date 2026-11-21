@@ -229,6 +229,32 @@ export const QUESTIONS = [
     "sourceAnswer": 0
   },
   {
+    "id": "gk-016",
+    "number": 16,
+    "testId": "general-knowledge",
+    "question": "Which of these items is NOT checked for a pre-trip inspection?",
+    "choices": [
+      "Whether all vehicle lights are working and clean.",
+      "Engine valve clearance.",
+      "Cargo securement."
+    ],
+    "answer": 1,
+    "sourceAnswer": 1,
+    "questionUz": "Йўлга чиқишдан олдинги текширувда қуйидагилардан қайси бири текширилмайди?",
+    "correctAnswerUz": "Двигатель клапанларининг тирқиши.",
+    "contentNote": "All original options describe inspection items. The keyed option is replaced with valve clearance, also used in source question 281.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=21",
+    "sourceEntry": {
+      "question": "Which of these items is NOT checked for a pre-trip inspection?",
+      "choices": [
+        "Whether all vehicle lights are working and clean.",
+        "Amount of fuel in the vehicle.",
+        "Cargo securement."
+      ],
+      "sourceAnswer": 1
+    }
+  },
+  {
     "id": "gk-017",
     "questionUz": "Тижорат ҳайдовчилик гувоҳномангизда хавфли моддаларни ташишга рухсат белгиси йўқ. Сиздан хавфли юк белгиси ўрнатилган машинада шундай моддаларни етказиб беришни сўрашди. Нима қилишингиз керак?",
     "correctAnswerUz": "Бу юкни ташишдан бош тортинг.",
@@ -1480,6 +1506,32 @@ export const QUESTIONS = [
     "sourceAnswer": 0
   },
   {
+    "id": "gk-110",
+    "number": 110,
+    "testId": "general-knowledge",
+    "question": "Which of these is NOT true about braking in an emergency situation?",
+    "choices": [
+      "You should brake in a way that will keep your vehicle in a straight line.",
+      "It is important how you brake in an emergency situation.",
+      "You should avoid using the brakes until your speed is down to 20 mph."
+    ],
+    "answer": 2,
+    "sourceAnswer": 2,
+    "questionUz": "Фавқулодда вазиятда тормозлаш ҳақида қайси фикр нотўғри?",
+    "correctAnswerUz": "Тезлик соатига 20 милга тушмагунча тормозларни ишлатмаслик керак.",
+    "contentNote": "The original NOT-true prompt had two false options. Removing “not” from the second option makes the supplied keyed option uniquely false.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=50",
+    "sourceEntry": {
+      "question": "Which of these is NOT true about braking in an emergency situation?",
+      "choices": [
+        "You should brake in a way that will keep your vehicle in a straight line.",
+        "It is not important how you brake in an emergency situation.",
+        "You should avoid using the brakes until your speed is down to 20 mph."
+      ],
+      "sourceAnswer": 2
+    }
+  },
+  {
     "id": "gk-111",
     "questionUz": "Чуқур кўлмак ёки оқар сув орқали машинада ўтишдан сақланиш керак. Агар ўтишга мажбур бўлсангиз, қайси чора тормозларнинг ишлашини сақлаб қолишга ёрдам беради?",
     "correctAnswerUz": "Сувдан ўтаётганда тормоз педалини енгил босиб туриш.",
@@ -1915,6 +1967,32 @@ export const QUESTIONS = [
     "sourceAnswer": 1
   },
   {
+    "id": "gk-140",
+    "number": 140,
+    "testId": "general-knowledge",
+    "question": "Which types of fires is a B:C extinguisher especially good for?",
+    "choices": [
+      "Electrical fires and burning liquids, such as gasoline.",
+      "Burning wood, paper, and cloth.",
+      "Tire fires."
+    ],
+    "answer": 0,
+    "sourceAnswer": 0,
+    "questionUz": "B:C туридаги ўт ўчиргич қайси ёнғинлар учун айниқса мос?",
+    "correctAnswerUz": "Электр ёнғинлари ва бензин каби ёнувчан суюқликлар ёнғини.",
+    "contentNote": "Both electrical and gasoline fires were correct. They are combined into one answer; the other option now describes Class A materials.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=55",
+    "sourceEntry": {
+      "question": "Which types of fires is a B:C extinguisher especially good for?",
+      "choices": [
+        "Electrical fires.",
+        "Gasoline fires.",
+        "Tire fires."
+      ],
+      "sourceAnswer": 0
+    }
+  },
+  {
     "id": "gk-141",
     "questionUz": "Баъзан хавфдан қочиш ёки фавқулодда вазиятнинг олдини олиш учун йўлдан четга чиқишга тўғри келади. Бундай пайтда нимани ёдда тутиш керак?",
     "correctAnswerUz": "Йўл ёқасига чиқиш тўқнашувга учрашдан кўра хавфсизроқ.",
@@ -2172,6 +2250,32 @@ export const QUESTIONS = [
     "sourceAnswer": 0,
     "explanation": "This spacing rule applies below 40 mph. Add one second when driving over 40 mph.",
     "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=32"
+  },
+  {
+    "id": "gk-158",
+    "number": 158,
+    "testId": "general-knowledge",
+    "question": "The maximum legal speed for a commercial vehicle on a highway:",
+    "choices": [
+      "Depends on the applicable speed limit for that road and vehicle.",
+      "Is always 45 mph.",
+      "Is always 55 mph."
+    ],
+    "answer": 0,
+    "sourceAnswer": 0,
+    "questionUz": "Тижорат транспорт воситасининг автомагистралдаги энг юқори қонуний тезлиги:",
+    "correctAnswerUz": "Ўша йўл ва транспорт воситаси учун амал қиладиган тезлик чекловига боғлиқ.",
+    "contentNote": "The unsupported claim of one highway limit in most states is replaced with the applicable-limit rule. This is a scope repair, not a verified numeric key substitution.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=31",
+    "sourceEntry": {
+      "question": "The maximum speed limit for a commercial vehicle on the highway in most states is:",
+      "choices": [
+        "35 mph.",
+        "45 mph.",
+        "55 mph."
+      ],
+      "sourceAnswer": 0
+    }
   },
   {
     "id": "gk-159",
@@ -2534,6 +2638,32 @@ export const QUESTIONS = [
     ],
     "answer": 2,
     "sourceAnswer": 2
+  },
+  {
+    "id": "gk-183",
+    "number": 183,
+    "testId": "general-knowledge",
+    "question": "Your brakes can get wet when you are driving through heavy rain. What can happen if the brakes are applied?",
+    "choices": [
+      "Hydroplaning.",
+      "The brakes will grip more evenly.",
+      "The vehicle can pull to one side or the trailer can jackknife."
+    ],
+    "answer": 2,
+    "sourceAnswer": 2,
+    "questionUz": "Қаттиқ ёмғирда тормозлар намланиши мумкин. Уларни босганда нима бўлиши мумкин?",
+    "correctAnswerUz": "Транспорт бир томонга тортиши ёки тиркама букланиб кетиши мумкин.",
+    "contentNote": "Both sideways pull and jackknife were valid. They are combined in the keyed answer, and the other option is replaced to remove duplicate correct choices.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=44",
+    "sourceEntry": {
+      "question": "Your brakes can get wet when you are driving through heavy rain. What can happen if the brakes are applied?",
+      "choices": [
+        "Hydroplaning.",
+        "The vehicle can pull to one side.",
+        "Trailer jackknife."
+      ],
+      "sourceAnswer": 2
+    }
   },
   {
     "id": "gk-184",
@@ -3397,19 +3527,35 @@ export const QUESTIONS = [
   {
     "id": "gk-241",
     "questionUz": "Қуруқ йўл қопламасида соатига 55 мил тезликда кетяпсиз. Транспорт воситасини тўлиқ тўхтатиш учун тахминан қанча умумий масофа керак?",
-    "correctAnswerUz": "Тахминан Америка футболи майдонининг узунлигига тенг масофа.",
+    "correctAnswerUz": "Идеал шароитда камида 419 фут.",
     "number": 241,
     "testId": "general-knowledge",
     "question": "You are driving a vehicle at 55 mph on dry pavement. About how much total stopping distance will you need to bring it to a stop?",
     "choices": [
       "Twice the length of the vehicle.",
       "Half the length of a football field.",
-      "The length of a football field."
+      "The length of a football field.",
+      "At least 419 feet under ideal conditions."
     ],
-    "answer": 2,
+    "answer": 3,
     "sourceAnswer": 2,
-    "explanation": "The source uses a football-field approximation. The current manual gives at least 419 feet at 55 mph under ideal conditions.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=30"
+    "explanation": "At 55 mph, the manual gives a minimum total stopping distance of 419 feet under ideal conditions.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=30",
+    "contentNote": "The manual’s explicit minimum is appended as a new answer; the original football-field approximation and all original choice indices are preserved.",
+    "correctionNote": "The precise current-manual minimum is scored instead of the source’s rough football-field approximation.",
+    "sourceEntry": {
+      "question": "You are driving a vehicle at 55 mph on dry pavement. About how much total stopping distance will you need to bring it to a stop?",
+      "choices": [
+        "Twice the length of the vehicle.",
+        "Half the length of a football field.",
+        "The length of a football field."
+      ],
+      "sourceAnswer": 2
+    },
+    "previousChoiceCount": 3,
+    "addedChoiceIndices": [
+      3
+    ]
   },
   {
     "id": "gk-242",
@@ -4239,6 +4385,32 @@ export const QUESTIONS = [
     "sourceAnswer": 1
   },
   {
+    "id": "gk-297",
+    "number": 297,
+    "testId": "general-knowledge",
+    "question": "You can recognize hazardous materials by looking at a container's:",
+    "choices": [
+      "label",
+      "shape",
+      "color"
+    ],
+    "answer": 0,
+    "sourceAnswer": 0,
+    "questionUz": "Контейнердаги хавфли моддаларни нимасига қараб аниқлаш мумкин?",
+    "correctAnswerUz": "Ёрлиғига.",
+    "contentNote": "The malformed stem is clarified and “level” is corrected to “label”.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=101",
+    "sourceEntry": {
+      "question": "One can recognize hazardous materials by looking it's a container",
+      "choices": [
+        "level",
+        "shape",
+        "color"
+      ],
+      "sourceAnswer": 0
+    }
+  },
+  {
     "id": "gk-298",
     "questionUz": "Бурилиш кўрсаткичларини қачон ёқиш керак?",
     "correctAnswerUz": "Бурилиш ёки қаторни алмаштиришдан камида 100 фут олдин.",
@@ -4362,11 +4534,6 @@ export const QUESTIONS = [
 
 export const EXCLUDED_QUESTIONS = [
   {
-    "number": 16,
-    "reason": "All three choices are included in a pre-trip inspection; no valid NOT-checked answer is supplied.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=21"
-  },
-  {
     "number": 41,
     "reason": "This number is absent from the supplied document."
   },
@@ -4405,30 +4572,5 @@ export const EXCLUDED_QUESTIONS = [
   {
     "number": 50,
     "reason": "This number is absent from the supplied document."
-  },
-  {
-    "number": 110,
-    "reason": "Two choices are false, so the NOT-true question has no single correct answer.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=50"
-  },
-  {
-    "number": 140,
-    "reason": "Both electrical and gasoline fires are valid choices for a B:C extinguisher.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=55"
-  },
-  {
-    "number": 158,
-    "reason": "The question assumes one highway speed limit across most states; none of the supplied values is a reliable general answer.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=31"
-  },
-  {
-    "number": 183,
-    "reason": "Wet brakes can cause both pulling to one side and a trailer jackknife, so two choices are valid.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=44"
-  },
-  {
-    "number": 297,
-    "reason": "The marked answer is \"level\"; the document does not supply the intended identification term as a valid choice.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=58"
   }
 ];

@@ -71,9 +71,11 @@ function announce(message) { document.querySelector('#status').textContent = mes
 function subjectFor(session) { return SUBJECT_MAP[session.testId]; }
 const setModeLabel = 'Босқичма-босқич машқ';
 const numbersModeLabel = 'Сонли жавоблар';
+const newModeLabel = 'Янги қўшилган саволлар';
 function modeFor(session) {
   if (session.mode === 'missed') return 'Хатолар устида машқ';
   if (session.mode === 'numbers') return numbersModeLabel;
+  if (session.mode === 'new') return newModeLabel;
   if (session.mode === 'sets' && subjectFor(session)?.setSize) return `${setModeLabel} · ${session.ids.length} та савол`;
   return session.mode === 'all' || (!session.mode && session.ids.length === subjectFor(session)?.count) ? 'Барча саволлар' : 'Машқ тести';
 }
@@ -84,8 +86,12 @@ function resultFor(id) {
 }
 function sessionLabel(session) { return `${subjectFor(session)?.title || 'Машқ'} · ${modeFor(session)}`; }
 function sourceNotes(subject) {
-  const corrections = subject.questions.filter(q => q.answer !== q.sourceAnswer);
-  return `<details class="source-details"><summary>Саволлар ҳақида</summary><div><p>Саволлар ва жавоб вариантлари сиз юклаган ҳужжатдан олинган. Ҳар бир янги тестда саволлар ва жавоб вариантлари тасодифий тартибда берилади. Жавоблардаги ҳарфларга ҳаволалар янги тартибга мосланади.</p>${subject.excluded.length ? `<p>Қуйидаги саволлар баҳоланадиган тестларга киритилмаган:</p><ul>${subject.excluded.map(q => `<li>${escape(q.number)}-савол: ${escape(EXCLUDED_NOTES[`${subject.id}:${q.number}`])}</li>`).join('')}</ul>` : ''}${corrections.length ? `<p>${corrections.length} та жавоб калити Миссури CDL қўлланмаси асосида тузатилган. Ҳар бир тузатиш жавобни кўриб чиқишда тушунтирилади.</p><ul>${corrections.map(q => `<li>${q.number}-савол: ${escape(QUESTION_NOTES[q.id]?.correctionNote)}${q.referenceUrl ? ` <a href="${escape(q.referenceUrl)}" target="_blank" rel="noopener">Манба</a>` : ''}</li>`).join('')}</ul>` : ''}<p><a href="${subject.sourceUrl}" download>Асл ҳужжатни юклаб олиш</a></p></div></details>`;
+  const reviewed = subject.questions.filter(q => q.correctionNote || q.contentNote);
+  return `<details class="source-details"><summary>Саволлар ҳақида</summary><div><p>Саволлар сиз юклаган ҳужжат асосида тайёрланган. Ноаниқ саволлар аниқлаштирилди, битта жавобли саволларга қўшимча вариантлар киритилди. Тузатишлар қуйида кўрсатилган. Ҳар бир янги тестда саволлар ва жавоб вариантлари тасодифий тартибда берилади. Жавоблардаги ҳарфларга ҳаволалар янги тартибга мосланади.</p>${subject.excluded.length ? `<p>Қуйидаги саволлар баҳоланадиган тестларга киритилмаган:</p><ul>${subject.excluded.map(q => `<li>${escape(q.number)}-савол: ${escape(EXCLUDED_NOTES[`${subject.id}:${q.number}`])}</li>`).join('')}</ul>` : ''}${reviewed.length ? `<p>${reviewed.length} та саволда матн, вариант ёки жавоб калити тузатилган. Тузатишлар CDL қўлланмаси ва транспорт тадқиқотлари билан текширилган.</p><ul>${reviewed.map(q => `<li>${q.number}-савол: ${[QUESTION_NOTES[q.id]?.contentNote, QUESTION_NOTES[q.id]?.correctionNote].filter(Boolean).map(escape).join(' ')} ${referenceLinks(q)}</li>`).join('')}</ul>` : ''}<p><a href="${subject.sourceUrl}" download>Асл ҳужжатни юклаб олиш</a></p></div></details>`;
+}
+function referenceLinks(question) {
+  const urls = question.referenceUrls || (question.referenceUrl ? [question.referenceUrl] : []);
+  return urls.map((url, index) => `<a href="${escape(url)}" target="_blank" rel="noopener">Манба${urls.length > 1 ? ` ${index + 1}` : ''}</a>`).join(' · ');
 }
 function recentResults() {
   const results = retry && retry.finishedAt !== null
@@ -117,8 +123,11 @@ function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
   const currentSize = state.generalPracticeProgress?.previousIds.length ?? subject.setSize;
-  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : practiceCount;
+  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : mode === 'new' ? subject.newQuestions.length : practiceCount;
   const options = [modeOption('practice', 'Машқ тести', `${practiceCount} та савол · Тасодифий танлов`)];
+  if (subject.newQuestions.length) {
+    options.push(modeOption('new', newModeLabel, `${subject.newQuestions.length} та савол · Алоҳида машқ`));
+  }
   if (subject.setSize) {
     options.push(modeOption('sets', setModeLabel, `Жорий тўпламда ${currentSize} та савол`));
   }
@@ -132,13 +141,15 @@ function subjectScreen() {
       : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
     : mode === 'numbers'
       ? 'Камида битта жавоб вариантида сон бор саволлар. Рақамлар ҳам, сўз билан ёзилган сонлар ҳам ҳисобга олинади. Барча саволлар тасодифий тартибда берилади.'
-      : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
+      : mode === 'new'
+        ? 'Фақат сўнгги қўшилган саволлар билан машқ қилинг. Улар бошқа тестларда ҳам бор. Саволлар ва жавоб вариантлари тасодифий тартибда берилади.'
+        : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
   return `<button class="back-link" data-action="home"><span aria-hidden="true">←</span> Барча мавзулар</button><div class="page-heading subject-heading"><p class="eyebrow">Тўпламда ${subject.count} та савол</p><h1 tabindex="-1">${subject.title}</h1><p class="intro">${subject.description}</p></div>
     <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset>${keywordSwitch()}<p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
 }
 function questionNotes(question) {
   const notes = QUESTION_NOTES[question.id] || {};
-  return [notes.editionNote, notes.explanation, notes.correctionNote ? `Жавоб калитига тузатиш: ${notes.correctionNote}` : null].filter(Boolean);
+  return [notes.editionNote, notes.explanation, notes.correctionNote ? `Жавоб калитига тузатиш: ${notes.correctionNote}` : null, notes.contentNote ? `Саволга тузатиш: ${notes.contentNote}` : null].filter(Boolean);
 }
 function questionPrompt(question) {
   return `${highlightKeyword(question.question, KEYWORDS[question.id]?.[0], keywordHints)} <span class="question-translation" lang="uz-Cyrl">${escape(question.questionUz)}</span>`;
@@ -157,7 +168,7 @@ function answerFeedback(session, question, answer) {
     <div class="feedback-heading"><span class="feedback-icon" aria-hidden="true">${correct ? '✓' : '×'}</span><h2 id="feedback-title">${correct ? 'Тўғри' : 'Нотўғри'}</h2></div>
     <p class="feedback-label">${correct ? 'Тўғри жавоб' : 'Тўғри жавобни эслаб қолинг:'}</p>
     <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${answerText(session, question, question.answer)}</p>
-    ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</section>`;
+    ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</section>`;
 }
 function testScreen(session) {
   const subject = subjectFor(session);
@@ -183,7 +194,7 @@ function reviewQuestion(session, id) {
     ? `<dd class="answer-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</dd>`
     : '';
   const notes = questionNotes(question);
-  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${question.referenceUrl ? `<a href="${escape(question.referenceUrl)}" target="_blank" rel="noopener">Миссури қўлланмаси</a>` : ''}</div>` : ''}</article>`;
+  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</article>`;
 }
 function resultActions(session) {
   const subject = subjectFor(session);
@@ -234,8 +245,8 @@ function start(setOptions = {}) {
     state.active = attempt.session;
     state.generalPracticeProgress = attempt.progress;
   } else {
-    const questions = mode === 'numbers' ? subject.numberQuestions : subject.questions;
-    const count = mode === 'all' || mode === 'numbers' ? questions.length : subject.practiceCount;
+    const questions = mode === 'numbers' ? subject.numberQuestions : mode === 'new' ? subject.newQuestions : subject.questions;
+    const count = ['all', 'numbers', 'new'].includes(mode) ? questions.length : subject.practiceCount;
     state.active = createSession(questions, { ...settings, count });
     state.active.mode = mode;
   }
@@ -321,7 +332,7 @@ document.addEventListener('click', event => {
     case 'practice-again': {
       const result = resultFor(resultId);
       subjectId = result.testId;
-      mode = result.mode === 'numbers' ? 'numbers' : 'practice';
+      mode = ['numbers', 'new'].includes(result.mode) ? result.mode : 'practice';
       navigate('subject'); break;
     }
     case 'resume-retry': navigate('retry'); break;

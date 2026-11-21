@@ -1,0 +1,5224 @@
+[
+  {
+    "id": "gk-001",
+    "number": 1,
+    "question": "Containerized loads:",
+    "choices": [
+      "Are not required to be inspected by a driver.",
+      "Should be supplied with their own tiedown devices or locks.",
+      "Generally are used when freight is carried part way by rail or ship."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-002",
+    "number": 2,
+    "question": "Which of these is NOT required knowledge for drivers needing the hazardous material endorsement?",
+    "choices": [
+      "Basic chemistry.",
+      "Which products can be loaded together.",
+      "When to use the placards."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-003",
+    "number": 3,
+    "question": "There are several things to do when driving through a highway work zone. In addition to obeying the speed limit, which of these should you also do?",
+    "choices": [
+      "Turn off your 4-way flashers.",
+      "Decrease your speed even further for adverse weather.",
+      "Adjust your speed to traffic."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-004",
+    "number": 4,
+    "question": "To avoid a crash, you had to drive into the right shoulder. You are now driving at 40 mph on the shoulder. How should you move back onto the pavement?",
+    "choices": [
+      "If the shoulder is clear, stay on it until your vehicle has come to a stop. Then move back onto the pavement when it is safe.",
+      "Brake hard to slow the vehicle, then steer sharply onto the pavement.",
+      "Keep moving at the present speed and steer very gently back onto the pavement."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-005",
+    "number": 5,
+    "question": "\"Implied consent\" means:",
+    "choices": [
+      "You have given your consent to inspection of your vehicle for alcohol.",
+      "It is understood that you may drink alcohol now and then.",
+      "You have given your consent to be tested for alcohol in your blood."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-006",
+    "number": 6,
+    "question": "You should stop driving:",
+    "choices": [
+      "After 5 hours.",
+      "After 9 hours.",
+      "Whenever you become sleepy."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-007",
+    "number": 7,
+    "question": "Which of these is true about hazardous materials:",
+    "choices": [
+      "All public roads allow trucks carrying hazardous materials if they are loaded correctly.",
+      "All hazardous materials present a health and safety threat.",
+      "Every truck carrying any amount of hazardous materials must have placards."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-008",
+    "number": 8,
+    "question": "For first offence of driving a commercial vehicle under the influence of alcohol or drugs, you will lose your CDL for at least _____.",
+    "choices": [
+      "1 year",
+      "6 months",
+      "2 years"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-009",
+    "number": 9,
+    "question": "Why is it important to shift gears correctly?",
+    "choices": [
+      "Keep control of the vehicle.",
+      "Keep the engine warm.",
+      "Keep the engine oil flowing."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-010",
+    "number": 10,
+    "question": "Where should the ignition key be during the pre-trip inspection?",
+    "choices": [
+      "in your pocket.",
+      "in the ignition.",
+      "on the driver's seat."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-011",
+    "number": 11,
+    "question": "Extra care is needed to keep your vehicle centered in your lane because commercial vehicles:",
+    "choices": [
+      "Require a lot of room to change lanes.",
+      "Are often wider than other vehicles.",
+      "Tend to sway from time to time."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-012",
+    "number": 12,
+    "question": "How many red reflective triangles are you required to carry?",
+    "choices": [
+      "2",
+      "3",
+      "4"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-013",
+    "number": 13,
+    "question": "If you must cross into the oncoming lane as you make a turn, you should:",
+    "choices": [
+      "Watch for oncoming traffic.",
+      "Back up to allow oncoming traffic to pass.",
+      "Complete your turn without stopping."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-014",
+    "number": 14,
+    "question": "When driving at night, you should:",
+    "choices": [
+      "Look to the left side of the road when a vehicle is coming toward you.",
+      "Adjust your speed to keep your stopping distance within your sight distance.",
+      "Dim your lights within 300 feet of an oncoming vehicle."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-015",
+    "number": 15,
+    "question": "Which of the following is NOT a characteristic of a front tire failure?",
+    "choices": [
+      "Vehicle fishtail.",
+      "Steering wheel twisting.",
+      "Difficult steering."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-016",
+    "number": 16,
+    "question": "Which of these items is NOT checked for a pre-trip inspection?",
+    "choices": [
+      "Whether all vehicle lights are working and clean.",
+      "Amount of fuel in the vehicle.",
+      "Cargo securement."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-017",
+    "number": 17,
+    "question": "You do NOT have a Hazardous Materials Endorsement on your Commercial Driver's License. You are asked to deliver hazardous materials in a placarded vehicle. You should:",
+    "choices": [
+      "Refuse to haul the load.",
+      "Haul the load, but only to the nearest place where a driver with a Hazardous Materials Endorsement can take over.",
+      "Haul the load, but file a report with the Department of Transportation after the trip."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-018",
+    "number": 18,
+    "question": "To determine Blood Alcohol Concentration (BAC) for a person, it is necessary to know:",
+    "choices": [
+      "How often the person drinks alcohol (tolerance level).",
+      "How much the person weighs.",
+      "How old the person is."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-019",
+    "number": 19,
+    "question": "To correct a drive-wheel braking skid, you should:",
+    "choices": [
+      "Stop braking.",
+      "Stop braking, turn quickly, and countersteer.",
+      "Increase braking, turn quickly, and countersteer."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-020",
+    "number": 20,
+    "question": "ABS (antilock brakes) brakes:",
+    "choices": [
+      "Give you more control over the vehicle when braking.",
+      "Increase the likelihood of jackknifing when braking.",
+      "Increase the likelihood of a rear wheel skid when braking."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-021",
+    "number": 21,
+    "question": "For your safety, when setting out reflective triangles, you should:",
+    "choices": [
+      "Hold the triangles between yourself and oncoming traffic.",
+      "Keep them out of sight while you walk to the spots where you set them out.",
+      "Carry the triangles at your side."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-022",
+    "number": 22,
+    "question": "Escape ramps:",
+    "choices": [
+      "Should be used by any driver who loses braking power.",
+      "Are not designed for tractors-double trailers.",
+      "Are designed to slow vehicles so they can get back on the road at a safe speed."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-023",
+    "number": 23,
+    "question": "Which of these should be tested on the vehicle when stopped?",
+    "choices": [
+      "Service brake.",
+      "Parking brake.",
+      "Hydraulic brakes."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-024",
+    "number": 24,
+    "question": "When hydraulic brakes fail while driving, the system won't build up pressure and the brake pedal will feel spongy or go to the floor. What action should you take?",
+    "choices": [
+      "Push down on the brake pedal as hard as you can.",
+      "Pump the brake pedal to generate pressure.",
+      "Put the vehicle in neutral and set the parking brake."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-025",
+    "number": 25,
+    "question": "When there is a vehicle fire, get your vehicle off the road and:",
+    "choices": [
+      "Pull out the fire.",
+      "Keep the fire from spreading.",
+      "Notify emergency services."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-026",
+    "number": 26,
+    "question": "If you have been drinking alcohol, before you drive, you should:",
+    "choices": [
+      "Drink coffee.",
+      "Take a cold shower.",
+      "Wait for it to wear off."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-027",
+    "number": 27,
+    "question": "When driving in cold weather, your tire tread should:",
+    "choices": [
+      "Provide enough traction to steer and push the vehicle through snow.",
+      "Be double the depth required in normal weather.",
+      "Be checked every 100 miles or every two hours."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-028",
+    "number": 28,
+    "question": "Which statement is true about using engine braking?",
+    "choices": [
+      "It creates extra heat between the brake shoes or pads and drums or disks.",
+      "You should NOT use engine braking as the main way to control speed.",
+      "The use of brakes on a downgrade adds to the braking effect of the engine."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-029",
+    "number": 29,
+    "question": "When you are driving on a snow-packed road, you should reduce your speed by:",
+    "choices": [
+      "1/4.",
+      "1/3.",
+      "1/2."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-030",
+    "number": 30,
+    "question": "What is countersteering?",
+    "choices": [
+      "Turning the steering wheel counterclockwise.",
+      "Using the steering axle brakes to prevent oversteering.",
+      "Turning the wheel back in the other direction after steering to avoid a traffic emergency."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-031",
+    "number": 31,
+    "question": "During a vehicle inspection, checking the ______ will NOT help prevent a fire?",
+    "choices": [
+      "Cargo ventilation",
+      "Battery fluid level",
+      "Electrical system insulation"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-032",
+    "number": 32,
+    "question": "Which of these happens when a tire blows out at highway?",
+    "choices": [
+      "A vibrating feeling.",
+      "A hissing sound.",
+      "A rapid drop in speed to less than 20 mph."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-033",
+    "number": 33,
+    "question": "Why is a broken exhaust system dangerous?",
+    "choices": [
+      "Poison fumes could enter into the cab or sleeper berth.",
+      "You could pollute the air with the exhaust smoke.",
+      "Loud noise could damage the driver's ears."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-034",
+    "number": 34,
+    "question": "You should signal continuously while turning because:",
+    "choices": [
+      "You need both hands on the wheel to turn safely.",
+      "It is illegal to turn off your signal before completing the turn.",
+      "Most vehicles have self-canceling signals."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-035",
+    "number": 35,
+    "question": "The distance that you should look ahead of your vehicle while driving is about ______ at low speed:",
+    "choices": [
+      "One block.",
+      "Two blocks.",
+      "Half block."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-036",
+    "number": 36,
+    "question": "When exiting or entering on a curved freeway ramp, you should:",
+    "choices": [
+      "Maintain a speed 5–10 mph under the posted speed limit.",
+      "Maintain the posted speed limit.",
+      "Slow down to at least 50% of the posted speed limit."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-037",
+    "number": 37,
+    "question": "When confronted by an aggressive driver, you should:",
+    "choices": [
+      "Gesture that you made a mistake.",
+      "Make every attempt to get out of their way.",
+      "Assume they will calm down."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-038",
+    "number": 38,
+    "question": "Whenever you double your speed, it takes about ______ times as much distance to stop.",
+    "choices": [
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-039",
+    "number": 39,
+    "question": "When the roads are slippery, you should:",
+    "choices": [
+      "Make turns as gently as possible.",
+      "Stop and test the traction while going uphill.",
+      "Decrease the distance that you look ahead of your vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-040",
+    "number": 40,
+    "question": "According to the Driver's Manual why should you limit the use of your horn?",
+    "choices": [
+      "It can startle other drivers.",
+      "On vehicles with air brakes, it can use air pressure that may be needed to stop.",
+      "You should keep a firm grip on the steering wheel with both hands at all times."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-051",
+    "number": 51,
+    "question": "Which of these statements about cargo loading is true?",
+    "choices": [
+      "If cargo is loaded by the shipper, the driver is not responsible for overloading.",
+      "The legal maximum weight allowed by a state can be considered safe for all driving conditions.",
+      "State laws dictate legal weight limits."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-052",
+    "number": 52,
+    "question": "You are driving on a two-lane road. An oncoming driver drifts into your lane and is headed straight for you. Which of these is most often the best action to take?",
+    "choices": [
+      "Hard braking.",
+      "Steer to the right.",
+      "Steer onto the left shoulder."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-053",
+    "number": 53,
+    "question": "You must stop on a hill or curve on a two-lane two-way road. How far should you place reflective triangles?",
+    "choices": [
+      "As far back as necessary so others can see you.",
+      "Within 200 feet behind you.",
+      "Within 500 feet behind you."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-054",
+    "number": 54,
+    "question": "You are driving a long vehicle that makes wide turns. You want to turn left from one street onto another. Both are two-lane two-way streets. You should:",
+    "choices": [
+      "Begin turning your vehicle as soon as you enter the intersection.",
+      "Begin turning your vehicle when you are halfway through the intersection.",
+      "Turn into the left lane of the new street and then move to the right lane when the traffic is clear."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-055",
+    "number": 55,
+    "question": "What is NOT true about bad weather and driving conditions?",
+    "choices": [
+      "When the temperature drops, the bridges will freeze before roads will.",
+      "The road is more slippery as rain continues than when rain begins.",
+      "Driving conditions become more dangerous as the temperature rises above freezing."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-056",
+    "number": 56,
+    "question": "Drivers of trucks and tractors-trailers with cargo must check that the cargo is well secured within the first ______ miles of the trip.",
+    "choices": [
+      "25",
+      "10",
+      "50"
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-057",
+    "number": 57,
+    "question": "When you are starting to move up a hill from a stop:",
+    "choices": [
+      "Release the parking brakes as you apply engine power.",
+      "Engage the clutch and accelerate quickly.",
+      "Keep the trailer brake hand valve applied until you reach 20 mph."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-058",
+    "number": 58,
+    "question": "A full stop is required at a railroad crossing when:",
+    "choices": [
+      "There are no flagmen, warning signals, or gates at the crossing.",
+      "The nature of the cargo makes a stop mandatory under state or federal regulations.",
+      "The crossing is located in a city or town with frequent train traffic."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-059",
+    "number": 59,
+    "question": "In the event of a rear tire failure, dual rear tire:",
+    "choices": [
+      "Will usually prevent fishtail.",
+      "May prevent vibration or thumping.",
+      "Will allow you to brake immediately."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-060",
+    "number": 60,
+    "question": "Retarders can be used:",
+    "choices": [
+      "Only where they are permitted by law.",
+      "Only for downhill braking.",
+      "Only on roads with poor traction."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-061",
+    "number": 61,
+    "question": "Which of these statements about vehicle fire is true?",
+    "choices": [
+      "If cargo in a van or box trailer catches on fire, you should open the cargo door as soon as you can.",
+      "If your engine is on fire, you should open the hood as soon as you can.",
+      "A burning tire should be cooled with water."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-062",
+    "number": 62,
+    "question": "You should use your horn when:",
+    "choices": [
+      "It may help avoid a crash.",
+      "A car is in your way.",
+      "You want to change lanes."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-063",
+    "number": 63,
+    "question": "When driving a commercial vehicle with a height over 13 feet, you should:",
+    "choices": [
+      "Not worry about height clearance as long as you stay on state or federal highways.",
+      "Assume all clearances are high enough.",
+      "Stop and make sure that a clearance is high enough."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-064",
+    "number": 64,
+    "question": "When you are passing another vehicle, pedestrian, or bicycle, you should assume that:",
+    "choices": [
+      "They may move into your traffic lane.",
+      "They know you want to pass.",
+      "They see your vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-065",
+    "number": 65,
+    "question": "A vehicle is loaded with very little weight on the drive axle. What may happen?",
+    "choices": [
+      "Poor traction.",
+      "Damage to drive axle tires.",
+      "Better handling."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-066",
+    "number": 66,
+    "question": "When should you test your parking brake?",
+    "choices": [
+      "While moving at a very low speed.",
+      "While the vehicle is parked.",
+      "When backing."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-067",
+    "number": 67,
+    "question": "How far should a driver look ahead of the vehicle while driving?",
+    "choices": [
+      "5-8 seconds.",
+      "12-15 seconds.",
+      "18-21 seconds."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-068",
+    "number": 68,
+    "question": "You are driving a car with ABS brakes, and see a yellow light on the dashboard starts flashing during driving. It means:",
+    "choices": [
+      "Your vehicle ABS may not be functioning properly.",
+      "Your brake fluid may be low.",
+      "The roadway may be slick."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-069",
+    "number": 69,
+    "question": "Which of these is NOT true?",
+    "choices": [
+      "Alcohol goes directly from the stomach to the blood stream.",
+      "A drinker can control how fast his or her body absorbs and gets rid of alcohol.",
+      "BAC is determined by how fast you drink, how much you drink, and your weight."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-070",
+    "number": 70,
+    "question": "Controlled braking is:",
+    "choices": [
+      "Slamming on the brakes hard and making wheels lock up.",
+      "Squeezing the brakes firmly without locking them up.",
+      "Pressing brakes until wheel lock-up occurs, releasing and then reapplying."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-071",
+    "number": 71,
+    "question": "Which of these statements about driving in fog is true?",
+    "choices": [
+      "Stay as close behind a vehicle as possible so you can always see the vehicle.",
+      "Use high-beam headlights.",
+      "Assume that the fog will become thicker after you enter it."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-072",
+    "number": 72,
+    "question": "You are checking your wheels and rims for a pre-trip inspection. Which of these statements is true?",
+    "choices": [
+      "Rust around wheel nuts may mean that they are loose.",
+      "A vehicle can be safely driven with one missing lug nut on a wheel.",
+      "Mismatched lock rings can be used on the same vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-073",
+    "number": 73,
+    "question": "Which of these is NOT something you should do if your headlights are not working properly?",
+    "choices": [
+      "Leave on your high beams.",
+      "Clean the headlights.",
+      "Adjust the headlights."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-074",
+    "number": 74,
+    "question": "Which of these is a good thing to do when steering to avoid a crash?",
+    "choices": [
+      "Apply the brakes while turning.",
+      "Don't turn any more than needed to clear what is in your way.",
+      "Avoid countersteering."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-075",
+    "number": 75,
+    "question": "You drive through heavy rain or snow. You can hardly see what is going on outside. You can let other drivers know about you by:",
+    "choices": [
+      "Using your horn.",
+      "Turning on inside cab lights.",
+      "Turning on the low-beam headlights."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-076",
+    "number": 76,
+    "question": "You are driving a heavy vehicle. You must exit a highway using an off-ramp that curves downhill. You should:",
+    "choices": [
+      "Slow to the posted speed limit for the off-ramp.",
+      "Slow down to 5 mph below the posted speed limit.",
+      "Slow down to 15 mph below the posted speed limit."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-077",
+    "number": 77,
+    "question": "What is the best advice for drivers when heavy fog occurs?",
+    "choices": [
+      "Do not drive too slowly, or other drivers may hit you.",
+      "Park at a rest area or truck stop until the fog has gone.",
+      "Alternate your low and high beams to improve your vision."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-078",
+    "number": 78,
+    "question": "You must park on the side of a level, straight, four-lane divided highway. Where should you place the reflective triangles?",
+    "choices": [
+      "One within 10 feet of the rear of the vehicle, one about 100 feet to the rear, and one about 200 feet to the rear.",
+      "One within 10 feet of the rear of the vehicle, one about 100 feet to the rear, and one about 100 feet to the front of the vehicle.",
+      "One within 10 feet of the front of the vehicle, one about 100 feet to the rear, and one about 200 feet to the rear."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-079",
+    "number": 79,
+    "question": "You are checking your brakes and suspension system for a pre-trip inspection. Which of these statements is true?",
+    "choices": [
+      "Just one missing leaf spring is not dangerous.",
+      "Spring hangers that are cracked but still tight are not dangerous.",
+      "Brake shoes should not have oil, grease, or brake fluid on them."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-080",
+    "number": 80,
+    "question": "Which of these is the most important thing to remember about emergency braking?",
+    "choices": [
+      "Never do it without downshifting first.",
+      "If the wheels are skidding, you cannot control your vehicle.",
+      "Disconnecting the steering axle brakes will help keep your vehicle in a straight line during emergency braking."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-081",
+    "number": 81,
+    "question": "Your vehicle will be put out of service if ______ or more leaves in any leaf spring are missing.",
+    "choices": [
+      "One fourth (1/4)",
+      "One third (1/3)",
+      "One-half (1/2)"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-082",
+    "number": 82,
+    "question": "Which of the following is a good way to react to an aggressive driver?",
+    "choices": [
+      "Give the driver the benefit of the doubt.",
+      "Changing the CD or have a snack.",
+      "Smoke a cigarette to relax."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-083",
+    "number": 83,
+    "question": "How does vehicle weight affect stopping?",
+    "choices": [
+      "Fully loaded trucks take longer to stop or the buses loaded with passengers take less distance than empty ones.",
+      "It doesn't, brakes work the same no matter the weight of the vehicle for both trucks and buses.",
+      "Empty trucks take longer to stop than if loaded, but this is not normally the case for buses."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-084",
+    "number": 84,
+    "question": "What should you do when you see a hazard in the roadway ahead of you?",
+    "choices": [
+      "Swerve around it and get back in your lane.",
+      "Stop quickly and pull to the side of the road.",
+      "Use your 4-way flashers or brake lights to warn others."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-085",
+    "number": 85,
+    "question": "Which of these statements about downshifting is true?",
+    "choices": [
+      "When you downshift for a curve, you should do so before you enter the curve.",
+      "When you downshift for a curve, you should do so just after you enter the curve.",
+      "When double-clutching, you should let the rpms decrease while the clutch is released and the shift lever is in neutral."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-086",
+    "number": 86,
+    "question": "Which of the following is a sign of an aggressive driver?",
+    "choices": [
+      "Driving 10 or more miles-per-hour over the speed limit.",
+      "Changing lanes frequently and abruptly without notice.",
+      "Driving in the center line."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-087",
+    "number": 87,
+    "question": "You should use your mirrors to check:",
+    "choices": [
+      "Blind spots.",
+      "If your running lights are working properly.",
+      "Where the rear of your vehicle is while you make turns."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-088",
+    "number": 88,
+    "question": "Why tourists may be a hazard?",
+    "choices": [
+      "Police officers will not give them a ticket.",
+      "They often drive rental cars.",
+      "They may drive slowly and make sudden stops or lane changes."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-089",
+    "number": 89,
+    "question": "Which of these statements about shipping hazardous materials is true?",
+    "choices": [
+      "Gas cylinders that will not hold a label must be shipped under cover.",
+      "A diamond-shaped hazardous materials label must be on the container.",
+      "A circular, red hazardous material label must be on the container."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-090",
+    "number": 90,
+    "question": "Fatigue:",
+    "choices": [
+      "It will go away by itself over period of time.",
+      "It can only be paid off by sleeping.",
+      "Overcome it with willpower and non-sleep aids."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-091",
+    "number": 91,
+    "question": "Which of these statements about acceleration is true?",
+    "choices": [
+      "When traction is poor, more power should be applied to the accelerator.",
+      "Rough acceleration can cause mechanical damage.",
+      "You should feel a \"jerking\" motion if you are accelerating your vehicle properly."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-092",
+    "number": 92,
+    "question": "Your vehicle has hydraulic brakes. While traveling on a level road, you press the brake pedal and find that it goes to the floor. Which of these statements is true?",
+    "choices": [
+      "Pumping the brake pedal may bring the pressure up so you can stop the vehicle.",
+      "The parking brake will not work either because it is a part of the same hydraulic system.",
+      "Shifting into neutral will help to slow the vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-093",
+    "number": 93,
+    "question": "There are two types of jackknife, they are:",
+    "choices": [
+      "Trailer.",
+      "Tractor.",
+      "Both A and B."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-094",
+    "number": 94,
+    "question": "The bridge formula:",
+    "choices": [
+      "Permits less maximum axle weight for axles that are close together.",
+      "Permits less maximum axle weight for axles that are far apart.",
+      "Permits the same maximum axle weight for any axle spacing."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-095",
+    "number": 95,
+    "question": "When loading a trailer, if the cargo is loaded all to the rear, it may result in:",
+    "choices": [
+      "Wheel lockup.",
+      "Damage to steering axle.",
+      "Poor traction on drive wheels."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-096",
+    "number": 96,
+    "question": "A round, black on yellow warning sign means:",
+    "choices": [
+      "Slow down, look and listen, and be prepared to stop if a train is approaching.",
+      "Low overpass ahead.",
+      "School crossing ahead."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-097",
+    "number": 97,
+    "question": "Which of these lights cannot be checked at the same time?",
+    "choices": [
+      "Turn signals, taillights, and clearance lights.",
+      "Turn signals, brake lights, and four-way flashers.",
+      "Headlights, brake lights, and clearance lights."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-098",
+    "number": 98,
+    "question": "Perception distance is the distance your vehicle travels from the time:",
+    "choices": [
+      "The eyes see a hazard to the time your foot pushes the brake pedal.",
+      "The brain tells the foot to push the brake pedal to the time the foot responds.",
+      "The eyes see a hazard to the time the brain knows it is a hazard."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-099",
+    "number": 99,
+    "question": "Which of these statements about speed management is true?",
+    "choices": [
+      "Empty trucks always stop in a shorter distance than fully loaded ones.",
+      "When you double your speed (go twice as fast), it will take twice the distance to stop.",
+      "You should choose a speed that lets you stop within the distance that you can see ahead."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-100",
+    "number": 100,
+    "question": "If your brakes fail on a downgrade, you must first:",
+    "choices": [
+      "Look outside your vehicle for another means of slowing it.",
+      "Hit some object in order to stop your vehicle.",
+      "Wait until you find an escape ramp to exit the roadway."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-101",
+    "number": 101,
+    "question": "Which of these statements about drugs is true?",
+    "choices": [
+      "Use of drugs can lead to accidents and/or arrest.",
+      "Certain prescription drugs are allowed to reduce fatigue.",
+      "A driver can use any prescription drug while driving."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-102",
+    "number": 102,
+    "question": "The new BAC (blood alcohol concentration) for commercial drivers to be considered intoxicated when driving a commercial vehicle is:",
+    "choices": [
+      "0.04",
+      "0.01",
+      "0.10"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-103",
+    "number": 103,
+    "question": "You are checking your tires for a pre-trip inspection. Which of these statements is true?",
+    "choices": [
+      "Tires of mismatched sizes should not be used on the same vehicle.",
+      "Radial and bias-ply tires can be used together on the same vehicle.",
+      "2/32 inch tread depth is safe for the front tires."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-104",
+    "number": 104,
+    "question": "Which of these statements about double-clutching and shifting is true?",
+    "choices": [
+      "You can use the tachometer to tell you when to shift.",
+      "Double-clutching should not be used when the road is slippery.",
+      "Double-clutching should only be used with a heavy load."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-105",
+    "number": 105,
+    "question": "Which of these is true about other drivers?",
+    "choices": [
+      "Mail or delivery trucks are professionals and do not pose a hazard.",
+      "Drivers using turn signals can always be trusted to turn in the direction they indicate.",
+      "Short-term or daily rental truck drivers are often not used to the limited vision and pose a hazard."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-106",
+    "number": 106,
+    "question": "Which of these is especially true about your tires in hot weather?",
+    "choices": [
+      "A small amount of air should be let out so air pressure remains steady.",
+      "You should check tire mounting and air pressure before driving.",
+      "If a tire is too hot to touch, you should hose it down with water."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-107",
+    "number": 107,
+    "question": "When stopped on a one-way or divided highway, you should place the reflective triangles at:",
+    "choices": [
+      "10 feet, 100 feet, and 500 feet toward approaching traffic.",
+      "10 feet, 100 feet, and 200 feet toward approaching traffic.",
+      "10 feet, 50 feet, and 100 feet toward approaching traffic."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-108",
+    "number": 108,
+    "question": "You will be placed out-of-service for 24 hours if your blood alcohol concentration (BAC) is:",
+    "choices": [
+      "At least 0.02%.",
+      "At least 0.04%.",
+      "Any detectable amount."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-109",
+    "number": 109,
+    "question": "You are checking your brakes and suspension system for a pre-trip inspection. Which of these statements is NOT true?",
+    "choices": [
+      "Brake shoes should have brake fluid on them.",
+      "One missing leaf in a leaf spring can be dangerous.",
+      "A cracked drum should be replaced."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-110",
+    "number": 110,
+    "question": "Which of these is NOT true about braking in an emergency situation?",
+    "choices": [
+      "You should brake in a way that will keep your vehicle in a straight line.",
+      "It is not important how you brake in an emergency situation.",
+      "You should avoid using the brakes until your speed is down to 20 mph."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-111",
+    "number": 111,
+    "question": "You should avoid driving through deep puddles or flowing water. But if you must, which of these steps can help to keep your brakes working?",
+    "choices": [
+      "Gently putting on the brakes while driving through the water.",
+      "Applying hard pressure on both the brake pedal and accelerator after coming out of the water.",
+      "Turning on your brake heaters."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-112",
+    "number": 112,
+    "question": "If you are convicted for driving under the influence while driving a commercial vehicle, and this is your first offense, you most likely will get:",
+    "choices": [
+      "A probation period of 1 year.",
+      "At least one year suspension of your CDL.",
+      "A fine of $250."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-113",
+    "number": 113,
+    "question": "The distance that you should look ahead of your vehicle while driving amounts to about ______ miles at normal highway speed.",
+    "choices": [
+      "One eighth",
+      "One quarter",
+      "One half"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-114",
+    "number": 114,
+    "question": "Which of these is true regarding the use of drugs while driving?",
+    "choices": [
+      "No prescription or non-prescription drugs are allowed at any time when you are driving.",
+      "Use of amphetamines like \"speed\" is allowed if you are using this drug to stay alert.",
+      "Prescription drugs are allowed if a doctor says the drugs will not affect driving ability."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-115",
+    "number": 115,
+    "question": "To help you stay alert while driving, you should:",
+    "choices": [
+      "Schedule trips for hours that you are normally asleep.",
+      "Take short breaks before you get drowsy.",
+      "Keep the cab warm and quiet."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-116",
+    "number": 116,
+    "question": "High beams should be:",
+    "choices": [
+      "Used when it is safe and legal to do so.",
+      "Turned on when an oncoming driver does not dim his/her lights.",
+      "Dimmed at the time you get within 100 feet of another vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-117",
+    "number": 117,
+    "question": "When looking ahead of your vehicle while driving you should look:",
+    "choices": [
+      "Straight ahead at all times.",
+      "To the right side of the road.",
+      "Back and forth, near and far."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-118",
+    "number": 118,
+    "question": "What is a good thing to remember when crossing or entering traffic with a heavy vehicle?",
+    "choices": [
+      "Heavy vehicles need larger gaps in traffic than cars.",
+      "The best way to cross traffic is to pull the vessel partway across the road and block one lane while waiting for the other to clear.",
+      "Because heavy vehicles are easy to see, you can count on other drivers to move out of your way or slow down for you."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-119",
+    "number": 119,
+    "question": "If you need to leave the road in a traffic emergency, you should:",
+    "choices": [
+      "Try to get all wheels off the pavement.",
+      "Avoid braking until your speed has dropped to about 20 mph.",
+      "Avoid the shoulder because most shoulders will not support a large vehicle."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-120",
+    "number": 120,
+    "question": "Which of these is true about bad weather and driving conditions?",
+    "choices": [
+      "The road is more slippery as rain continues than when rain begins.",
+      "Driving conditions become more dangerous as the temperature rises above freezing.",
+      "When the temperature drops, the bridges will freeze before roads will."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-121",
+    "number": 121,
+    "question": "You are checking your steering and exhaust system in a pre-trip inspection. Which of these problems, if found, should be fixed before the vehicle is driven:",
+    "choices": [
+      "Steering wheel play of more than 10 degrees (2 inches on 20 inches steering wheel).",
+      "Oil on a tie rod.",
+      "If gray smoke is coming out from the exhaust pipe."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-122",
+    "number": 122,
+    "question": "How can you identify a distracted driver?",
+    "choices": [
+      "The vehicle is drifting across lines and moving at variable speeds.",
+      "The vehicle is weaving in and out of traffic.",
+      "The vehicle is speeding."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-123",
+    "number": 123,
+    "question": "Which of these is NOT a danger when an automatic transmission is forced into a low gear at a high speed?",
+    "choices": [
+      "Damage to the transmission.",
+      "Loss of engine braking effect.",
+      "Loss of steering control."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-124",
+    "number": 124,
+    "question": "You should try to park so that:",
+    "choices": [
+      "You can pull forward when you leave.",
+      "Park along curb next to other vehicle.",
+      "That your vehicle is parked by tree."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-125",
+    "number": 125,
+    "question": "The safest method for using in-vehicle communication equipment is:",
+    "choices": [
+      "Pre-program your cell phone.",
+      "Use a hands-free device so both hands remain on the steering wheel.",
+      "Pull off the road in a safe, legal place to use the equipment."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-126",
+    "number": 126,
+    "question": "When going down a long steep downgrade you should always:",
+    "choices": [
+      "Use the braking effect of the engine.",
+      "Use controlled braking.",
+      "Brake when you exceed safe speed by 5 mph."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-127",
+    "number": 127,
+    "question": "Which of these is true about hauling of hazardous materials?",
+    "choices": [
+      "Cylinders with compressed gases should be transported under covers if there is no label on them.",
+      "Such a load should be marked with a four inches diamond shaped labels on the containers.",
+      "Such a load should be marked with a four inches circle red colored labels on the containers."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-128",
+    "number": 128,
+    "question": "As the blood alcohol concentration (BAC) goes up, what happens?",
+    "choices": [
+      "The drinker more clearly sees how alcohol is affecting him/her.",
+      "The effects of alcohol decrease.",
+      "Judgment and self control are affected."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-129",
+    "number": 129,
+    "question": "A key principle to remember about loading cargo is to keep the load:",
+    "choices": [
+      "To the front.",
+      "To the rear.",
+      "Balanced in the cargo area."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-130",
+    "number": 130,
+    "question": "Which of these is true about your overhead clearance?",
+    "choices": [
+      "Warnings are always posted for low clearance areas like bridges and overpasses.",
+      "The weight of cargo can change the height of your vehicle.",
+      "Paving a road does not affect the clearance height under bridges or overpasses."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-131",
+    "number": 131,
+    "question": "Which of the following can keep you from being distracted while you drive?",
+    "choices": [
+      "Try to use communication devices only in light traffic.",
+      "Constantly review your maps and your route plan as you drive.",
+      "Pre-load your favorite CDs or cassette tapes."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-132",
+    "number": 132,
+    "question": "You are driving a heavy vehicle. You must exit a highway using an off-ramp that curves downhill. You should:",
+    "choices": [
+      "Slow down to a safe speed before the curve.",
+      "Slow to the posted speed limit for the off-ramp.",
+      "Wait until you are in the curve before downshifting."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-133",
+    "number": 133,
+    "question": "Which of the following vehicles will have the longest stopping distance?",
+    "choices": [
+      "Empty truck.",
+      "Loaded truck.",
+      "Bobtail tractor."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-134",
+    "number": 134,
+    "question": "You are driving a long vehicle that makes wide turns. You want to make a left turn from Ocean Street onto Atlantic Street. There are two left turn lanes: inside lane (first from the left) and outside (second from the left) lane. You should:",
+    "choices": [
+      "Use inside turn lane (first from the left).",
+      "Use outside turn lane (second from the left).",
+      "Start from inside left turn lane and swing onto outside left turn lane just before entering the intersection."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-135",
+    "number": 135,
+    "question": "To avoid an accident you moved to the shoulder. To return to the road:",
+    "choices": [
+      "Ride on shoulder to the next exit and then re-enter the road.",
+      "Using mirrors and turn signals turn sharply to get back to the road.",
+      "Using mirrors and turn signals return when the road is clear."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-136",
+    "number": 136,
+    "question": "Where must you keep shipping papers when transporting hazardous materials?",
+    "choices": [
+      "Under the driver's seat.",
+      "In a pouch on the driver's door or on the seat.",
+      "In the glove compartment, which must be locked."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-137",
+    "number": 137,
+    "question": "Should brake adjustment be checked often?",
+    "choices": [
+      "It depends on how new the brakes are.",
+      "No, because the other brakes will make up for a brake that is out of adjustment.",
+      "Yes, because brakes can get out of adjustment when they are used a lot."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-138",
+    "number": 138,
+    "question": "Heavy vehicles often move slower than others. Which of these is NOT a good rule to follow while driving a heavy vehicle?",
+    "choices": [
+      "Stay on the right side of the road.",
+      "Use four-way flashers if it is legal in your state.",
+      "Signal other drivers when it is safe to pass you."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-139",
+    "number": 139,
+    "question": "If a straight vehicle (no trailer or articulation) goes into front-wheel skid, it will:",
+    "choices": [
+      "Slide sideways and spin out.",
+      "Go straight ahead even if the steering wheel is turned.",
+      "Go straight ahead but will turn if you turn the steering wheel."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-140",
+    "number": 140,
+    "question": "Which types of fires is a B:C extinguisher especially good for?",
+    "choices": [
+      "Electrical fires.",
+      "Gasoline fires.",
+      "Tire fires."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-141",
+    "number": 141,
+    "question": "Sometimes you need to leave a road to avoid a hazard or emergency. When you do so you should keep in mind, that:",
+    "choices": [
+      "Most shoulders are not strong enough to support a heavy vehicle.",
+      "You might be unable to re-enter the road because of the gravel used on shoulders.",
+      "It is less dangerous to drive onto the shoulders than to make a collision."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-142",
+    "number": 142,
+    "question": "A good indication that ice is forming on the roadway is when:",
+    "choices": [
+      "You can see spray from other vehicles.",
+      "Your outside mirrors have ice on them.",
+      "You cannot see the exhaust of other vehicles."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-143",
+    "number": 143,
+    "question": "Which of these is correct about emergency or evasive action?",
+    "choices": [
+      "In order to turn quickly, you must have a firm grip on the steering wheel.",
+      "You can usually stop more quickly than you can turn to miss obstacles.",
+      "Stopping is always the safest thing to do in an emergency."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-144",
+    "number": 144,
+    "question": "Which of these is true about driving in a tunnel?",
+    "choices": [
+      "Emergency flashers are required by law.",
+      "Headlights are required by law.",
+      "There may be strong winds when exiting."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-145",
+    "number": 145,
+    "question": "Which of these is NOT a danger of a rough acceleration?",
+    "choices": [
+      "Mechanical damage.",
+      "Fire damage.",
+      "Damage to coupling."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-146",
+    "number": 146,
+    "question": "You may get hung up on railroad tracks if:",
+    "choices": [
+      "You try to shift gears when crossing.",
+      "You cross the double tracks too slowly.",
+      "The tracks have a steep approach."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-147",
+    "number": 147,
+    "question": "Brake drums (or discs) must not have cracks longer than ______ the width of the friction area:",
+    "choices": [
+      "One-half (1/2)",
+      "One third (1/3)",
+      "One tenth (1/10)"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-148",
+    "number": 148,
+    "question": "You should wear your seat belt in a moving vehicle:",
+    "choices": [
+      "Only when you are driving.",
+      "All the times.",
+      "Only when you are on a highway."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-149",
+    "number": 149,
+    "question": "Trucks and buses are subjects of certain laws, regulations, and restrictions. Which of these statements is true?",
+    "choices": [
+      "County and city laws do not apply to trucks and buses engaged in interstate commerce.",
+      "Federal regulations apply only to trucks and buses driven at least 50 miles on a trip.",
+      "Laws and restrictions can vary from place to place."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-150",
+    "number": 150,
+    "question": "Which of the statement about backing a heavy vehicle is NOT true?",
+    "choices": [
+      "You should back and turn toward the driver's side whenever it is possible.",
+      "You should use a helper and communicate with hand signals.",
+      "Because you can't see, you should back slowly until you slightly bump into the dock."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-151",
+    "number": 151,
+    "question": "In mountain driving you should go slow for safety. Which of these is the most important?",
+    "choices": [
+      "Weight of the vehicle",
+      "The tread type",
+      "Depth of the tread"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-152",
+    "number": 152,
+    "question": "Which of these statements about backing a heavy vehicle is true?",
+    "choices": [
+      "You should avoid backing whenever you can.",
+      "Helpers should be out of the driver's sight and they should use only voice (spoken) signals to communicate with the driver.",
+      "It is safer to back toward the right side of the vehicle than toward the driver's side."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-153",
+    "number": 153,
+    "question": "You should lightly apply your brakes to flash the brake lights if:",
+    "choices": [
+      "You are about to exit the road and need to slow down.",
+      "A police car is approaching you from the other direction.",
+      "A driver tailgates your vehicle."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-154",
+    "number": 154,
+    "question": "The road you are driving on becomes very slippery due to glare ice. Which of these is a good thing to do in such a situation?",
+    "choices": [
+      "Stop driving as soon as you can safely do so.",
+      "Downshift to stop.",
+      "Keep varying your speed by accelerating and braking."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-155",
+    "number": 155,
+    "question": "Which of the following statements about speed management is true?",
+    "choices": [
+      "If you double your speed, stopping distance will double.",
+      "Empty truck and loaded trucks will have the same stopping distance.",
+      "If you double your speed, stopping distance will be increased by 4 times."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-156",
+    "number": 156,
+    "question": "Which of these is a good thing to remember about drinking alcohol?",
+    "choices": [
+      "The driver can control how fast the body gets rid of alcohol.",
+      "Small quantities of alcohol improve reaction time.",
+      "Alcohol first affects judgment and self-control, which are necessary for safe driving."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-157",
+    "number": 157,
+    "question": "How much space in front of you is needed while driving on a highway?",
+    "choices": [
+      "1 second for each 10 feet of vehicle length.",
+      "1 second for each 20 feet of vehicle length.",
+      "1 second for each 30 feet of vehicle length."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-158",
+    "number": 158,
+    "question": "The maximum speed limit for a commercial vehicle on the highway in most states is:",
+    "choices": [
+      "35 mph.",
+      "45 mph.",
+      "55 mph."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-159",
+    "number": 159,
+    "question": "If a tractor, truck or bus has antilock brakes and the yellow ABS malfunction lamp lights up on the instrument panel when you are underway:",
+    "choices": [
+      "Your vehicle's ABS may not be functioning.",
+      "The roadway may be slick.",
+      "Your brake fluid may be low."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-160",
+    "number": 160,
+    "question": "You are driving a 40-foot vehicle at 35 mph. The road is dry and visibility is good. What is the least amount of space that you should keep in front of your vehicle to be safe?",
+    "choices": [
+      "3 seconds.",
+      "4 seconds.",
+      "5 seconds."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-161",
+    "number": 161,
+    "question": "You should adjust and check each mirror to show:",
+    "choices": [
+      "Some part of the vehicle is showing.",
+      "You can see your entire vehicle.",
+      "You do not have a blind spot."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-162",
+    "number": 162,
+    "question": "The primary cause of fatal crashes is:",
+    "choices": [
+      "Driving at night.",
+      "Driving while eating.",
+      "Driving too fast."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-163",
+    "number": 163,
+    "question": "If you are convicted of driving a commercial vehicle under influence of alcohol or drugs, you will lose your CDL for at least:",
+    "choices": [
+      "6 months",
+      "1 year",
+      "2 years"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-164",
+    "number": 164,
+    "question": "Optional safety equipment may include emergency phone number, tire chains, and:",
+    "choices": [
+      "The changing equipment.",
+      "Red reflective triangles.",
+      "Charged fire extinguisher."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-165",
+    "number": 165,
+    "question": "The driver's manual suggests several things to do when you pass a vehicle. Which of these is NOT one of them?",
+    "choices": [
+      "Lightly tap your horn.",
+      "At night, turn on your high beams before you start to pass and leave them on until you have completely passed the vehicle.",
+      "Assume that the other driver does not see you."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-166",
+    "number": 166,
+    "question": "The best drivers are those who watch and prepare for hazards. This is called the ______ driving.",
+    "choices": [
+      "offensive",
+      "defensive",
+      "objective"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-167",
+    "number": 167,
+    "question": "Which of these statements about hazard of vehicle fire is true?",
+    "choices": [
+      "Poor trailer ventilation can cause cargo to catch on fire.",
+      "Carrying a properly charged fire extinguisher will help prevent fires.",
+      "Under-inflated tires will not cause a vehicle fire."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-168",
+    "number": 168,
+    "question": "In mountain driving you will have to use lower gears to drive safely on a grade. Which of these does NOT affect your choice of gear?",
+    "choices": [
+      "Weight of the load.",
+      "The tread type.",
+      "Length of the grade."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-169",
+    "number": 169,
+    "question": "Which of these would probably NOT help if windshield covered with ice?",
+    "choices": [
+      "Brush.",
+      "Scraper.",
+      "Defroster."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-170",
+    "number": 170,
+    "question": "In your mirror you see a car approaching from the rear. The next time you check your mirror, you do not see the car. You wish to change the lane. You should:",
+    "choices": [
+      "Wait to change lanes until you are sure that car isn't in your blind spot.",
+      "Ease into the other lane very slowly so the car can get out of the way if it is beside you.",
+      "Assume that car left the road and change lane as normal."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-171",
+    "number": 171,
+    "question": "Which of these statements about marking a stopped vehicle is true?",
+    "choices": [
+      "If a hill or curve keeps drivers behind you from seeing the vehicle within 500 feet, the rear reflective triangle should be moved along the road to give adequate warning.",
+      "You do not need to put out reflective triangles unless the vehicle will be stopped for 30 minutes or more.",
+      "The vehicle's taillights should be kept on to warn other drivers."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-172",
+    "number": 172,
+    "question": "If anti-lock braking system is not working, you should:",
+    "choices": [
+      "Drive normally, but get system serviced soon.",
+      "Drive at a lower speed and get the system serviced soon.",
+      "Not drive until it is repaired."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-173",
+    "number": 173,
+    "question": "Which of these is true about notifying the authorities after an accident occurs?",
+    "choices": [
+      "An exact location is not necessary, just identify the road and the vehicles involved.",
+      "You should notify authorities about an accident before doing anything else.",
+      "If you have a cellular phone or CB radio, you should notify the authorities before exiting your vehicle."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-174",
+    "number": 174,
+    "question": "Which of these best describes how you should use the brake pedal on a steep downhill grade?",
+    "choices": [
+      "Light, pumping action.",
+      "Light, steady pressure.",
+      "Repeated strong pressure then release."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-175",
+    "number": 175,
+    "question": "When starting a bus on a level surface with good traction there is often no need for:",
+    "choices": [
+      "A tire check.",
+      "The parking brake.",
+      "Slow acceleration."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-176",
+    "number": 176,
+    "question": "You are starting your vehicle in motion from a stop. As you apply power to the drive wheels, they start to spin. You should:",
+    "choices": [
+      "Take your foot off the accelerator.",
+      "Take your foot off the accelerator and apply the brakes.",
+      "Try a lower gear."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-177",
+    "number": 177,
+    "question": "You will know if the vehicle you are driving is equipped with ABS brakes by:",
+    "choices": [
+      "Red indicator lamps on the brake cylinders.",
+      "The certification on the driver-side door.",
+      "When you turn on the ignition, yellow ABS malfunction lamps light up on the instrument panel."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-178",
+    "number": 178,
+    "question": "The speed at which you drive should be determined by:",
+    "choices": [
+      "Your schedule.",
+      "Your engine type.",
+      "Your visibility."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-179",
+    "number": 179,
+    "question": "You are driving a heavy vehicle with a manual transmission. You have to stop the vehicle on the shoulder while driving on an uphill grade. Which of these is a good rule to follow when putting it back in motion up the grade?",
+    "choices": [
+      "Keep the clutch slipping while slowly accelerating.",
+      "Use the parking brake to hold the vehicle until the clutch engages.",
+      "Let the vehicle roll backwards a few feet before you engage the clutch, but turn the wheel so that the back moves away from the roadway."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-180",
+    "number": 180,
+    "question": "A hazard:",
+    "choices": [
+      "Is any road condition or other road user that is a possible danger.",
+      "Cannot turn into emergency.",
+      "Does not need to be seen."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-181",
+    "number": 181,
+    "question": "Which of these is true about radiator shutters and the winterfront during winter driving?",
+    "choices": [
+      "The winterfront should be closed tightly.",
+      "Ice should be removed from the radiator shutter.",
+      "The engine may overheat if winterfront is left open."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-182",
+    "number": 182,
+    "question": "Most skids:",
+    "choices": [
+      "Happen on ice.",
+      "Will not happen with radial tires.",
+      "Are caused by going too fast or trying to stop too quickly."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-183",
+    "number": 183,
+    "question": "Your brakes can get wet when you are driving through heavy rain. What can happen if the brakes are applied?",
+    "choices": [
+      "Hydroplaning.",
+      "The vehicle can pull to one side.",
+      "Trailer jackknife."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-184",
+    "number": 184,
+    "question": "The center of gravity of a load:",
+    "choices": [
+      "Should be kept as high as possible.",
+      "Can make a vehicle more likely to tip over on curves if it is high.",
+      "Is only a problem if the vehicle is overloaded."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-185",
+    "number": 185,
+    "question": "Brake fade:",
+    "choices": [
+      "Can be caused by the brakes getting very hot.",
+      "Can be corrected by letting up on the brakes for 1-2 seconds and then reapplying them.",
+      "Can be caused by very cold weather."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-186",
+    "number": 186,
+    "question": "Controlled braking:",
+    "choices": [
+      "Involves locking the wheels for short periods of time.",
+      "Is used to keep a vehicle in a straight line when braking.",
+      "Should only be used with hydraulic brakes."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-187",
+    "number": 187,
+    "question": "Which of these statements about cold-weather driving is true?",
+    "choices": [
+      "An engine cannot overheat when the weather is very cold.",
+      "Windshield washer antifreeze should be used.",
+      "Exhaust system leaks are less dangerous in cold weather."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-188",
+    "number": 188,
+    "question": "Backing a commercial vehicle is:",
+    "choices": [
+      "Always dangerous.",
+      "Not dangerous if you don't have to turn.",
+      "Not dangerous if you have a helper."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-189",
+    "number": 189,
+    "question": "Which of these statements about speed management is true?",
+    "choices": [
+      "Shady parts of the road allow better traction than do open areas.",
+      "Road surfaces will freeze before bridges.",
+      "When the road is slippery, it will take longer to stop and it will be harder to turn without skidding."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-190",
+    "number": 190,
+    "question": "What is the first thing you should do if your brakes fail while going down a hill?",
+    "choices": [
+      "Get off the road as soon as possible.",
+      "Try to use your parking brakes to stop.",
+      "Call or radio for help."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-191",
+    "number": 191,
+    "question": "Communication means:",
+    "choices": [
+      "Talking with law enforcement officers.",
+      "Communicating your intention to other motorists.",
+      "Talking on the CB radio."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-192",
+    "number": 192,
+    "question": "The amount of brake pressure you need to stop the vehicle will depend on:",
+    "choices": [
+      "Whether the vehicle is equipped with antilock brakes.",
+      "The vehicle's speed and how quickly you want to stop.",
+      "The type of brakes the vehicle has."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-193",
+    "number": 193,
+    "question": "Which of these is NOT a good rule to follow when caring for an injured person at an accident scene?",
+    "choices": [
+      "If a qualified person is helping them, stay out of the way unless asked to assist.",
+      "Keep an injured person cool.",
+      "Move severely injured persons if there is danger due to fire or passing traffic."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-194",
+    "number": 194,
+    "question": "The engine braking effect is greatest when the engine is ______ governed RPM and the transmission is in the ______ gear.",
+    "choices": [
+      "below, higher",
+      "near, lower",
+      "above, lower"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-195",
+    "number": 195,
+    "question": "Can federal inspectors inspect your truck or bus?",
+    "choices": [
+      "Yes, but they cannot put it out of service.",
+      "Yes, and they can put it out of service if it is unsafe.",
+      "No."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-196",
+    "number": 196,
+    "question": "What keeps an engine cool in hot weather driving?",
+    "choices": [
+      "Enough engine oil level.",
+      "Air conditioner use",
+      "High speed driving in order to put more air to the radiator"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-197",
+    "number": 197,
+    "question": "What should you do before driving in mountains?",
+    "choices": [
+      "Know escape ramp locations on your way.",
+      "Unhook your steering axle brake.",
+      "Carry the tire chains in your vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-198",
+    "number": 198,
+    "question": "Which of these statements about certain types of cargo is true?",
+    "choices": [
+      "Unstable loads such as hanging meat or livestock can require extra caution on curves.",
+      "Oversize loads can be hauled without special permits during times when the roads are not busy.",
+      "When liquids are hauled, the tank should always be loaded totally full."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-199",
+    "number": 199,
+    "question": "Which of these is true about the use of a heater?",
+    "choices": [
+      "You must have at least one extra heater, such as a mirror heater, battery box heater, or fuel tank heater, when driving in temperatures below freezing.",
+      "If you feel sleepy, warming your cab with the heater will help you stay alert.",
+      "When driving in winter weather, you should check that the heater is working properly before starting your trip."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-200",
+    "number": 200,
+    "question": "Antilock braking systems use sensors and computers to sense:",
+    "choices": [
+      "Potential wheel lock up.",
+      "Brake wear and condition.",
+      "Roadway surface conditions."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-201",
+    "number": 201,
+    "question": "Which of these actions are NOT recommended for a left turn?",
+    "choices": [
+      "Start at the inside lane and swing right as you turn.",
+      "Use a right-hand turn lane if there are two turning lanes.",
+      "Start your turn in the center of the intersection."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-202",
+    "number": 202,
+    "question": "Which of the following about antilock braking systems is true?",
+    "choices": [
+      "ABS allows you to drive faster, follow more closely or drive less carefully.",
+      "ABS prevents power or turning skids.",
+      "ABS changes the way you brake in an emergency."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-203",
+    "number": 203,
+    "question": "You are driving a 40-foot vehicle at 55 mph. The road is dry and visibility is good. What is the least amount of space that you need to have in front of your vehicle?",
+    "choices": [
+      "4 seconds",
+      "5 seconds",
+      "6 seconds"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-204",
+    "number": 204,
+    "question": "While driving, ice builds up on your wipers and they no longer clean the windshield. You should:",
+    "choices": [
+      "Keep driving, and turn your defroster on.",
+      "Keep driving and spray the windshield with washer fluid.",
+      "Stop safely and fix the problem."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-205",
+    "number": 205,
+    "question": "What does emergency braking mean?",
+    "choices": [
+      "Pushing down on the brake pedal as hard as you can.",
+      "Responding to a hazard by slowing the vehicle.",
+      "Using the vehicle's emergency brake."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-206",
+    "number": 206,
+    "question": "In bad weather, many car drivers tailgate large vehicles. What should you do?",
+    "choices": [
+      "Increase your following distance.",
+      "Lightly tap your brakes to warn the tailgater to drop back.",
+      "Speed up to distance yourself from the tailgater."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-207",
+    "number": 207,
+    "question": "You need at least ___ inch tread depth in every major groove of your front tires.",
+    "choices": [
+      "2/32",
+      "4/32",
+      "6/32"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-208",
+    "number": 208,
+    "question": "Which of these statements about braking is true?",
+    "choices": [
+      "The heavier the vehicle or the faster it is moving, the more heat the brakes have to absorb to stop it.",
+      "Brake drums cool very quickly when the vehicle is moving very fast.",
+      "Brake fade is not caused by heat."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-209",
+    "number": 209,
+    "question": "Which of these is true about engine brakes (retarders)?",
+    "choices": [
+      "Can cause the drive wheels to skid when they have poor traction.",
+      "Allow you to disconnect the steering axle brakes.",
+      "Cannot be used on interstate highways."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-210",
+    "number": 210,
+    "question": "Tire chains:",
+    "choices": [
+      "Should always be carried when driving in winter weather.",
+      "Should never be used on asphalt.",
+      "Should only be used on the drive wheels."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-211",
+    "number": 211,
+    "question": "The space ______ your vehicle is the most important to manage.",
+    "choices": [
+      "In back of",
+      "In front of",
+      "To the side of"
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-212",
+    "number": 212,
+    "question": "What happens to tar in road pavement during hot weather?",
+    "choices": [
+      "It becomes gummy, making tires stick to the road.",
+      "It bleeds, making the road surface slippery.",
+      "Nothing, it is made for hot weather."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-213",
+    "number": 213,
+    "question": "Which of these is the proper way to signal to change lane?",
+    "choices": [
+      "Signal early, and change lanes slowly and smoothly.",
+      "Signal just as you begin to change lanes, and move quickly.",
+      "Signal after you begin change and cross over slowly."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-214",
+    "number": 214,
+    "question": "What is the proper way to hold a steering wheel?",
+    "choices": [
+      "With both hands close together, near the top of the wheel.",
+      "With both hands close together, near the bottom of the wheel.",
+      "With both hands, on the opposite sides of the wheel."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-215",
+    "number": 215,
+    "question": "Which of these statements about tires is true?",
+    "choices": [
+      "You should inspect your tires every two hours or every 100 miles when driving in very hot weather.",
+      "The air pressure of a tire decreases as the temperature of the tire increases.",
+      "If tires are too hot to touch, let 5-10 pounds of air pressure out to cool them down."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-216",
+    "number": 216,
+    "question": "When should a helper be used to help back your vehicle?",
+    "choices": [
+      "Only when you need to back on a curved path.",
+      "Whenever you have to back.",
+      "Only when you have a trailer on your vehicle."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-217",
+    "number": 217,
+    "question": "The tread depth on front steering wheels tires should be:",
+    "choices": [
+      "Not less than 4/32 (four thirty-second) inch.",
+      "More than 6/32 (six thirty-second) inch.",
+      "Not less than 2/32 (two thirty-second) inch."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-218",
+    "number": 218,
+    "question": "Which of these is good thing to remember about using mirrors?",
+    "choices": [
+      "You should look at a mirror for several seconds at a time.",
+      "Convex mirrors make things look larger and closer than they really are.",
+      "There are blind spots that your mirror cannot show."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-219",
+    "number": 219,
+    "question": "You are required to inspect your truck within how many miles after beginning the trip?",
+    "choices": [
+      "100",
+      "150",
+      "50"
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-220",
+    "number": 220,
+    "question": "Whenever you double your speed, your vehicle has about ______ times of destructive power if it crashes?",
+    "choices": [
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-221",
+    "number": 221,
+    "question": "If you must cross into the oncoming lane as you make a turn, you should:",
+    "choices": [
+      "Watch for oncoming traffic.",
+      "Complete your turn without stopping.",
+      "Back up to allow the oncoming traffic to pass."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-222",
+    "number": 222,
+    "question": "Which of these pieces of emergency equipment should always be carried in your vehicle?",
+    "choices": [
+      "Circuit breakers.",
+      "First aid kit.",
+      "Warning devices for parked vehicle."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-223",
+    "number": 223,
+    "question": "When approaching a bridge on a two-lane road, you should:",
+    "choices": [
+      "Drive in the center of the bridge.",
+      "Check the weight limit of the bridge.",
+      "Slow down to 25 mph on the bridge."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-224",
+    "number": 224,
+    "question": "Which of these is usually true about driving in tunnels?",
+    "choices": [
+      "Headlights are required by law.",
+      "There may be crosswinds when exiting.",
+      "Speeds are limited to 30 mph or less."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-225",
+    "number": 225,
+    "question": "Which of these is a danger of crossing railroad tracks on dirt roads?",
+    "choices": [
+      "The ground underneath the tracks may not be stable.",
+      "You could get hung up halfway across the tracks.",
+      "Your tires could sink into the dirt and not cross the tracks."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-226",
+    "number": 226,
+    "question": "Which of these is true about mirror adjustment?",
+    "choices": [
+      "You should adjust your mirrors before starting the trip.",
+      "You can adjust your mirrors while you are driving.",
+      "The mirrors could be adjusted correctly even if the trailer is not straight."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-227",
+    "number": 227,
+    "question": "What should you do when your vehicle hydroplanes?",
+    "choices": [
+      "Start stab braking.",
+      "Release accelerator.",
+      "Accelerate slightly."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-228",
+    "number": 228,
+    "question": "A car suddenly cuts in front of you, creating a hazard. Which of these actions should you NOT take?",
+    "choices": [
+      "Honk your horn and stay close behind the car.",
+      "Signal and change lanes to avoid hazard.",
+      "Slow down to prevent a crash."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-229",
+    "number": 229,
+    "question": "What should you do if you are unsure whether you have enough overhead clearance?",
+    "choices": [
+      "Slow down slightly and try to drive under the object.",
+      "Find another route that will not require driving under the object.",
+      "Estimate the height of an overhead object if it is not posted."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-230",
+    "number": 230,
+    "question": "During an inspection of hydraulic brakes, you should pump the brake pedal three times then apply firm pressure to the pedal for five seconds. If the brakes are working properly, the pedal should:",
+    "choices": [
+      "Depress slightly.",
+      "Sink to the floor.",
+      "Not move."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-231",
+    "number": 231,
+    "question": "Oversize/overweight loads:",
+    "choices": [
+      "Can only be driven in daylight.",
+      "Require a special transit permit.",
+      "Must be escorted by police."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-232",
+    "number": 232,
+    "question": "What is the most important reason to inspect your truck or bus?",
+    "choices": [
+      "Safety.",
+      "To avoid being cited.",
+      "It's the law."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-233",
+    "number": 233,
+    "question": "If your vehicle gets stuck on a raised railroad-highway crossing, you should:",
+    "choices": [
+      "Use reverse gear to back up off the crossing.",
+      "Get out of the vehicle and away from the tracks.",
+      "Turn off all your lights."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-234",
+    "number": 234,
+    "question": "Which of these is true about commercial vehicle habit or swinging wide on turns?",
+    "choices": [
+      "Off-tracking.",
+      "Wide-rounding.",
+      "Sidewinding."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-235",
+    "number": 235,
+    "question": "You feel tired during long trip. To stay alert you should:",
+    "choices": [
+      "Take an over-the-counter stimulant.",
+      "Stop periodically for rest and exercise.",
+      "Keep the vehicle closed and heated."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-236",
+    "number": 236,
+    "question": "Medicine used to treat the common cold:",
+    "choices": [
+      "Should only be used when driving at daytime.",
+      "Often makes you sleepy, and thus should not be used while driving.",
+      "Can still be used while driving if you only take half the regular dosage."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-237",
+    "number": 237,
+    "question": "If you are not sure what to use to put out a hazardous material fire, you should:",
+    "choices": [
+      "Wait for qualified firefighters.",
+      "Use water.",
+      "Use dirt."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-238",
+    "number": 238,
+    "question": "An antilock braking system is:",
+    "choices": [
+      "Used to compensate for poor brakes.",
+      "An addition to your normal brakes.",
+      "An integral part of the vehicle's braking system."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-239",
+    "number": 239,
+    "question": "When it is necessary to learn how if I extinguisher works?",
+    "choices": [
+      "Before a fire happens.",
+      "Only when a fire happens.",
+      "Only when you are transporting flammable materials."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-240",
+    "number": 240,
+    "question": "You do NOT have a Hazardous Materials Endorsement on your Commercial Driver's License. You can drive a vehicle hauling hazardous materials when:",
+    "choices": [
+      "The vehicle does not require placards.",
+      "A person who has the Hazardous Materials Endorsement rides with you.",
+      "The GVWR is 26,001 pounds or less."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-241",
+    "number": 241,
+    "question": "You are driving a vehicle at 55 mph on dry pavement. About how much total stopping distance will you need to bring it to a stop?",
+    "choices": [
+      "Twice the length of the vehicle.",
+      "Half the length of a football field.",
+      "The length of a football field."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-242",
+    "number": 242,
+    "question": "Hydroplaning:",
+    "choices": [
+      "Only occurs when there is a lot of water.",
+      "Cannot occur when driving through a puddle.",
+      "Is more likely if tire pressure is low."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-243",
+    "number": 243,
+    "question": "The purpose of the retarders is to:",
+    "choices": [
+      "Help slow the vehicle while driving and reduce brake wear.",
+      "Apply extra braking power to the non-drive axles.",
+      "Help prevent skids."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-244",
+    "number": 244,
+    "question": "Which may be a sign of tire failure?",
+    "choices": [
+      "Wheels skidding.",
+      "A loud hissing noise.",
+      "Vibration."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-245",
+    "number": 245,
+    "question": "Stab braking should not be used on vehicles with:",
+    "choices": [
+      "Trailers.",
+      "Hazardous materials.",
+      "Anti-lock brakes."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-246",
+    "number": 246,
+    "question": "Placards must be:",
+    "choices": [
+      "Displayed on all vehicles hauling any amount of hazardous materials.",
+      "Placed only on the front and rear of a vehicle.",
+      "Placed on all four sides of a vehicle."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-247",
+    "number": 247,
+    "question": "Where or how is cargo blocking used?",
+    "choices": [
+      "In the front, back, and/or sides of the cargo.",
+      "From the upper part of the cargo to the floor.",
+      "Loosely around the cargo."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-248",
+    "number": 248,
+    "question": "Which vehicle will have the most difficulty staying in its lane during strong winds?",
+    "choices": [
+      "A double with empty trailers.",
+      "A tractor pulling a loaded flatbed trailer.",
+      "A triple axle vehicle with cargo."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-249",
+    "number": 249,
+    "question": "Which of these statements about engine overheating is true?",
+    "choices": [
+      "You should never shut off an overheated engine until it cools.",
+      "You should never remove the radiator cap on a pressurized system until the system is cooled.",
+      "Antifreeze is not needed when the weather is warm."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-250",
+    "number": 250,
+    "question": "When driving through work zones, you should:",
+    "choices": [
+      "Reduce your speed only if workers are close to the roadway.",
+      "Turn on your parking lights.",
+      "Watch for sharp pavement drop-offs."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-251",
+    "number": 251,
+    "question": "How do you correct a rear-wheel acceleration skid?",
+    "choices": [
+      "Apply more power to the wheels.",
+      "Stop accelerating.",
+      "Downshift."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-252",
+    "number": 252,
+    "question": "Which of these statements about driving in areas with strong wind is true?",
+    "choices": [
+      "You should drive alongside other vehicles to help break up the wind.",
+      "The lighter your vehicle, the less trouble you will have with the wind.",
+      "Winds are especially a problem when coming out of tunnels."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-253",
+    "number": 253,
+    "question": "What three distances add up the total stopping distance for your truck or bus?",
+    "choices": [
+      "Attention distance, reaction distance, slowing distance.",
+      "Observation distance, respond distance, braking distance.",
+      "Perception distance, reaction distance, braking distance."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-254",
+    "number": 254,
+    "question": "If you must use a cell phone while you are driving, you should:",
+    "choices": [
+      "Reduce your speed.",
+      "Pull off the road onto a safe and legal position.",
+      "Position the phone so you can drive and see the road in front of you."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-255",
+    "number": 255,
+    "question": "Which of these is true about rear drive wheel braking skids?",
+    "choices": [
+      "Locked wheels usually have more traction than rolling wheels.",
+      "Front wheels slide sideways to try to catch up with the rear wheels.",
+      "On a vehicle with a trailer the trailer can push the towing vehicle sideways."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-256",
+    "number": 256,
+    "question": "Which of the statement is true?",
+    "choices": [
+      "Most people are more alert at night than during the day.",
+      "Most hazards are easier to see at night than during the day.",
+      "Many heavy vehicle accidents occur between midnight and 6 a.m."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-257",
+    "number": 257,
+    "question": "Which of these is true about tire pressure?",
+    "choices": [
+      "Air pressure in tires increases with the temperature.",
+      "Air should be let out of hot tires so the tires do not blow out.",
+      "Tire pressure need not be checked during a trip if it passed pre-trip inspection."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-258",
+    "number": 258,
+    "question": "Which of these statements about overhead clearance is true?",
+    "choices": [
+      "You should assume posted clearance signs are correct.",
+      "The weight of a vehicle changes its height.",
+      "If the road surface causes your vehicle to tilt toward objects at the edge of the road, you should drive close to the shoulder."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-259",
+    "number": 259,
+    "question": "Your vehicle's outside mirrors should be adjusted in a way that:",
+    "choices": [
+      "You do not have a blind spot.",
+      "Some part of the vehicle is showing.",
+      "You can see your entire vehicle."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-260",
+    "number": 260,
+    "question": "If you are stopped at a roadside rest area and found to have a BAC (Blood Alcohol Concentration) of 0.02 you will:",
+    "choices": [
+      "Be placed out of service for 72 hours.",
+      "Be in deep trouble with your dispatcher.",
+      "Be placed out of service for 24 hours."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-261",
+    "number": 261,
+    "question": "Why your vehicle’s speed naturally increases on its downgrade?",
+    "choices": [
+      "Gravity",
+      "The engine runs smoother",
+      "Lack of traction"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-262",
+    "number": 262,
+    "question": "When driving on roads where truck speed limits are less than cars, you should:",
+    "choices": [
+      "Be extra careful when changing lanes.",
+      "Adjust your speed to speed of other trucks and buses.",
+      "Adjust your speed to the posted speed limit for trucks."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-263",
+    "number": 263,
+    "question": "You wish to turn right from one two-lane, two-way street to another. Your vehicle is so long that you must swing wide to make the turn.",
+    "choices": [
+      "You should swing wide when you begin the turn.",
+      "You should swing wide when you complete the turn.",
+      "You should not make a turn. Drive straight to the appropriate intersection."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-264",
+    "number": 264,
+    "question": "To prevent brake \"fade\", you should:",
+    "choices": [
+      "Coast down hills that are not very steep inclines.",
+      "Apply constant hard pressure on the brakes when driving down hills.",
+      "Select a gear which will keep your vehicle to a safe speed on the steep downgrade."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-265",
+    "number": 265,
+    "question": "It is unsafe to operate a vehicle with how many cracked, broken or missing spring leaves in any leaf spring:",
+    "choices": [
+      "One-third of the total number",
+      "One-half of the total number",
+      "One-fourth of the total number"
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-266",
+    "number": 266,
+    "question": "You should always turn on your 4-way emergency flashers when you:",
+    "choices": [
+      "Drive through the mountains.",
+      "Park on the side of the road.",
+      "Cross railroad tracks."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-267",
+    "number": 267,
+    "question": "The total weight of a powered unit, the trailer, and the cargo is called:",
+    "choices": [
+      "Gross combination weight.",
+      "Cross vehicle weight.",
+      "Gross axle weight."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-268",
+    "number": 268,
+    "question": "You can see a marking on a vehicle ahead of you. The marking is a red triangle with an orange center. What does the marking mean?",
+    "choices": [
+      "It may be a slow-moving vehicle.",
+      "The vehicle is hauling hazardous materials.",
+      "It is being driven by a student driver."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-269",
+    "number": 269,
+    "question": "Which of these statements about staying alert to drive is true?",
+    "choices": [
+      "A half-hour break for coffee will do more to keep you alert than a half-hour nap.",
+      "If you must stop to take a nap, it should be at a truck stop or other rest area, never on the side of the road.",
+      "Sleep is the only thing that can overcome fatigue."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-270",
+    "number": 270,
+    "question": "Which of these is NOT a brake check you normally do during your walk-around inspection?",
+    "choices": [
+      "Brake adjustment.",
+      "Condition of hoses.",
+      "Hydraulic brake cylinder leaks."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-271",
+    "number": 271,
+    "question": "Which of these statements about inspection of the suspension components is true?",
+    "choices": [
+      "Distorted coil springs are safe as long as they are not broken.",
+      "Axle mounts should be checked at each point where they are secured on the vehicle frame and axle.",
+      "Suspension components should be checked at all axles, except for the power unit."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-272",
+    "number": 272,
+    "question": "Which of these is NOT a proper use of vehicle lights?",
+    "choices": [
+      "Turning on your headlights during the day when visibility is reduced due to rain or snow.",
+      "Flashing your brake lights to warn someone behind you that you are slowing down.",
+      "Flashing your brake lights to get someone off your tail."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-273",
+    "number": 273,
+    "question": "Which of these is a good thing to do when driving at night?",
+    "choices": [
+      "Keep your speed slow enough that you can stop within the range of your headlights.",
+      "Look directly at oncoming headlights only briefly.",
+      "Keep your instrument lights bright."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-274",
+    "number": 274,
+    "question": "You are approaching a traffic light that has been green for a long time. What is the best approach?",
+    "choices": [
+      "Continue at your current speed and see if the light changes.",
+      "Accelerate to make sure you get through the light.",
+      "Start slowing down so you will be ready to stop."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-275",
+    "number": 275,
+    "question": "After starting the engine:",
+    "choices": [
+      "The coolant temperature gauge should begin a gradual rise to normal.",
+      "The oil pressure gauge should take 3-5 minutes to rise to normal.",
+      "The engine temperature gauge will take 3-5 minutes to rise to normal."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-276",
+    "number": 276,
+    "question": "Can state inspectors inspect your truck or bus?",
+    "choices": [
+      "No.",
+      "Yes, but they cannot put it out of service.",
+      "Yes, and they can put it out of service if it is unsafe."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-277",
+    "number": 277,
+    "question": "If you are being tailgated, you should:",
+    "choices": [
+      "Increase your following distance.",
+      "Flash your brake lights.",
+      "Signal the tailgater when it is safe to pass you."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-278",
+    "number": 278,
+    "question": "Which of these statements about a pre-trip inspection is true?",
+    "choices": [
+      "If parked on a street, you should walk so that you face away from oncoming traffic.",
+      "Leave the key in the ignition so you do not lose it while you are under the truck.",
+      "If you need to tilt the cab, secure loose things so they do not fall and break anything."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-279",
+    "number": 279,
+    "question": "Cargo inspection:",
+    "choices": [
+      "Is most often not the responsibility of the driver.",
+      "Should be performed after every break you take while driving.",
+      "Is needed only if hazardous materials are being hauled."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-280",
+    "number": 280,
+    "question": "If you are forced to return to the road before stopping on the shoulder, the best procedure is:",
+    "choices": [
+      "Using mirrors and turn signals, edge gradually back on the road.",
+      "Using mirrors and turn signals, turn sharply to get back on the road.",
+      "Drive on the shoulder to the next exit and then re-enter the road."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-281",
+    "number": 281,
+    "question": "Which of these is NOT part of the pre-trip inspection of the engine compartment?",
+    "choices": [
+      "Valve clearance.",
+      "Engine oil level.",
+      "Worn electrical wiring insulation."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-282",
+    "number": 282,
+    "question": "What should you do if a car coming toward you at night keeps its high beams on?",
+    "choices": [
+      "Flash your high beams quickly at the other driver.",
+      "Look to the right lane or edge markings of the road.",
+      "Slow down and look straight ahead in your lane."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-283",
+    "number": 283,
+    "question": "When you are parked at the side of the road at night, you must:",
+    "choices": [
+      "Turn on your 4-way emergency flashers to warn others.",
+      "Put out your emergency warning lights within 30 minutes.",
+      "Use your taillights to give warning to other drivers."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-284",
+    "number": 284,
+    "question": "You must drive on a slippery road. Which of these is a good thing to do in such a situation?",
+    "choices": [
+      "Use a smaller following distance.",
+      "Apply the brakes while on curves.",
+      "Slow down gradually."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-285",
+    "number": 285,
+    "question": "You are traveling down a long, steep hill. Your brakes got so hot that they fail. What should you do?",
+    "choices": [
+      "Downshift and pump the brake pedal.",
+      "Look for an escape ramp or escape route.",
+      "Both of the above."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-286",
+    "number": 286,
+    "question": "You are driving a heavy vehicle and the road surface became slippery due to the rain. What should you do?",
+    "choices": [
+      "Decrease your speed even further for adverse weather.",
+      "Adjust your speed to traffic.",
+      "Turn off your 4-way flashers."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-287",
+    "number": 287,
+    "question": "Your vehicle is in a traffic emergency and may collide with another vehicle if you do not take action. Which of these is a good rule to remember at such a time?",
+    "choices": [
+      "You can almost always turn to miss an obstacle more quickly than you can stop.",
+      "Stopping is always the safest action in a traffic emergency.",
+      "Leaving the road is always more risky than hitting another vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-288",
+    "number": 288,
+    "question": "Most serious skids result from:",
+    "choices": [
+      "Driving too fast for conditions.",
+      "Turning too sharply.",
+      "An uneven load."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-289",
+    "number": 289,
+    "question": "One reason that dry bulk tanks require special care is:",
+    "choices": [
+      "The load can shift.",
+      "They can easily catch fire.",
+      "They can only be filled halfway."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-290",
+    "number": 290,
+    "question": "Which of these rigs have more chances to off-track while making a turn?",
+    "choices": [
+      "Triple with 45-feet trailer.",
+      "Tractor with two 27-feet trailers.",
+      "53-feet straight truck."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-291",
+    "number": 291,
+    "question": "You are driving in a steady rain. A good indication that hydroplaning can occur is when:",
+    "choices": [
+      "The roadway surface is new.",
+      "The vehicle in front of you creates water splashes.",
+      "You cannot see raindrops on the roadway surface."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-292",
+    "number": 292,
+    "question": "Which of the following systems should receive extra attention during winter weather inspection?",
+    "choices": [
+      "Suspension.",
+      "Exhaust.",
+      "Cooling."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-293",
+    "number": 293,
+    "question": "You are driving on a straight level highway at 50 mph. There are no vehicles in front of you. Suddenly, a tire blows out on your vehicle. What should you do first?",
+    "choices": [
+      "Stay off the brake until the vehicle has slowed down.",
+      "Begin light braking.",
+      "Begin emergency braking."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-294",
+    "number": 294,
+    "question": "Truck escape ramps:",
+    "choices": [
+      "Help avoid damage to vehicles.",
+      "Cannot be used by certain types of heavy vehicles.",
+      "Are not for buses."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-295",
+    "number": 295,
+    "question": "Merging onto a road is safest if you:",
+    "choices": [
+      "Wait for a large enough gap in traffic to enter the road.",
+      "Blend into the nearest lane so that other vehicles will give you room.",
+      "Gain speed on the shoulder and then merge."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-296",
+    "number": 296,
+    "question": "You are driving a new truck with a manual transmission. What gear will you probably have to use to take a long steep downhill grade?",
+    "choices": [
+      "The same gear you would use to climb the hill.",
+      "A lower gear than you would use to climb the hill.",
+      "A higher gear than you would use to climb the hill."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-297",
+    "number": 297,
+    "question": "One can recognize hazardous materials by looking it's a container",
+    "choices": [
+      "level",
+      "shape",
+      "color"
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-298",
+    "number": 298,
+    "question": "Turn signals should be used:",
+    "choices": [
+      "At least 100 feet before turning or changing lane.",
+      "At least 150 feet before turning or changing lane.",
+      "At least 200 feet before turning or changing lane."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-299",
+    "number": 299,
+    "question": "You are driving in an area with few streetlights on a clear night. If you cannot see well with your headlights, which of these actions would help?",
+    "choices": [
+      "Find another route that is better lit, even if it is out of the way.",
+      "Turn your interior lights on and adjust your instrument lights up.",
+      "Use your high beams when legal and keep your interior lights off."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-300",
+    "number": 300,
+    "question": "When you are driving on grades, which of these is the best way to choose a safe speed?",
+    "choices": [
+      "Based on your vehicle and its cargo, select a safe speed that is within the posted speed.",
+      "Follow the vehicle in front of you.",
+      "If you have a light load, you can go faster than those with a heavy load."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-301",
+    "number": 301,
+    "question": "If you do not have a CB radio, what is the first thing you should do at an accident scene?",
+    "choices": [
+      "Protect the area.",
+      "Notify the authority.",
+      "Care for the injured person."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-302",
+    "number": 302,
+    "question": "What kind of optional equipment (except tire wrench) could be in your vehicle?",
+    "choices": [
+      "Fully charged fire extinguisher.",
+      "Set of warning devices.",
+      "Battery charger."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-303",
+    "number": 303,
+    "question": "Which of these statements about using turn signals is true?",
+    "choices": [
+      "You do not need to use your turn signal when changing lanes in traffic on a four-lane highway.",
+      "When turning, you should signal early.",
+      "You should use your turn signal to mark your vehicle when it is pulled off on the side of the road."
+    ],
+    "sourceAnswer": 1,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-304",
+    "number": 304,
+    "question": "Convex (curved) mirrors:",
+    "choices": [
+      "Make objects appear closer than they really are.",
+      "Make objects appear larger than they really are.",
+      "Show a wider area than flat mirrors show."
+    ],
+    "sourceAnswer": 2,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "gk-305",
+    "number": 305,
+    "question": "Which of these do Not provide extra gears on some trucks?",
+    "choices": [
+      "Automatic transmission.",
+      "Auxiliary transmission.",
+      "Multi-speed rear axles."
+    ],
+    "sourceAnswer": 0,
+    "testId": "general-knowledge"
+  },
+  {
+    "id": "docx-01",
+    "number": 1,
+    "question": "The braking power of the spring brakes:",
+    "choices": [
+      "Is not affected by the condition of the service brakes.",
+      "Depends on the service brakes being in adjustment",
+      "Increases when the service brakes are hot."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-02",
+    "number": 2,
+    "question": "The air leakage rate for combination vehicles (engine off, brakes on) should be less than ___ psi per minute.",
+    "choices": [
+      "2",
+      "3",
+      "4"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-03",
+    "number": 3,
+    "question": "Total stopping distance for air brakes is longer than that for hydraulic brakes due to ______ distance.",
+    "choices": [
+      "brake lag",
+      "reaction",
+      "effective braking"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-04",
+    "number": 4,
+    "question": "The driver must be able to see a low air pressure warning which comes on before pressure in the service air tanks falls below ______ psi.",
+    "choices": [
+      "40",
+      "60",
+      "90"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-05",
+    "number": 5,
+    "question": "Your truck or bus has a dual air brake system. If a low air pressure warning comes on for only one system, what should you do?",
+    "choices": [
+      "Reduce your speed, and drive to the nearest garage for repairs.",
+      "Reduce your speed, and test the remaining system while under way.",
+      "Stop right away and safely park. Continue only after the system is fixed."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-06",
+    "number": 6,
+    "question": "Your vehicle has a dual air brake system. If a low air pressure warning comes on for only one system, you should:",
+    "choices": [
+      "Bring the vehicle to a safe stop and continue only after the system is fixed.",
+      "Reduce your speed, and test the remaining system while under way.",
+      "Reduce your speed, and drive to the nearest garage for repairs."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-07",
+    "number": 7,
+    "question": "An air brake system is fully charged at _______ psi.",
+    "choices": [
+      "75",
+      "100",
+      "125"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-08",
+    "number": 8,
+    "question": "Air braking takes more time than hydraulic braking because air:",
+    "choices": [
+      "Brakes use different brake drums.",
+      "Takes more time to flow through the lines than hydraulic fluid.",
+      "Brakes require heavier return springs."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-09",
+    "number": 9,
+    "question": "In air brakes vehicles, the parking brakes should be used:",
+    "choices": [
+      "As little as possible.",
+      "Any time when vehicle is parked.",
+      "To hold your speed when going downhill."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-10",
+    "number": 10,
+    "question": "The stop light switch:",
+    "choices": [
+      "Tells you when the air brake system is low on air pressure.",
+      "Tells you when you need to use your emergency brakes.",
+      "Turns on your brake lights to warn drivers behind you."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-11",
+    "number": 11,
+    "question": "During normal driving, spring brakes are usually held back by:",
+    "choices": [
+      "Bolts.",
+      "Air pressure.",
+      "Spring pressure."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-12",
+    "number": 12,
+    "question": "A build up of brake air pressure.",
+    "choices": [
+      "No change of brake air pressure."
+    ],
+    "sourceAnswer": null,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-13",
+    "number": 13,
+    "question": "The proper use of the brakes when going down a long steep grade after selecting a proper gear is to brake until your speed is about ______ mph below the posted speed for your safety and release your brakes.",
+    "choices": [
+      "5"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-14",
+    "number": 14,
+    "question": "Excessive heat caused by using your brakes too often can also cause:",
+    "choices": [
+      "Modulating control valve to wear out.",
+      "Brake lines to plug.",
+      "Brakes to fade or fail."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-15",
+    "number": 15,
+    "question": "Excessive use of the service brakes results in overheating which can lead to:",
+    "choices": [
+      "Improper adjustment of the S-cam.",
+      "Increased contact between the brake drums and brake linings.",
+      "Expansion of the brake drums."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-16",
+    "number": 16,
+    "question": "Why should you drain water from compressed air tanks?",
+    "choices": [
+      "The low boiling point of water reduces braking power.",
+      "Water can freeze in cold weather and cause brake failure.",
+      "To keep from fowling the air compressor oil."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-17",
+    "number": 17,
+    "question": "Tractor brake lines.",
+    "choices": [
+      "Trailer brake lines."
+    ],
+    "sourceAnswer": null,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-18",
+    "number": 18,
+    "question": "Modern air brake systems combine three different systems. They are the service, the parking and the ______ brakes.",
+    "choices": [
+      "Emergency",
+      "foot",
+      "S-cam"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-19",
+    "number": 19,
+    "question": "If you must make an emergency stop, you should brake so you:",
+    "choices": [
+      "Use the hand brake before the brake pedal.",
+      "Can steer and so your vehicle stays in a straight line.",
+      "Use the full power of the brakes to lock them."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-20",
+    "number": 20,
+    "question": "The S-cam:",
+    "choices": [
+      "Controls the flow air to each of the brake chambers.",
+      "Pulls the brake shoes away from the drum and allow the wheels to roll freely.",
+      "Forces the brake shoes against the inside of the brake drum."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-21",
+    "number": 21,
+    "question": "The brake system that applies and releases the brakes when the driver uses the brake pedal is the brake system.",
+    "choices": [
+      "Emergency",
+      "Service",
+      "Parking"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-22",
+    "number": 22,
+    "question": "The use of air brakes on a long and steep downgrade under normal conditions is only a supplement to:",
+    "choices": [
+      "The use of the spring brakes.",
+      "The use of the front brakes limiting valve.",
+      "The braking effect of the engine."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-23",
+    "number": 23,
+    "question": "Some air brake systems have an alcohol evaporator. What may happen if you don't keep the proper level of an alcohol?",
+    "choices": [
+      "The S-cam may not take back when you release the brake pedal.",
+      "Ice may form in the air storage tank and cause a brake failure.",
+      "Ice may form on the brake drums and wear them out."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-24",
+    "number": 24,
+    "question": "Your brakes are fading when:",
+    "choices": [
+      "You have to push harder on the brake pedal to control your speed on a downgrade.",
+      "Less pressure is needed on the brake pedal for each stop.",
+      "The brake pedal feel spongy when you apply pressure."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-25",
+    "number": 25,
+    "question": "A straight truck or bus air brake system should not leak at the rate of more than ______ psi per minute with the engine off and the brakes released.",
+    "choices": [
+      "1",
+      "2",
+      "3"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-26",
+    "number": 26,
+    "question": "The air compressor should stop pumping air when pressure reach ___ psi.",
+    "choices": [
+      "125",
+      "150",
+      "160"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-27",
+    "number": 27,
+    "question": "Emergency stab braking is:",
+    "choices": [
+      "Press hard on a brake pedal and apply hand valve until you stop.",
+      "Use light steady pressure on the brake pedal.",
+      "Brake as hard as you can, release the brakes when the wheels locked, put on the brakes again when the wheels start rolling."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-28",
+    "number": 28,
+    "question": "The parking or emergency brake on a heavy vehicle can only be held in position by something that cannot leak away, like:",
+    "choices": [
+      "Spring pressure.",
+      "Air pressure.",
+      "Hydraulic pressure."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-29",
+    "number": 29,
+    "question": "When the brakes are applied the brake shoes (or linings) are pressed against the:",
+    "choices": [
+      "Brake drum or disc.",
+      "Slack adjuster.",
+      "S-cam"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-30",
+    "number": 30,
+    "question": "The air loss rate for a straight truck or bus with the engine off and the brakes on should not be more than:",
+    "choices": [
+      "1 psi in one minute.",
+      "2 psi in 45 seconds.",
+      "3 psi in one minute."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-31",
+    "number": 31,
+    "question": "It is not safe to drive a vehicle that has brake drums with cracks that are longer than _____ of the width of the friction area.",
+    "choices": [
+      "One half.",
+      "One fourth.",
+      "One eighth."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-32",
+    "number": 32,
+    "question": "In ideal conditions, a truck or bus with an air brake going at 55 mph would require stopping distance of:",
+    "choices": [
+      "Less than 100 feet.",
+      "100-300 feet.",
+      "More than 300 feet."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-33",
+    "number": 33,
+    "question": "The most common type of foundation brake found on heavy vehicles is the:",
+    "choices": [
+      "Wedge drum.",
+      "S-cam drum.",
+      "Disc brake."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-34",
+    "number": 34,
+    "question": "If you do not have automatic tank drains, how often should you drain the oil and water from the bottom of compressed air storage tanks?",
+    "choices": [
+      "After every four hours of service.",
+      "At the end of each day of driving.",
+      "Once a week."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-35",
+    "number": 35,
+    "question": "If the spring brakes are on, when should you push the brake pedal?",
+    "choices": [
+      "Only when driving down a hill.",
+      "Only on the slippery road.",
+      "Never."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-36",
+    "number": 36,
+    "question": "Which of these is NOT a proper time to apply the parking brakes?",
+    "choices": [
+      "To brake vehicle very hard, in other word when coming down the steep grade.",
+      "To use parking brakes if you park for less than one hour.",
+      "If you are going to use the parking brakes you need to make sure that they will hold the vehicle."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-37",
+    "number": 37,
+    "question": "Your truck has a dual air system and one of the system loses its pressure. What will happen?",
+    "choices": [
+      "Brake drums will not be fully pressurized.",
+      "The manual slack adjusters of the S-cam brakes will not be set properly.",
+      "Either the front or back brake will not be fully operational."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-38",
+    "number": 38,
+    "question": "The air brake lag distance at 55 mph on dry pavement adds about ___ feet.",
+    "choices": [
+      "32",
+      "42",
+      "52"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-39",
+    "number": 39,
+    "question": "All air break equipped vehicles have:",
+    "choices": [
+      "A supply pressure gauge.",
+      "An air usage gauge.",
+      "A backup hydraulic system."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-40",
+    "number": 40,
+    "question": "If your truck has a properly functioning dual air brake system and minimum size air tanks the air pressure should build up from 85 to 100 psi within how many seconds?",
+    "choices": [
+      "30",
+      "45",
+      "60"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-41",
+    "number": 41,
+    "question": "If you are driving down a steep downgrade and you have reached your \"safe\" speed of 40 mph, you would apply the service brakes until your speed drops to ___ mph.",
+    "choices": [
+      "25",
+      "30",
+      "35"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-42",
+    "number": 42,
+    "question": "With air brake vehicles, the parking brakes should be used:",
+    "choices": [
+      "Wherever you leave the vehicle unattended.",
+      "As little as possible.",
+      "Only during pre and post-trip inspections."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-43",
+    "number": 43,
+    "question": "Any time you park, use the parking brakes, except:",
+    "choices": [
+      "If the brakes are very hot (e.g., after just coming down a steep grade).",
+      "If you are going to test the parking brake make sure that it holds the vehicle.",
+      "If you will only be stopped for less than one hour."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-44",
+    "number": 44,
+    "question": "Emergency controlled braking is when you:",
+    "choices": [
+      "Apply the brakes as hard as you can without locking the wheels.",
+      "Brake as hard as you can, release the brakes when wheels locking, brakes back on again when the wheels start rolling.",
+      "Apply the hand valve for one second, then push hard on the brakes."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-45",
+    "number": 45,
+    "question": "The most important thing to do when a low air pressure warning comes on is:",
+    "choices": [
+      "Upshift.",
+      "Downshift.",
+      "Stop and safely park as soon as possible."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-46",
+    "number": 46,
+    "question": "If air pressure is not built up within the correct amount of time, then:",
+    "choices": [
+      "You should be ready to use your parking brakes to help stop.",
+      "The alcohol container may be low.",
+      "Your air pressure may drop too low during driving, requiring an emergency stop."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-47",
+    "number": 47,
+    "question": "Parking or emergency brakes of trucks and buses can be legally held on by ______ pressure.",
+    "choices": [
+      "spring",
+      "air",
+      "fluid"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-48",
+    "number": 48,
+    "question": "To check the free play of manual slack adjusters of S-cam brakes, you should park on:",
+    "choices": [
+      "Level ground, chock the wheels and release the parking brakes.",
+      "Level ground and apply the parking brakes, then apply service brakes.",
+      "Level ground and drain off air pressure before checking the adjustment."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-49",
+    "number": 49,
+    "question": "Under normal conditions in order to engage the parking brakes driver:",
+    "choices": [
+      "Turn off the engine",
+      "Let the air out of air brake system.",
+      "Be sure that the air brake system is fully pressurized."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-50",
+    "number": 50,
+    "question": "How should you check that your service brakes are working properly?",
+    "choices": [
+      "Park on a slight grade, drain off air pressure, set parking brake and check for movement.",
+      "Park on a level ground, check the wheels, engage the parking brakes when you have the correct amount of air pressure to do so and shut the engine off.",
+      "Park on level ground, wait until normal air pressure is reached, release the parking brake and move forward slowly at about 5 mph. Then apply the brakes firmly using the brake pedal."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-51",
+    "number": 51,
+    "question": "You have a major leak in the service line and put on the brakes. Service air pressure will escape and cause the:",
+    "choices": [
+      "Trailer tank pressure to be lost.",
+      "Tractor spring brakes to lock on.",
+      "Trailer emergency brakes to come on."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-52",
+    "number": 52,
+    "question": "The air compressor governor controls:",
+    "choices": [
+      "The speed of the air compressor.",
+      "Air pressure applied to the brakes.",
+      "When air is pumped into the air tanks."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-53",
+    "number": 53,
+    "question": "If your vehicle has an alcohol evaporator, it is there to:",
+    "choices": [
+      "Eliminate the need for daily tank draining.",
+      "Boost tank pressure the same way that turbocharges boost engine.",
+      "Reduce the risk of icing in air brake valves in cold weather."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-54",
+    "number": 54,
+    "question": "A slack adjuster's free play needs to be adjusted if it is more than about ______ how many inches when you pull hard on it?",
+    "choices": [
+      "One fourth inch",
+      "One half inch",
+      "One inch"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-55",
+    "number": 55,
+    "question": "Before driving a truck or bus with a dual air brake system, the air pressure must be at least ___ psi.",
+    "choices": [
+      "100",
+      "120",
+      "125"
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-56",
+    "number": 56,
+    "question": "The brake pedal in an air brake system:",
+    "choices": [
+      "Controls the speed of the air compressor.",
+      "Controls the air pressure applied to put on the brakes.",
+      "Is connected to slack adjusters by a series of rods and linkages."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-57",
+    "number": 57,
+    "question": "This spring brakes used on tractors and straight tracks will bring your truck to a stop when the air pressure drops below ____ psi.",
+    "choices": [
+      "20",
+      "60",
+      "100"
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-58",
+    "number": 58,
+    "question": "When is it OK to leave your truck unattended without applying the parking brakes and chocking the wheels?",
+    "choices": [
+      "Never.",
+      "If you will be away from the truck for a few minutes.",
+      "If you are conducting a pre-trip inspection."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-59",
+    "number": 59,
+    "question": "To test air service brakes, you should:",
+    "choices": [
+      "Stop the vehicle, put it in a low gear, depress the service brakes, and then gently pull against the brakes.",
+      "Brake firmly while slowly moving forward.",
+      "Brake slowly while slowly moving backward."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-60",
+    "number": 60,
+    "question": "If your vehicle has an alcohol evaporator, every day during cold weather you should:",
+    "choices": [
+      "Check and fill the alcohol level.",
+      "Change the alcohol from a new bottle.",
+      "Check the oil for alcohol content."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-61",
+    "number": 61,
+    "question": "The application pressure gauge shows how much air pressure you:",
+    "choices": [
+      "Have in the air tanks.",
+      "Are applying to the brakes",
+      "Have in a modulating control valve."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-62",
+    "number": 62,
+    "question": "The safety valve discharges automatically at the pressure of:",
+    "choices": [
+      "50",
+      "100",
+      "150"
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-63",
+    "number": 63,
+    "question": "Which of the following about antilock braking system is true?",
+    "choices": [
+      "ABS won’t help you avoid skids caused by over braking.",
+      "ABS changes the way you brake in emergencies.",
+      "ABS allows you to drive faster, follow more closely, and drive less carefully."
+    ],
+    "sourceAnswer": 1,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-64",
+    "number": 64,
+    "question": "The modulating control valve allows you to control:",
+    "choices": [
+      "Spring brakes.",
+      "Front brakes.",
+      "Amount of air pressure in the brake system."
+    ],
+    "sourceAnswer": 0,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "docx-65",
+    "number": 65,
+    "question": "If your truck or bus has dual parking control valves, you can use pressure from a separate tank to:",
+    "choices": [
+      "Balance the service brake system when you are parked.",
+      "Stay parked twice as long without using up service air pressure.",
+      "Release the spring emergency/parking brakes to move a short distance."
+    ],
+    "sourceAnswer": 2,
+    "testId": "air-brakes"
+  },
+  {
+    "id": "cv-001",
+    "number": 1,
+    "question": "What will happen if the air lines are crossed when you hook up to an old trailer?",
+    "choices": [
+      "The hand valve will apply the tractor brakes instead of the trailer brakes.",
+      "If the trailer has no spring brakes, you could drive away but you would not have trailer brakes.",
+      "The brake lights will not come on when you press the brake pedal."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-002",
+    "number": 2,
+    "question": "The earliest and best way to recognize that the trailer has started to skid is by:",
+    "choices": [
+      "Seeing it in your mirrors.",
+      "Feeling for “pulling” in the cab.",
+      "Hearing the wheels skidding."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-003",
+    "number": 3,
+    "question": "Air brake equipped trailers made before 1975:",
+    "choices": [
+      "Often do not have spring brakes.",
+      "Usually need a glad hand converter.",
+      "Cannot be legally operated on interstate highways."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-004",
+    "number": 4,
+    "question": "How should you test the tractor-semitrailer connection for security?",
+    "choices": [
+      "Look at it carefully.",
+      "Rock the trailer back and forth with the trailer brakes locked.",
+      "Pull gently forward in low gear against the locked trailer brakes then look at it carefully."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-005",
+    "number": 5,
+    "question": "If you cannot make a turn without entering another traffic lane, you should:",
+    "choices": [
+      "Turn wide as you complete your turn.",
+      "Not make that turn - go to another place where you won't have to cross into another lane.",
+      "Turn wide before you start your turn."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-006",
+    "number": 6,
+    "question": "Loss of air pressure in the emergency line causes:",
+    "choices": [
+      "The relay valves to close.",
+      "An increase in air pressure to the service brakes.",
+      "The trailer’s emergency brakes to come on."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-007",
+    "number": 7,
+    "question": "When connecting the glad hands, press the two seals of the couplers together at a ______ degree angle to one another.",
+    "choices": [
+      "45",
+      "90",
+      "160"
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-008",
+    "number": 8,
+    "question": "Compared to a straight truck or bus, there are ______ things to inspect in combination vehicle.",
+    "choices": [
+      "fewer",
+      "the same number of",
+      "more"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-009",
+    "number": 9,
+    "question": "How much space should be allowed between upper and lower fifth wheel after coupling?",
+    "choices": [
+      "About 1/4 inch.",
+      "Just enough to see light through it.",
+      "None."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-010",
+    "number": 10,
+    "question": "The air leakage rate for a combination vehicle (engine off, brakes off) should be less than ______ psi per minute.",
+    "choices": [
+      "1/2",
+      "2",
+      "3"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-011",
+    "number": 11,
+    "question": "If the service air line comes apart while you are driving a combination vehicle but the emergency line stays together, what will happen right away?",
+    "choices": [
+      "The trailer’s tank will exhaust through the open line.",
+      "The emergency trailer brakes will come on.",
+      "Nothing is likely to happen until you try to apply the brakes."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-012",
+    "number": 12,
+    "question": "The front trailer supports are up and the trailer is resting on the tractor. Make sure:",
+    "choices": [
+      "There is enough clearance between the upper and lower fifth wheel.",
+      "The safety latch is in the unlocked position.",
+      "There is enough clearance between the tractor frame and the landing gear."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-013",
+    "number": 13,
+    "question": "A tractor with a(n) ______ trailer requires the shortest amount of stopping distance.",
+    "choices": [
+      "empty",
+      "lightly loaded",
+      "fully loaded"
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-014",
+    "number": 14,
+    "question": "A tractor-trailer vehicle combination is most likely to roll over in turn when the configuration includes:",
+    "choices": [
+      "a 45 ft. and a 27 ft. trailer.",
+      "triple 27 ft. trailers.",
+      "double 45 ft. trailers."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-015",
+    "number": 15,
+    "question": "You are coupling tractor to a semitrailer. You have connected the airlines. Before backing under the trailer you should:",
+    "choices": [
+      "Supply air to the trailer system, then pull out the air supply knob.",
+      "Pull ahead to test the glad hands connections.",
+      "Make sure that the trailer brakes are off."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-016",
+    "number": 16,
+    "question": "Glad hands are used for connecting the:",
+    "choices": [
+      "Electric lines from the tractor to the trailer.",
+      "Kingpin from the trailer to the locking jaws of the fifth wheel.",
+      "Service and emergency air lines from the vehicle to the trailer."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-017",
+    "number": 17,
+    "question": "After you supply air to the trailer, make sure the air lines are not crossed and the trailer brakes are working. This is done by:",
+    "choices": [
+      "Turning on the parking brakes from the cab.",
+      "Watching your mirrors to see if the trailer lights come on.",
+      "Applying and releasing the trailer brakes and listening for brake sounds."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-018",
+    "number": 18,
+    "question": "The hand valve should be used:",
+    "choices": [
+      "only with a foot brake.",
+      "to test the trailer brakes.",
+      "as a parking brake."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-019",
+    "number": 19,
+    "question": "Having antilock brakes on only your trailer:",
+    "choices": [
+      "Will give you more control over the vehicle when braking.",
+      "Will increase the likelihood of a rear wheel power until skid when braking.",
+      "Will increase the likelihood of jackknifing when braking."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-020",
+    "number": 20,
+    "question": "There are two things that a driver can do to prevent a rollover. They are: (1) Keep the cargo as close to the ground as possible; and (2):",
+    "choices": [
+      "Make sure that the brakes are properly adjusted.",
+      "Keep both hands firmly on the steering wheel.",
+      "Go slow around turns."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-021",
+    "number": 21,
+    "question": "A trailer is most likely to jackknife when it is ____.",
+    "choices": [
+      "loaded to full capacity",
+      "over loaded",
+      "empty"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-022",
+    "number": 22,
+    "question": "While driving behind other vehicle under good condition you should allow at least one second between your vehicle and the vehicle ahead for each ______ feet of your vehicle length?",
+    "choices": [
+      "10",
+      "20",
+      "30"
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-023",
+    "number": 23,
+    "question": "In general, the higher your truck's center of gravity, the easier it is to?",
+    "choices": [
+      "Turn over",
+      "Turn sharp",
+      "Back up"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-024",
+    "number": 24,
+    "question": "When do you need to use chocks to park a trailer?",
+    "choices": [
+      "Never.",
+      "Always.",
+      "Only when it will be parked on an incline."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-025",
+    "number": 25,
+    "question": "You supply air to the trailer tanks by:",
+    "choices": [
+      "Pushing in the trailer air supply valve.",
+      "Pulling out the trailer air supply valve.",
+      "Connecting the service line glad hands."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-026",
+    "number": 26,
+    "question": "Why should you be sure that the fifth wheel plate is greased as required?",
+    "choices": [
+      "To ensure a good electrical connection.",
+      "To prevent steering problems.",
+      "To reduce heat and noise."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-027",
+    "number": 27,
+    "question": "Semitrailers made before 1975 that are equipped with the air brakes:",
+    "choices": [
+      "Usually need a glad hand converter.",
+      "Often do not have spring brakes.",
+      "Have only a service air line."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-028",
+    "number": 28,
+    "question": "The front trailer supports are up and the trailer is resting on the tractor. Make sure:",
+    "choices": [
+      "There is enough clearance between the top of the tractor tires and nose of the trailer.",
+      "There is enough clearance between the tractor frame and the landing gear.",
+      "Both a and b are correct."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-029",
+    "number": 29,
+    "question": "When you are allowed to get out of your vehicle while backing?",
+    "choices": [
+      "When you are unsure of your path of travel.",
+      "When your trailer begins to drift to passenger side.",
+      "You should never get out of your vehicle when backing."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-030",
+    "number": 30,
+    "question": "Off-tracking or \"cheating\" causes which of these to follow the wider path while making a turn?",
+    "choices": [
+      "Triple towing a 45 feet trailer.",
+      "Tractor with two 27 feet trailers.",
+      "53-feet bobtail."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-031",
+    "number": 31,
+    "question": "Which part of the kingpin should the locking jaws close around?",
+    "choices": [
+      "The shank.",
+      "The head.",
+      "The base."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-032",
+    "number": 32,
+    "question": "You should not back a tractor under a trailer until the whole air system is:",
+    "choices": [
+      "Empty.",
+      "At normal pressure.",
+      "Between 60 and 80 psi."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-033",
+    "number": 33,
+    "question": "When should you use the hand valve to park a combination vehicle?",
+    "choices": [
+      "To park at loading docks.",
+      "To park on a grade.",
+      "Never."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-034",
+    "number": 34,
+    "question": "Before you back under a trailer, make sure that:",
+    "choices": [
+      "The trailer brakes are locked.",
+      "The air brakes are off.",
+      "The air supply knob is in."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-035",
+    "number": 35,
+    "question": "In normal driving, some drivers use the hand valve before the brake pedal to prevent a jackknife. Which of these statements is true?",
+    "choices": [
+      "It results in less skidding than using the brake pedal alone.",
+      "It is the best way to brake and keep the vehicle in a straight line.",
+      "You should not do this."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-036",
+    "number": 36,
+    "question": "The fifth wheel locking lever is not locked after the jaws close around the kingpin. This means that:",
+    "choices": [
+      "The trailer will not swivel on the fifth wheel.",
+      "The parking lock is off and you may drive away.",
+      "The coupling is not right and should be fixed before driving the coupled unit."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-037",
+    "number": 37,
+    "question": "Your emergency air line breaks or gets pulled apart while you are driving. The loss of pressure will cause the:",
+    "choices": [
+      "Air compressor to unload instead of pumping air.",
+      "Tractor's air to dump into the trailer tank through the service line.",
+      "Emergency trailer brakes to come on."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-038",
+    "number": 38,
+    "question": "After connecting the air lines but before backing under the trailer, you should:",
+    "choices": [
+      "Supply air to the trailer system, then pull out the air supply knob.",
+      "Make sure that the trailer brakes are off.",
+      "Walk around the rig to be sure that it is clear."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-039",
+    "number": 39,
+    "question": "Which of these statements is true?",
+    "choices": [
+      "The brakes and suspension systems of combination vehicles work best with a light load.",
+      "Light vehicles need more braking power to stop than heavy ones.",
+      "\"Bobtail\" tractors can take longer to stop than a combination vehicle loaded to maximum gross weight."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-040",
+    "number": 40,
+    "question": "If your antilock braking system is not working on your trailer, you should:",
+    "choices": [
+      "Drive at a lower speed and get the system serviced soon.",
+      "Not drive until it is repaired.",
+      "Drive normally, but get the system serviced soon."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-041",
+    "number": 41,
+    "question": "Air and electrical lines from the tractor to the trailer should be:",
+    "choices": [
+      "Pulled tight, with very little slack.",
+      "Secured, but with enough slack for turns.",
+      "Resting on the frame of the tractor."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-042",
+    "number": 42,
+    "question": "You will know if the trailer ABS brakes are NOT working properly by:",
+    "choices": [
+      "Yellow ABS malfunction lamps on the left side of the trailer stays ON.",
+      "Yellow ABS malfunction lamps on the right side of the trailer stays ON.",
+      "Red malfunction lamps on the trailer brake cylinders stays ON."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-043",
+    "number": 43,
+    "question": "The safest way to make turn without entering another traffic lane is:",
+    "choices": [
+      "You should turn wide before you start the turn.",
+      "You should turn wide as you complete the turn.",
+      "You should not make a turn and move to another place where you can make a turn without crossing other lane."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-044",
+    "number": 44,
+    "question": "What gear should the tractor transmission be in after you have uncoupled the trailer and are inspecting the trailer supports?",
+    "choices": [
+      "Neutral.",
+      "Low reverse.",
+      "High reverse."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-045",
+    "number": 45,
+    "question": "When driving a set of doubles, it is necessary to close the ___ shut-off valve in the last trailer.",
+    "choices": [
+      "front",
+      "back",
+      "mid-section"
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-046",
+    "number": 46,
+    "question": "After you lock the kingpin into the fifth wheel, you should check the connection by:",
+    "choices": [
+      "Pulling forward 50 feet, turning right and then left.",
+      "Pulling the tractor ahead sharply to release the trailer brakes.",
+      "Pulling the tractor ahead gently with the trailer brakes locked."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-047",
+    "number": 47,
+    "question": "Why should you lock the tractor glad hands to each other (or dummy couplers) when you are not towing a trailer?",
+    "choices": [
+      "The connected brake circuit becomes a back up air tank.",
+      "It will keep dirt and water out of the lines.",
+      "If you didn’t, you could never build system pressure."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-048",
+    "number": 48,
+    "question": "You are coupling a tractor to a semitrailer and have backed up but are not under it. What should you hook up before backing under?",
+    "choices": [
+      "The emergency and service air lines.",
+      "The electrical service cable.",
+      "Nothing. Back up and lock the fifth wheel."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-049",
+    "number": 49,
+    "question": "You have crashed with another vehicle. What you have to do first?",
+    "choices": [
+      "Use reverse gear to back up off the crash.",
+      "Turn on your four-way flashers.",
+      "Get out of your vehicle and away from the scene.  (агар хавф/ўт чиқса)"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-050",
+    "number": 50,
+    "question": "The tractor protection valve will close and the trailer emergency brakes will come on when there is a major leak in the ______ brake line.",
+    "choices": [
+      "Service.",
+      "Parking.",
+      "Emergency."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-051",
+    "number": 51,
+    "question": "To unlock the fifth wheel the locking lever should be placed in the ______ position.",
+    "choices": [
+      "neutral.",
+      "closed.",
+      "open"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-052",
+    "number": 52,
+    "question": "You are driving a combination vehicle when the trailer breaks away, pulling apart both air lines. You would expect the trailer brakes to come on and:",
+    "choices": [
+      "The trailer supply valve to stay open.",
+      "The tractor to lose all air pressure.",
+      "The tractor protection valve to close."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-053",
+    "number": 53,
+    "question": "When checking the trailer's emergency brakes, the tractor protection control valve should be placed in the ______ position.",
+    "choices": [
+      "emergency",
+      "neutral"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-054",
+    "number": 54,
+    "question": "Air lines on a combination vehicles are often colored to prevent them from mixing up. The emergency line is __; the service line is __.",
+    "choices": [
+      "red, blue",
+      "black, yellow"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-055",
+    "number": 55,
+    "question": "To unlock the fifth wheel, pull the release handle to the ______ position.",
+    "choices": [
+      "open"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-056",
+    "number": 56,
+    "question": "The trailer air supply control valve should automatically close when air pressure falls to between ______ psi.",
+    "choices": [
+      "20 and 45",
+      "60 and 85",
+      "100 and 125"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-057",
+    "number": 57,
+    "question": "To stop a trailer skid you should:",
+    "choices": [
+      "Use the trailer hand brakes.",
+      "Release the service brakes.",
+      "Countersteer."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-058",
+    "number": 58,
+    "question": "When backing a tractor under a trailer you should:",
+    "choices": [
+      "Always use the lowest reverse gear.",
+      "Always approach the trailer at a slight angle.",
+      "Do it quickly to ensure that the kingpin is locked into the fifth wheel."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-059",
+    "number": 59,
+    "question": "When uncoupling the trailer, after you have shut off the trailer air supply and locked the trailer brakes, you should:",
+    "choices": [
+      "Back up gently to ease pressure on the fifth wheel locking jaws.",
+      "Immediately put on your tractor parking brakes.",
+      "Begin to lower the trailer landing gear."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-060",
+    "number": 60,
+    "question": "When coupling, the proper position of the fifth wheel is:",
+    "choices": [
+      "Level with the ground.",
+      "Tilted down toward the end of the trailer.",
+      "Tilted up toward the end of the trailer."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-061",
+    "number": 61,
+    "question": "After the trailer has been coupled to the tractor, the tractor protection control valve should be placed in ______ position.",
+    "choices": [
+      "down",
+      "up",
+      "normal"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-062",
+    "number": 62,
+    "question": "In general, the higher the \"center of gravity\" of your truck, the:",
+    "choices": [
+      "Easier it is to turn around corners.",
+      "More stable it is when turning.",
+      "Easier it is to turn over."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-063",
+    "number": 63,
+    "question": "You are about to back your tractor under a semitrailer. The trailer is at the right height when the:",
+    "choices": [
+      "The kingpin is about 1 1/4 inches above the fifth wheel.",
+      "The end of the kingpin is even with the top of the fifth wheel.",
+      "The trailer will be raised slightly when the tractor is backed under it."
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-064",
+    "number": 64,
+    "question": "While checking if the trailer is securely coupled to the tractor the landing gears should be:",
+    "choices": [
+      "Fully raised.",
+      "Slightly raised.",
+      "Fully lowered."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-065",
+    "number": 65,
+    "question": "When you get ready to back under a semitrailer you should line up:",
+    "choices": [
+      "Directly in front of the kingpin.",
+      "The kingpin to engage the driver's side locking jaw first.",
+      "The left rear outer dual wheel with the kingpin."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-066",
+    "number": 66,
+    "question": "There are two things that a driver can do to prevent a rollover. They are: (1) Go slow around turns; and (2):",
+    "choices": [
+      "Keep both hands firmly on the steering wheel.",
+      "Keep the cargo as close to the ground as possible.",
+      "Make sure that the brakes are properly balanced."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-067",
+    "number": 67,
+    "question": "You have coupled with a semitrailer. Where should you put the front trailer supports before driving away?",
+    "choices": [
+      "Fully raised with the crank handle secured in its bracket.",
+      "Raised 1/2 way with the crank handle secured in its bracket.",
+      "Raised 3/4 way with crank handle removed."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-068",
+    "number": 68,
+    "question": "You will know if the trailer you are driving has antilock brakes by:",
+    "choices": [
+      "Looking for the yellow ABS malfunction lamp on the trailer.",
+      "Yellow ABS malfunction lamps on the left side of the trailer.",
+      "Red malfunction lamps on the trailer brake cylinders."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-069",
+    "number": 69,
+    "question": "You have a major leak in the service line and you put on the brakes. Service air will escape and cause the:",
+    "choices": [
+      "Trailer emergency brakes to come on.",
+      "Trailer tank pressure to be lost.",
+      "Tractor spring brakes to lock on."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-070",
+    "number": 70,
+    "question": "The air leakage rate for a combination vehicle (engine off, brakes on) should be less than ______ psi per minute.",
+    "choices": [
+      "2",
+      "3",
+      "4"
+    ],
+    "sourceAnswer": 2,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-071",
+    "number": 71,
+    "question": "When you are uncoupling a loaded trailer, you should lower the landing gear until it:",
+    "choices": [
+      "Makes firm contact with the ground, then crank it in low gear a few extra turns.",
+      "Make contact with the ground and lifts the trailer off of the fifth wheel.",
+      "Just reaches the ground."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-072",
+    "number": 72,
+    "question": "Off-tracking or \"cheating\" causes which of these to follow the widest path while making a turn?",
+    "choices": [
+      "5-axle tractor towing a 45 feet trailer.",
+      "5-axle tractor towing two 27 feet trailers.",
+      "A bobtail."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-073",
+    "number": 73,
+    "question": "The safety catch for the fifth wheel locking lever must be ______ for a coupling to be complete.",
+    "choices": [
+      "Over the locking lever",
+      "straight up",
+      "through the locking lever"
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-074",
+    "number": 74,
+    "question": "If the spring brakes don’t release when you push the trailer air supply valve, you should:",
+    "choices": [
+      "Check air line connections.",
+      "Cross the air lines.",
+      "Check the electrical service cable."
+    ],
+    "sourceAnswer": 0,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-075",
+    "number": 75,
+    "question": "Where should the tractor be when you inspect landing gear after un-coupling the trailer?",
+    "choices": [
+      "With the tractor frame under the trailer.",
+      "Completely cleared from the trailer.",
+      "With the fifth wheel directly beneath the kingpin."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  },
+  {
+    "id": "cv-076",
+    "number": 76,
+    "question": "When coupling, the proper position of the fifth wheel is:",
+    "choices": [
+      "Level with the ground.",
+      "Tilted up toward the end of the tractor.",
+      "Tilted down toward the end of the tractor."
+    ],
+    "sourceAnswer": 1,
+    "testId": "combination-vehicles"
+  }
+]

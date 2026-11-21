@@ -8,6 +8,12 @@ export function hasNumericAnswer(question) {
   return question.choices.some(choice => ANSWER_NUMBER.test(choice));
 }
 
+const NEW_QUESTION_IDS = new Set([
+  'gk-016', 'gk-110', 'gk-140', 'gk-158', 'gk-183', 'gk-297',
+  'docx-13',
+  'cv-024', 'cv-030', 'cv-043', 'cv-055', 'cv-068',
+]);
+
 export const SOURCE = { id: 'user-cdl-documents-v1', title: 'CDL машқлари' };
 export const SUBJECTS = [
   {
@@ -38,6 +44,7 @@ export const QUESTION_MAP = Object.fromEntries(QUESTIONS.map(question => [questi
 export const SUBJECT_MAP = Object.fromEntries(SUBJECTS.map(subject => {
   subject.questions = QUESTIONS.filter(question => question.testId === subject.id);
   subject.count = subject.questions.length;
+  subject.newQuestions = subject.questions.filter(question => NEW_QUESTION_IDS.has(question.id));
   if (subject.id === 'general-knowledge') subject.numberQuestions = subject.questions.filter(hasNumericAnswer);
   return [subject.id, subject];
 }));

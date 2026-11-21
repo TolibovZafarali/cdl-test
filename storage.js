@@ -20,11 +20,32 @@ export function saveKeywordHints(enabled, storage) {
   } catch { return false; }
 }
 
+function restoreChoiceOrders(session, questionMap) {
+  if (!session || ![Object.prototype, null].includes(Object.getPrototypeOf(session))
+    || !session.choiceOrders || typeof session.choiceOrders !== 'object'
+    || ![Object.prototype, null].includes(Object.getPrototypeOf(session.choiceOrders))
+    || !Array.isArray(session.ids)) return session;
+  let orders = session.choiceOrders;
+  for (const id of session.ids) {
+    if (typeof id !== 'string' || !Object.hasOwn(questionMap, id)) continue;
+    const question = questionMap[id];
+    const previousCount = question?.previousChoiceCount;
+    const order = Object.hasOwn(orders, id) ? orders[id] : null;
+    if (!Number.isInteger(previousCount) || previousCount >= question.choices.length
+      || !Array.isArray(order) || order.length !== previousCount
+      || new Set(order).size !== previousCount
+      || !order.every(index => Number.isInteger(index) && index >= 0 && index < previousCount)) continue;
+    if (orders === session.choiceOrders) orders = { ...orders };
+    orders[id] = [...order, ...question.choices.map((_, index) => index).slice(previousCount)];
+  }
+  return orders === session.choiceOrders ? session : { ...session, choiceOrders: orders };
+}
+
 export function readRetry(questionMap, sourceId, id) {
   try {
     const data = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY));
     const sessions = Array.isArray(data?.sessions) ? data.sessions : [data];
-    const session = id === undefined ? sessions[0] : sessions.find(item => item?.id === id);
+    const session = restoreChoiceOrders(id === undefined ? sessions[0] : sessions.find(item => item?.id === id), questionMap);
     if (session?.mode !== 'missed' || !validateSession(session, questionMap, sourceId)) return null;
     return session.testId === questionMap[session.ids[0]].testId ? session : null;
   } catch { return null; }
@@ -64,7 +85,8 @@ export function readState(questionMap, sourceId, storage) {
       .filter(([, question]) => question.testId === 'air-brakes')
       .map(([id, question]) => [id, { ...question, testId: 'document' }])) : {};
     const subjectIds = new Set(Object.values(questionMap).map(question => question.testId));
-    const restore = session => {
+    const restore = candidate => {
+      const session = restoreChoiceOrders(candidate, questionMap);
       if (validateSession(session, questionMap, sourceId)
         && (sourceId !== COMBINED_SOURCE || subjectIds.has(session.testId))) return session;
       if (sourceId !== COMBINED_SOURCE || session?.sourceId !== LEGACY_SOURCE

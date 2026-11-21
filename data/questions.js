@@ -60,8 +60,12 @@ export const QUESTIONS = [
     ],
     "answer": 1,
     "sourceAnswer": 1,
-    "editionNote": "The document keys 60 psi. The current Missouri manual specifies a warning before pressure falls below 55 psi. The document’s original choices and key are retained here.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71"
+    "editionNote": "The document keys 60 psi, which is also the FMVSS 121 warning threshold. The current Missouri manual uses 55 psi. Keep the equipment context in mind; the supplied key remains 60 psi.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71",
+    "referenceUrls": [
+      "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71",
+      "https://www.govinfo.gov/content/pkg/CFR-2024-title49-vol6/pdf/CFR-2024-title49-vol6-sec571-121.pdf#page=4"
+    ]
   },
   {
     "id": "docx-05",
@@ -167,6 +171,35 @@ export const QUESTIONS = [
     ],
     "answer": 1,
     "sourceAnswer": 1
+  },
+  {
+    "id": "docx-13",
+    "number": 13,
+    "testId": "document",
+    "question": "The proper use of the brakes when going down a long steep grade after selecting a proper gear is to brake until your speed is about ______ mph below your safe speed and release your brakes.",
+    "questionUz": "Узун ва тик пастликка тушишда тўғри узатмани танлагандан сўнг, тезлик хавфсиз тезликдан тахминан ______ mph пастга тушгунча тормозланг, кейин тормозни бўшатинг.",
+    "choices": [
+      "5",
+      "2",
+      "10"
+    ],
+    "answer": 0,
+    "sourceAnswer": 0,
+    "correctAnswerUz": "Хавфсиз тезликдан тахминан 5 mph пастга тушганда.",
+    "explanation": "Release the brakes at about 5 mph below your chosen safe speed. The safe speed can be lower than the posted speed limit.",
+    "contentNote": "The source supplied only 5. Two practice choices were added. The source phrase “posted speed for your safety” was clarified to “your safe speed” using section 5.4.6.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=77",
+    "sourceEntry": {
+      "question": "The proper use of the brakes when going down a long steep grade after selecting a proper gear is to brake until your speed is about ______ mph below the posted speed for your safety and release your brakes.",
+      "choices": [
+        "5"
+      ],
+      "sourceAnswer": 0
+    },
+    "addedChoiceIndices": [
+      1,
+      2
+    ]
   },
   {
     "id": "docx-14",
@@ -821,7 +854,10 @@ export const QUESTIONS = [
     "answer": 0,
     "sourceAnswer": 0,
     "explanation": "The document uses 20 psi. The manual gives a spring-brake activation range of 20–45 psi, typically 20–30 psi. The actual activation pressure varies by vehicle.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71"
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71",
+    "referenceUrls": [
+      "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=71"
+    ]
   },
   {
     "id": "docx-58",
@@ -913,7 +949,10 @@ export const QUESTIONS = [
     "answer": 1,
     "sourceAnswer": 1,
     "explanation": "This document’s answer refers to emergency braking with working ABS on all axles: you can fully apply the brakes. Normal braking stays the same. ABS does not allow higher speeds or closer following.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=76"
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=76",
+    "referenceUrls": [
+      "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=76"
+    ]
   },
   {
     "id": "docx-64",
@@ -950,14 +989,24 @@ export const QUESTIONS = [
 export const EXCLUDED_QUESTIONS = [
   {
     "number": 12,
-    "reason": "The document does not provide a complete question or a usable correct answer."
-  },
-  {
-    "number": 13,
-    "reason": "The document provides only one answer choice."
+    "reason": "The document does not provide a complete question or a usable correct answer.",
+    "sourceEntry": {
+      "question": "A build up of brake air pressure.",
+      "choices": [
+        "No change of brake air pressure."
+      ],
+      "sourceAnswer": null
+    }
   },
   {
     "number": 17,
-    "reason": "The document does not provide a complete question or a usable correct answer."
+    "reason": "The document does not provide a complete question or a usable correct answer.",
+    "sourceEntry": {
+      "question": "Tractor brake lines.",
+      "choices": [
+        "Trailer brake lines."
+      ],
+      "sourceAnswer": null
+    }
   }
 ];

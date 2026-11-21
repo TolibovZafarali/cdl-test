@@ -272,7 +272,7 @@ test('numbers mode is offered only for General Knowledge and updates its count a
   assert.match(app.html(), /Сонли жавоблар/);
   app.selectMode('numbers');
   assert.match(app.html(), /value="numbers" checked/);
-  assert.match(app.html(), /70 та саволдан 56 тасига/);
+  assert.match(app.html(), /73 та саволдан 59 тасига/);
   for (const subject of ['air-brakes', 'combination-vehicles']) {
     app.visit(`#subject/${subject}`);
     assert.doesNotMatch(app.html(), /value="numbers"/);
@@ -290,9 +290,9 @@ test('numeric tests preserve their filtered pool, answers and shuffled choices t
   const expectedIds = bank.SUBJECT_MAP['general-knowledge'].numberQuestions.map(question => question.id);
   assert.equal(first.mode, 'numbers');
   assert.equal(first.testId, 'general-knowledge');
-  assert.equal(first.ids.length, 70);
+  assert.equal(first.ids.length, 73);
   assert.deepEqual(new Set(first.ids), new Set(expectedIds));
-  assert.equal(engine.scoreSession(first, bank.QUESTION_MAP).required, 56);
+  assert.equal(engine.scoreSession(first, bank.QUESTION_MAP).required, 59);
   app.answer(true);
   app.next();
   app.answer(false);
@@ -332,10 +332,159 @@ test('missed-question retries from numeric tests contain only their incorrect or
   const retry = appHarness({ hash: app.retryLink(), localStorage: app.localStorage });
   const expected = engine.missedQuestionIds(result, bank.QUESTION_MAP);
   assert.equal(retry.current().mode, 'missed');
-  assert.equal(retry.current().ids.length, 69);
+  assert.equal(retry.current().ids.length, 72);
   assert.deepEqual(new Set(retry.current().ids), new Set(expected));
   assert.ok(retry.current().ids.every(id => bank.hasNumericAnswer(bank.QUESTION_MAP[id])));
   retry.answer(true);
   assert.deepEqual(retry.reload().current(), retry.current());
   assert.deepEqual(app.result(), result);
+});
+
+const restoredQuestionPools = [
+  { subjectId: 'general-knowledge', ids: ['gk-016', 'gk-110', 'gk-140', 'gk-158', 'gk-183', 'gk-297'], required: 5, fullCount: 295 },
+  { subjectId: 'air-brakes', ids: ['docx-13'], required: 1, fullCount: 63 },
+  { subjectId: 'combination-vehicles', ids: ['cv-024', 'cv-030', 'cv-043', 'cv-055', 'cv-068'], required: 4, fullCount: 76 },
+];
+
+function startRestoredQuestions(subjectId) {
+  const app = appHarness({ hash: `#subject/${subjectId}` });
+  app.selectMode('new');
+  app.submit('start-form');
+  return app;
+}
+
+test('new-question mode offers exactly the twelve restored questions with subject-specific counts and pass thresholds', () => {
+  const allIds = [];
+  for (const expected of restoredQuestionPools) {
+    const subject = bank.SUBJECT_MAP[expected.subjectId];
+    assert.deepEqual(subject.newQuestions.map(q => q.id), expected.ids);
+    assert.ok(subject.newQuestions.every(q => subject.questions.includes(q)));
+    allIds.push(...expected.ids);
+    const app = appHarness({ hash: `#subject/${expected.subjectId}` });
+    assert.match(app.html(), /Янги қўшилган саволлар/);
+    app.selectMode('new');
+    assert.match(app.html(), /value="new" checked/);
+    assert.match(app.html(), new RegExp(`${expected.ids.length} та саволдан ${expected.required} тасига`));
+  }
+  assert.equal(new Set(allIds).size, 12);
+  assert.ok(!allIds.includes('gk-241'));
+  assert.ok(!allIds.includes('cv-072'));
+});
+
+test('new-question sessions use their entire filtered pool and render shuffled canonical choices', t => {
+  t.mock.method(Math, 'random', () => 0);
+  for (const expected of restoredQuestionPools) {
+    const app = startRestoredQuestions(expected.subjectId);
+    const session = app.current();
+    assert.equal(session.mode, 'new');
+    assert.equal(session.testId, expected.subjectId);
+    assert.deepEqual(new Set(session.ids), new Set(expected.ids));
+    assert.equal(engine.scoreSession(session, bank.QUESTION_MAP).required, expected.required);
+    assert.match(app.html(), /Янги қўшилган саволлар/);
+    for (const id of session.ids) {
+      const indices = bank.QUESTION_MAP[id].choices.map((_, index) => index);
+      assert.deepEqual(new Set(session.choiceOrders[id]), new Set(indices), id);
+      assert.notDeepEqual(session.choiceOrders[id], indices, `${id}: deterministic draw moves the choices`);
+    }
+    const renderedOrder = [...app.html().matchAll(/data-action="answer" data-choice="(\d+)"/g)].map(match => Number(match[1]));
+    assert.deepEqual(renderedOrder, session.choiceOrders[session.pending[0]]);
+    app.answer(true);
+    assert.equal(app.current().answers[session.ids[0]], bank.QUESTION_MAP[session.ids[0]].answer);
+    assert.match(app.html(), /feedback-correct/);
+  }
+});
+
+test('new-question tests pass at five of six, one of one and four of five, and fail one answer below', () => {
+  for (const expected of restoredQuestionPools) {
+    for (const correctCount of [expected.required - 1, expected.required]) {
+      const app = startRestoredQuestions(expected.subjectId);
+      for (let index = 0; index < expected.ids.length; index++) {
+        app.answer(index < correctCount);
+        app.next();
+      }
+      const result = app.result();
+      const score = engine.scoreSession(result, bank.QUESTION_MAP);
+      assert.equal(result.mode, 'new');
+      assert.equal(score.total, expected.ids.length);
+      assert.equal(score.correct, correctCount);
+      assert.equal(score.required, expected.required);
+      assert.equal(score.passed, correctCount >= expected.required);
+    }
+  }
+});
+
+test('new-question answers, feedback and choice order survive reload, resume, results and practice again', () => {
+  for (const expected of restoredQuestionPools) {
+    const app = startRestoredQuestions(expected.subjectId);
+    app.answer(true);
+    const saved = app.current();
+    const reloaded = app.reload();
+    assert.deepEqual(reloaded.current(), saved);
+    assert.match(reloaded.html(), /feedback-correct/);
+    assert.match(reloaded.html(), /Янги қўшилган саволлар/);
+    reloaded.click('exit');
+    const resumed = reloaded.reload();
+    resumed.click('resume');
+    assert.deepEqual(resumed.current(), saved);
+    resumed.click('finish');
+    resumed.click('finish-confirm');
+    const result = resumed.result();
+    assert.equal(result.mode, 'new');
+    assert.deepEqual(result.choiceOrders, saved.choiceOrders);
+    assert.equal(engine.scoreSession(result, bank.QUESTION_MAP).correct, 1);
+    assert.match(resumed.html(), /Янги қўшилган саволлар/);
+    const savedResult = resumed.reload();
+    assert.deepEqual(savedResult.result(), result);
+    savedResult.click('practice-again');
+    assert.match(savedResult.html(), /value="new" checked/);
+    savedResult.submit('start-form');
+    const next = savedResult.current();
+    assert.equal(next.mode, 'new');
+    assert.notEqual(next.id, saved.id);
+    assert.deepEqual(new Set(next.ids), new Set(expected.ids));
+    assert.deepEqual(next.answers, {});
+    assert.deepEqual(storage.readState(bank.QUESTION_MAP, bank.SOURCE.id, app.localStorage).results[0], result);
+  }
+});
+
+test('retries of new-question results contain only incorrect or unanswered questions from that filtered pool', () => {
+  for (const expected of restoredQuestionPools) {
+    const app = startRestoredQuestions(expected.subjectId);
+    const original = app.current();
+    if (expected.ids.length > 1) {
+      app.answer(true); app.next();
+    }
+    app.answer(false); app.next();
+    if (expected.ids.length > 1) {
+      app.click('finish'); app.click('finish-confirm');
+    }
+    const result = app.result();
+    const retry = appHarness({ hash: app.retryLink(), localStorage: app.localStorage });
+    assert.equal(retry.current().mode, 'missed');
+    assert.equal(retry.current().testId, expected.subjectId);
+    assert.deepEqual(new Set(retry.current().ids), new Set(engine.missedQuestionIds(result, bank.QUESTION_MAP)));
+    assert.ok(retry.current().ids.every(id => expected.ids.includes(id)));
+    assert.equal(retry.current().ids.length, expected.ids.length > 1 ? expected.ids.length - 1 : 1);
+    if (expected.ids.length > 1) assert.ok(!retry.current().ids.includes(original.ids[0]));
+    retry.answer(true);
+    assert.deepEqual(retry.reload().current(), retry.current());
+    assert.deepEqual(app.result(), result);
+  }
+});
+
+test('all-question mode still contains every restored question and all 434 scored questions', () => {
+  const ids = [];
+  for (const expected of restoredQuestionPools) {
+    const app = appHarness({ hash: `#subject/${expected.subjectId}` });
+    app.selectMode('all');
+    app.submit('start-form');
+    const session = app.current();
+    assert.equal(session.mode, 'all');
+    assert.equal(session.ids.length, expected.fullCount);
+    assert.deepEqual(new Set(session.ids), new Set(bank.SUBJECT_MAP[expected.subjectId].questions.map(q => q.id)));
+    assert.ok(expected.ids.every(id => session.ids.includes(id)));
+    ids.push(...session.ids);
+  }
+  assert.equal(ids.length, 434);
+  assert.equal(new Set(ids).size, 434);
 });

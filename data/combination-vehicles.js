@@ -359,6 +359,33 @@ export const QUESTIONS = [
     "sourceAnswer": 0
   },
   {
+    "id": "cv-024",
+    "number": 24,
+    "testId": "combination-vehicles",
+    "question": "When do you need to use chocks to park a trailer?",
+    "choices": [
+      "Never.",
+      "When the trailer has no spring brakes, or you are not sure whether it has them.",
+      "Only when it will be parked on an incline."
+    ],
+    "sourceAnswer": 2,
+    "answer": 1,
+    "questionUz": "Тиркамани тўхтатганда ғилдирак тагига қачон тўсиқ қўйиш керак?",
+    "correctAnswerUz": "Тиркамада пружинали тормозлар бўлмаса ёки улар борлигига ишончингиз комил бўлмаса.",
+    "correctionNote": "Chock trailers without spring brakes, or when unsure; the requirement is not limited to inclines.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=87",
+    "sourceEntry": {
+      "question": "When do you need to use chocks to park a trailer?",
+      "choices": [
+        "Never.",
+        "Always.",
+        "Only when it will be parked on an incline."
+      ],
+      "sourceAnswer": 2
+    },
+    "contentNote": "Replace the overbroad Always option with the manual condition; retain the other two source options and stem."
+  },
+  {
     "id": "cv-025",
     "number": 25,
     "questionUz": "Тиркаманинг ҳаво баллонларига ҳаво қандай берилади?",
@@ -436,6 +463,33 @@ export const QUESTIONS = [
     "sourceAnswer": 2,
     "correctionNote": "Stop and inspect your backing path when unsure.",
     "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=24"
+  },
+  {
+    "id": "cv-030",
+    "number": 30,
+    "testId": "combination-vehicles",
+    "question": "Off-tracking or \"cheating\" causes which of these to follow the wider path while making a turn?",
+    "choices": [
+      "5-axle tractor towing a 45 feet trailer.",
+      "Tractor with two 27 feet trailers.",
+      "A bobtail."
+    ],
+    "sourceAnswer": 1,
+    "answer": 0,
+    "questionUz": "Бурилишда офф-трекинг («бурчакни кесиш») туфайли қайси транспорт воситаси кенгроқ йўлдан юради?",
+    "correctAnswerUz": "45 футлик тиркамани тортаётган 5 ўқли тягач.",
+    "correctionNote": "A single 45-foot semitrailer offtracks more than two 27-foot trailers; total trailer length alone is not the determining factor.",
+    "referenceUrl": "https://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_198.pdf",
+    "sourceEntry": {
+      "question": "Off-tracking or \"cheating\" causes which of these to follow the wider path while making a turn?",
+      "choices": [
+        "Triple towing a 45 feet trailer.",
+        "Tractor with two 27 feet trailers.",
+        "53-feet bobtail."
+      ],
+      "sourceAnswer": 1
+    },
+    "contentNote": "Resolve malformed first and third vehicle descriptions using the document duplicate at number 72, then correct the comparison key using primary research."
   },
   {
     "id": "cv-031",
@@ -626,6 +680,33 @@ export const QUESTIONS = [
     "sourceAnswer": 0
   },
   {
+    "id": "cv-043",
+    "number": 43,
+    "testId": "combination-vehicles",
+    "question": "If you cannot complete a right turn without entering another traffic lane, you should:",
+    "choices": [
+      "You should turn wide before you start the turn.",
+      "You should turn wide as you complete the turn.",
+      "You should not make a turn and move to another place where you can make a turn without crossing other lane."
+    ],
+    "sourceAnswer": 2,
+    "answer": 1,
+    "questionUz": "Бошқа ҳаракат қаторига чиқмасдан ўнгга бурилишни тугата олмасангиз, нима қилиш керак?",
+    "correctAnswerUz": "Бурилишни якунлаётганда кенгроқ ёй бўйлаб бурилинг.",
+    "correctionNote": "The original scenario was ambiguous. The clarified right-turn scenario follows section 6.1.6: complete the turn wide.",
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=81",
+    "sourceEntry": {
+      "question": "The safest way to make turn without entering another traffic lane is:",
+      "choices": [
+        "You should turn wide before you start the turn.",
+        "You should turn wide as you complete the turn.",
+        "You should not make a turn and move to another place where you can make a turn without crossing other lane."
+      ],
+      "sourceAnswer": 2
+    },
+    "contentNote": "Clarify the premise as a right turn that cannot be completed without entering another lane; keep all original choices."
+  },
+  {
     "id": "cv-044",
     "number": 44,
     "questionUz": "Тиркамани тягачдан ажратиб, тиркама таянчларини текшираётганда тягачнинг узатмалар қутиси қайси ҳолатда бўлиши керак?",
@@ -791,6 +872,34 @@ export const QUESTIONS = [
     ],
     "answer": 0,
     "sourceAnswer": 0
+  },
+  {
+    "id": "cv-055",
+    "number": 55,
+    "testId": "combination-vehicles",
+    "question": "To unlock the fifth wheel, pull the release handle to the ______ position.",
+    "choices": [
+      "open",
+      "closed",
+      "neutral"
+    ],
+    "sourceAnswer": 0,
+    "answer": 0,
+    "questionUz": "Эгарли улаш қурилмасини очиш учун бўшатиш дастагини ______ ҳолатига тортинг.",
+    "correctAnswerUz": "Очиқ ҳолатга.",
+    "addedChoiceIndices": [
+      1,
+      2
+    ],
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=87",
+    "sourceEntry": {
+      "question": "To unlock the fifth wheel, pull the release handle to the ______ position.",
+      "choices": [
+        "open"
+      ],
+      "sourceAnswer": 0
+    },
+    "contentNote": "Keep the sole supplied answer open and add closed and neutral from the parallel question 51 pattern."
   },
   {
     "id": "cv-056",
@@ -977,6 +1086,34 @@ export const QUESTIONS = [
     "sourceAnswer": 0
   },
   {
+    "id": "cv-068",
+    "number": 68,
+    "testId": "combination-vehicles",
+    "question": "You will know if the trailer you are driving has antilock brakes by:",
+    "choices": [
+      "Looking for the yellow ABS malfunction lamp on the trailer.",
+      "Red malfunction lamps on the trailer brake cylinders."
+    ],
+    "sourceAnswer": 0,
+    "answer": 0,
+    "questionUz": "Ҳайдаётган тиркамангизда ABS борлигини қандай аниқлаш мумкин?",
+    "correctAnswerUz": "Тиркамадаги сариқ ABS носозлик чироғини текшириш орқали.",
+    "removedSourceChoiceIndices": [
+      1
+    ],
+    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=85",
+    "sourceEntry": {
+      "question": "You will know if the trailer you are driving has antilock brakes by:",
+      "choices": [
+        "Looking for the yellow ABS malfunction lamp on the trailer.",
+        "Yellow ABS malfunction lamps on the left side of the trailer.",
+        "Red malfunction lamps on the trailer brake cylinders."
+      ],
+      "sourceAnswer": 0
+    },
+    "contentNote": "Remove the redundant correct second choice, leaving the original keyed yellow ABS lamp choice and original red-cylinder distractor."
+  },
+  {
     "id": "cv-069",
     "number": 69,
     "questionUz": "Ишчи тормоз қувурида катта ҳаво сизиши бор. Тормозни босганингизда қувурдан ҳаво чиқиб кетади. Бу нимага олиб келади?",
@@ -1025,7 +1162,7 @@ export const QUESTIONS = [
     "id": "cv-072",
     "number": 72,
     "questionUz": "Бурилишда орқа ғилдираклар олдингиларга қараганда ичкарироқ издан ўтади. Шу сабабли қуйидаги транспорт воситаларидан қайси бири энг кенг ёй бўйлаб бурилади?",
-    "correctAnswerUz": "Ҳар бири 27 футлик иккита тиркамани тортаётган 5 ўқли тягач.",
+    "correctAnswerUz": "45 футлик тиркамани тортаётган 5 ўқли тягач.",
     "testId": "combination-vehicles",
     "question": "Off-tracking or \"cheating\" causes which of these to follow the widest path while making a turn?",
     "choices": [
@@ -1033,8 +1170,10 @@ export const QUESTIONS = [
       "5-axle tractor towing two 27 feet trailers.",
       "A bobtail."
     ],
-    "answer": 1,
-    "sourceAnswer": 1
+    "answer": 0,
+    "sourceAnswer": 1,
+    "correctionNote": "A single 45-foot semitrailer offtracks more than two 27-foot trailers; the original marked answer reversed this comparison.",
+    "referenceUrl": "https://onlinepubs.trb.org/onlinepubs/nchrp/nchrp_rpt_198.pdf"
   },
   {
     "id": "cv-073",
@@ -1102,27 +1241,4 @@ export const QUESTIONS = [
   }
 ];
 
-export const EXCLUDED_QUESTIONS = [
-  {
-    "number": 24,
-    "reason": "The manual requires chocks when a trailer has no spring brakes or their presence is uncertain; none of the choices states this condition.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=87"
-  },
-  {
-    "number": 30,
-    "reason": "The vehicle descriptions in the choices are malformed and cannot be reliably scored."
-  },
-  {
-    "number": 43,
-    "reason": "The stem asks about avoiding another lane, but the turn-wide answer describes a maneuver that may use another lane; the wording does not support reliable scoring.",
-    "referenceUrl": "https://dor.mo.gov/forms/CDL%20Manual.pdf#page=81"
-  },
-  {
-    "number": 55,
-    "reason": "The document provides only one answer choice."
-  },
-  {
-    "number": 68,
-    "reason": "Two choices describe the same valid ABS indicator, so there is no unique answer."
-  }
-];
+export const EXCLUDED_QUESTIONS = [];

@@ -21,11 +21,11 @@ test('numeric answer matching ignores question text, translations and substrings
 
 test('General Knowledge offers the full numeric answer pool without changing other subjects', () => {
   const subject = SUBJECT_MAP['general-knowledge'];
-  assert.equal(subject.numberQuestions.length, 70);
-  assert.equal(new Set(subject.numberQuestions.map(question => question.id)).size, 70);
-  assert.equal(subject.numberQuestions.filter(question => question.choices.some(choice => /\d/.test(choice))).length, 50);
+  assert.equal(subject.numberQuestions.length, 73);
+  assert.equal(new Set(subject.numberQuestions.map(question => question.id)).size, 73);
+  assert.equal(subject.numberQuestions.filter(question => question.choices.some(choice => /\d/.test(choice))).length, 53);
   assert.ok(subject.numberQuestions.every(question => question.testId === subject.id && QUESTION_MAP[question.id] === question));
-  for (const id of ['gk-035', 'gk-038', 'gk-099', 'gk-113', 'gk-220', 'gk-241', 'gk-265']) {
+  for (const id of ['gk-035', 'gk-038', 'gk-099', 'gk-110', 'gk-113', 'gk-158', 'gk-183', 'gk-220', 'gk-241', 'gk-265']) {
     assert.ok(subject.numberQuestions.includes(QUESTION_MAP[id]), id);
   }
   for (const id of ['gk-004', 'gk-063', 'gk-266', 'gk-293']) {
