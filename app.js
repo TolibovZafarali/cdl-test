@@ -2,7 +2,7 @@ import { SOURCE, QUESTION_MAP, SUBJECTS, SUBJECT_MAP } from './data/index.js';
 import { QUESTION_NOTES, EXCLUDED_NOTES } from './data/interface-uz.js';
 import { KEYWORDS } from './data/keywords.js';
 import { escapeText as escape, highlightKeyword } from './keywords.js';
-import { createSession, createPracticeSetSession, createMissedSession, missedQuestionIds, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
+import { createSession, createPracticeSetSession, createMissedSession, createUnknownSession, markUnknown, missedQuestionIds, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
 import { STORAGE_KEY, KEYWORD_HINTS_KEY, readState, saveState, clearState, emptyState, readRetry, saveRetry, readKeywordHints, saveKeywordHints } from './storage.js';
 
 const app = document.querySelector('#app');
@@ -69,12 +69,16 @@ function navigate(next) {
 }
 function announce(message) { document.querySelector('#status').textContent = message; }
 function subjectFor(session) { return SUBJECT_MAP[session.testId]; }
+function canMarkUnknown(session) { return session.testId === 'general-knowledge' && ['all', 'unknown-practice'].includes(session.mode); }
 const setModeLabel = 'Босқичма-босқич машқ';
 const numbersModeLabel = 'Сонли жавоблар';
+const mphModeLabel = 'MPH жавоблар';
 const newModeLabel = 'Янги қўшилган саволлар';
 function modeFor(session) {
+  if (session.mode === 'unknown-practice') return 'Билмаган саволларим';
   if (session.mode === 'missed') return 'Хатолар устида машқ';
   if (session.mode === 'numbers') return numbersModeLabel;
+  if (session.mode === 'mph') return mphModeLabel;
   if (session.mode === 'new') return newModeLabel;
   if (session.mode === 'sets' && subjectFor(session)?.setSize) return `${setModeLabel} · ${session.ids.length} та савол`;
   return session.mode === 'all' || (!session.mode && session.ids.length === subjectFor(session)?.count) ? 'Барча саволлар' : 'Машқ тести';
@@ -105,7 +109,7 @@ function recentResults() {
 }
 function resumeCard(active, isRetry = false) {
   if (!active || active.finishedAt !== null) return '';
-  return `<section class="resume" aria-label="Тугалланмаган тест"><div><p class="eyebrow">Қолган жойингиздан давом этинг</p><h2>${escape(isRetry ? sessionLabel(active) : subjectFor(active)?.title)}</h2><p>${active.ids.length} та саволдан ${scoreSession(active, QUESTION_MAP).answered} тасига жавоб берилган</p></div><button class="primary" data-action="${isRetry ? 'resume-retry' : 'resume'}">Давом этиш ${arrow}</button></section>`;
+  return `<section class="resume" aria-label="Тугалланмаган тест"><div><p class="eyebrow">Қолган жойингиздан давом этинг</p><h2>${escape(isRetry ? sessionLabel(active) : subjectFor(active)?.title)}</h2><p>${active.ids.length} та саволдан ${scoreSession(active, QUESTION_MAP).answered + (active.unknownIds?.length || 0)} таси кўриб чиқилган</p></div><button class="primary" data-action="${isRetry ? 'resume-retry' : 'resume'}">Давом этиш ${arrow}</button></section>`;
 }
 function home() {
   return `<div class="page-heading"><p class="eyebrow">Назарий имтиҳонга тайёргарлик</p><h1 tabindex="-1">CDL назарий тестлари</h1><p class="intro">Ҳар бир саволни ечинг ва тўғри жавобни эслаб қолинг.</p></div>
@@ -123,7 +127,7 @@ function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
   const currentSize = state.generalPracticeProgress?.previousIds.length ?? subject.setSize;
-  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : mode === 'new' ? subject.newQuestions.length : practiceCount;
+  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : mode === 'mph' ? subject.mphQuestions.length : mode === 'new' ? subject.newQuestions.length : practiceCount;
   const options = [modeOption('practice', 'Машқ тести', `${practiceCount} та савол · Тасодифий танлов`)];
   if (subject.newQuestions.length) {
     options.push(modeOption('new', newModeLabel, `${subject.newQuestions.length} та савол · Алоҳида машқ`));
@@ -135,15 +139,22 @@ function subjectScreen() {
   if (subject.numberQuestions?.length) {
     options.push(modeOption('numbers', numbersModeLabel, `${subject.numberQuestions.length} та савол · Рақам ёки сўз билан ёзилган сонлар`));
   }
+  if (subject.mphQuestions?.length) {
+    options.push(modeOption('mph', mphModeLabel, `${subject.mphQuestions.length} та савол · Жавобларда соатига миля`));
+  }
   const note = mode === 'sets'
     ? (currentSize < subject.count
       ? `Тўпламни хоҳлаганча такрорланг. Тайёр бўлганда яна ${Math.min(subject.setSize, subject.count - currentSize)} та савол қўшинг. Аввалги ва янги саволлар аралаш тартибда берилади.`
       : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
     : mode === 'numbers'
       ? 'Камида битта жавоб вариантида сон бор саволлар. Рақамлар ҳам, сўз билан ёзилган сонлар ҳам ҳисобга олинади. Барча саволлар тасодифий тартибда берилади.'
-      : mode === 'new'
+      : mode === 'mph'
+        ? 'Камида битта жавоб вариантида mph ёки miles per hour (соатига миля) бор саволлар. Саволлар ва жавоб вариантлари тасодифий тартибда берилади.'
+        : mode === 'new'
         ? 'Фақат сўнгги қўшилган саволлар билан машқ қилинг. Улар бошқа тестларда ҳам бор. Саволлар ва жавоб вариантлари тасодифий тартибда берилади.'
-        : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
+        : mode === 'all' && subject.id === 'general-knowledge'
+          ? 'Билган саволингизга жавоб беринг. Ишончингиз комил бўлмаса, «Билмайман»ни босинг. Тест охирида шу саволларни янги варақда алоҳида машқ қилишингиз мумкин.'
+          : 'Жавобни танласангиз, натижа дарҳол кўринади. Тўғри жавобни эслаб қолинг, кейин давом этинг.';
   return `<button class="back-link" data-action="home"><span aria-hidden="true">←</span> Барча мавзулар</button><div class="page-heading subject-heading"><p class="eyebrow">Тўпламда ${subject.count} та савол</p><h1 tabindex="-1">${subject.title}</h1><p class="intro">${subject.description}</p></div>
     <form id="start-form"><fieldset class="mode-field"><legend>Қандай машқ қилмоқчисиз?</legend><div class="mode-options">${options.join('')}</div></fieldset>${keywordSwitch()}<p class="study-note">${note}</p><div class="start-bar"><p class="test-info">Ўтиш учун ${count} та саволдан ${Math.ceil(count * .8)} тасига тўғри жавоб беринг.<br>Вақт чекланмаган. Сақлаб, исталган пайт давом этинг.</p><button type="submit" class="primary">Машқни бошлаш ${arrow}</button></div></form>${sourceNotes(subject)}`;
 }
@@ -178,26 +189,32 @@ function testScreen(session) {
   const answer = session.answers[id];
   const number = session.ids.indexOf(id) + 1;
   const score = scoreSession(session, QUESTION_MAP);
-  return `<div class="test-heading"><p class="eyebrow">${subject.title}</p><span>${modeFor(session)}</span></div>${keywordSwitch()}<div class="question-count"><span>Савол <strong>${number}</strong> / ${score.total}</span><span>Жавоблар: ${score.answered}</span></div><progress max="${score.total}" value="${score.answered}" aria-label="Жавоб берилган саволлар"></progress>
+  const unknownCount = session.unknownIds?.length || 0;
+  const reviewed = score.answered + unknownCount;
+  return `<div class="test-heading"><p class="eyebrow">${subject.title}</p><span>${modeFor(session)}</span></div>${keywordSwitch()}<div class="question-count"><span>Савол <strong>${number}</strong> / ${score.total}</span><span>${canMarkUnknown(session) ? `Кўриб чиқилди: ${reviewed} · Билмайман: ${unknownCount}` : `Жавоблар: ${score.answered}`}</span></div><progress max="${score.total}" value="${reviewed}" aria-label="Кўриб чиқилган саволлар"></progress>
     <form id="answer-form"><fieldset><legend><h1 tabindex="-1" lang="en">${questionPrompt(question)}</h1></legend>${question.image ? `<img class="question-image" src="${escape(question.image)}" alt="${escape(question.imageAlt || 'Саволга оид расм')}">` : ''}<div class="answers">${getChoiceOrder(session, question).map((index, position) => {
       const correct = answered && index === question.answer;
       const incorrect = answered && index === answer && !correct;
       return `<button type="button" class="answer${correct ? ' answer-correct' : ''}${incorrect ? ' answer-incorrect' : ''}" data-action="answer" data-choice="${index}" ${answered ? 'disabled' : ''}><span class="choice-letter" aria-hidden="true">${letter(position)}</span><span class="choice-copy"><span lang="en">${answerText(session, question, index)}</span>${keywordHints && index === question.answer && !answered ? '<span class="sr-only">Таянч сўзли тўғри жавоб</span>' : ''}${correct || incorrect ? `<span class="answer-label">${correct ? `${answer === index ? '✓ Жавобингиз · Тўғри' : '✓ Тўғри жавоб'}` : '× Жавобингиз · Нотўғри'}</span>` : ''}</span></button>`;
-    }).join('')}</div></fieldset>${answered ? answerFeedback(session, question, answer) : '<p class="answer-hint">Жавобни танланг — натижа дарҳол кўринади.</p>'}<div class="test-actions">${answered ? '<span class="continue-hint">Шошилманг. Тайёр бўлсангиз, давом этинг.</span>' : `<button type="button" class="text-button" data-action="skip" ${session.pending.length < 2 ? 'disabled' : ''}>Ҳозирча ўтказиш</button>`}<button type="submit" class="primary" id="next-answer" ${answered ? '' : 'disabled'}>${answered && session.pending.length === 0 ? 'Натижалар' : 'Кейинги савол'} ${arrow}</button></div></form>
+    }).join('')}</div></fieldset>${answered ? answerFeedback(session, question, answer) : '<p class="answer-hint">Жавобни танланг — натижа дарҳол кўринади.</p>'}<div class="test-actions">${answered ? '<span class="continue-hint">Шошилманг. Тайёр бўлсангиз, давом этинг.</span>' : `<div class="question-tools">${canMarkUnknown(session) ? '<button type="button" class="secondary" data-action="unknown">Билмайман</button>' : ''}<button type="button" class="text-button" data-action="skip" ${session.pending.length < 2 ? 'disabled' : ''}>Ҳозирча ўтказиш</button></div>`}<button type="submit" class="primary" id="next-answer" ${answered ? '' : 'disabled'}>${answered && session.pending.length === 0 ? 'Натижалар' : 'Кейинги савол'} ${arrow}</button></div></form>
     <div class="question-footer"><span>Манбадаги савол: ${question.number}</span><button class="text-button" data-action="finish">Тестни якунлаш</button></div>`;
 }
 function reviewQuestion(session, id) {
   const question = QUESTION_MAP[id];
   const answer = session.answers[id];
   const isCorrect = answer === question.answer;
-  const translation = isCorrect
+  const unknown = session.unknownIds?.includes(id);
+  const translation = isCorrect || unknown
     ? `<dd class="answer-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</dd>`
     : '';
   const notes = questionNotes(question);
-  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</article>`;
+  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : unknown ? 'Билмайман' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${unknown ? 'Билмайман деб белгиланган' : answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</article>`;
 }
 function resultActions(session) {
   const subject = subjectFor(session);
+  if (session.mode === 'unknown-practice') {
+    return `<button class="primary" data-action="repeat-unknown">Шу тўпламни такрорлаш (${session.ids.length}) ${arrow}</button>`;
+  }
   if (session.mode !== 'sets' || !subject.setSize) {
     return `<button class="primary" data-action="practice-again">Қайта машқ қилиш ${arrow}</button>`;
   }
@@ -217,11 +234,18 @@ function resultScreen() {
   if (!session) return `<h1 tabindex="-1">Натижа топилмади</h1><p>Бу натижа браузерда сақланмаган.</p><button class="primary" data-action="home">Барча мавзулар</button>`;
   const score = scoreSession(session, QUESTION_MAP);
   const missed = missedQuestionIds(session, QUESTION_MAP);
-  const retryLink = missed.length
+  const retryLink = missed.length && session.mode !== 'unknown-practice'
     ? `<a class="secondary" href="#retry/${missed.map(encodeURIComponent).join(',')}" target="_blank" rel="noopener">Хато қилинган саволларни қайта ечиш (${missed.length}) <span aria-hidden="true">↗</span><span class="sr-only">Янги варақда очилади</span></a>`
     : '';
+  const unknownIds = session.unknownIds || [];
+  const unknownLink = session.mode === 'all' && session.testId === 'general-knowledge' && unknownIds.length
+    ? `<a class="primary unknown-practice-link" href="#unknown/${unknownIds.map(encodeURIComponent).join(',')}" target="_blank" rel="noopener">Билмаган саволларимни машқ қилиш (${unknownIds.length}) <span aria-hidden="true">↗</span><span class="sr-only">Янги варақда очилади</span></a>`
+    : '';
+  const unknownNote = session.mode === 'unknown-practice'
+    ? `<p class="study-note">Тўпламдаги ${session.ids.length} та савол сақланади. Тўғри жавоб берилган саволлар ҳам олиб ташланмайди. Ҳар бир такрорлашда саволлар ва жавоб вариантлари аралаштирилади.</p>`
+    : unknownLink ? `<p class="study-note">«Билмайман» деб белгиланган ${unknownIds.length} та саволни янги варақда машқ қилинг. Шу тўпламни хоҳлаганча қайта ечишингиз мумкин.</p>` : '';
   const ids = showAll ? session.ids : missed;
-  return `<p class="eyebrow">${escape(sessionLabel(session))}</p><div class="result-top"><div><h1 tabindex="-1">${score.passed ? 'Тестдан ўтдингиз.' : 'Яна машқ қилинг.'}</h1><p class="result-description">Ўтиш учун ${score.required} та тўғри жавоб керак.${score.unanswered ? ` ${score.unanswered} та саволга жавоб берилмаган.` : ''}</p></div><div class="score"><strong>${score.correct}<span> / ${score.total}</span></strong><p>${score.percent}% тўғри</p></div></div><div class="result-actions">${retryLink}${resultActions(session)}<button class="secondary" data-action="home">Барча мавзулар</button></div>
+  return `<p class="eyebrow">${escape(sessionLabel(session))}</p><div class="result-top"><div><h1 tabindex="-1">${score.passed ? 'Тестдан ўтдингиз.' : 'Яна машқ қилинг.'}</h1><p class="result-description">Ўтиш учун ${score.required} та тўғри жавоб керак.${unknownIds.length ? ` ${unknownIds.length} та савол «Билмайман» деб белгиланган.` : ''}${score.unanswered > unknownIds.length ? ` ${score.unanswered - unknownIds.length} та саволга жавоб берилмаган.` : ''}</p></div><div class="score"><strong>${score.correct}<span> / ${score.total}</span></strong><p>${score.percent}% тўғри</p></div></div>${unknownNote}<div class="result-actions">${unknownLink}${retryLink}${resultActions(session)}<button class="secondary" data-action="home">Барча мавзулар</button></div>
     <section class="review">${keywordSwitch()}<div class="review-header"><h2>${showAll ? 'Барча жавоблар' : `Хатоларни кўриб чиқиш (${missed.length})`}</h2><label class="show-all"><input type="checkbox" id="show-all" ${showAll ? 'checked' : ''}> Барчаси</label></div>${!ids.length ? '<p class="empty-review">Барча саволларга тўғри жавоб бердингиз.</p>' : ids.map(id => reviewQuestion(session, id)).join('')}</section>`;
 }
 function render() {
@@ -245,8 +269,8 @@ function start(setOptions = {}) {
     state.active = attempt.session;
     state.generalPracticeProgress = attempt.progress;
   } else {
-    const questions = mode === 'numbers' ? subject.numberQuestions : mode === 'new' ? subject.newQuestions : subject.questions;
-    const count = ['all', 'numbers', 'new'].includes(mode) ? questions.length : subject.practiceCount;
+    const questions = mode === 'numbers' ? subject.numberQuestions : mode === 'mph' ? subject.mphQuestions : mode === 'new' ? subject.newQuestions : subject.questions;
+    const count = ['all', 'numbers', 'mph', 'new'].includes(mode) ? questions.length : subject.practiceCount;
     state.active = createSession(questions, { ...settings, count });
     state.active.mode = mode;
   }
@@ -332,11 +356,25 @@ document.addEventListener('click', event => {
     case 'practice-again': {
       const result = resultFor(resultId);
       subjectId = result.testId;
-      mode = ['numbers', 'new'].includes(result.mode) ? result.mode : 'practice';
+      mode = ['numbers', 'mph', 'new'].includes(result.mode) ? result.mode : 'practice';
       navigate('subject'); break;
     }
     case 'resume-retry': navigate('retry'); break;
     case 'resume': navigate('test'); break;
+    case 'repeat-unknown': {
+      const result = resultFor(resultId);
+      if (result?.mode !== 'unknown-practice') break;
+      const next = createUnknownSession(result.ids, QUESTION_MAP, SOURCE.id, result);
+      if (next) { storeRetry(next); navigate('retry'); }
+      break;
+    }
+    case 'unknown': {
+      if (!session || !canMarkUnknown(session) || session.feedbackId) break;
+      const next = markUnknown(session, QUESTION_MAP);
+      if (next.finishedAt !== null) finish(next);
+      else { saveTest(next); render(); window.scrollTo(0, 0); focusHeading(); announce('Савол «Билмайман» рўйхатига қўшилди.'); }
+      break;
+    }
     case 'answer': {
       if (!session || session.feedbackId) break;
       saveTest(submitAnswer(session, Number(button.dataset.choice), QUESTION_MAP));
@@ -380,6 +418,11 @@ function restoreRoute() {
       view = resultId ? 'result' : 'retry';
       history.replaceState(null, '', `#${resultId ? `result/${resultId}` : `retry/session/${session.id}`}`);
     } else view = 'home';
+  } else if (hash.startsWith('unknown/')) {
+    const session = createUnknownSession(hash.slice(8).split(','), QUESTION_MAP, SOURCE.id);
+    view = session ? 'retry' : 'home';
+    if (session) storeRetry(session);
+    history.replaceState(null, '', session ? `#retry/session/${session.id}` : '#home');
   } else if (hash.startsWith('retry/')) {
     const session = createMissedSession(hash.slice(6).split(','), QUESTION_MAP, SOURCE.id);
     view = session ? 'retry' : 'home';

@@ -46,7 +46,7 @@ export function readRetry(questionMap, sourceId, id) {
     const data = JSON.parse(globalThis.sessionStorage.getItem(RETRY_KEY));
     const sessions = Array.isArray(data?.sessions) ? data.sessions : [data];
     const session = restoreChoiceOrders(id === undefined ? sessions[0] : sessions.find(item => item?.id === id), questionMap);
-    if (session?.mode !== 'missed' || !validateSession(session, questionMap, sourceId)) return null;
+    if (!['missed', 'unknown-practice'].includes(session?.mode) || !validateSession(session, questionMap, sourceId)) return null;
     return session.testId === questionMap[session.ids[0]].testId ? session : null;
   } catch { return null; }
 }

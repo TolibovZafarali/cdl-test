@@ -8,6 +8,10 @@ export function hasNumericAnswer(question) {
   return question.choices.some(choice => ANSWER_NUMBER.test(choice));
 }
 
+export function hasMphAnswer(question) {
+  return question.choices.some(choice => /\b(?:mph|miles[\s-]+per[\s-]+hour)\b/i.test(choice));
+}
+
 const NEW_QUESTION_IDS = new Set([
   'gk-016', 'gk-110', 'gk-140', 'gk-158', 'gk-183', 'gk-297',
   'docx-13',
@@ -45,6 +49,9 @@ export const SUBJECT_MAP = Object.fromEntries(SUBJECTS.map(subject => {
   subject.questions = QUESTIONS.filter(question => question.testId === subject.id);
   subject.count = subject.questions.length;
   subject.newQuestions = subject.questions.filter(question => NEW_QUESTION_IDS.has(question.id));
-  if (subject.id === 'general-knowledge') subject.numberQuestions = subject.questions.filter(hasNumericAnswer);
+  if (subject.id === 'general-knowledge') {
+    subject.numberQuestions = subject.questions.filter(hasNumericAnswer);
+    subject.mphQuestions = subject.questions.filter(hasMphAnswer);
+  }
   return [subject.id, subject];
 }));

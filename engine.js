@@ -120,6 +120,23 @@ export function createMissedSession(ids, questionMap, sourceId) {
   return { ...createSession(questions, { sourceId, testId, count: ids.length }), mode: 'missed' };
 }
 
+export function createUnknownSession(ids, questionMap, sourceId, previousAttempt, random = Math.random) {
+  if (!record(questionMap) || !identifier(sourceId) || !Array.isArray(ids) || !ids.length
+    || new Set(ids).size !== ids.length
+    || !ids.every(id => identifier(id) && has(questionMap, id)
+      && validQuestion(questionMap[id]) && questionMap[id].id === id
+      && questionMap[id].testId === 'general-knowledge')) return null;
+  if (previousAttempt !== undefined && (!validateSession(previousAttempt, questionMap, sourceId)
+    || previousAttempt.testId !== 'general-knowledge')) return null;
+  const questions = shuffle(ids, random, previousAttempt?.ids).map(id => questionMap[id]);
+  return {
+    ...createSession(questions, {
+      sourceId, testId: 'general-knowledge', count: ids.length, randomize: false, previousAttempt,
+    }, random),
+    mode: 'unknown-practice',
+  };
+}
+
 export function createPracticeSetSession(questions, settings, progress, { advance = false, previousAttempt } = {}, random = Math.random) {
   const currentIds = progress?.previousIds ?? previousAttempt?.ids ?? [];
   const retryIds = previousAttempt?.ids ?? currentIds;
@@ -153,6 +170,25 @@ export function submitAnswer(session, choice, questionMap) {
     pending: session.pending.slice(1),
     feedbackId: id,
   };
+}
+
+export function markUnknown(session, questionMap) {
+  if (!session || session.finishedAt !== null || session.feedbackId != null
+    || session.testId !== 'general-knowledge' || !['all', 'unknown-practice'].includes(session.mode)) return session;
+  const id = session.pending[0];
+  if (!record(questionMap) || !identifier(id) || !has(questionMap, id)
+    || !validQuestion(questionMap[id]) || questionMap[id].id !== id
+    || questionMap[id].testId !== session.testId || !session.ids.includes(id)) {
+    throw new Error('This question is unavailable');
+  }
+  if (has(session.answers, id) || session.unknownIds?.includes(id)) throw new Error('This question has already been answered');
+  const next = {
+    ...session,
+    pending: session.pending.slice(1),
+    unknownIds: [...(session.unknownIds || []), id],
+    feedbackId: null,
+  };
+  return next.pending.length ? next : finishSession(next);
 }
 
 export function advanceQuestion(session) {
@@ -195,6 +231,7 @@ export function validateSession(session, questionMap, sourceId) {
   const fields = ['version', 'id', 'sourceId', 'testId', 'ids', 'pending', 'answers', 'startedAt', 'finishedAt'];
   if (fields.some(field => !has(session, field))) return false;
   if (session.version !== 2 || !identifier(session.id) || session.sourceId !== sourceId || !identifier(session.testId)) return false;
+  if (session.mode === 'unknown-practice' && session.testId !== 'general-knowledge') return false;
   if (!timestamp(session.startedAt) || (session.finishedAt !== null && (!timestamp(session.finishedAt) || session.finishedAt < session.startedAt))) return false;
   if (!Array.isArray(session.ids) || !session.ids.length || session.ids.length > Object.keys(questionMap).length) return false;
   const ids = new Set(session.ids);
@@ -219,8 +256,14 @@ export function validateSession(session, questionMap, sourceId) {
   if (!Array.isArray(session.pending) || !record(session.answers)) return false;
   const pending = new Set(session.pending);
   const answeredIds = Object.keys(session.answers);
+  if (has(session, 'unknownIds') && (!Array.isArray(session.unknownIds)
+    || session.testId !== 'general-knowledge' || !['all', 'unknown-practice'].includes(session.mode))) return false;
+  const unknownIds = has(session, 'unknownIds') ? session.unknownIds : [];
+  const unknown = new Set(unknownIds);
+  if (unknown.size !== unknownIds.length || unknownIds.some(id => !identifier(id) || !ids.has(id)
+    || pending.has(id) || has(session.answers, id))) return false;
   if (pending.size !== session.pending.length || session.pending.some(id => !ids.has(id))) return false;
-  if (session.pending.length + answeredIds.length !== session.ids.length) return false;
+  if (session.pending.length + answeredIds.length + unknownIds.length !== session.ids.length) return false;
   if (has(session, 'feedbackId') && session.feedbackId !== null) {
     if (!identifier(session.feedbackId) || !ids.has(session.feedbackId)
       || !has(session.answers, session.feedbackId) || session.finishedAt !== null) return false;
@@ -231,5 +274,5 @@ export function validateSession(session, questionMap, sourceId) {
     const answer = session.answers[id];
     if (!Number.isInteger(answer) || answer < 0 || answer >= questionMap[id].choices.length) return false;
   }
-  return session.ids.every(id => pending.has(id) !== has(session.answers, id));
+  return session.ids.every(id => Number(pending.has(id)) + Number(has(session.answers, id)) + Number(unknown.has(id)) === 1);
 }
