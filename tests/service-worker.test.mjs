@@ -118,7 +118,7 @@ test('all three Word sources, question banks, and interface translations remain 
   const documentBytes = new Uint8Array([0x50, 0x4b, 0x03, 0x04, 1, 2, 3]);
   const mime = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
   const urls = ['air-brakes', 'general-knowledge', 'combination-vehicles'].map(name => `https://example.test/source/${name}.docx`);
-  const banks = ['questions', 'general-knowledge', 'combination-vehicles', 'index', 'interface-uz', 'keywords'].map(name => `https://example.test/data/${name}.js`);
+  const banks = ['questions', 'general-knowledge', 'combination-vehicles', 'index', 'interface-uz', 'keywords', 'wording-groups'].map(name => `https://example.test/data/${name}.js`);
   banks.push('https://example.test/keywords.js');
   const cached = new Map([
     ...urls.map(url => [url, new Response(documentBytes, { headers: { 'Content-Type': mime } })]),
@@ -139,8 +139,8 @@ test('all three Word sources, question banks, and interface translations remain 
 });
 
 test('activation removes obsolete application caches while preserving the current and unrelated caches', async () => {
-  const old = ['missouri-cdl-v1', 'cdl-pdf-practice-v2', 'cdl-document-practice-v3', 'cdl-document-practice-v4', 'cdl-document-practice-v5', 'cdl-document-practice-v6', 'cdl-document-practice-v7', 'cdl-document-practice-v8', 'cdl-document-practice-v9', 'cdl-document-practice-v10', 'cdl-document-practice-v11', 'cdl-document-practice-v12', 'cdl-document-practice-v13', 'cdl-document-practice-v14', 'cdl-document-practice-v15', 'cdl-document-practice-v16', 'cdl-document-practice-v17', 'cdl-document-practice-v18', 'cdl-document-practice-v19', 'cdl-document-practice-v20', 'cdl-document-practice-v21', 'cdl-document-practice-v22', 'cdl-document-practice-v23', 'cdl-document-practice-v24', 'cdl-document-practice-v25', 'cdl-document-practice-v26', 'cdl-document-practice-v27'];
-  const keep = ['cdl-document-practice-v28', 'unrelated-site-cache'];
+  const old = ['missouri-cdl-v1', 'cdl-pdf-practice-v2', 'cdl-document-practice-v3', 'cdl-document-practice-v4', 'cdl-document-practice-v5', 'cdl-document-practice-v6', 'cdl-document-practice-v7', 'cdl-document-practice-v8', 'cdl-document-practice-v9', 'cdl-document-practice-v10', 'cdl-document-practice-v11', 'cdl-document-practice-v12', 'cdl-document-practice-v13', 'cdl-document-practice-v14', 'cdl-document-practice-v15', 'cdl-document-practice-v16', 'cdl-document-practice-v17', 'cdl-document-practice-v18', 'cdl-document-practice-v19', 'cdl-document-practice-v20', 'cdl-document-practice-v21', 'cdl-document-practice-v22', 'cdl-document-practice-v23', 'cdl-document-practice-v24', 'cdl-document-practice-v25', 'cdl-document-practice-v26', 'cdl-document-practice-v27', 'cdl-document-practice-v28'];
+  const keep = ['cdl-document-practice-v29', 'unrelated-site-cache'];
   const worker = workerHarness({ cacheNames: [...old, ...keep] });
   await worker.activate();
   assert.deepEqual(worker.deleted, old);

@@ -1,6 +1,8 @@
 import { QUESTIONS as AIR_QUESTIONS, EXCLUDED_QUESTIONS as AIR_EXCLUDED } from './questions.js';
 import { QUESTIONS as GENERAL_QUESTIONS, EXCLUDED_QUESTIONS as GENERAL_EXCLUDED } from './general-knowledge.js';
 import { QUESTIONS as COMBINATION_QUESTIONS, EXCLUDED_QUESTIONS as COMBINATION_EXCLUDED } from './combination-vehicles.js';
+import { WORDING_GROUPS } from './wording-groups.js';
+export { WORDING_GROUPS };
 
 const ANSWER_NUMBER = /\d|\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|million|billion|half|halves|quarter|quarters|twice)\b/i;
 
@@ -49,6 +51,9 @@ export const SUBJECT_MAP = Object.fromEntries(SUBJECTS.map(subject => {
   subject.questions = QUESTIONS.filter(question => question.testId === subject.id);
   subject.count = subject.questions.length;
   subject.newQuestions = subject.questions.filter(question => NEW_QUESTION_IDS.has(question.id));
+  subject.wordingGroups = WORDING_GROUPS.filter(group => group.matches.every(match => QUESTION_MAP[match.id]?.testId === subject.id));
+  const wordingIds = new Set(subject.wordingGroups.flatMap(group => group.matches.map(match => match.id)));
+  subject.wordingQuestions = subject.questions.filter(question => wordingIds.has(question.id));
   if (subject.id === 'general-knowledge') {
     subject.numberQuestions = subject.questions.filter(hasNumericAnswer);
     subject.mphQuestions = subject.questions.filter(hasMphAnswer);

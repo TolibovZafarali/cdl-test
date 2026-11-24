@@ -2,7 +2,7 @@ import { SOURCE, QUESTION_MAP, SUBJECTS, SUBJECT_MAP } from './data/index.js';
 import { QUESTION_NOTES, EXCLUDED_NOTES } from './data/interface-uz.js';
 import { KEYWORDS } from './data/keywords.js';
 import { escapeText as escape, highlightKeyword } from './keywords.js';
-import { createSession, createPracticeSetSession, createMissedSession, createUnknownSession, markUnknown, missedQuestionIds, samePracticeSet, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
+import { createSession, createPracticeSetSession, createMissedSession, createUnknownSession, markUnknown, missedQuestionIds, samePracticeSet, shuffle, submitAnswer, advanceQuestion, skipQuestion, finishSession, scoreSession, getChoiceOrder, getChoiceText, getChoiceLetter, getCorrectAnswerUz } from './engine.js';
 import { STORAGE_KEY, KEYWORD_HINTS_KEY, readState, saveState, clearState, emptyState, readRetry, saveRetry, readKeywordHints, saveKeywordHints } from './storage.js';
 
 const app = document.querySelector('#app');
@@ -74,7 +74,9 @@ const setModeLabel = 'Босқичма-босқич машқ';
 const numbersModeLabel = 'Сонли жавоблар';
 const mphModeLabel = 'MPH жавоблар';
 const newModeLabel = 'Янги қўшилган саволлар';
+const wordingModeLabel = 'Ўхшаш сўзли саволлар';
 function modeFor(session) {
+  if (session.mode === 'wording') return wordingModeLabel;
   if (session.mode === 'unknown-practice') return 'Билмаган саволларим';
   if (session.mode === 'missed') return 'Хатолар устида машқ';
   if (session.mode === 'numbers') return numbersModeLabel;
@@ -127,7 +129,7 @@ function subjectScreen() {
   const subject = SUBJECT_MAP[subjectId];
   const practiceCount = Math.min(subject.practiceCount, subject.count);
   const currentSize = state.generalPracticeProgress?.previousIds.length ?? subject.setSize;
-  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : mode === 'mph' ? subject.mphQuestions.length : mode === 'new' ? subject.newQuestions.length : practiceCount;
+  const count = mode === 'all' ? subject.count : mode === 'sets' ? currentSize : mode === 'numbers' ? subject.numberQuestions.length : mode === 'mph' ? subject.mphQuestions.length : mode === 'new' ? subject.newQuestions.length : mode === 'wording' ? subject.wordingQuestions.length : practiceCount;
   const options = [modeOption('practice', 'Машқ тести', `${practiceCount} та савол · Тасодифий танлов`)];
   if (subject.newQuestions.length) {
     options.push(modeOption('new', newModeLabel, `${subject.newQuestions.length} та савол · Алоҳида машқ`));
@@ -142,7 +144,12 @@ function subjectScreen() {
   if (subject.mphQuestions?.length) {
     options.push(modeOption('mph', mphModeLabel, `${subject.mphQuestions.length} та савол · Жавобларда соатига миля`));
   }
-  const note = mode === 'sets'
+  if (subject.wordingQuestions.length) {
+    options.push(modeOption('wording', wordingModeLabel, `${subject.wordingQuestions.length} та савол · Савол ёки жавобдаги ўхшаш сўзлар`));
+  }
+  const note = mode === 'wording'
+    ? 'Савол ёки жавобида бир хил ёки ўхшаш инглизча сўзлар бор саволлар. Ўхшаш жавоб бир саволда тўғри, бошқасида нотўғри вариант бўлиши мумкин. Жавоб бергач, саволларни солиштириб кўринг. Ҳар бир янги уринишда барча саволлар ва жавоб вариантлари аралаштирилади.'
+    : mode === 'sets'
     ? (currentSize < subject.count
       ? `Тўпламни хоҳлаганча такрорланг. Тайёр бўлганда яна ${Math.min(subject.setSize, subject.count - currentSize)} та савол қўшинг. Аввалги ва янги саволлар аралаш тартибда берилади.`
       : `Барча ${subject.count} та савол тўпламга киритилган. Ҳар бир уринишда саволлар аралаштирилади.`)
@@ -168,6 +175,19 @@ function questionPrompt(question) {
 function answerText(session, question, index) {
   return highlightKeyword(getChoiceText(session, question, index), KEYWORDS[question.id]?.[1], keywordHints && index === question.answer);
 }
+function wordingComparison(session, question) {
+  if (session.mode !== 'wording') return '';
+  const groups = subjectFor(session).wordingGroups.filter(group => group.matches.some(match => match.id === question.id));
+  if (!groups.length) return '';
+  return `<details class="wording-comparison"><summary>Ўхшаш саволларни солиштириш</summary><p class="wording-intro">Ажратилган инглизча сўзларни солиштиринг. Саволни тўлиқ ўқинг: кичик фарқ ҳам тўғри жавобни ўзгартириши мумкин.</p>${groups.map(group => `<section class="wording-group"><h3>${group.type === 'answers' ? 'Ўхшаш жавоб — ҳар бир саволда бошқача натижа' : 'Саволлардаги ўхшаш сўзлар'}</h3><div class="wording-cards">${group.matches.map(match => {
+    const related = QUESTION_MAP[match.id];
+    return `<article class="wording-card" data-question-id="${escape(related.id)}"><p class="reference">${related.number}-савол${related.id === question.id ? ' · Ҳозирги савол' : ''}</p><p class="wording-prompt" lang="en">${highlightKeyword(related.question, match.phrase, group.type === 'questions')}</p><p class="wording-translation" lang="uz-Cyrl">${escape(related.questionUz)}</p><ul class="wording-choices">${getChoiceOrder(session, related).map(index => {
+      const correct = index === related.answer;
+      const trap = group.type === 'answers' && index === match.choice && !correct;
+      return `<li class="${correct ? 'wording-correct' : trap ? 'wording-trap' : ''}"><span class="wording-choice" lang="en">${getChoiceLetter(session, related, index)}. ${highlightKeyword(getChoiceText(session, related, index), match.phrase, group.type === 'answers' && index === match.choice)}</span>${correct || trap ? `<strong>${correct ? 'Тўғри жавоб' : 'Бу саволда нотўғри вариант'}</strong>` : ''}</li>`;
+    }).join('')}</ul><p class="wording-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, related))}</p></article>`;
+  }).join('')}</div></section>`).join('')}</details>`;
+}
 function answerFeedback(session, question, answer) {
   const correct = answer === question.answer;
   const notes = questionNotes(question);
@@ -179,7 +199,7 @@ function answerFeedback(session, question, answer) {
     <div class="feedback-heading"><span class="feedback-icon" aria-hidden="true">${correct ? '✓' : '×'}</span><h2 id="feedback-title">${correct ? 'Тўғри' : 'Нотўғри'}</h2></div>
     <p class="feedback-label">${correct ? 'Тўғри жавоб' : 'Тўғри жавобни эслаб қолинг:'}</p>
     <p id="feedback-answer" lang="en"><span>${getChoiceLetter(session, question, question.answer)}.</span> ${answerText(session, question, question.answer)}</p>
-    ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</section>`;
+    ${translation}${notes.length ? `<div class="feedback-notes">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</section>${wordingComparison(session, question)}`;
 }
 function testScreen(session) {
   const subject = subjectFor(session);
@@ -208,7 +228,7 @@ function reviewQuestion(session, id) {
     ? `<dd class="answer-translation" lang="uz-Cyrl">${escape(getCorrectAnswerUz(session, question))}</dd>`
     : '';
   const notes = questionNotes(question);
-  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : unknown ? 'Билмайман' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${unknown ? 'Билмайман деб белгиланган' : answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}</article>`;
+  return `<article class="review-question"><p class="reference">${question.number}-савол <span>${isCorrect ? 'Тўғри' : unknown ? 'Билмайман' : answer === undefined ? 'Жавоб берилмаган' : 'Нотўғри'}</span></p><h3 lang="en">${questionPrompt(question)}</h3><dl>${!isCorrect ? `<div><dt>Жавобингиз</dt><dd ${answer === undefined ? '' : 'lang="en"'}>${unknown ? 'Билмайман деб белгиланган' : answer === undefined ? 'Жавоб берилмаган' : `${getChoiceLetter(session, question, answer)}. ${escape(getChoiceText(session, question, answer))}`}</dd></div>` : ''}<div class="correct-answer"><dt>Тўғри жавоб</dt><dd lang="en">${getChoiceLetter(session, question, question.answer)}. ${answerText(session, question, question.answer)}</dd>${translation}</div></dl>${notes.length ? `<div class="correction">${notes.map(note => `<p>${escape(note)}</p>`).join('')}${referenceLinks(question)}</div>` : ''}${wordingComparison(session, question)}</article>`;
 }
 function resultActions(session) {
   const subject = subjectFor(session);
@@ -269,9 +289,11 @@ function start(setOptions = {}) {
     state.active = attempt.session;
     state.generalPracticeProgress = attempt.progress;
   } else {
-    const questions = mode === 'numbers' ? subject.numberQuestions : mode === 'mph' ? subject.mphQuestions : mode === 'new' ? subject.newQuestions : subject.questions;
-    const count = ['all', 'numbers', 'mph', 'new'].includes(mode) ? questions.length : subject.practiceCount;
-    state.active = createSession(questions, { ...settings, count });
+    let questions = mode === 'numbers' ? subject.numberQuestions : mode === 'mph' ? subject.mphQuestions : mode === 'new' ? subject.newQuestions : mode === 'wording' ? subject.wordingQuestions : subject.questions;
+    const count = ['all', 'numbers', 'mph', 'new', 'wording'].includes(mode) ? questions.length : subject.practiceCount;
+    const previousAttempt = mode === 'wording' ? [state.active, ...state.results].find(session => session?.mode === mode && session.testId === subject.id) : undefined;
+    if (mode === 'wording') questions = shuffle(questions.map(question => question.id), Math.random, previousAttempt?.ids).map(id => QUESTION_MAP[id]);
+    state.active = createSession(questions, { ...settings, count, randomize: mode !== 'wording', previousAttempt });
     state.active.mode = mode;
   }
   save(); navigate('test');
@@ -356,7 +378,7 @@ document.addEventListener('click', event => {
     case 'practice-again': {
       const result = resultFor(resultId);
       subjectId = result.testId;
-      mode = ['numbers', 'mph', 'new'].includes(result.mode) ? result.mode : 'practice';
+      mode = ['numbers', 'mph', 'new', 'wording'].includes(result.mode) ? result.mode : 'practice';
       navigate('subject'); break;
     }
     case 'resume-retry': navigate('retry'); break;

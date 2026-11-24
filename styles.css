@@ -54,5 +54,23 @@ mark.memory-keyword{background:#f6df86;color:#342b12;border-radius:3px;font-weig
 @media(max-width:360px){.continue-hint{max-width:115px}.test-actions{gap:12px}.answer{padding:14px 12px;gap:10px}.answer-feedback{padding:16px}.answer-label{font-size:10px}}
 
 .question-tools{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px}
+.wording-comparison{margin-top:20px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wording-comparison>summary{font-weight:500;color:var(--green);font-size:14px;min-height:44px;align-content:center}
+.wording-intro{font-size:13px;color:var(--muted);margin:12px 0 20px}
+.wording-group{margin:20px 0}
+.wording-group>h3{font-family:inherit;font-size:14px;font-weight:500;line-height:1.6;margin:0 0 12px}
+.wording-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.wording-card{padding:18px;background:var(--white);border:1px solid var(--line);border-radius:6px;min-width:0}
+.wording-card .reference{font-size:11px;color:var(--muted);margin:0 0 12px}
+.wording-prompt{font-size:15px;font-weight:500;line-height:1.6;margin:0 0 8px;white-space:pre-line}
+.wording-translation{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 12px}
+.wording-card>p:last-child{margin-bottom:0}
+.wording-choices{list-style:none;padding:0;margin:16px 0}
+.wording-choices li{font-size:13px;line-height:1.65;margin:8px 0;padding:8px 10px;border-left:2px solid var(--line)}
+.wording-choices .wording-correct{border-color:var(--green);background:var(--green-light)}
+.wording-choices .wording-trap{border-color:#914433;background:#fff5f1}
+.wording-choices strong{display:block;margin-top:5px;font-size:11px;font-weight:600;color:var(--green)}
+.wording-choices .wording-trap strong{color:#873927}
+@media(max-width:700px){.wording-cards{grid-template-columns:1fr}.wording-card{padding:16px}}
 .result-actions a.primary{display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:48px;padding:13px 22px;border:1px solid var(--green);border-radius:6px;font-size:14px;font-weight:500;line-height:1.4;text-decoration:none}
 @media(max-width:700px){.test-actions:has(.question-tools){flex-wrap:wrap}.test-actions:has(.question-tools)>.primary{margin-left:auto}.question-tools{gap:8px 16px}.question-count{flex-wrap:wrap;gap:8px}.result-actions a.primary{font-size:13px;padding:12px 16px}}
